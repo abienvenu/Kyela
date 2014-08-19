@@ -18,6 +18,18 @@ kyela:
 ```
 * Include the config from your app/config.config.yml :
 	- { resource: "@KyelaBundle/Resources/config/config.yml" }
+
+* Add Kyela to the bundles handled by assetic in app/config/config.yml :
+```YAML
+assetic:
+    debug:          "%kernel.debug%"
+    bundles:        [ KyelaBundle ]
+```
+
 * Install the assets :
     app/console assets:install --symlink
 
+TODO
+----
+
+* Make CSRF work
