@@ -11,11 +11,13 @@ Server Installation
 ```php
 new Abienvenu\KyelaBundle\KyelaBundle(),
 ```
-* Include the route in your app/config/routing.yml :
+* Include the route from your app/config/routing.yml :
 ```YAML
 kyela:
     resource: "@KyelaBundle/Resources/config/routing.yml"
 ```
+* Include the config from your app/config.config.yml :
+	- { resource: "@KyelaBundle/Resources/config/config.yml" }
 * Install the assets :
     app/console assets:install --symlink
 

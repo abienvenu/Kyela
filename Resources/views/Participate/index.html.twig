@@ -11,20 +11,32 @@
 				<th>23 novembre 12:46</th>
 			</tr>
 		</thead>
+		<tfoot>
+			<tr>
+				<th>Total</th>
+				<th>1</th>
+				<th>1</th>
+			</tr>
+		</tfoot>
 		<tbody>
 			<tr>
 				<td>Mickaël</td>
-				<td>-</td>
-				<td>-</td>
+				<td>Oui</td>
+				<td>Non</td>
+			</tr>
+			<tr>
+				<td>Esteban</td>
+				<td>Peut-être</td>
+				<td>Oui</td>
 			</tr>
 		</tbody>
 	</table>
 </div>
 
 <p>
-	<a class="btn btn-primary btn-lg" role="button">Ajouter un participant</a>
-	<a class="btn btn-success btn-lg" role="button">Proposer une date</a>
-	<a class="btn btn-warning btn-lg" role="button">Éditer les options</a>
+	<a class="btn btn-primary btn-lg" role="button">{% trans %}add.a.participant{% endtrans %}</a>
+	<a class="btn btn-success btn-lg" role="button">{% trans %}add.a.date{% endtrans %}</a>
+	<a class="btn btn-warning btn-lg" role="button">{% trans %}edit.options{% endtrans %}</a>
 </p>
 
 {% endblock %}

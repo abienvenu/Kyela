@@ -16,6 +16,7 @@ class ParticipateController extends Controller
 	 */
 	public function indexAction(Request $request)
 	{
-		return ['info' => 'glop'];
+		$info = $this->get('translator')->trans('glop');
+		return ['info' => $info];
 	}
 }
