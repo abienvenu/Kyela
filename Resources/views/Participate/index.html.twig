@@ -1,1 +1,30 @@
-Hello : {{ info }}
+{% extends "KyelaBundle:Participate:layout.html.twig" %}
+
+{% block content %}
+<div class="table-responsive">
+	<table class="table table-striped table-hover table-bordered table-condensed">
+		<caption>{{ info }}</caption>
+		<thead>
+			<tr>
+				<th>Participant</th>
+				<th>2 mars 12:30</th>
+				<th>23 novembre 12:46</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Mickaël</td>
+				<td>-</td>
+				<td>-</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<p>
+	<a class="btn btn-primary btn-lg" role="button">Ajouter un participant</a>
+	<a class="btn btn-success btn-lg" role="button">Proposer une date</a>
+	<a class="btn btn-warning btn-lg" role="button">Éditer les options</a>
+</p>
+
+{% endblock %}
