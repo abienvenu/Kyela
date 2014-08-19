@@ -1,4 +1,8 @@
 glop: Glop
+participant: Participant
 add.a.participant: Ajouter un participant
 add.a.date: Proposer une date
 edit.options: Éditer les options
+new.participant: Nouveau participant
+cancel: Annuler
+

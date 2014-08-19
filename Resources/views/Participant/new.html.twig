@@ -1,15 +1,14 @@
 {% extends "KyelaBundle:Participate:layout.html.twig" %}
 
 {% block body -%}
-    <h1>Participant creation</h1>
+	<div class="jumbotron">
+		<div class="container">
+			<h1>{% trans %}new.participant{% endtrans %}</h1>
+		</div>
+	</div>
 
-    {{ form(form) }}
-
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('participant') }}">
-            Back to the list
-        </a>
-    </li>
-</ul>
+	<div class="container">
+		{{ form(form) }}
+		<a class="btn btn-default btn-lg" role="button" href="{{ path('index') }}">{% trans %}cancel{% endtrans %}</a>
+	</div>
 {% endblock %}
