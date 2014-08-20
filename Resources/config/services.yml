@@ -1,0 +1,5 @@
+services:
+    abienvenu.kyela.form.type.form_actions:
+        class: Abienvenu\KyelaBundle\Form\FormActionsType
+        tags:
+            - { name: form.type, alias: form_actions }

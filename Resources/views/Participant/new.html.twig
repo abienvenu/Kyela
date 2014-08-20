@@ -1,25 +1,33 @@
 {% extends "KyelaBundle:Participate:layout.html.twig" %}
 
 {% form_theme form _self %}
-{% block button_widget -%}
-    {% if label is empty -%}
-        {% set label = name|humanize %}
-    {%- endif -%}
-    {% if validation_groups is defined %}
-    	Glop
-    {% endif %}
-    {% if validation_groups is defined and validation_groups == false %}
-    	{% set attr = attr|merge({'formnovalidate': 'formnovalidate'}) %}
-    {% endif %}
-    <button type="{{ type|default('button') }}" class="btn btn-{{ attr.style|default('default') }} btn-{{ attr.size|default('lg') }}" {{ block('button_attributes') }} >{{ label|trans({}, translation_domain) }}</button>
-{%- endblock button_widget %}
 
-{% block button_row -%}
-    <div style="display: inline-block; padding: 4px;">
-        {{- form_widget(form) -}}
-    </div>
-{%- endblock button_row %}
+{% block button_widget %}
+    {% spaceless %}
+        {% if label is empty and label is not sameas(false) %}
+            {% set label = name|humanize %}
+        {% endif %}
+        {% if type is defined and type == 'submit' %}
+            {% set attr = attr|merge({ 'class': (attr.class|default('') ~ ' btn btn-lg btn-'~attr.type|default('primary'))|trim }) %}
+        {% else %}
+            {% set attr = attr|merge({ 'class': (attr.class|default('') ~ ' btn btn-lg btn-'~attr.type|default('default'))|trim }) %}
+        {% endif %}
+	    {% if attr.novalidate is defined and attr.novalidate %}
+	    	{% set attr = attr|merge({'formnovalidate': 'formnovalidate'}) %}
+	    {% endif %}
+        <button type="{{ type|default('button') }}" {{ block('button_attributes') }}>{{ label|trans({}, translation_domain) }}</button>
+    {% endspaceless %}
+{% endblock button_widget %}
 
+{% block form_actions_widget %}
+    {% for button in form.children %}
+        {{ form_widget(button) }}
+    {% endfor  %}
+{% endblock %}
+
+{% block form_actions_row %}
+    {{ block('button_row')  }}
+{% endblock %}
 
 {% block body -%}
 	<div class="jumbotron">
@@ -30,6 +38,5 @@
 
 	<div class="container">
 		{{ form(form) }}
-		<a class="btn btn-default btn-lg" role="button" href="{{ path('index') }}">{% trans %}cancel{% endtrans %}</a>
 	</div>
 {% endblock %}

@@ -48,7 +48,7 @@ class ParticipantController extends Controller
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
 
-        if ($form->get('cancel')->isClicked())
+        if ($form->get('actions')->get('cancel')->isClicked())
         {
         	return $this->redirect($this->generateUrl('index'));
         }
@@ -81,9 +81,12 @@ class ParticipantController extends Controller
             'method' => 'POST',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'create', 'attr' => ['style' => 'primary']));
-        $form->add('cancel', 'submit', array('label' => 'cancel', 'validation_groups' => false));
-
+        $form->add('actions', 'form_actions', [
+        	'buttons' => [
+        		'save' => ['type' => 'submit', 'options' => ['label' => 'create']],
+        		'cancel' => ['type' => 'submit', 'options' => ['label' => 'cancel', 'attr' => ['type' => 'default', 'novalidate' => true]]],
+        	]
+        ]);
         return $form;
     }
 

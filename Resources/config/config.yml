@@ -1,2 +1,5 @@
+imports:
+    - { resource: "services.yml" }
+
 framework:
     translator: { fallback: en }
