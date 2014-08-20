@@ -1,5 +1,26 @@
 {% extends "KyelaBundle:Participate:layout.html.twig" %}
 
+{% form_theme form _self %}
+{% block button_widget -%}
+    {% if label is empty -%}
+        {% set label = name|humanize %}
+    {%- endif -%}
+    {% if validation_groups is defined %}
+    	Glop
+    {% endif %}
+    {% if validation_groups is defined and validation_groups == false %}
+    	{% set attr = attr|merge({'formnovalidate': 'formnovalidate'}) %}
+    {% endif %}
+    <button type="{{ type|default('button') }}" class="btn btn-{{ attr.style|default('default') }} btn-{{ attr.size|default('lg') }}" {{ block('button_attributes') }} >{{ label|trans({}, translation_domain) }}</button>
+{%- endblock button_widget %}
+
+{% block button_row -%}
+    <div style="display: inline-block; padding: 4px;">
+        {{- form_widget(form) -}}
+    </div>
+{%- endblock button_row %}
+
+
 {% block body -%}
 	<div class="jumbotron">
 		<div class="container">

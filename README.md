@@ -32,4 +32,6 @@ assetic:
 TODO
 ----
 
-* Make CSRF work
+* Personaliser les boutons submit et les champs
+* Dynamiser le tableau
+* Faire marcher le CSRF

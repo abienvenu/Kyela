@@ -48,6 +48,11 @@ class ParticipantController extends Controller
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
 
+        if ($form->get('cancel')->isClicked())
+        {
+        	return $this->redirect($this->generateUrl('index'));
+        }
+
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
@@ -76,7 +81,8 @@ class ParticipantController extends Controller
             'method' => 'POST',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Create'));
+        $form->add('submit', 'submit', array('label' => 'create', 'attr' => ['style' => 'primary']));
+        $form->add('cancel', 'submit', array('label' => 'cancel', 'validation_groups' => false));
 
         return $form;
     }
