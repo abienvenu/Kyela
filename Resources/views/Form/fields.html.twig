@@ -1,0 +1,26 @@
+{% block button_widget %}
+    {% spaceless %}
+        {% if label is empty and label is not sameas(false) %}
+            {% set label = name|humanize %}
+        {% endif %}
+        {% if type is defined and type == 'submit' %}
+            {% set attr = attr|merge({ 'class': (attr.class|default('') ~ ' btn btn-lg btn-'~attr.type|default('primary'))|trim }) %}
+        {% else %}
+            {% set attr = attr|merge({ 'class': (attr.class|default('') ~ ' btn btn-lg btn-'~attr.type|default('default'))|trim }) %}
+        {% endif %}
+	    {% if attr.novalidate is defined and attr.novalidate %}
+	    	{% set attr = attr|merge({'formnovalidate': 'formnovalidate'}) %}
+	    {% endif %}
+        <button type="{{ type|default('button') }}" {{ block('button_attributes') }}>{{ label|trans({}, translation_domain) }}</button>
+    {% endspaceless %}
+{% endblock button_widget %}
+
+{% block form_actions_widget %}
+    {% for button in form.children %}
+        {{ form_widget(button) }}
+    {% endfor  %}
+{% endblock %}
+
+{% block form_actions_row %}
+    {{ block('button_row')  }}
+{% endblock %}
