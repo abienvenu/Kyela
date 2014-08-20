@@ -1,5 +1,5 @@
-kyela_participate:
-    resource: "@KyelaBundle/Controller/ParticipateController.php"
+kyela_main:
+    resource: "@KyelaBundle/Controller/MainController.php"
     type: annotation
     prefix: /kyela
 
