@@ -16,7 +16,8 @@ class MainController extends Controller
 	 */
 	public function indexAction(Request $request)
 	{
-		$info = $this->get('translator')->trans('glop');
-		return ['info' => $info];
+        $em = $this->getDoctrine()->getManager();
+        $participants = $em->getRepository('KyelaBundle:Participant')->findAll();
+        return ['participants' => $participants];
 	}
 }

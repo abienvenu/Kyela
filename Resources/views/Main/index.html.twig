@@ -3,7 +3,6 @@
 {% block body %}
 <div class="table-responsive">
 	<table class="table table-striped table-hover table-bordered table-condensed">
-		<caption>{{ info }}</caption>
 		<thead>
 			<tr>
 				<th>{% trans %}participant{% endtrans %}</th>
@@ -19,16 +18,13 @@
 			</tr>
 		</tfoot>
 		<tbody>
+			{% for participant in participants %}
 			<tr>
-				<td>Mickaël</td>
+				<td>{{ participant.name }}</td>
 				<td>Oui</td>
 				<td>Non</td>
 			</tr>
-			<tr>
-				<td>Esteban</td>
-				<td>Peut-être</td>
-				<td>Oui</td>
-			</tr>
+			{% endfor %}
 		</tbody>
 	</table>
 </div>
