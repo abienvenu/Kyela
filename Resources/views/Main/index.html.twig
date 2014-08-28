@@ -1,6 +1,7 @@
 {% extends "KyelaBundle::layout.html.twig" %}
 
 {% block body %}
+
 <div class="table-responsive">
 	<table class="table table-striped table-hover table-bordered table-condensed">
 		<thead>
@@ -20,7 +21,7 @@
 		<tbody>
 			{% for participant in participants %}
 			<tr>
-				<td>{{ participant.name }}</td>
+				<td data-cell-key="{{ participant.id }}">{{ participant.name }}</td>
 				<td>Oui</td>
 				<td>Non</td>
 			</tr>
@@ -34,5 +35,13 @@
 	<a class="btn btn-success btn-lg" role="button">{% trans %}add.a.date{% endtrans %}</a>
 	<a class="btn btn-warning btn-lg" role="button">{% trans %}edit.options{% endtrans %}</a>
 </p>
+
+<script>
+$('.table-hover tbody tr td').click(function() {
+    var participantId = $(this).data("cellKey");
+    window.location.replace('participant/' + participantId + '/edit');
+});
+</script>
+
 
 {% endblock %}
