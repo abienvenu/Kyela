@@ -1,16 +1,19 @@
-{% extends '::base.html.twig' %}
+{% extends "KyelaBundle::layout.html.twig" %}
 
-{% block body -%}
-    <h1>Participant edit</h1>
+{% form_theme edit_form 'KyelaBundle:Form:fields.html.twig' %}
+{% form_theme delete_form 'KyelaBundle:Form:fields.html.twig' %}
 
-    {{ form(edit_form) }}
+{% block body %}
+	<div class="jumbotron">
+		<div class="container">
+			<h1>{{ entity.name }}</h1>
+		</div>
+	</div>
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('participant') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+	<div class="container">
+		<div class="pull-right">
+			{{ form(delete_form) }}
+		</div>
+		{{ form(edit_form) }}
+	</div>
 {% endblock %}

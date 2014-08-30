@@ -146,7 +146,8 @@ class ParticipantController extends Controller
 
         $entity = $em->getRepository('KyelaBundle:Participant')->find($id);
 
-        if (!$entity) {
+        if (!$entity)
+        {
             throw $this->createNotFoundException('Unable to find Participant entity.');
         }
 
@@ -174,8 +175,12 @@ class ParticipantController extends Controller
             'method' => 'PUT',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Update'));
-
+        $form->add('actions', 'form_actions', [
+        	'buttons' => [
+        		'save' => ['type' => 'submit', 'options' => ['label' => 'save']],
+        		'cancel' => ['type' => 'submit', 'options' => ['label' => 'cancel', 'attr' => ['type' => 'default', 'novalidate' => true]]],
+        	]
+        ]);
         return $form;
     }
     /**
@@ -191,7 +196,8 @@ class ParticipantController extends Controller
 
         $entity = $em->getRepository('KyelaBundle:Participant')->find($id);
 
-        if (!$entity) {
+        if (!$entity)
+        {
             throw $this->createNotFoundException('Unable to find Participant entity.');
         }
 
@@ -199,10 +205,15 @@ class ParticipantController extends Controller
         $editForm = $this->createEditForm($entity);
         $editForm->handleRequest($request);
 
+        if ($editForm->get('actions')->get('cancel')->isClicked())
+        {
+        	return $this->redirect($this->generateUrl('index'));
+        }
+
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('participant_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('index'));
         }
 
         return array(
@@ -223,7 +234,7 @@ class ParticipantController extends Controller
         $form->handleRequest($request);
 
         if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
+        	$em = $this->getDoctrine()->getManager();
             $entity = $em->getRepository('KyelaBundle:Participant')->find($id);
 
             if (!$entity) {
@@ -234,7 +245,7 @@ class ParticipantController extends Controller
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('participant'));
+        return $this->redirect($this->generateUrl('index'));
     }
 
     /**
@@ -249,8 +260,7 @@ class ParticipantController extends Controller
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('participant_delete', array('id' => $id)))
             ->setMethod('DELETE')
-            ->add('submit', 'submit', array('label' => 'Delete'))
-            ->getForm()
-        ;
+            ->add('submit', 'submit', ['label' => 'delete', 'attr' => ['type' => 'danger']])
+            ->getForm();
     }
 }
