@@ -14,9 +14,7 @@ class ParticipantType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder
-            ->add('name')
-        ;
+        $builder->add('name');
     }
 
     /**
@@ -26,7 +24,6 @@ class ParticipantType extends AbstractType
     {
         $resolver->setDefaults(array(
             'data_class' => 'Abienvenu\KyelaBundle\Entity\Participant',
-        	'csrf_protection' => false,
         ));
     }
 

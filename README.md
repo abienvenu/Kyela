@@ -33,10 +33,10 @@ TODO
 ----
 
 * Choices inside the grid (dropdownmenus ?)
-* Make CSRF work (it is disabled)
 * Suggest a date
 * Edit choices
 * Edit Participant should let him edit his choices as well
+* Make CSRF work (it is disabled in my main config.yml)
 
 BUGS
 ----
