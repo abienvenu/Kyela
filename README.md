@@ -33,11 +33,11 @@ TODO
 ----
 
 * Choices inside the grid (dropdownmenus ?)
-* Suggest a date
 * Edit choices
 * Edit Participant should let him edit his choices as well
 * Avoid duplicate in routing.yml
 * Make CSRF work (it is disabled in my main config.yml)
+* See unit tests
 
 BUGS
 ----

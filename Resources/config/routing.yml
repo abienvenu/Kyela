@@ -12,3 +12,8 @@ kyela_event:
     resource: "@KyelaBundle/Controller/EventController.php"
     type: annotation
     prefix: /kyela
+
+kyela_choice:
+    resource: "@KyelaBundle/Controller/ChoiceController.php"
+    type: annotation
+    prefix: /kyela
