@@ -2,13 +2,20 @@
 
 {% block body %}
 
+<ul>
+{% for event in events %}
+	<li>{{ event.datetime|date("Y-m-d H:i") }}&nbsp;: {{ event.name }}</li>
+{% endfor %}
+</ul>
+
 <div class="table-responsive">
 	<table class="table table-striped table-hover table-bordered table-condensed">
 		<thead>
 			<tr>
 				<th>{% trans %}participant{% endtrans %}</th>
-				<th>2 mars 12:30</th>
-				<th>23 novembre 12:46</th>
+				{% for event in events %}
+					<th data-cell-key="{{ event.id }}">{{ event.datetime|date("Y-m-d H:i") }}</th>
+				{% endfor %}
 			</tr>
 		</thead>
 		<tfoot>
@@ -32,7 +39,7 @@
 
 <p>
 	<a class="btn btn-primary btn-lg" role="button" href="{{ path('participant_new') }}">{% trans %}add.a.participant{% endtrans %}</a>
-	<a class="btn btn-success btn-lg" role="button">{% trans %}add.a.date{% endtrans %}</a>
+	<a class="btn btn-success btn-lg" role="button" href="{{ path('event_new') }}">{% trans %}add.a.date{% endtrans %}</a>
 	<a class="btn btn-warning btn-lg" role="button">{% trans %}edit.options{% endtrans %}</a>
 </p>
 
@@ -40,6 +47,11 @@
 $('.table-hover tbody tr td').click(function() {
     var participantId = $(this).data("cellKey");
     window.location.replace('participant/' + participantId + '/edit');
+});
+
+$('.table-hover thead tr th').click(function() {
+    var eventId = $(this).data("cellKey");
+    window.location.replace('event/' + eventId + '/edit');
 });
 </script>
 

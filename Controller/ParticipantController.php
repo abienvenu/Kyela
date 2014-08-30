@@ -31,8 +31,7 @@ class ParticipantController extends Controller
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
 
-        if ($form->get('actions')->get('cancel')->isClicked())
-        {
+        if ($form->get('actions')->get('cancel')->isClicked()) {
         	return $this->redirect($this->generateUrl('index'));
         }
 

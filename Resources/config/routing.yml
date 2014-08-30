@@ -7,3 +7,8 @@ kyela_participant:
     resource: "@KyelaBundle/Controller/ParticipantController.php"
     type: annotation
     prefix: /kyela
+
+kyela_event:
+    resource: "@KyelaBundle/Controller/EventController.php"
+    type: annotation
+    prefix: /kyela

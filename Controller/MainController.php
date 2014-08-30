@@ -18,6 +18,7 @@ class MainController extends Controller
 	{
         $em = $this->getDoctrine()->getManager();
         $participants = $em->getRepository('KyelaBundle:Participant')->findAll();
-        return ['participants' => $participants];
+        $events = $em->getRepository('KyelaBundle:Event')->findAll();
+        return ['participants' => $participants, 'events' => $events];
 	}
 }
