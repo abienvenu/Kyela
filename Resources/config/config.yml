@@ -3,3 +3,8 @@ imports:
 
 framework:
     translator: { fallback: en }
+
+twig:
+    form:
+        resources:
+            - 'KyelaBundle:Form:fields.html.twig'
