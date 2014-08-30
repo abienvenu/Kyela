@@ -19,23 +19,6 @@ class ParticipantController extends Controller
 {
 
     /**
-     * Lists all Participant entities.
-     *
-     * @Route("/", name="participant")
-     * @Method("GET")
-     * @Template()
-     */
-    public function indexAction()
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $entities = $em->getRepository('KyelaBundle:Participant')->findAll();
-
-        return array(
-            'entities' => $entities,
-        );
-    }
-    /**
      * Creates a new Participant entity.
      *
      * @Route("/", name="participant_create")
@@ -109,31 +92,6 @@ class ParticipantController extends Controller
     }
 
     /**
-     * Finds and displays a Participant entity.
-     *
-     * @Route("/{id}", name="participant_show")
-     * @Method("GET")
-     * @Template()
-     */
-    public function showAction($id)
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $entity = $em->getRepository('KyelaBundle:Participant')->find($id);
-
-        if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Participant entity.');
-        }
-
-        $deleteForm = $this->createDeleteForm($id);
-
-        return array(
-            'entity'      => $entity,
-            'delete_form' => $deleteForm->createView(),
-        );
-    }
-
-    /**
      * Displays a form to edit an existing Participant entity.
      *
      * @Route("/{id}/edit", name="participant_edit")
@@ -146,8 +104,7 @@ class ParticipantController extends Controller
 
         $entity = $em->getRepository('KyelaBundle:Participant')->find($id);
 
-        if (!$entity)
-        {
+        if (!$entity) {
             throw $this->createNotFoundException('Unable to find Participant entity.');
         }
 
@@ -196,8 +153,7 @@ class ParticipantController extends Controller
 
         $entity = $em->getRepository('KyelaBundle:Participant')->find($id);
 
-        if (!$entity)
-        {
+        if (!$entity) {
             throw $this->createNotFoundException('Unable to find Participant entity.');
         }
 
@@ -205,8 +161,7 @@ class ParticipantController extends Controller
         $editForm = $this->createEditForm($entity);
         $editForm->handleRequest($request);
 
-        if ($editForm->get('actions')->get('cancel')->isClicked())
-        {
+        if ($editForm->get('actions')->get('cancel')->isClicked()) {
         	return $this->redirect($this->generateUrl('index'));
         }
 
