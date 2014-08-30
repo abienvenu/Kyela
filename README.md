@@ -32,6 +32,9 @@ assetic:
 TODO
 ----
 
-* Personaliser les les champs
-* Dynamiser le tableau
-* Faire marcher le CSRF
+* Choices inside the grid (dropdownmenus ?)
+* BUG : Delete does not work
+* Make CSRF work (it is disabled)
+* Suggest a date
+* Edit choices
+* Edit Participant should let him edit his choices as well
