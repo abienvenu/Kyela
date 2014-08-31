@@ -60,6 +60,7 @@ TODO
 * Access to old dates
 * For a Poll, customize "Total" color cell at certain levels
 * Add unicity constraint for (event, participant, choice)
+* Ability to re-order choices
 
 BUGS
 ----

@@ -30,10 +30,10 @@
 			{% for participant in participants %}
 			<tr>
 				<td data-cell-key="{{ participant.id }}">
-					<a href="{{ path('participant_edit', {'id': participant.id}) }}">
-						<span class="glyphicon glyphicon-edit"></span>
+					<a class="btn btn-info" role="button" href="{{ path('participant_edit', {'id': participant.id}) }}">
+						<span class="glyphicon glyphicon-user"></span>
+						{{ participant.name }}
 					</a>
-					{{ participant.name }}
 				</td>
 				{% for event in events %}
 					{% set accessKey = event.id ~ '-' ~ participant.id %}
