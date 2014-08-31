@@ -5,6 +5,9 @@
 <ul class="list-group">
 {% for event in events %}
 	<li class="list-group-item">
+		<a href="{{ path('event_edit', {'id': event.id}) }}">
+			<span class="glyphicon glyphicon-edit"></span>
+		</a>
 		<span class="badge">{{ event.participationsscore }}</span>
 		{{ event.datetime|localizeddate('medium', 'none', app.request.locale, null, "cccc d MMMM h'h'mm") }}&nbsp;: {{ event.name }}
 	</li>
@@ -26,7 +29,12 @@
 		<tbody>
 			{% for participant in participants %}
 			<tr>
-				<td data-cell-key="{{ participant.id }}">{{ participant.name }}</td>
+				<td data-cell-key="{{ participant.id }}">
+					<a href="{{ path('participant_edit', {'id': participant.id}) }}">
+						<span class="glyphicon glyphicon-edit"></span>
+					</a>
+					{{ participant.name }}
+				</td>
 				{% for event in events %}
 					{% set accessKey = event.id ~ '-' ~ participant.id %}
 					<td{% if attribute(participations, accessKey) is defined %} style="background-color:{{ attribute(participations, accessKey).choice.color }}"{% endif %}>
@@ -80,21 +88,5 @@
 	<a class="btn btn-success btn-lg" role="button" href="{{ path('event_new') }}">{% trans %}add.a.date{% endtrans %}</a>
 	<a class="btn btn-warning btn-lg" role="button" href="{{ path('choice') }}">{% trans %}edit.options{% endtrans %}</a>
 </p>
-
-<script>
-
-$('.table-hover tbody tr td').click(function() {
-	var participantId = $(this).data("cellKey");
-	if (participantId) {
-		window.location.replace('participant/' + participantId + '/edit');
-	}
-});
-
-$('.table-hover thead tr th').click(function() {
-    var eventId = $(this).data("cellKey");
-    window.location.replace('event/' + eventId + '/edit');
-});
-</script>
-
 
 {% endblock %}

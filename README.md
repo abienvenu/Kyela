@@ -47,6 +47,7 @@ TODO
 * Edit choices : improve the look & feel, add a colorpicker
 * Edit Participant should let him edit his choices as well
 * Avoid duplicate in routing.yml
+* i18n for fields in participant_edit
 * Make CSRF work (it is disabled in my main config.yml)
 * See unit tests
 * Avoid duplicate code in auto-generated CRUD controlers
@@ -63,5 +64,5 @@ TODO
 BUGS
 ----
 
-* None yet
+* Deleting an event does not work if not empty
 
