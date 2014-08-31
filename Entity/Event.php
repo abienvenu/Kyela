@@ -3,6 +3,7 @@
 namespace Abienvenu\KyelaBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Event
@@ -35,11 +36,20 @@ class Event
      */
     private $datetime;
 
+	/**
+	 * @ORM\OneToMany(targetEntity="Participation", mappedBy="event")
+	 */
+	protected $participations;
+
+	public function __construct()
+	{
+		$this->participations = new ArrayCollection();
+	}
 
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -62,7 +72,7 @@ class Event
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -85,10 +95,43 @@ class Event
     /**
      * Get datetime
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getDatetime()
     {
         return $this->datetime;
+    }
+
+    /**
+     * Add participations
+     *
+     * @param \Abienvenu\KyelaBundle\Entity\Participation $participations
+     * @return Event
+     */
+    public function addParticipation(\Abienvenu\KyelaBundle\Entity\Participation $participations)
+    {
+        $this->participations[] = $participations;
+
+        return $this;
+    }
+
+    /**
+     * Remove participations
+     *
+     * @param \Abienvenu\KyelaBundle\Entity\Participation $participations
+     */
+    public function removeParticipation(\Abienvenu\KyelaBundle\Entity\Participation $participations)
+    {
+        $this->participations->removeElement($participations);
+    }
+
+    /**
+     * Get participations
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getParticipations()
+    {
+        return $this->participations;
     }
 }
