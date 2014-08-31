@@ -40,6 +40,10 @@ TODO
 * Avoid duplicate code in auto-generated CRUD controlers
 * Add confirmation before deleting a Participant
 * Use a cool date/time widget
+* Multi-poll
+* Sort dates
+* Archive old dates
+* Access to old dates
 
 BUGS
 ----
