@@ -1,16 +1,20 @@
 {% extends "KyelaBundle::layout.html.twig" %}
 
 {% block body -%}
-    <h1>Choice list</h1>
+	<div class="jumbotron">
+		<div class="container">
+			<h1>{% trans %}choice.list{% endtrans %}</h1>
+		</div>
+	</div>
 
 <div class="table-responsive">
 	<table class="table table-striped table-hover table-bordered">
         <thead>
             <tr>
-                <th>Name</th>
-                <th>Value</th>
-                <th>Color</th>
-                <th>Actions</th>
+                <th>{% trans %}name{% endtrans %}</th>
+                <th>{% trans %}value{% endtrans %}</th>
+                <th>{% trans %}color{% endtrans %}</th>
+                <th>{% trans %}action{% endtrans %}</th>
             </tr>
         </thead>
         <tbody>
@@ -18,13 +22,12 @@
             <tr>
                 <td>{{ entity.name }}</td>
                 <td>{{ entity.value }}</td>
-                <td>{{ entity.color }}</td>
+                <td style="background-color: {{ entity.color }}">{{ entity.color }}</td>
                 <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('choice_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
-                </ul>
+                	<a class="btn btn-warning" role="button" href="{{ path('choice_edit', { 'id': entity.id }) }}">
+                		<span class="glyphicon glyphicon-edit"></span>
+                		{% trans %}edit{% endtrans %}
+                	</a>
                 </td>
             </tr>
         {% endfor %}

@@ -7,8 +7,14 @@ add.an.option: Ajouter une option
 new.participant: Nouveau participant
 new.event: Nouvelle date
 new.choice: Nouvelle option
+choice.list: Liste des options
 cancel: Annuler
 create: Créer
 save: Enregistrer
 delete: Supprimer
+edit: Modifier
 back: Retour
+name: Nom
+value: Valeur
+color: Couleur
+action: Action
