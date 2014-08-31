@@ -51,7 +51,7 @@
 								{% if attribute(participations, accessKey) is defined %}
 								<li>
 									<a href="{{ path('participation_delete', {'id': attribute(participations, accessKey).id}) }}">
-										<span class="glyphicon glyphicon-remove"></span>
+										<span class="glyphicon glyphicon-trash"></span>
 									</a>
 								</li>
 								{% endif %}
