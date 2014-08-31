@@ -22,25 +22,27 @@ kyela:
 * Add Kyela to the bundles handled by assetic in app/config/config.yml :
 ```YAML
 assetic:
-    debug:          "%kernel.debug%"
-    bundles:        [ KyelaBundle ]
+    bundles:        [ 'KyelaBundle' ]
 ```
 
-* Install the assets :
-    app/console assets:install --symlink
+* Dump the assets :
+    app/console assetic:dump
 
 TODO
 ----
 
 * Choices inside the grid (dropdownmenus ?)
-* Edit choices
+* Edit choices : improve the look & feel
 * Edit Participant should let him edit his choices as well
 * Avoid duplicate in routing.yml
 * Make CSRF work (it is disabled in my main config.yml)
 * See unit tests
+* Avoid duplicate code in auto-generated CRUD controlers
+* Add confirmation before deleting a Participant
+* Use a cool date/time widget
 
 BUGS
 ----
 
-* Delete does not work
+* None yet
 
