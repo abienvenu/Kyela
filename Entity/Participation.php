@@ -22,12 +22,12 @@ class Participation
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Participant")
+     * @ORM\ManyToOne(targetEntity="Participant", inversedBy="participations")
      */
     private $participant;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Event")
+     * @ORM\ManyToOne(targetEntity="Event", inversedBy="participations")
      */
     private $event;
 
@@ -39,7 +39,7 @@ class Participation
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -62,7 +62,7 @@ class Participation
     /**
      * Get participant
      *
-     * @return \Abienvenu\KyelaBundle\Entity\Participant 
+     * @return \Abienvenu\KyelaBundle\Entity\Participant
      */
     public function getParticipant()
     {
@@ -85,7 +85,7 @@ class Participation
     /**
      * Get event
      *
-     * @return \Abienvenu\KyelaBundle\Entity\Event 
+     * @return \Abienvenu\KyelaBundle\Entity\Event
      */
     public function getEvent()
     {
@@ -108,7 +108,7 @@ class Participation
     /**
      * Get choice
      *
-     * @return \Abienvenu\KyelaBundle\Entity\Choice 
+     * @return \Abienvenu\KyelaBundle\Entity\Choice
      */
     public function getChoice()
     {
