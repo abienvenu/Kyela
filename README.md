@@ -3,8 +3,21 @@ Kyela
 
 Participation polls for group events
 
+Features
+--------
+
+* Create one or many polls
+* Each poll has a randomized URL; only people who get the link can have access
+* Suggest one or many dates
+* Customize the choices (text and color), add more choices
+* Simple usage, no authentication
+* Mobile friendly
+* No ad, no fee, no spying, just OpenSource
+
 Server Installation
 -------------------
+
+If you want to run Kyela on your server :
 
 * Install Symfony 2.5
 * Add the bundle in your AppKernel.php :

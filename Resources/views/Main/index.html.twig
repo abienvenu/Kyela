@@ -40,14 +40,21 @@
 									<li>
 										{% set parameters = {'event': event.id, 'participant': participant.id, 'choice': choice.id} %}
 										{% if attribute(participations, accessKey) is defined %}
-										<a href="{{ path('participation_edit_onthefly', parameters|merge({'id': attribute(participations, accessKey).id})) }}">
+										<a href="{{ path('participation_edit', parameters|merge({'id': attribute(participations, accessKey).id})) }}">
 										{% else %}
-										<a href="{{ path('participation_new_onthefly', parameters) }}">
+										<a href="{{ path('participation_new', parameters) }}">
 										{% endif %}
 											{{ choice.name }}
 										</a>
 									</li>
 								{% endfor %}
+								{% if attribute(participations, accessKey) is defined %}
+								<li>
+									<a href="{{ path('participation_delete', {'id': attribute(participations, accessKey).id}) }}">
+										<span class="glyphicon glyphicon-remove"></span>
+									</a>
+								</li>
+								{% endif %}
 							</ul>
 						</div>
 					</td>
