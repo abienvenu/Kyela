@@ -1,15 +1,13 @@
-{% extends '::base.html.twig' %}
+{% extends "KyelaBundle::layout.html.twig" %}
 
-{% block body -%}
-    <h1>Participation creation</h1>
+{% block body %}
+	<div class="jumbotron">
+		<div class="container">
+			<h1>{% trans %}new.participation{% endtrans %}</h1>
+		</div>
+	</div>
 
-    {{ form(form) }}
-
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('participation') }}">
-            Back to the list
-        </a>
-    </li>
-</ul>
+	<div class="container">
+		{{ form(form) }}
+	</div>
 {% endblock %}

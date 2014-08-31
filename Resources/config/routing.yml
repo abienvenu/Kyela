@@ -17,3 +17,8 @@ kyela_choice:
     resource: "@KyelaBundle/Controller/ChoiceController.php"
     type: annotation
     prefix: /kyela
+
+kyela_participation:
+    resource: "@KyelaBundle/Controller/ParticipationController.php"
+    type: annotation
+    prefix: /kyela

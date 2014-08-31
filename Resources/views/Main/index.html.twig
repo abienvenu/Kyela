@@ -31,7 +31,16 @@
 			<tr>
 				<td data-cell-key="{{ participant.id }}">{{ participant.name }}</td>
 				{% for event in events %}
-					<td>X</td>
+					<td>
+						{% if attribute(participations, event.id ~ '-' ~ participant.id) is defined %}
+							{% set participation = attribute(participations, event.id ~ '-' ~ participant.id) %}
+							<a class="btn btn-default" role="button" href="{{ path('participation_edit', {'id': participation.id}) }}">
+								{{ participation.choice }}
+							</a>
+						{% else %}
+							<a class="btn btn-default" role="button" href="{{ path('participation_new') }}">?</a>
+						{% endif %}
+					</td>
 				{% endfor %}
 			</tr>
 			{% endfor %}

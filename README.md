@@ -31,7 +31,7 @@ assetic:
 TODO
 ----
 
-* Choices inside the grid (dropdownmenus ?)
+* Improve choices inside the grid (dropdownmenus ?)
 * Edit choices : improve the look & feel
 * Edit Participant should let him edit his choices as well
 * Avoid duplicate in routing.yml
@@ -41,6 +41,7 @@ TODO
 * Add confirmation before deleting a Participant
 * Use a cool date/time widget
 * Multi-poll
+* Create a default list of choices when creating a new poll
 * Sort dates
 * Archive old dates
 * Access to old dates

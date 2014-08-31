@@ -32,6 +32,11 @@ class Participant
 		$this->participations = new ArrayCollection();
 	}
 
+	public function __toString()
+	{
+		return $this->name;
+	}
+
     /**
      * Get id
      *
@@ -91,7 +96,7 @@ class Participant
     /**
      * Get participations
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getParticipations()
     {

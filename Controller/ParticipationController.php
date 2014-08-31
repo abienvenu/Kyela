@@ -31,6 +31,10 @@ class ParticipationController extends Controller
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
 
+        if ($form->get('actions')->get('cancel')->isClicked()) {
+        	return $this->redirect($this->generateUrl('index'));
+        }
+
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
@@ -59,8 +63,12 @@ class ParticipationController extends Controller
             'method' => 'POST',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Create'));
-
+        $form->add('actions', 'form_actions', [
+        	'buttons' => [
+        		'save' => ['type' => 'submit', 'options' => ['label' => 'create']],
+        		'cancel' => ['type' => 'submit', 'options' => ['label' => 'cancel', 'attr' => ['type' => 'default', 'novalidate' => true]]],
+        	]
+        ]);
         return $form;
     }
 
@@ -123,8 +131,12 @@ class ParticipationController extends Controller
             'method' => 'PUT',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Update'));
-
+        $form->add('actions', 'form_actions', [
+        	'buttons' => [
+        		'save' => ['type' => 'submit', 'options' => ['label' => 'save']],
+        		'cancel' => ['type' => 'submit', 'options' => ['label' => 'cancel', 'attr' => ['type' => 'default', 'novalidate' => true]]],
+        	]
+        ]);
         return $form;
     }
     /**
@@ -148,10 +160,14 @@ class ParticipationController extends Controller
         $editForm = $this->createEditForm($entity);
         $editForm->handleRequest($request);
 
+        if ($editForm->get('actions')->get('cancel')->isClicked()) {
+        	return $this->redirect($this->generateUrl('index'));
+        }
+
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('participation_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('index', array('id' => $id)));
         }
 
         return array(
@@ -183,7 +199,7 @@ class ParticipationController extends Controller
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('participation'));
+        return $this->redirect($this->generateUrl('index'));
     }
 
     /**
@@ -198,7 +214,7 @@ class ParticipationController extends Controller
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('participation_delete', array('id' => $id)))
             ->setMethod('DELETE')
-            ->add('submit', 'submit', array('label' => 'Delete'))
+            ->add('submit', 'submit', ['label' => 'delete', 'attr' => ['type' => 'danger']])
             ->getForm()
         ;
     }

@@ -12,6 +12,11 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Choice
 {
+	public function __toString()
+	{
+		return $this->name;
+	}
+
     /**
      * @var integer
      *
@@ -46,7 +51,7 @@ class Choice
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -69,7 +74,7 @@ class Choice
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -92,7 +97,7 @@ class Choice
     /**
      * Get value
      *
-     * @return integer 
+     * @return integer
      */
     public function getValue()
     {
@@ -115,7 +120,7 @@ class Choice
     /**
      * Get color
      *
-     * @return string 
+     * @return string
      */
     public function getColor()
     {
