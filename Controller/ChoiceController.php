@@ -179,7 +179,7 @@ class ChoiceController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->get('actions')->get('cancel')->isClicked()) {
-        	return $this->redirect($this->generateUrl('index'));
+        	return $this->redirect($this->generateUrl('choice'));
         }
 
         if ($editForm->isValid()) {
