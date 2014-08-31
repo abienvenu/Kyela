@@ -44,8 +44,7 @@ assetic:
 TODO
 ----
 
-* Improve choices inside the grid (dropdownmenus ?)
-* Edit choices : improve the look & feel
+* Edit choices : improve the look & feel, add a colorpicker
 * Edit Participant should let him edit his choices as well
 * Avoid duplicate in routing.yml
 * Make CSRF work (it is disabled in my main config.yml)

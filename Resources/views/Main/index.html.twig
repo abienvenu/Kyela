@@ -28,11 +28,11 @@
 			<tr>
 				<td data-cell-key="{{ participant.id }}">{{ participant.name }}</td>
 				{% for event in events %}
-					<td>
+					{% set accessKey = event.id ~ '-' ~ participant.id %}
+					<td{% if attribute(participations, accessKey) is defined %} style="background-color:{{ attribute(participations, accessKey).choice.color }}"{% endif %}>
 						<div class="btn-group">
-							{% set accessKey = event.id ~ '-' ~ participant.id %}
 							<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-								{{ attribute(participations, accessKey) is defined ? attribute(participations, accessKey).choice : '?' }}
+								{{ attribute(participations, accessKey) is defined ? attribute(participations, accessKey).choice : '-' }}
 								<span class="caret"></span>
 							</button>
 							<ul class="dropdown-menu" role="menu">
