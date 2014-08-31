@@ -2,9 +2,12 @@
 
 {% block body %}
 
-<ul>
+<ul class="list-group">
 {% for event in events %}
-	<li>{{ event.datetime|date("Y-m-d H:i") }}&nbsp;: {{ event.name }}</li>
+	<li class="list-group-item">
+		<span class="badge">{{ event.participationsscore }}</span>
+		{{ event.datetime|localizeddate('medium', 'none', app.request.locale, null, "cccc d MMMM h'h'mm") }}&nbsp;: {{ event.name }}
+	</li>
 {% endfor %}
 </ul>
 
@@ -14,7 +17,9 @@
 			<tr>
 				<th>{% trans %}participant{% endtrans %}</th>
 				{% for event in events %}
-					<th data-cell-key="{{ event.id }}">{{ event.datetime|date("Y-m-d H:i") }}</th>
+					<th data-cell-key="{{ event.id }}">
+						{{ event.datetime|localizeddate('medium', 'none', app.request.locale, null, "d MMM h'h'mm") }}
+					</th>
 				{% endfor %}
 			</tr>
 		</thead>
