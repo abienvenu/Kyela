@@ -91,6 +91,28 @@ class ParticipationController extends Controller
     }
 
     /**
+     * Creates a new Participation on the fly.
+     *
+     * @Route("/new/{event}/{participant}/{choice}", name="participation_new_onthefly")
+     * @Method("GET")
+     */
+    public function newActionOnTheFly($event, $participant, $choice)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $entity = new Participation();
+        $eventObj = $em->getRepository('KyelaBundle:Event')->find($event);
+        $entity->setEvent($eventObj);
+        $participantObj = $em->getRepository('KyelaBundle:Participant')->find($participant);
+        $entity->setParticipant($participantObj);
+        $choiceObj = $em->getRepository('KyelaBundle:Choice')->find($choice);
+        $entity->setChoice($choiceObj);
+        $em->persist($entity);
+        $em->flush();
+
+    	return $this->redirect($this->generateUrl('index'));
+    }
+
+    /**
      * Displays a form to edit an existing Participation entity.
      *
      * @Route("/{id}/edit", name="participation_edit")
@@ -115,6 +137,32 @@ class ParticipationController extends Controller
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         );
+    }
+
+    /**
+     * Edits a Participation on the fly
+     *
+     * @Route("/{id}/edit/{event}/{participant}/{choice}", name="participation_edit_onthefly")
+     * @Method("GET")
+     */
+    public function editActionOnTheFly($id, $event, $participant, $choice)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $entity = $em->getRepository('KyelaBundle:Participation')->find($id);
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Participation entity.');
+        }
+
+        $eventObj = $em->getRepository('KyelaBundle:Event')->find($event);
+        $entity->setEvent($eventObj);
+        $participantObj = $em->getRepository('KyelaBundle:Participant')->find($participant);
+        $entity->setParticipant($participantObj);
+        $choiceObj = $em->getRepository('KyelaBundle:Choice')->find($choice);
+        $entity->setChoice($choiceObj);
+        $em->persist($entity);
+        $em->flush();
+
+    	return $this->redirect($this->generateUrl('index'));
     }
 
     /**

@@ -19,6 +19,7 @@ class MainController extends Controller
         $em = $this->getDoctrine()->getManager();
         $participants = $em->getRepository('KyelaBundle:Participant')->findAll();
         $events = $em->getRepository('KyelaBundle:Event')->findAll();
+        $choices = $em->getRepository('KyelaBundle:Choice')->findAll();
         $participations = $em->getRepository('KyelaBundle:Participation')->findAll();
         $participationsArray = [];
         foreach ($participations as $participation)
@@ -29,6 +30,7 @@ class MainController extends Controller
         return [
         	'participants' => $participants,
         	'events' => $events,
+        	'choices' => $choices,
         	'participations' => $participationsArray,
 		];
 	}

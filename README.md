@@ -46,6 +46,7 @@ TODO
 * Archive old dates
 * Access to old dates
 * For a Poll, customize "Total" color cell at certain levels
+* Add unicity constraint for (event, participant, choice)
 
 BUGS
 ----
