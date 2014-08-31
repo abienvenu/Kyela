@@ -21,16 +21,18 @@
 		<tfoot>
 			<tr>
 				<th>Total</th>
-				<th>1</th>
-				<th>1</th>
+				{% for event in events %}
+					<th>?</th>
+				{% endfor %}
 			</tr>
 		</tfoot>
 		<tbody>
 			{% for participant in participants %}
 			<tr>
 				<td data-cell-key="{{ participant.id }}">{{ participant.name }}</td>
-				<td>Oui</td>
-				<td>Non</td>
+				{% for event in events %}
+					<td>X</td>
+				{% endfor %}
 			</tr>
 			{% endfor %}
 		</tbody>
