@@ -22,7 +22,9 @@
 			<tr>
 				<th>Total</th>
 				{% for event in events %}
-					<th>?</th>
+					<th>
+						{{ event.participationsscore }}
+					</th>
 				{% endfor %}
 			</tr>
 		</tfoot>

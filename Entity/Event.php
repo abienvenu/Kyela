@@ -139,4 +139,17 @@ class Event
     {
         return $this->participations;
     }
+
+    /**
+     * Get participations score
+     */
+    public function getParticipationsScore()
+    {
+    	$score = 0;
+    	foreach ($this->participations as $participation)
+    	{
+    		$score += $participation->getChoice()->getValue();
+    	}
+    	return $score;
+    }
 }

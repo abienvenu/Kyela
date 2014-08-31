@@ -45,6 +45,7 @@ TODO
 * Sort dates
 * Archive old dates
 * Access to old dates
+* For a Poll, customize "Total" color cell at certain levels
 
 BUGS
 ----

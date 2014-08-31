@@ -1,5 +1,8 @@
-footer
-{
+footer {
 	font-size: 8px;
 	text-align: right;
+}
+
+.table td, .table th {
+	text-align: center;
 }
