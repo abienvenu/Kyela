@@ -39,13 +39,13 @@
 					{% set accessKey = event.id ~ '-' ~ participant.id %}
 					<td{% if attribute(participations, accessKey) is defined %} style="background-color:{{ attribute(participations, accessKey).choice.color }}"{% endif %}>
 						<div class="btn-group">
-							<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+							<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" style="opacity:0.85">
 								{{ attribute(participations, accessKey) is defined ? attribute(participations, accessKey).choice : '-' }}
 								<span class="caret"></span>
 							</button>
 							<ul class="dropdown-menu" role="menu">
 								{%  for choice in choices %}
-									<li>
+									<li style="background-color: {{ choice.color }}">
 										{% set parameters = {'event': event.id, 'participant': participant.id, 'choice': choice.id} %}
 										{% if attribute(participations, accessKey) is defined %}
 										<a href="{{ path('participation_edit', parameters|merge({'id': attribute(participations, accessKey).id})) }}">
