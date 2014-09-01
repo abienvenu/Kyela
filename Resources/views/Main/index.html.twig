@@ -37,9 +37,9 @@
 				</td>
 				{% for event in events %}
 					{% set accessKey = event.id ~ '-' ~ participant.id %}
-					<td{% if attribute(participations, accessKey) is defined %} style="background-color:{{ attribute(participations, accessKey).choice.color }}"{% endif %}>
+					<td>
 						<div class="btn-group">
-							<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" style="opacity:0.85">
+							<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"{% if attribute(participations, accessKey) is defined %} style="background-color:{{ attribute(participations, accessKey).choice.color }}"{% endif %}>
 								{{ attribute(participations, accessKey) is defined ? attribute(participations, accessKey).choice : '-' }}
 								<span class="caret"></span>
 							</button>

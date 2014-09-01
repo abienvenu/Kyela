@@ -41,6 +41,14 @@ assetic:
 * Dump the assets :
     app/console assetic:dump
 
+* Install fonts :
+Bootstrap glyphicons needs fonts, which cannot be handled properly by assetic.
+Install the assets :
+    app/console assets:install --symlink
+Add some rewritule to your apache configuration :
+    RewriteEngine On
+    RewriteRule ^/kyela/web/app_dev.php/fonts/(.*) /kyela/web/bundles/kyela/fonts/$1 [L]
+
 TODO
 ----
 
