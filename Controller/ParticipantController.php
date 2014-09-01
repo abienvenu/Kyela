@@ -3,7 +3,6 @@
 namespace Abienvenu\KyelaBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -15,8 +14,11 @@ use Abienvenu\KyelaBundle\Form\ParticipantType;
  *
  * @Route("/participant")
  */
-class ParticipantController extends Controller
+class ParticipantController extends SuperController
 {
+	protected $entityName = 'KyelaBundle:Participant';
+	protected $updateCancelUrl = 'index';
+	protected $updateSuccessUrl = 'index';
 
     /**
      * Creates a new Participant entity.
@@ -56,7 +58,7 @@ class ParticipantController extends Controller
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createCreateForm(Participant $entity)
+    protected function createCreateForm(Participant $entity)
     {
         $form = $this->createForm(new ParticipantType(), $entity, array(
             'action' => $this->generateUrl('participant_create'),
@@ -101,10 +103,10 @@ class ParticipantController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('KyelaBundle:Participant')->find($id);
+        $entity = $em->getRepository($this->entityName)->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Participant entity.');
+            throw $this->createNotFoundException('Unable to find entity.');
         }
 
         $editForm = $this->createEditForm($entity);
@@ -124,7 +126,7 @@ class ParticipantController extends Controller
     *
     * @return \Symfony\Component\Form\Form The form
     */
-    private function createEditForm(Participant $entity)
+    protected function createEditForm(Participant $entity)
     {
         $form = $this->createForm(new ParticipantType(), $entity, array(
             'action' => $this->generateUrl('participant_update', array('id' => $entity->getId())),
@@ -148,33 +150,7 @@ class ParticipantController extends Controller
      */
     public function updateAction(Request $request, $id)
     {
-        $em = $this->getDoctrine()->getManager();
-
-        $entity = $em->getRepository('KyelaBundle:Participant')->find($id);
-
-        if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Participant entity.');
-        }
-
-        $deleteForm = $this->createDeleteForm($id);
-        $editForm = $this->createEditForm($entity);
-        $editForm->handleRequest($request);
-
-        if ($editForm->get('actions')->get('cancel')->isClicked()) {
-        	return $this->redirect($this->generateUrl('index'));
-        }
-
-        if ($editForm->isValid()) {
-            $em->flush();
-
-            return $this->redirect($this->generateUrl('index'));
-        }
-
-        return array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
-        );
+    	return parent::updateAction($request, $id);
     }
     /**
      * Deletes a Participant entity.
@@ -189,10 +165,10 @@ class ParticipantController extends Controller
 
         if ($form->isValid()) {
         	$em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('KyelaBundle:Participant')->find($id);
+            $entity = $em->getRepository($this->entityName)->find($id);
 
             if (!$entity) {
-                throw $this->createNotFoundException('Unable to find Participant entity.');
+                throw $this->createNotFoundException('Unable to find entity.');
             }
 
             $em->remove($entity);
@@ -209,7 +185,7 @@ class ParticipantController extends Controller
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createDeleteForm($id)
+    protected function createDeleteForm($id)
     {
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('participant_delete', array('id' => $id)))

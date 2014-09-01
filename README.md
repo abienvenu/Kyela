@@ -52,7 +52,6 @@ Add some rewritule to your apache configuration :
 TODO
 ----
 
-* See unit tests
 * Avoid duplicate code in auto-generated CRUD controlers
 * Multi-poll
 * Edit choices : improve the look & feel, add a colorpicker
@@ -61,6 +60,7 @@ TODO
 * i18n for fields in participant_edit
 * Make CSRF work (it is disabled in my main config.yml)
 * Add confirmation before deleting a Participant
+* Functional test for Participation
 * Use a cool date/time widget
 * Create a default list of choices when creating a new poll
 * Sort dates

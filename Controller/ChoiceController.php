@@ -3,7 +3,6 @@
 namespace Abienvenu\KyelaBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -15,8 +14,11 @@ use Abienvenu\KyelaBundle\Form\ChoiceType;
  *
  * @Route("/choice")
  */
-class ChoiceController extends Controller
+class ChoiceController extends SuperController
 {
+	protected $entityName = 'KyelaBundle:Choice';
+	protected $updateCancelUrl = 'choice';
+	protected $updateSuccessUrl = 'choice';
 
     /**
      * Lists all Choice entities.
@@ -73,7 +75,7 @@ class ChoiceController extends Controller
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createCreateForm(Choice $entity)
+    protected function createCreateForm(Choice $entity)
     {
         $form = $this->createForm(new ChoiceType(), $entity, array(
             'action' => $this->generateUrl('choice_create'),
@@ -142,7 +144,7 @@ class ChoiceController extends Controller
     *
     * @return \Symfony\Component\Form\Form The form
     */
-    private function createEditForm(Choice $entity)
+    protected function createEditForm(Choice $entity)
     {
         $form = $this->createForm(new ChoiceType(), $entity, array(
             'action' => $this->generateUrl('choice_update', array('id' => $entity->getId())),
@@ -166,33 +168,7 @@ class ChoiceController extends Controller
      */
     public function updateAction(Request $request, $id)
     {
-        $em = $this->getDoctrine()->getManager();
-
-        $entity = $em->getRepository('KyelaBundle:Choice')->find($id);
-
-        if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Choice entity.');
-        }
-
-        $deleteForm = $this->createDeleteForm($id);
-        $editForm = $this->createEditForm($entity);
-        $editForm->handleRequest($request);
-
-        if ($editForm->get('actions')->get('cancel')->isClicked()) {
-        	return $this->redirect($this->generateUrl('choice'));
-        }
-
-        if ($editForm->isValid()) {
-            $em->flush();
-
-            return $this->redirect($this->generateUrl('choice'));
-        }
-
-        return array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
-        );
+    	return parent::updateAction($request, $id);
     }
     /**
      * Deletes a Choice entity.
@@ -227,7 +203,7 @@ class ChoiceController extends Controller
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createDeleteForm($id)
+    protected function createDeleteForm($id)
     {
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('choice_delete', array('id' => $id)))
