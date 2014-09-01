@@ -17,8 +17,8 @@ use Abienvenu\KyelaBundle\Form\ChoiceType;
 class ChoiceController extends SuperController
 {
 	protected $entityName = 'KyelaBundle:Choice';
-	protected $updateCancelUrl = 'choice';
-	protected $updateSuccessUrl = 'choice';
+	protected $cancelUrl = 'choice';
+	protected $successUrl = 'choice';
 
     /**
      * Lists all Choice entities.
@@ -31,7 +31,7 @@ class ChoiceController extends SuperController
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('KyelaBundle:Choice')->findAll();
+        $entities = $em->getRepository($this->entityName)->findAll();
 
         return array(
             'entities' => $entities,
@@ -46,26 +46,7 @@ class ChoiceController extends SuperController
      */
     public function createAction(Request $request)
     {
-        $entity = new Choice();
-        $form = $this->createCreateForm($entity);
-        $form->handleRequest($request);
-
-        if ($form->get('actions')->get('cancel')->isClicked()) {
-        	return $this->redirect($this->generateUrl('choice'));
-        }
-
-        if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($entity);
-            $em->flush();
-
-            return $this->redirect($this->generateUrl('choice'));
-        }
-
-        return array(
-            'entity' => $entity,
-            'form'   => $form->createView(),
-        );
+    	return $this->doCreateAction($request, new Choice());
     }
 
     /**
@@ -101,13 +82,7 @@ class ChoiceController extends SuperController
      */
     public function newAction()
     {
-        $entity = new Choice();
-        $form   = $this->createCreateForm($entity);
-
-        return array(
-            'entity' => $entity,
-            'form'   => $form->createView(),
-        );
+    	return $this->doNewAction(new Choice());
     }
 
     /**
@@ -119,22 +94,7 @@ class ChoiceController extends SuperController
      */
     public function editAction($id)
     {
-        $em = $this->getDoctrine()->getManager();
-
-        $entity = $em->getRepository('KyelaBundle:Choice')->find($id);
-
-        if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Choice entity.');
-        }
-
-        $editForm = $this->createEditForm($entity);
-        $deleteForm = $this->createDeleteForm($id);
-
-        return array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
-        );
+    	return $this->doEditAction($id);
     }
 
     /**
@@ -168,7 +128,7 @@ class ChoiceController extends SuperController
      */
     public function updateAction(Request $request, $id)
     {
-    	return parent::updateAction($request, $id);
+    	return $this->doUpdateAction($request, $id);
     }
     /**
      * Deletes a Choice entity.
@@ -178,22 +138,7 @@ class ChoiceController extends SuperController
      */
     public function deleteAction(Request $request, $id)
     {
-        $form = $this->createDeleteForm($id);
-        $form->handleRequest($request);
-
-        if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('KyelaBundle:Choice')->find($id);
-
-            if (!$entity) {
-                throw $this->createNotFoundException('Unable to find Choice entity.');
-            }
-
-            $em->remove($entity);
-            $em->flush();
-        }
-
-        return $this->redirect($this->generateUrl('choice'));
+    	return $this->doDeleteAction($request, $id);
     }
 
     /**

@@ -17,8 +17,8 @@ use Abienvenu\KyelaBundle\Form\ParticipantType;
 class ParticipantController extends SuperController
 {
 	protected $entityName = 'KyelaBundle:Participant';
-	protected $updateCancelUrl = 'index';
-	protected $updateSuccessUrl = 'index';
+	protected $cancelUrl = 'index';
+	protected $successUrl = 'index';
 
     /**
      * Creates a new Participant entity.
@@ -29,26 +29,7 @@ class ParticipantController extends SuperController
      */
     public function createAction(Request $request)
     {
-        $entity = new Participant();
-        $form = $this->createCreateForm($entity);
-        $form->handleRequest($request);
-
-        if ($form->get('actions')->get('cancel')->isClicked()) {
-        	return $this->redirect($this->generateUrl('index'));
-        }
-
-        if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($entity);
-            $em->flush();
-
-            return $this->redirect($this->generateUrl('index'));
-        }
-
-        return array(
-            'entity' => $entity,
-            'form'   => $form->createView(),
-        );
+    	return $this->doCreateAction($request, new Participant());
     }
 
     /**
@@ -83,13 +64,7 @@ class ParticipantController extends SuperController
      */
     public function newAction()
     {
-        $entity = new Participant();
-        $form   = $this->createCreateForm($entity);
-
-        return array(
-            'entity' => $entity,
-            'form'   => $form->createView(),
-        );
+    	return $this->doNewAction(new Participant());
     }
 
     /**
@@ -101,22 +76,7 @@ class ParticipantController extends SuperController
      */
     public function editAction($id)
     {
-        $em = $this->getDoctrine()->getManager();
-
-        $entity = $em->getRepository($this->entityName)->find($id);
-
-        if (!$entity) {
-            throw $this->createNotFoundException('Unable to find entity.');
-        }
-
-        $editForm = $this->createEditForm($entity);
-        $deleteForm = $this->createDeleteForm($id);
-
-        return array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
-        );
+    	return $this->doEditAction($id);
     }
 
     /**
@@ -150,7 +110,7 @@ class ParticipantController extends SuperController
      */
     public function updateAction(Request $request, $id)
     {
-    	return parent::updateAction($request, $id);
+    	return $this->doUpdateAction($request, $id);
     }
     /**
      * Deletes a Participant entity.
@@ -160,22 +120,7 @@ class ParticipantController extends SuperController
      */
     public function deleteAction(Request $request, $id)
     {
-        $form = $this->createDeleteForm($id);
-        $form->handleRequest($request);
-
-        if ($form->isValid()) {
-        	$em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository($this->entityName)->find($id);
-
-            if (!$entity) {
-                throw $this->createNotFoundException('Unable to find entity.');
-            }
-
-            $em->remove($entity);
-            $em->flush();
-        }
-
-        return $this->redirect($this->generateUrl('index'));
+    	return $this->doDeleteAction($request, $id);
     }
 
     /**
