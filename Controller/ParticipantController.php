@@ -19,6 +19,7 @@ class ParticipantController extends SuperController
 	protected $entityName = 'KyelaBundle:Participant';
 	protected $cancelUrl = 'index';
 	protected $successUrl = 'index';
+	protected $deleteAction = 'participant_delete';
 
     /**
      * Creates a new Participant entity.
@@ -41,18 +42,7 @@ class ParticipantController extends SuperController
      */
     protected function createCreateForm(Participant $entity)
     {
-        $form = $this->createForm(new ParticipantType(), $entity, array(
-            'action' => $this->generateUrl('participant_create'),
-            'method' => 'POST',
-        ));
-
-        $form->add('actions', 'form_actions', [
-        	'buttons' => [
-        		'save' => ['type' => 'submit', 'options' => ['label' => 'create']],
-        		'cancel' => ['type' => 'submit', 'options' => ['label' => 'cancel', 'attr' => ['type' => 'default', 'novalidate' => true]]],
-        	]
-        ]);
-        return $form;
+    	return $this->doCreateCreateForm(new ParticipantType(), $entity, 'participant_create');
     }
 
     /**
@@ -88,18 +78,7 @@ class ParticipantController extends SuperController
     */
     protected function createEditForm(Participant $entity)
     {
-        $form = $this->createForm(new ParticipantType(), $entity, array(
-            'action' => $this->generateUrl('participant_update', array('id' => $entity->getId())),
-            'method' => 'PUT',
-        ));
-
-        $form->add('actions', 'form_actions', [
-        	'buttons' => [
-        		'save' => ['type' => 'submit', 'options' => ['label' => 'save']],
-        		'cancel' => ['type' => 'submit', 'options' => ['label' => 'cancel', 'attr' => ['type' => 'default', 'novalidate' => true]]],
-        	]
-        ]);
-        return $form;
+    	return $this->doCreateEditForm(new ParticipantType(), $entity, 'participant_update');
     }
     /**
      * Edits an existing Participant entity.
@@ -121,21 +100,5 @@ class ParticipantController extends SuperController
     public function deleteAction(Request $request, $id)
     {
     	return $this->doDeleteAction($request, $id);
-    }
-
-    /**
-     * Creates a form to delete a Participant entity by id.
-     *
-     * @param mixed $id The entity id
-     *
-     * @return \Symfony\Component\Form\Form The form
-     */
-    protected function createDeleteForm($id)
-    {
-        return $this->createFormBuilder()
-            ->setAction($this->generateUrl('participant_delete', array('id' => $id)))
-            ->setMethod('DELETE')
-            ->add('submit', 'submit', ['label' => 'delete', 'attr' => ['type' => 'danger']])
-            ->getForm();
     }
 }

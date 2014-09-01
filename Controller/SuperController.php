@@ -106,4 +106,52 @@ abstract class SuperController extends Controller
         }
         return $this->redirect($this->generateUrl($this->successUrl));
     }
+
+    protected function doCreateCreateForm($formType, $entity, $action)
+    {
+        $form = $this->createForm($formType, $entity, array(
+            'action' => $this->generateUrl($action),
+            'method' => 'POST',
+        ));
+
+        $form->add('actions', 'form_actions', [
+        	'buttons' => [
+        		'save' => ['type' => 'submit', 'options' => ['label' => 'create']],
+        		'cancel' => ['type' => 'submit', 'options' => ['label' => 'cancel', 'attr' => ['type' => 'default', 'novalidate' => true]]],
+        	]
+        ]);
+        return $form;
+    }
+
+    protected function doCreateEditForm($formType, $entity, $action)
+    {
+        $form = $this->createForm($formType, $entity, array(
+            'action' => $this->generateUrl($action, array('id' => $entity->getId())),
+            'method' => 'PUT',
+        ));
+
+        $form->add('actions', 'form_actions', [
+        	'buttons' => [
+        		'save' => ['type' => 'submit', 'options' => ['label' => 'save']],
+        		'cancel' => ['type' => 'submit', 'options' => ['label' => 'cancel', 'attr' => ['type' => 'default', 'novalidate' => true]]],
+        	]
+        ]);
+        return $form;
+    }
+
+    /**
+     * Creates a form to delete an entity by id.
+     *
+     * @param mixed $id The entity id
+     *
+     * @return \Symfony\Component\Form\Form The form
+     */
+    protected function createDeleteForm($id)
+    {
+        return $this->createFormBuilder()
+            ->setAction($this->generateUrl($this->deleteAction, array('id' => $id)))
+            ->setMethod('DELETE')
+            ->add('submit', 'submit', ['label' => 'delete', 'attr' => ['type' => 'danger']])
+            ->getForm();
+    }
 }

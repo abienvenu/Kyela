@@ -19,6 +19,7 @@ class ChoiceController extends SuperController
 	protected $entityName = 'KyelaBundle:Choice';
 	protected $cancelUrl = 'choice';
 	protected $successUrl = 'choice';
+	protected $deleteAction = 'choice_delete';
 
     /**
      * Lists all Choice entities.
@@ -58,19 +59,7 @@ class ChoiceController extends SuperController
      */
     protected function createCreateForm(Choice $entity)
     {
-        $form = $this->createForm(new ChoiceType(), $entity, array(
-            'action' => $this->generateUrl('choice_create'),
-            'method' => 'POST',
-        ));
-
-        $form->add('actions', 'form_actions', [
-        	'buttons' => [
-        		'save' => ['type' => 'submit', 'options' => ['label' => 'create']],
-        		'cancel' => ['type' => 'submit', 'options' => ['label' => 'cancel', 'attr' => ['type' => 'default', 'novalidate' => true]]],
-        	]
-        ]);
-
-        return $form;
+    	return $this->doCreateCreateForm(new ChoiceType(), $entity, 'choice_create');
     }
 
     /**
@@ -106,18 +95,7 @@ class ChoiceController extends SuperController
     */
     protected function createEditForm(Choice $entity)
     {
-        $form = $this->createForm(new ChoiceType(), $entity, array(
-            'action' => $this->generateUrl('choice_update', array('id' => $entity->getId())),
-            'method' => 'PUT',
-        ));
-
-        $form->add('actions', 'form_actions', [
-        	'buttons' => [
-        		'save' => ['type' => 'submit', 'options' => ['label' => 'save']],
-        		'cancel' => ['type' => 'submit', 'options' => ['label' => 'cancel', 'attr' => ['type' => 'default', 'novalidate' => true]]],
-        	]
-        ]);
-        return $form;
+    	return $this->doCreateEditForm(new ChoiceType(), $entity, 'choice_update');
     }
     /**
      * Edits an existing Choice entity.
@@ -139,21 +117,5 @@ class ChoiceController extends SuperController
     public function deleteAction(Request $request, $id)
     {
     	return $this->doDeleteAction($request, $id);
-    }
-
-    /**
-     * Creates a form to delete a Choice entity by id.
-     *
-     * @param mixed $id The entity id
-     *
-     * @return \Symfony\Component\Form\Form The form
-     */
-    protected function createDeleteForm($id)
-    {
-        return $this->createFormBuilder()
-            ->setAction($this->generateUrl('choice_delete', array('id' => $id)))
-            ->setMethod('DELETE')
-            ->add('submit', 'submit', ['label' => 'delete', 'attr' => ['type' => 'danger']])
-            ->getForm();
     }
 }

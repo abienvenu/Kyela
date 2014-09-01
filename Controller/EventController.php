@@ -19,6 +19,7 @@ class EventController extends SuperController
 	protected $entityName = 'KyelaBundle:Event';
 	protected $cancelUrl = 'index';
 	protected $successUrl = 'index';
+	protected $deleteAction = 'event_delete';
 
     /**
      * Creates a new Event entity.
@@ -41,18 +42,7 @@ class EventController extends SuperController
      */
     protected function createCreateForm(Event $entity)
     {
-        $form = $this->createForm(new EventType(), $entity, array(
-            'action' => $this->generateUrl('event_create'),
-            'method' => 'POST',
-        ));
-
-        $form->add('actions', 'form_actions', [
-        	'buttons' => [
-        		'save' => ['type' => 'submit', 'options' => ['label' => 'create']],
-        		'cancel' => ['type' => 'submit', 'options' => ['label' => 'cancel', 'attr' => ['type' => 'default', 'novalidate' => true]]],
-        	]
-        ]);
-        return $form;
+    	return $this->doCreateCreateForm(new EventType(), $entity, 'event_create');
     }
 
     /**
@@ -88,18 +78,7 @@ class EventController extends SuperController
     */
     protected function createEditForm(Event $entity)
     {
-        $form = $this->createForm(new EventType(), $entity, array(
-            'action' => $this->generateUrl('event_update', array('id' => $entity->getId())),
-            'method' => 'PUT',
-        ));
-
-        $form->add('actions', 'form_actions', [
-        	'buttons' => [
-        		'save' => ['type' => 'submit', 'options' => ['label' => 'save']],
-        		'cancel' => ['type' => 'submit', 'options' => ['label' => 'cancel', 'attr' => ['type' => 'default', 'novalidate' => true]]],
-        	]
-        ]);
-        return $form;
+    	return $this->doCreateEditForm(new EventType(), $entity, 'event_update');
     }
     /**
      * Edits an existing Event entity.
@@ -122,21 +101,5 @@ class EventController extends SuperController
     public function deleteAction(Request $request, $id)
     {
     	return $this->doDeleteAction($request, $id);
-    }
-
-    /**
-     * Creates a form to delete a Event entity by id.
-     *
-     * @param mixed $id The entity id
-     *
-     * @return \Symfony\Component\Form\Form The form
-     */
-    protected function createDeleteForm($id)
-    {
-        return $this->createFormBuilder()
-            ->setAction($this->generateUrl('event_delete', array('id' => $id)))
-            ->setMethod('DELETE')
-            ->add('submit', 'submit', ['label' => 'delete', 'attr' => ['type' => 'danger']])
-            ->getForm();
     }
 }
