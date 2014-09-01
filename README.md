@@ -52,16 +52,16 @@ Add some rewritule to your apache configuration :
 TODO
 ----
 
+* See unit tests
+* Avoid duplicate code in auto-generated CRUD controlers
+* Multi-poll
 * Edit choices : improve the look & feel, add a colorpicker
 * Edit Participant should let him edit his choices as well
 * Avoid duplicate in routing.yml
 * i18n for fields in participant_edit
 * Make CSRF work (it is disabled in my main config.yml)
-* See unit tests
-* Avoid duplicate code in auto-generated CRUD controlers
 * Add confirmation before deleting a Participant
 * Use a cool date/time widget
-* Multi-poll
 * Create a default list of choices when creating a new poll
 * Sort dates
 * Archive old dates
@@ -69,9 +69,15 @@ TODO
 * For a Poll, customize "Total" color cell at certain levels
 * Add unicity constraint for (event, participant, choice)
 * Ability to re-order choices
+* Ability to use a glyphicon for each choice
 
 BUGS
 ----
 
 * Deleting an event does not work if not empty
 
+FUTURE FEATURES
+---------------
+
+* Notification subscriptions
+* Syndication

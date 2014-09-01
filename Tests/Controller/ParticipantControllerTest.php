@@ -6,50 +6,64 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class ParticipantControllerTest extends WebTestCase
 {
-    /*
-    public function testCompleteScenario()
-    {
-        // Create a new client to browse the application
-        $client = static::createClient();
+	protected static $client;
+	protected static $translator;
 
+	public static function setUpBeforeClass()
+	{
+        // Create a new client to browse the application
+		self::$client = static::createClient();
+		self::$translator = self::$client->getContainer()->get('translator');
+	}
+
+	public static function createEntry($name)
+	{
         // Create a new entry in the database
-        $crawler = $client->request('GET', '/participant/');
-        $this->assertEquals(200, $client->getResponse()->getStatusCode(), "Unexpected HTTP status code for GET /participant/");
-        $crawler = $client->click($crawler->selectLink('Create a new entry')->link());
+        $crawler = self::$client->request('GET', '/kyela/');
+        $link = $crawler->selectLink(self::$translator->trans('add.a.participant'))->link();
+        $crawler = self::$client->click($link);
 
         // Fill in the form and submit it
-        $form = $crawler->selectButton('Create')->form(array(
-            'abienvenu_kyelabundle_participant[field_name]'  => 'Test',
-            // ... other fields to fill
-        ));
+        $form = $crawler->selectButton(self::$translator->trans('create'))->form(['abienvenu_kyelabundle_participant[name]'  => $name]);
+        self::$client->submit($form);
+        return self::$client->followRedirect();
+	}
 
-        $client->submit($form);
-        $crawler = $client->followRedirect();
+	public static function deleteEntry($name)
+	{
+        // Create a new entry in the database
+        $crawler = self::$client->request('GET', '/kyela/');
+        $link = $crawler->filter('a:contains("' . $name . '")');
+        $crawler = self::$client->click($link->link());
+        self::$client->submit($crawler->selectButton(self::$translator->trans('delete'))->form());
+        return self::$client->followRedirect();
+	}
+
+    public function testCompleteScenario()
+    {
+        $name = 'Test Participant L2PX';
+    	$crawler = self::createEntry($name);
 
         // Check data in the show view
-        $this->assertGreaterThan(0, $crawler->filter('td:contains("Test")')->count(), 'Missing element td:contains("Test")');
+        $link = $crawler->filter('a:contains("' . $name . '")');
+        $this->assertEquals(1, $link->count(), 'Missing element a:contains("' . $name . '")');
 
         // Edit the entity
-        $crawler = $client->click($crawler->selectLink('Edit')->link());
+        $crawler = self::$client->click($link->link());
 
-        $form = $crawler->selectButton('Update')->form(array(
-            'abienvenu_kyelabundle_participant[field_name]'  => 'Foo',
-            // ... other fields to fill
-        ));
+        $name = "M $name";
+        $form = $crawler->selectButton(self::$translator->trans('save'))->form(['abienvenu_kyelabundle_participant[name]'  => $name]);
+        self::$client->submit($form);
+        $crawler = self::$client->followRedirect();
 
-        $client->submit($form);
-        $crawler = $client->followRedirect();
-
-        // Check the element contains an attribute with value equals "Foo"
-        $this->assertGreaterThan(0, $crawler->filter('[value="Foo"]')->count(), 'Missing element [value="Foo"]');
+        // Check data in the show view
+        $link = $crawler->filter('a:contains("' . $name . '")');
+        $this->assertEquals(1, $link->count(), 'Missing element a:contains("' . $name . '")');
 
         // Delete the entity
-        $client->submit($crawler->selectButton('Delete')->form());
-        $crawler = $client->followRedirect();
+        return self::deleteEntry($name);
 
         // Check the entity has been delete on the list
-        $this->assertNotRegExp('/Foo/', $client->getResponse()->getContent());
+        $this->assertNotRegExp("/$name/", self::$client->getResponse()->getContent());
     }
-
-    */
 }

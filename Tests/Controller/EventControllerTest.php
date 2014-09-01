@@ -6,50 +6,53 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class EventControllerTest extends WebTestCase
 {
-    /*
     public function testCompleteScenario()
     {
         // Create a new client to browse the application
         $client = static::createClient();
+        $t = $client->getContainer()->get('translator');
 
         // Create a new entry in the database
-        $crawler = $client->request('GET', '/event/');
-        $this->assertEquals(200, $client->getResponse()->getStatusCode(), "Unexpected HTTP status code for GET /event/");
-        $crawler = $client->click($crawler->selectLink('Create a new entry')->link());
+        $crawler = $client->request('GET', '/kyela/');
+        $this->assertEquals(200, $client->getResponse()->getStatusCode(), "Unexpected HTTP status code for GET /kyela/");
+        $link = $crawler->selectLink('Proposer une date')->link();
+        $crawler = $client->click($link);
 
         // Fill in the form and submit it
-        $form = $crawler->selectButton('Create')->form(array(
-            'abienvenu_kyelabundle_event[field_name]'  => 'Test',
-            // ... other fields to fill
-        ));
-
+        $name = 'Test Event L2PX';
+        $datetime = [
+        	'abienvenu_kyelabundle_event[datetime][date][day]' => '2',
+        	'abienvenu_kyelabundle_event[datetime][date][month]' => '3',
+        	'abienvenu_kyelabundle_event[datetime][date][year]' => '2014',
+        	'abienvenu_kyelabundle_event[datetime][time][hour]' => '20',
+        	'abienvenu_kyelabundle_event[datetime][time][minute]' => '30',
+        ];
+        $form = $crawler->selectButton($t->trans('create'))->form(['abienvenu_kyelabundle_event[name]'  => $name] + $datetime);
         $client->submit($form);
         $crawler = $client->followRedirect();
 
         // Check data in the show view
-        $this->assertGreaterThan(0, $crawler->filter('td:contains("Test")')->count(), 'Missing element td:contains("Test")');
+        $link = $crawler->filter('li:contains("' . $name . '")');
+        $this->assertEquals(1, $link->count(), 'Missing element li:contains("' . $name . '")');
 
         // Edit the entity
-        $crawler = $client->click($crawler->selectLink('Edit')->link());
+        $crawler = $client->click($link->filter('a')->link());
 
-        $form = $crawler->selectButton('Update')->form(array(
-            'abienvenu_kyelabundle_event[field_name]'  => 'Foo',
-            // ... other fields to fill
-        ));
-
+        $name = "M $name";
+        $form = $crawler->selectButton($t->trans('save'))->form(['abienvenu_kyelabundle_event[name]'  => $name] + $datetime);
         $client->submit($form);
         $crawler = $client->followRedirect();
 
-        // Check the element contains an attribute with value equals "Foo"
-        $this->assertGreaterThan(0, $crawler->filter('[value="Foo"]')->count(), 'Missing element [value="Foo"]');
+        // Check data in the show view
+        $link = $crawler->filter('li:contains("' . $name . '")');
+        $this->assertEquals(1, $link->count(), 'Missing element li:contains("' . $name . '")');
 
         // Delete the entity
-        $client->submit($crawler->selectButton('Delete')->form());
+        $crawler = $client->click($link->filter('a')->link());
+        $client->submit($crawler->selectButton($t->trans('delete'))->form());
         $crawler = $client->followRedirect();
 
         // Check the entity has been delete on the list
-        $this->assertNotRegExp('/Foo/', $client->getResponse()->getContent());
+        $this->assertNotRegExp("/$name/", $client->getResponse()->getContent());
     }
-
-    */
 }
