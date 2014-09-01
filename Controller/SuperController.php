@@ -7,21 +7,24 @@ use Symfony\Component\HttpFoundation\Request;
 
 abstract class SuperController extends Controller
 {
-    public function doCreateAction(Request $request, $entity)
+    private function doCreateorNewAction($entity, Request $request = null)
     {
         $form = $this->createCreateForm($entity);
-        $form->handleRequest($request);
+        if ($request)
+        {
+	        $form->handleRequest($request);
 
-        if ($form->get('actions')->get('cancel')->isClicked()) {
-        	return $this->redirect($this->generateUrl($this->cancelUrl));
-        }
+	        if ($form->get('actions')->get('cancel')->isClicked()) {
+	        	return $this->redirect($this->generateUrl($this->cancelUrl));
+	        }
 
-        if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($entity);
-            $em->flush();
+	        if ($form->isValid()) {
+	            $em = $this->getDoctrine()->getManager();
+	            $em->persist($entity);
+	            $em->flush();
 
-            return $this->redirect($this->generateUrl($this->successUrl));
+	            return $this->redirect($this->generateUrl($this->successUrl));
+	        }
         }
 
         return array(
@@ -29,6 +32,17 @@ abstract class SuperController extends Controller
             'form'   => $form->createView(),
         );
     }
+
+    public function doCreateAction(Request $request, $entity)
+    {
+    	return $this->doCreateorNewAction($entity, $request);
+    }
+
+    public function doNewAction($entity)
+    {
+    	return $this->doCreateorNewAction($entity);
+    }
+
 
     private function doEditOrUpdateAction($id, Request $request = null)
     {
@@ -72,16 +86,6 @@ abstract class SuperController extends Controller
     public function doEditAction($id)
     {
     	return $this->doEditOrUpdateAction($id);
-    }
-
-    public function doNewAction($entity)
-    {
-        $form   = $this->createCreateForm($entity);
-
-        return array(
-            'entity' => $entity,
-            'form'   => $form->createView(),
-        );
     }
 
     public function doDeleteAction(Request $request, $id)
