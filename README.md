@@ -52,7 +52,6 @@ Add some rewritule to your apache configuration :
 TODO
 ----
 
-* Move createEditForm and createCreateForm from up in AbstractController ?
 * Use a uniqid for tests
 * Setup a licence (GPL ?)
 * Multi-poll

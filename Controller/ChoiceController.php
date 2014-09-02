@@ -20,6 +20,7 @@ class ChoiceController extends AbstractController
 	protected $cancelUrl = 'choice';
 	protected $successUrl = 'choice';
 	protected $deleteAction = 'choice_delete';
+	protected $createAction = 'choice_create';
 
     /**
      * Lists all Choice entities.
@@ -47,19 +48,7 @@ class ChoiceController extends AbstractController
      */
     public function createAction(Request $request)
     {
-    	return $this->doCreateAction($request, new Choice());
-    }
-
-    /**
-     * Creates a form to create a Choice entity.
-     *
-     * @param Choice $entity The entity
-     *
-     * @return \Symfony\Component\Form\Form The form
-     */
-    protected function createCreateForm(Choice $entity)
-    {
-    	return $this->doCreateCreateForm(new ChoiceType(), $entity, 'choice_create');
+    	return $this->doCreateorNewAction(new ChoiceType(), new Choice(), $request);
     }
 
     /**
@@ -71,7 +60,7 @@ class ChoiceController extends AbstractController
      */
     public function newAction()
     {
-    	return $this->doNewAction(new Choice());
+    	return $this->doCreateorNewAction(new ChoiceType(), new Choice());
     }
 
     /**

@@ -15,9 +15,9 @@ abstract class AbstractController extends Controller
 	abstract public function updateAction(Request $request, $id);
 	abstract public function deleteAction(Request $request, $id);
 
-    private function doCreateorNewAction(Entity $entity, Request $request = null)
+    protected function doCreateorNewAction(AbstractType $formType, Entity $entity, Request $request = null)
     {
-        $form = $this->createCreateForm($entity);
+    	$form = $this->doCreateCreateForm($formType, $entity, $this->createAction);
         if ($request)
         {
 	        $form->handleRequest($request);
@@ -40,17 +40,6 @@ abstract class AbstractController extends Controller
             'form'   => $form->createView(),
         );
     }
-
-    public function doCreateAction(Request $request, Entity $entity)
-    {
-    	return $this->doCreateorNewAction($entity, $request);
-    }
-
-    public function doNewAction(Entity $entity)
-    {
-    	return $this->doCreateorNewAction($entity);
-    }
-
 
     private function doEditOrUpdateAction($id, Request $request = null)
     {

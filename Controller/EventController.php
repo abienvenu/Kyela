@@ -20,6 +20,7 @@ class EventController extends AbstractController
 	protected $cancelUrl = 'index';
 	protected $successUrl = 'index';
 	protected $deleteAction = 'event_delete';
+	protected $createAction = 'event_create';
 
     /**
      * Creates a new Event entity.
@@ -30,19 +31,7 @@ class EventController extends AbstractController
      */
     public function createAction(Request $request)
     {
-    	return $this->doCreateAction($request, new Event());
-    }
-
-    /**
-     * Creates a form to create a Event entity.
-     *
-     * @param Event $entity The entity
-     *
-     * @return \Symfony\Component\Form\Form The form
-     */
-    protected function createCreateForm(Event $entity)
-    {
-    	return $this->doCreateCreateForm(new EventType(), $entity, 'event_create');
+    	return $this->doCreateorNewAction(new EventType(), new Event(), $request);
     }
 
     /**
@@ -54,7 +43,7 @@ class EventController extends AbstractController
      */
     public function newAction()
     {
-    	return $this->doNewAction(new Event());
+    	return $this->doCreateorNewAction(new EventType(), new Event());
     }
 
     /**

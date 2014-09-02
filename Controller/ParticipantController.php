@@ -20,6 +20,7 @@ class ParticipantController extends AbstractController
 	protected $cancelUrl = 'index';
 	protected $successUrl = 'index';
 	protected $deleteAction = 'participant_delete';
+	protected $createAction = 'participant_create';
 
     /**
      * Creates a new Participant entity.
@@ -30,19 +31,7 @@ class ParticipantController extends AbstractController
      */
     public function createAction(Request $request)
     {
-    	return $this->doCreateAction($request, new Participant());
-    }
-
-    /**
-     * Creates a form to create a Participant entity.
-     *
-     * @param Participant $entity The entity
-     *
-     * @return \Symfony\Component\Form\Form The form
-     */
-    protected function createCreateForm(Participant $entity)
-    {
-    	return $this->doCreateCreateForm(new ParticipantType(), $entity, 'participant_create');
+    	return $this->doCreateorNewAction(new ParticipantType(), new Participant(), $request);
     }
 
     /**
@@ -54,7 +43,7 @@ class ParticipantController extends AbstractController
      */
     public function newAction()
     {
-    	return $this->doNewAction(new Participant());
+    	return $this->doCreateorNewAction(new ParticipantType(), new Participant());
     }
 
     /**
