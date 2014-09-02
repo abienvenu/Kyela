@@ -19,7 +19,7 @@ class ChoiceControllerTest extends WebTestCase
         $crawler = $client->click($link);
 
         // Fill in the form and submit it
-        $name = 'Test Choice L2PX';
+        $name = uniqid('Test Choice ');
         $form = $crawler->selectButton($t->trans('create'))->form(array(
             'abienvenu_kyelabundle_choice[name]'  => $name,
         	'abienvenu_kyelabundle_choice[value]'  => 0,

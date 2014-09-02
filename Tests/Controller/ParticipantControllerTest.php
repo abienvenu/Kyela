@@ -41,7 +41,7 @@ class ParticipantControllerTest extends WebTestCase
 
     public function testCompleteScenario()
     {
-        $name = 'Test Participant L2PX';
+    	$name = uniqid('Test Participant ');
     	$crawler = self::createEntry($name);
 
         // Check data in the show view

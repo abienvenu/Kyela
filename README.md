@@ -52,7 +52,6 @@ Add some rewritule to your apache configuration :
 TODO
 ----
 
-* Use a uniqid for tests
 * Setup a licence (GPL ?)
 * Multi-poll
 * Edit choices : improve the look & feel, add a colorpicker

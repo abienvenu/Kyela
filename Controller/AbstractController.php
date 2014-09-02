@@ -110,6 +110,15 @@ abstract class AbstractController extends Controller
         return $form;
     }
 
+    /**
+     * Creates a form to edit an entity
+     *
+     * @param AbstractType $formType The form builder
+     * @param Entity $entity The entity id
+     * @param string $action The route to the action
+     *
+     * @return \Symfony\Component\Form\Form The form
+     */
     protected function doCreateEditForm(AbstractType $formType, Entity $entity, $action)
     {
         $form = $this->createForm($formType, $entity, array(

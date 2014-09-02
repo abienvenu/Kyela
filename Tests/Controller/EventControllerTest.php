@@ -19,7 +19,7 @@ class EventControllerTest extends WebTestCase
         $crawler = $client->click($link);
 
         // Fill in the form and submit it
-        $name = 'Test Event L2PX';
+        $name = uniqid('Test Event ');
         $datetime = [
         	'abienvenu_kyelabundle_event[datetime][date][day]' => '2',
         	'abienvenu_kyelabundle_event[datetime][date][month]' => '3',
