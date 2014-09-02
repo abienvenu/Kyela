@@ -28,31 +28,35 @@
         {% endjavascripts %}
     </head>
     <body>
+    <div id="wrap">
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Kyéla</a>
-        </div>
-      </div>
-    </div>
+	    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+	      <div class="container">
+	        <div class="navbar-header">
+	          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	            <span class="sr-only">Toggle navigation</span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	          </button>
+	          <a class="navbar-brand" href="#">Kyéla</a>
+	        </div>
+	      </div>
+	    </div>
 
-    <div class="container">
-    	{% block body %}{% endblock %}
-	    <hr />
-	    <footer>
-	    	<p>&copy; Arnaud Bienvenu 2014</p>
-	    </footer>
+	    <div class="container">
+	   		{% block body %}{% endblock %}
+	    </div>
+    </div>
+    <div id="footer">
+    	<p>
+    		&copy; Arnaud Bienvenu 2014 -
+    		Icons by <a href="http://glyphicons.com/">GLYPHICONS.com</a> -
+    		<span id="forkongithub"><a href="https://github.com/abienvenu/Kyela">Fork me on GitHub</a></span> -
+    		<a href="https://insight.sensiolabs.com/projects/bca46a72-4438-47e7-b629-4b9926e802a6"><img src="https://insight.sensiolabs.com/projects/bca46a72-4438-47e7-b629-4b9926e802a6/small.png" alt="SensioLabsInsight Medal" /></a>
+    	</p>
     </div>
     </body>
 </html>
-
-

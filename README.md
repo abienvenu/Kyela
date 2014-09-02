@@ -52,7 +52,9 @@ Add some rewritule to your apache configuration :
 TODO
 ----
 
-* Avoid duplicate code in auto-generated CRUD controlers
+* Move createEditForm and createCreateForm from up in AbstractController ?
+* Use a uniqid for tests
+* Setup a licence (GPL ?)
 * Multi-poll
 * Edit choices : improve the look & feel, add a colorpicker
 * Edit Participant should let him edit his choices as well
@@ -81,3 +83,6 @@ FUTURE FEATURES
 
 * Notification subscriptions
 * Syndication
+* Easy integration from remote websites
+
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/bca46a72-4438-47e7-b629-4b9926e802a6/big.png)](https://insight.sensiolabs.com/projects/bca46a72-4438-47e7-b629-4b9926e802a6)
