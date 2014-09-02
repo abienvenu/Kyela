@@ -17,13 +17,13 @@ abstract class AbstractController extends Controller
 
     protected function doCreateorNewAction(AbstractType $formType, Entity $entity, Request $request = null)
     {
-    	$form = $this->doCreateCreateForm($formType, $entity, $this->createAction);
+    	$form = $this->doCreateCreateForm($formType, $entity, $this->createRoute);
         if ($request)
         {
 	        $form->handleRequest($request);
 
 	        if ($form->get('actions')->get('cancel')->isClicked()) {
-	        	return $this->redirect($this->generateUrl($this->cancelUrl));
+	        	return $this->redirect($this->generateUrl($this->cancelRoute));
 	        }
 
 	        if ($form->isValid()) {
@@ -31,7 +31,7 @@ abstract class AbstractController extends Controller
 	            $em->persist($entity);
 	            $em->flush();
 
-	            return $this->redirect($this->generateUrl($this->successUrl));
+	            return $this->redirect($this->generateUrl($this->successRoute));
 	        }
         }
 
@@ -41,7 +41,7 @@ abstract class AbstractController extends Controller
         );
     }
 
-    private function doEditOrUpdateAction($id, Request $request = null)
+    protected function doEditOrUpdateAction(AbstractType $formType, $id, Request $request = null)
     {
         $em = $this->getDoctrine()->getManager();
 
@@ -52,19 +52,19 @@ abstract class AbstractController extends Controller
         }
 
         $deleteForm = $this->createDeleteForm($id);
-        $editForm = $this->createEditForm($entity);
+        $editForm = $this->doCreateEditForm($formType, $entity, $this->updateRoute);
         if ($request)
         {
 	        $editForm->handleRequest($request);
 
 	        if ($editForm->get('actions')->get('cancel')->isClicked()) {
-	        	return $this->redirect($this->generateUrl($this->cancelUrl));
+	        	return $this->redirect($this->generateUrl($this->cancelRoute));
 	        }
 
 	        if ($editForm->isValid()) {
 	            $em->flush();
 
-	            return $this->redirect($this->generateUrl($this->successUrl));
+	            return $this->redirect($this->generateUrl($this->successRoute));
 	        }
         }
 
@@ -73,16 +73,6 @@ abstract class AbstractController extends Controller
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         );
-    }
-
-    public function doUpdateAction(Request $request, $id)
-    {
-    	return $this->doEditOrUpdateAction($id, $request);
-    }
-
-    public function doEditAction($id)
-    {
-    	return $this->doEditOrUpdateAction($id);
     }
 
     public function doDeleteAction(Request $request, $id)
@@ -101,7 +91,7 @@ abstract class AbstractController extends Controller
             $em->remove($entity);
             $em->flush();
         }
-        return $this->redirect($this->generateUrl($this->successUrl));
+        return $this->redirect($this->generateUrl($this->successRoute));
     }
 
     protected function doCreateCreateForm(AbstractType $formType, Entity $entity, $action)
@@ -146,7 +136,7 @@ abstract class AbstractController extends Controller
     protected function createDeleteForm($id)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl($this->deleteAction, array('id' => $id)))
+            ->setAction($this->generateUrl($this->deleteRoute, array('id' => $id)))
             ->setMethod('DELETE')
             ->add('submit', 'submit', ['label' => 'delete', 'attr' => ['type' => 'danger']])
             ->getForm();

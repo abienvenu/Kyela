@@ -17,22 +17,11 @@ use Abienvenu\KyelaBundle\Form\ParticipantType;
 class ParticipantController extends AbstractController
 {
 	protected $entityName = 'KyelaBundle:Participant';
-	protected $cancelUrl = 'index';
-	protected $successUrl = 'index';
-	protected $deleteAction = 'participant_delete';
-	protected $createAction = 'participant_create';
-
-    /**
-     * Creates a new Participant entity.
-     *
-     * @Route("/", name="participant_create")
-     * @Method("POST")
-     * @Template("KyelaBundle:Participant:new.html.twig")
-     */
-    public function createAction(Request $request)
-    {
-    	return $this->doCreateorNewAction(new ParticipantType(), new Participant(), $request);
-    }
+	protected $cancelRoute = 'index';
+	protected $successRoute = 'index';
+	protected $deleteRoute = 'participant_delete';
+	protected $createRoute = 'participant_create';
+	protected $updateRoute = 'participant_update';
 
     /**
      * Displays a form to create a new Participant entity.
@@ -46,6 +35,18 @@ class ParticipantController extends AbstractController
     	return $this->doCreateorNewAction(new ParticipantType(), new Participant());
     }
 
+	/**
+     * Creates a new Participant entity.
+     *
+     * @Route("/", name="participant_create")
+     * @Method("POST")
+     * @Template("KyelaBundle:Participant:new.html.twig")
+     */
+    public function createAction(Request $request)
+    {
+    	return $this->doCreateorNewAction(new ParticipantType(), new Participant(), $request);
+    }
+
     /**
      * Displays a form to edit an existing Participant entity.
      *
@@ -55,20 +56,9 @@ class ParticipantController extends AbstractController
      */
     public function editAction($id)
     {
-    	return $this->doEditAction($id);
+    	return $this->doEditOrUpdateAction(new ParticipantType(), $id);
     }
 
-    /**
-    * Creates a form to edit a Participant entity.
-    *
-    * @param Participant $entity The entity
-    *
-    * @return \Symfony\Component\Form\Form The form
-    */
-    protected function createEditForm(Participant $entity)
-    {
-    	return $this->doCreateEditForm(new ParticipantType(), $entity, 'participant_update');
-    }
     /**
      * Edits an existing Participant entity.
      *
@@ -78,7 +68,7 @@ class ParticipantController extends AbstractController
      */
     public function updateAction(Request $request, $id)
     {
-    	return $this->doUpdateAction($request, $id);
+    	return $this->doEditOrUpdateAction(new ParticipantType(), $id, $request);
     }
     /**
      * Deletes a Participant entity.

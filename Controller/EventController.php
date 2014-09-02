@@ -17,22 +17,11 @@ use Abienvenu\KyelaBundle\Form\EventType;
 class EventController extends AbstractController
 {
 	protected $entityName = 'KyelaBundle:Event';
-	protected $cancelUrl = 'index';
-	protected $successUrl = 'index';
-	protected $deleteAction = 'event_delete';
-	protected $createAction = 'event_create';
-
-    /**
-     * Creates a new Event entity.
-     *
-     * @Route("/", name="event_create")
-     * @Method("POST")
-     * @Template("KyelaBundle:Event:new.html.twig")
-     */
-    public function createAction(Request $request)
-    {
-    	return $this->doCreateorNewAction(new EventType(), new Event(), $request);
-    }
+	protected $cancelRoute = 'index';
+	protected $successRoute = 'index';
+	protected $deleteRoute = 'event_delete';
+	protected $createRoute = 'event_create';
+	protected $updateRoute = 'event_update';
 
     /**
      * Displays a form to create a new Event entity.
@@ -47,6 +36,18 @@ class EventController extends AbstractController
     }
 
     /**
+     * Creates a new Event entity.
+     *
+     * @Route("/", name="event_create")
+     * @Method("POST")
+     * @Template("KyelaBundle:Event:new.html.twig")
+     */
+    public function createAction(Request $request)
+    {
+    	return $this->doCreateorNewAction(new EventType(), new Event(), $request);
+    }
+
+    /**
      * Displays a form to edit an existing Event entity.
      *
      * @Route("/{id}/edit", name="event_edit")
@@ -55,20 +56,9 @@ class EventController extends AbstractController
      */
     public function editAction($id)
     {
-    	return $this->doEditAction($id);
+    	return $this->doEditOrUpdateAction(new EventType(), $id);
     }
 
-    /**
-    * Creates a form to edit a Event entity.
-    *
-    * @param Event $entity The entity
-    *
-    * @return \Symfony\Component\Form\Form The form
-    */
-    protected function createEditForm(Event $entity)
-    {
-    	return $this->doCreateEditForm(new EventType(), $entity, 'event_update');
-    }
     /**
      * Edits an existing Event entity.
      *
@@ -78,7 +68,7 @@ class EventController extends AbstractController
      */
     public function updateAction(Request $request, $id)
     {
-    	return $this->doUpdateAction($request, $id);
+    	return $this->doEditOrUpdateAction(new EventType(), $id, $request);
     }
 
     /**

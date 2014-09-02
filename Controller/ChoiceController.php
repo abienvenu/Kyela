@@ -17,10 +17,11 @@ use Abienvenu\KyelaBundle\Form\ChoiceType;
 class ChoiceController extends AbstractController
 {
 	protected $entityName = 'KyelaBundle:Choice';
-	protected $cancelUrl = 'choice';
-	protected $successUrl = 'choice';
-	protected $deleteAction = 'choice_delete';
-	protected $createAction = 'choice_create';
+	protected $cancelRoute = 'choice';
+	protected $successRoute = 'choice';
+	protected $deleteRoute = 'choice_delete';
+	protected $createRoute = 'choice_create';
+	protected $updateRoute = 'choice_update';
 
     /**
      * Lists all Choice entities.
@@ -39,17 +40,6 @@ class ChoiceController extends AbstractController
             'entities' => $entities,
         );
     }
-    /**
-     * Creates a new Choice entity.
-     *
-     * @Route("/", name="choice_create")
-     * @Method("POST")
-     * @Template("KyelaBundle:Choice:new.html.twig")
-     */
-    public function createAction(Request $request)
-    {
-    	return $this->doCreateorNewAction(new ChoiceType(), new Choice(), $request);
-    }
 
     /**
      * Displays a form to create a new Choice entity.
@@ -64,6 +54,18 @@ class ChoiceController extends AbstractController
     }
 
     /**
+     * Creates a new Choice entity.
+     *
+     * @Route("/", name="choice_create")
+     * @Method("POST")
+     * @Template("KyelaBundle:Choice:new.html.twig")
+     */
+    public function createAction(Request $request)
+    {
+    	return $this->doCreateorNewAction(new ChoiceType(), new Choice(), $request);
+    }
+
+    /**
      * Displays a form to edit an existing Choice entity.
      *
      * @Route("/{id}/edit", name="choice_edit")
@@ -72,20 +74,9 @@ class ChoiceController extends AbstractController
      */
     public function editAction($id)
     {
-    	return $this->doEditAction($id);
+    	return $this->doEditOrUpdateAction(new ChoiceType(), $id);
     }
 
-    /**
-    * Creates a form to edit a Choice entity.
-    *
-    * @param Choice $entity The entity
-    *
-    * @return \Symfony\Component\Form\Form The form
-    */
-    protected function createEditForm(Choice $entity)
-    {
-    	return $this->doCreateEditForm(new ChoiceType(), $entity, 'choice_update');
-    }
     /**
      * Edits an existing Choice entity.
      *
@@ -95,8 +86,9 @@ class ChoiceController extends AbstractController
      */
     public function updateAction(Request $request, $id)
     {
-    	return $this->doUpdateAction($request, $id);
+    	return $this->doEditOrUpdateAction(new ChoiceType(), $id, $request);
     }
+
     /**
      * Deletes a Choice entity.
      *
