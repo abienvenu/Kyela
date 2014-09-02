@@ -7,8 +7,14 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\AbstractType;
 
-abstract class SuperController extends Controller
+abstract class AbstractController extends Controller
 {
+	abstract public function newAction();
+	abstract public function createAction(Request $request);
+	abstract public function editAction($id);
+	abstract public function updateAction(Request $request, $id);
+	abstract public function deleteAction(Request $request, $id);
+
     private function doCreateorNewAction(Entity $entity, Request $request = null)
     {
         $form = $this->createCreateForm($entity);

@@ -14,7 +14,7 @@ use Abienvenu\KyelaBundle\Form\ChoiceType;
  *
  * @Route("/choice")
  */
-class ChoiceController extends SuperController
+class ChoiceController extends AbstractController
 {
 	protected $entityName = 'KyelaBundle:Choice';
 	protected $cancelUrl = 'choice';

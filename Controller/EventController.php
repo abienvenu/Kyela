@@ -14,7 +14,7 @@ use Abienvenu\KyelaBundle\Form\EventType;
  *
  * @Route("/event")
  */
-class EventController extends SuperController
+class EventController extends AbstractController
 {
 	protected $entityName = 'KyelaBundle:Event';
 	protected $cancelUrl = 'index';

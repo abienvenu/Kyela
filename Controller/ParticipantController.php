@@ -14,7 +14,7 @@ use Abienvenu\KyelaBundle\Form\ParticipantType;
  *
  * @Route("/participant")
  */
-class ParticipantController extends SuperController
+class ParticipantController extends AbstractController
 {
 	protected $entityName = 'KyelaBundle:Participant';
 	protected $cancelUrl = 'index';
