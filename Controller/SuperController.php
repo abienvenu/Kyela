@@ -2,12 +2,14 @@
 
 namespace Abienvenu\KyelaBundle\Controller;
 
+use Abienvenu\KyelaBundle\Entity\Entity;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Form\AbstractType;
 
 abstract class SuperController extends Controller
 {
-    private function doCreateorNewAction($entity, Request $request = null)
+    private function doCreateorNewAction(Entity $entity, Request $request = null)
     {
         $form = $this->createCreateForm($entity);
         if ($request)
@@ -33,12 +35,12 @@ abstract class SuperController extends Controller
         );
     }
 
-    public function doCreateAction(Request $request, $entity)
+    public function doCreateAction(Request $request, Entity $entity)
     {
     	return $this->doCreateorNewAction($entity, $request);
     }
 
-    public function doNewAction($entity)
+    public function doNewAction(Entity $entity)
     {
     	return $this->doCreateorNewAction($entity);
     }
@@ -107,7 +109,7 @@ abstract class SuperController extends Controller
         return $this->redirect($this->generateUrl($this->successUrl));
     }
 
-    protected function doCreateCreateForm($formType, $entity, $action)
+    protected function doCreateCreateForm(AbstractType $formType, Entity $entity, $action)
     {
         $form = $this->createForm($formType, $entity, array(
             'action' => $this->generateUrl($action),
@@ -123,7 +125,7 @@ abstract class SuperController extends Controller
         return $form;
     }
 
-    protected function doCreateEditForm($formType, $entity, $action)
+    protected function doCreateEditForm(AbstractType $formType, Entity $entity, $action)
     {
         $form = $this->createForm($formType, $entity, array(
             'action' => $this->generateUrl($action, array('id' => $entity->getId())),

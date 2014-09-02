@@ -8,7 +8,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  * @ORM\Entity
  * @ORM\Table(name="Participant")
  */
-class Participant
+class Participant extends Entity
 {
 	/**
 	 * @ORM\Id

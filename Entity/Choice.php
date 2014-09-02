@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table()
  * @ORM\Entity
  */
-class Choice
+class Choice extends Entity
 {
 	public function __toString()
 	{
