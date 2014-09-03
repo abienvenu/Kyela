@@ -36,24 +36,6 @@ use Abienvenu\KyelaBundle\Form\PollType;
  */
 class PollController extends Controller
 {
-
-    /**
-     * Lists all Poll entities.
-     *
-     * @Route("/", name="poll")
-     * @Method("GET")
-     * @Template()
-     */
-    public function indexAction()
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $entities = $em->getRepository('KyelaBundle:Poll')->findAll();
-
-        return array(
-            'entities' => $entities,
-        );
-    }
     /**
      * Creates a new Poll entity.
      *
