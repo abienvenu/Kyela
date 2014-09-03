@@ -52,7 +52,11 @@ Add some rewritule to your apache configuration :
 TODO
 ----
 
+* Fusionner newAction avec createAction dans les contrôleurs ? editAction avec updateAction ?
+* Ajouter getPoll() en abstract sur Entity.php ?
+* Dans AbstractController, override generateUrl pour lui rajouter la pollUrl ?
 * Multi-poll
+* Gestion des URLs forgées
 * Edit choices : improve the look & feel, add a colorpicker
 * Edit Participant should let him edit his choices as well
 * Avoid duplicate in routing.yml
@@ -74,6 +78,7 @@ BUGS
 ----
 
 * Deleting an event does not work if not empty
+* Clash if lowercase(url1) = lowercase(url2) ?
 
 FUTURE FEATURES
 ---------------

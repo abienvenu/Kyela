@@ -56,6 +56,7 @@ class ChoiceController extends AbstractController
         $entities = $em->getRepository($this->entityName)->findAll();
 
         return array(
+        	'poll'     => $this->poll,
             'entities' => $entities,
         );
     }

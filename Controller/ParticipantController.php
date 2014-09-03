@@ -36,8 +36,8 @@ use Abienvenu\KyelaBundle\Form\ParticipantType;
 class ParticipantController extends AbstractController
 {
 	protected $entityName = 'KyelaBundle:Participant';
-	protected $cancelRoute = 'index';
-	protected $successRoute = 'index';
+	protected $cancelRoute = 'poll_show';
+	protected $successRoute = 'poll_show';
 	protected $deleteRoute = 'participant_delete';
 	protected $createRoute = 'participant_create';
 	protected $updateRoute = 'participant_update';

@@ -29,7 +29,7 @@ use Abienvenu\KyelaBundle\Entity\Participation;
 /**
  * Participation controller.
  *
- * @Route("/participation")
+ * @Route("/{pollUrl}/participation")
  */
 class ParticipationController extends Controller
 {
@@ -40,7 +40,7 @@ class ParticipationController extends Controller
      * @Route("/new/{event}/{participant}/{choice}", name="participation_new")
      * @Method("GET")
      */
-    public function newAction($event, $participant, $choice)
+    public function newAction($pollUrl, $event, $participant, $choice)
     {
         $em = $this->getDoctrine()->getManager();
         $entity = new Participation();
@@ -53,7 +53,7 @@ class ParticipationController extends Controller
         $em->persist($entity);
         $em->flush();
 
-    	return $this->redirect($this->generateUrl('index'));
+    	return $this->redirect($this->generateUrl('poll_show', ['pollUrl' => $pollUrl]));
     }
 
     /**
@@ -62,7 +62,7 @@ class ParticipationController extends Controller
      * @Route("/{id}/edit/{event}/{participant}/{choice}", name="participation_edit")
      * @Method("GET")
      */
-    public function editAction($id, $event, $participant, $choice)
+    public function editAction($pollUrl, $id, $event, $participant, $choice)
     {
         $em = $this->getDoctrine()->getManager();
         $entity = $em->getRepository('KyelaBundle:Participation')->find($id);
@@ -79,7 +79,7 @@ class ParticipationController extends Controller
        	$em->persist($entity);
         $em->flush();
 
-    	return $this->redirect($this->generateUrl('index'));
+    	return $this->redirect($this->generateUrl('poll_show', ['pollUrl' => $pollUrl]));
     }
 
     /**
@@ -88,7 +88,7 @@ class ParticipationController extends Controller
      * @Route("/{id}/delete", name="participation_delete")
      * @Method("GET")
      */
-    public function deleteAction($id)
+    public function deleteAction($pollUrl, $id)
     {
         $em = $this->getDoctrine()->getManager();
         $entity = $em->getRepository('KyelaBundle:Participation')->find($id);
@@ -97,6 +97,6 @@ class ParticipationController extends Controller
         }
         $em->remove($entity);
         $em->flush();
-        return $this->redirect($this->generateUrl('index'));
+        return $this->redirect($this->generateUrl('poll_show', ['pollUrl' => $pollUrl]));
     }
 }

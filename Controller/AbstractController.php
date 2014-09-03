@@ -51,8 +51,13 @@ abstract class AbstractController extends Controller
         {
 	        $form->handleRequest($request);
 
+	        if ($entity instanceof Poll)
+	        {
+	        	$this->poll = $entity;
+	        }
+
 	        if ($form->get('actions')->get('cancel')->isClicked()) {
-	        	return $this->redirect($this->generateUrl($this->cancelRoute));
+	        	return $this->redirect($this->generateUrl($this->cancelRoute, ['pollUrl' => $this->poll->getUrl()]));
 	        }
 
 	        if ($form->isValid()) {
@@ -60,14 +65,15 @@ abstract class AbstractController extends Controller
 	            $em->persist($entity);
 	            $em->flush();
 
-	            return $this->redirect($this->generateUrl($this->successRoute));
+	            return $this->redirect($this->generateUrl($this->successRoute, ['pollUrl' => $this->poll->getUrl()]));
 	        }
         }
 
-        return array(
+        return [
+        	'poll'   => $this->poll,
             'entity' => $entity,
             'form'   => $form->createView(),
-        );
+        ];
     }
 
     /**
@@ -94,17 +100,18 @@ abstract class AbstractController extends Controller
 	        $editForm->handleRequest($request);
 
 	        if ($editForm->get('actions')->get('cancel')->isClicked()) {
-	        	return $this->redirect($this->generateUrl($this->cancelRoute));
+	        	return $this->redirect($this->generateUrl($this->cancelRoute, ['pollUrl' => $this->poll->getUrl()]));
 	        }
 
 	        if ($editForm->isValid()) {
 	            $em->flush();
 
-	            return $this->redirect($this->generateUrl($this->successRoute));
+	            return $this->redirect($this->generateUrl($this->successRoute, ['pollUrl' => $this->poll->getUrl()]));
 	        }
         }
 
         return array(
+        	'poll'        => $this->poll,
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -134,7 +141,7 @@ abstract class AbstractController extends Controller
             $em->remove($entity);
             $em->flush();
         }
-        return $this->redirect($this->generateUrl($this->successRoute));
+        return $this->redirect($this->generateUrl($this->successRoute, ['pollUrl' => $this->poll->getUrl()]));
     }
 
     /**
@@ -208,8 +215,17 @@ abstract class AbstractController extends Controller
      */
     public function setPollFromRequest(Request $request)
     {
+        $em = $this->getDoctrine()->getManager();
     	$pollUrl = $request->get('pollUrl');
-    	$this->poll = new Poll();
-    	$this->poll->setUrl($pollUrl);
+    	$polls = $em->getRepository('KyelaBundle:Poll')->findByUrl($pollUrl);
+    	if ($polls)
+    	{
+    		$this->poll = $em->getRepository('KyelaBundle:Poll')->findByUrl($pollUrl)[0];
+    	}
+    	else
+    	{
+    		$this->poll = new Poll();
+    		$this->poll->setUrl("-");
+    	}
     }
 }

@@ -36,8 +36,8 @@ use Abienvenu\KyelaBundle\Form\EventType;
 class EventController extends AbstractController
 {
 	protected $entityName = 'KyelaBundle:Event';
-	protected $cancelRoute = 'index';
-	protected $successRoute = 'index';
+	protected $cancelRoute = 'poll_show';
+	protected $successRoute = 'poll_show';
 	protected $deleteRoute = 'event_delete';
 	protected $createRoute = 'event_create';
 	protected $updateRoute = 'event_update';

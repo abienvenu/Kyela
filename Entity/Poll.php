@@ -29,7 +29,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table()
  * @ORM\Entity
  */
-class Poll
+class Poll extends Entity
 {
     /**
      * @var integer
