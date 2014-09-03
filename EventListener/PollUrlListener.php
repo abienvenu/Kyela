@@ -21,7 +21,7 @@
 
 namespace Abienvenu\KyelaBundle\EventListener;
 
-use Abienvenu\KyelaBundle\Controller\AbstractController;
+use Abienvenu\KyelaBundle\AbstractController;
 use Symfony\Component\HttpKernel\Event\FilterControllerEvent;
 
 class PollUrlListener

@@ -1,24 +1,4 @@
-kyela_poll:
-    resource: "@KyelaBundle/Controller/PollController.php"
-    type: annotation
-    prefix: /kyela
-
-kyela_participant:
-    resource: "@KyelaBundle/Controller/ParticipantController.php"
-    type: annotation
-    prefix: /kyela
-
-kyela_event:
-    resource: "@KyelaBundle/Controller/EventController.php"
-    type: annotation
-    prefix: /kyela
-
-kyela_choice:
-    resource: "@KyelaBundle/Controller/ChoiceController.php"
-    type: annotation
-    prefix: /kyela
-
-kyela_participation:
-    resource: "@KyelaBundle/Controller/ParticipationController.php"
+kyela:
+    resource: "@KyelaBundle/Controller"
     type: annotation
     prefix: /kyela

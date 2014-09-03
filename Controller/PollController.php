@@ -26,6 +26,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Abienvenu\KyelaBundle\AbstractController;
 use Abienvenu\KyelaBundle\Entity\Poll;
 use Abienvenu\KyelaBundle\Form\PollType;
 

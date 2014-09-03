@@ -19,7 +19,7 @@
  *
  */
 
-namespace Abienvenu\KyelaBundle\Controller;
+namespace Abienvenu\KyelaBundle;
 
 use Abienvenu\KyelaBundle\Entity\Entity;
 use Abienvenu\KyelaBundle\Entity\Poll;
