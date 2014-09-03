@@ -1,15 +1,14 @@
-{% extends '::base.html.twig' %}
+{% extends "KyelaBundle::layout.html.twig" %}
 
 {% block body -%}
-    <h1>Poll creation</h1>
+	<div class="jumbotron">
+		<div class="container">
+			<h1>{% trans %}new.poll{% endtrans %}</h1>
+		</div>
+	</div>
 
-    {{ form(form) }}
-
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('poll') }}">
-            Back to the list
-        </a>
-    </li>
+	<div class="container">
+		{{ form(form) }}
+	</div>
 </ul>
 {% endblock %}

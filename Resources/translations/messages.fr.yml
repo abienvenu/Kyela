@@ -15,11 +15,13 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with Kyela.  If not, see <http://www.gnu.org/licenses/>.
 
+add.a.poll: Créer un sondage
 participant: Participant
 add.a.participant: Ajouter un participant
 add.a.date: Proposer une date
 edit.options: Éditer les options
 add.an.option: Ajouter une option
+new.poll: Nouveau sondage
 new.participant: Nouveau participant
 new.event: Nouvelle date
 new.choice: Nouvelle option

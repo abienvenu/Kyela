@@ -30,10 +30,18 @@ use Symfony\Component\HttpFoundation\Request;
 class MainController extends Controller
 {
 	/**
-	 * @Route("/", name="index")
+	 * @Route("/", name="home")
 	 * @Template()
 	 */
 	public function indexAction(Request $request)
+	{
+	}
+
+	/**
+	 * @Route("/oldmain", name="index")
+	 * @Template()
+	 */
+	public function oldIndexAction(Request $request)
 	{
         $em = $this->getDoctrine()->getManager();
         $participants = $em->getRepository('KyelaBundle:Participant')->findAll();

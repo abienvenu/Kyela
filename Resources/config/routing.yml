@@ -3,6 +3,13 @@ kyela_main:
     type: annotation
     prefix: /kyela
 
+
+
+kyela_poll:
+    resource: "@KyelaBundle/Controller/PollController.php"
+    type: annotation
+    prefix: /kyela
+
 kyela_participant:
     resource: "@KyelaBundle/Controller/ParticipantController.php"
     type: annotation
