@@ -52,7 +52,6 @@ Add some rewritule to your apache configuration :
 TODO
 ----
 
-* Setup a licence (GPL ?)
 * Multi-poll
 * Edit choices : improve the look & feel, add a colorpicker
 * Edit Participant should let him edit his choices as well
