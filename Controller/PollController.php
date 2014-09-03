@@ -22,10 +22,11 @@
 namespace Abienvenu\KyelaBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use Abienvenu\KyelaBundle\AbstractController;
+use Abienvenu\KyelaBundle\Traits\ControllerTraits;
 use Abienvenu\KyelaBundle\Entity\Poll;
 use Abienvenu\KyelaBundle\Form\PollType;
 
@@ -34,8 +35,10 @@ use Abienvenu\KyelaBundle\Form\PollType;
  *
  * @Route("/")
  */
-class PollController extends AbstractController
+class PollController extends Controller
 {
+	use ControllerTraits;
+
 	protected $entityName = 'KyelaBundle:Poll';
 	protected $cancelRoute = 'poll_new';
 	protected $successRoute = 'poll_show';

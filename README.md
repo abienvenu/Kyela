@@ -52,7 +52,6 @@ Add some rewritule to your apache configuration :
 TODO
 ----
 
-* Use "Trait" for AbstractController ?
 * Fusionner newAction avec createAction dans les contrôleurs ? editAction avec updateAction ?
 * Ajouter getPoll() en abstract sur Entity.php ?
 * Dans AbstractController, override generateUrl pour lui rajouter la pollUrl ?

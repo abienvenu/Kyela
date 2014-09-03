@@ -19,7 +19,7 @@
  *
  */
 
-namespace Abienvenu\KyelaBundle;
+namespace Abienvenu\KyelaBundle\Traits;
 
 use Abienvenu\KyelaBundle\Entity\Entity;
 use Abienvenu\KyelaBundle\Entity\Poll;
@@ -27,7 +27,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\AbstractType;
 
-abstract class AbstractController extends Controller
+trait ControllerTraits
 {
 	protected $poll = null;
 
