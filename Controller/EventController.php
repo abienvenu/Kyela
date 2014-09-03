@@ -31,7 +31,7 @@ use Abienvenu\KyelaBundle\Form\EventType;
 /**
  * Event controller.
  *
- * @Route("/event")
+ * @Route("/{pollUrl}/event")
  */
 class EventController extends AbstractController
 {

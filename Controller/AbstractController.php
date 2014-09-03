@@ -22,12 +22,15 @@
 namespace Abienvenu\KyelaBundle\Controller;
 
 use Abienvenu\KyelaBundle\Entity\Entity;
+use Abienvenu\KyelaBundle\Entity\Poll;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\AbstractType;
 
 abstract class AbstractController extends Controller
 {
+	protected $poll = null;
+
 	abstract public function newAction();
 	abstract public function createAction(Request $request);
 	abstract public function editAction($id);
@@ -146,7 +149,7 @@ abstract class AbstractController extends Controller
     protected function doCreateCreateForm(AbstractType $formType, Entity $entity, $action)
     {
         $form = $this->createForm($formType, $entity, array(
-            'action' => $this->generateUrl($action),
+            'action' => $this->generateUrl($action, ['pollUrl' => $this->poll->getUrl()]),
             'method' => 'POST',
         ));
 
@@ -171,7 +174,7 @@ abstract class AbstractController extends Controller
     protected function doCreateEditForm(AbstractType $formType, Entity $entity, $action)
     {
         $form = $this->createForm($formType, $entity, array(
-            'action' => $this->generateUrl($action, array('id' => $entity->getId())),
+            'action' => $this->generateUrl($action, ['pollUrl' => $this->poll->getUrl(), 'id' => $entity->getId()]),
             'method' => 'PUT',
         ));
 
@@ -194,9 +197,19 @@ abstract class AbstractController extends Controller
     protected function createDeleteForm($id)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl($this->deleteRoute, array('id' => $id)))
+            ->setAction($this->generateUrl($this->deleteRoute, ['pollUrl' => $this->poll->getUrl(), 'id' => $id]))
             ->setMethod('DELETE')
             ->add('submit', 'submit', ['label' => 'delete', 'attr' => ['type' => 'danger']])
             ->getForm();
+    }
+
+    /**
+     * Set poll from Url
+     */
+    public function setPollFromRequest(Request $request)
+    {
+    	$pollUrl = $request->get('pollUrl');
+    	$this->poll = new Poll();
+    	$this->poll->setUrl($pollUrl);
     }
 }

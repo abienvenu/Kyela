@@ -31,7 +31,7 @@ use Abienvenu\KyelaBundle\Form\ParticipantType;
 /**
  * Participant controller.
  *
- * @Route("/participant")
+ * @Route("/{pollUrl}/participant")
  */
 class ParticipantController extends AbstractController
 {

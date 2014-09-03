@@ -31,7 +31,7 @@ use Abienvenu\KyelaBundle\Form\ChoiceType;
 /**
  * Choice controller.
  *
- * @Route("/choice")
+ * @Route("/{pollUrl}/choice")
  */
 class ChoiceController extends AbstractController
 {

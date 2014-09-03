@@ -4,6 +4,11 @@ services:
         tags:
             - { name: form.type, alias: form_actions }
 
+    abienvenu.kyela.action_listener:
+        class: Abienvenu\KyelaBundle\EventListener\PollUrlListener
+        tags:
+            - { name: kernel.event_listener, event: kernel.controller, method: onKernelController }
+
     twig.extension.intl:
         class: Twig_Extensions_Extension_Intl
         tags:
