@@ -1,8 +1,3 @@
-kyela_main:
-    resource: "@KyelaBundle/Controller/MainController.php"
-    type: annotation
-    prefix: /kyela
-
 kyela_poll:
     resource: "@KyelaBundle/Controller/PollController.php"
     type: annotation
