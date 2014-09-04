@@ -28,6 +28,7 @@ new Abienvenu\KyelaBundle\KyelaBundle(),
 ```YAML
 kyela:
     resource: "@KyelaBundle/Resources/config/routing.yml"
+    prefix: /kyela
 ```
 * Include the config from your app/config.config.yml :
 	- { resource: "@KyelaBundle/Resources/config/config.yml" }
@@ -53,10 +54,13 @@ TODO
 ----
 
 * Fusionner newAction avec createAction dans les contrôleurs ? editAction avec updateAction ?
+* Séparer le ControllerTrait en deux ou trois (create/new - edit/update - delete) ?
 * Ajouter getPoll() en abstract sur Entity.php ?
 * Dans AbstractController, override generateUrl pour lui rajouter la pollUrl ?
+* Homepage + FAQ
 * Multi-poll
-* Gestion des URLs forgées
+* Nice handling of bad (forged) URLs
+* Ability to switch language
 * Edit choices : improve the look & feel, add a colorpicker
 * Edit Participant should let him edit his choices as well
 * Avoid duplicate in routing.yml
@@ -73,6 +77,7 @@ TODO
 * Add unicity constraint for (event, participant, choice)
 * Ability to re-order choices
 * Ability to use a glyphicon for each choice
+* Comments/Forum
 
 BUGS
 ----
@@ -86,5 +91,6 @@ FUTURE FEATURES
 * Notification subscriptions
 * Syndication
 * Easy integration from remote websites
+* Aggregate/Anonymous mode, for events with lots of participants: the grid only displays total numbers, you can add yourself, then you get a personal link to modify/delete your participation
 
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/bca46a72-4438-47e7-b629-4b9926e802a6/big.png)](https://insight.sensiolabs.com/projects/bca46a72-4438-47e7-b629-4b9926e802a6)

@@ -1,4 +1,11 @@
-kyela:
+kyela_robots:
+    path: /robots.txt
+    defaults:
+        _controller: FrameworkBundle:Template:template
+        _format: txt
+        template: KyelaBundle:Static:robots.txt.twig
+
+kyela_application:
     resource: "@KyelaBundle/Controller"
     type: annotation
-    prefix: /kyela
+    prefix: /

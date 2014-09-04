@@ -26,6 +26,9 @@
         <title>Kyéla</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% block robots %}
+        	<meta name="robots" content="noindex, nofollow">
+        {% endblock %}
 
         {% stylesheets '@KyelaBundle/Resources/public/css/*' %}
         	<link rel="stylesheet" href="{{ asset_url }}" />
