@@ -1,4 +1,9 @@
-
 what.is.kyela:
     q: Qu'est-ce que Kyéla ?
-    a: Devine!
+    a: C'est une application web qui facilite l'organisation de réunions et regroupements de personnes.
+how.to.use.kyela:
+    q: Comment l'utiliser ?
+    a: Depuis la page d'accueil, l'initateur crée un évènement, et diffuse l'adresse (URL) de l'évènement aux participants potentiels. Ensuite, chacun peu proposer des dates, et chacun donne ses disponibilités sur les dates proposées. Ainsi se construit une grille permettent de voir toutes les disponibilités d'un seul coup d'oeil et de voir les meilleures options. Pour les organisateurs, c'est bien plus pratique qu'une accumulation d'emails, de coups de fil et de SMS.
+how.many.options:
+    q: Quels choix sont proposés à chaque participant ?
+    a: Seulement deux par défaut (oui/non), mais d'autres choix peuvent être ajoutés en cliquant sur le bouton "Éditer les options"

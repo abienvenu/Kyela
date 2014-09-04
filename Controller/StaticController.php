@@ -25,6 +25,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Component\Translation\Translator;
+use Symfony\Component\Translation\Loader\ArrayLoader;
+use Symfony\Component\Translation\MessageCatalogue;
+use Symfony\Component\Yaml\Yaml;
 
 /**
  * Static content controller.
@@ -33,6 +37,18 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
  */
 class StaticController extends Controller
 {
+	protected function loadTranslations($domain, $locale)
+	{
+    	$file   = __DIR__."/../Resources/translations/$domain.$locale.yml";
+    	$parsed = Yaml::parse(file_get_contents($file));
+    	$translations = [];
+    	foreach (array_keys($parsed) as $key)
+    	{
+    		$translations["$key.q"] = "$key.a";
+    	}
+    	return $translations;
+	}
+
     /**
      * Displays the FAQ
      *
@@ -42,9 +58,18 @@ class StaticController extends Controller
      */
     public function faqAction()
     {
-    	$faq = [
-    		"what.is.kyela.q" => "what.is.kyela.a",
-    	];
-    	return ["faq" => $faq];
+    	return ["faq" => $this->loadTranslations("faq", "fr")];
+    }
+
+    /**
+     * Displays the About page
+     *
+     * @Route("/about", name="about")
+     * @Method("GET")
+     * @Template()
+     */
+    public function aboutAction()
+    {
+    	return ["faq" => $this->loadTranslations("about", "fr")];
     }
 }

@@ -13,8 +13,7 @@ kyela_faq:
 kyela_about:
     path: /about
     defaults:
-        _controller: FrameworkBundle:Template:template
-        template: KyelaBundle:Static:about.html.twig
+        _controller: KyelaBundle:Static:about
 
 kyela_application:
     resource: "@KyelaBundle/Controller"
