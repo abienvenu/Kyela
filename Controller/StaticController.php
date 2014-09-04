@@ -25,9 +25,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use Symfony\Component\Translation\Translator;
-use Symfony\Component\Translation\Loader\ArrayLoader;
-use Symfony\Component\Translation\MessageCatalogue;
 use Symfony\Component\Yaml\Yaml;
 
 /**
@@ -39,7 +36,8 @@ class StaticController extends Controller
 {
 	protected function loadTranslations($domain, $locale)
 	{
-    	$file   = __DIR__."/../Resources/translations/$domain.$locale.yml";
+		$r = new \ReflectionClass($this);
+		$file   = dirname($r->getFilename())."/../Resources/translations/$domain.$locale.yml";
     	$parsed = Yaml::parse(file_get_contents($file));
     	$translations = [];
     	foreach (array_keys($parsed) as $key)
