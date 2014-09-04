@@ -53,6 +53,11 @@ class Choice extends Entity
     private $name;
 
     /**
+	 * @ORM\OneToMany(targetEntity="Participation", mappedBy="choice", cascade={"remove"})
+	 */
+	protected $participations;
+
+    /**
      * @var integer
      *
      * @ORM\Column(name="value", type="integer")

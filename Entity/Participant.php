@@ -43,7 +43,7 @@ class Participant extends Entity
 	protected $name;
 
 	/**
-	 * @ORM\OneToMany(targetEntity="Participation", mappedBy="participant")
+	 * @ORM\OneToMany(targetEntity="Participation", mappedBy="participant", cascade={"remove"})
 	 */
 	protected $participations;
 

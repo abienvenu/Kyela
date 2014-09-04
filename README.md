@@ -57,7 +57,6 @@ TODO
 * Séparer le ControllerTrait en deux ou trois (create/new - edit/update - delete) ?
 * Ajouter getPoll() en abstract sur Entity.php ?
 * Dans AbstractController, override generateUrl pour lui rajouter la pollUrl ?
-* Homepage + FAQ
 * Multi-poll
 * Nice handling of bad (forged) URLs
 * Ability to switch language
@@ -82,7 +81,6 @@ TODO
 BUGS
 ----
 
-* Deleting an event does not work if not empty
 * Clash if lowercase(url1) = lowercase(url2) ?
 
 FUTURE FEATURES

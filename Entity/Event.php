@@ -56,7 +56,7 @@ class Event extends Entity
     private $datetime;
 
 	/**
-	 * @ORM\OneToMany(targetEntity="Participation", mappedBy="event")
+	 * @ORM\OneToMany(targetEntity="Participation", mappedBy="event", cascade={"remove"})
 	 */
 	protected $participations;
 
