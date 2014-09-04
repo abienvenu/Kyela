@@ -1,0 +1,17 @@
+{% extends "KyelaBundle::layout.html.twig" %}
+
+{% block body -%}
+	<div class="jumbotron">
+		<div class="container">
+			<h1>{% trans %}faq{% endtrans %}</h1>
+		</div>
+	</div>
+
+	<div class="container">
+		{% trans_default_domain "faq" %}
+		{% for question, answer in faq %}
+		<h3>{{ question|trans }}</h3>
+		<p>{{ answer|trans }}</p>
+		{% endfor %}
+	</div>
+{% endblock %}

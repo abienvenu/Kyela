@@ -5,6 +5,17 @@ kyela_robots:
         _format: txt
         template: KyelaBundle:Static:robots.txt.twig
 
+kyela_faq:
+    path: /faq
+    defaults:
+        _controller: KyelaBundle:Static:faq
+
+kyela_about:
+    path: /about
+    defaults:
+        _controller: FrameworkBundle:Template:template
+        template: KyelaBundle:Static:about.html.twig
+
 kyela_application:
     resource: "@KyelaBundle/Controller"
     type: annotation
