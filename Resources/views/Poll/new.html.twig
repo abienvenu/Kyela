@@ -13,5 +13,7 @@
 
 	<div class="container">
 		{{ form(form) }}
+		<h3>{% trans %}demos{% endtrans %}</h3>
+		<p><a href="{{ path("poll_show", {'pollUrl': 'a1'}) }}">A1</a></p>
 	</div>
 {% endblock %}

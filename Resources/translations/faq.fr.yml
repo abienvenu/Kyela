@@ -3,7 +3,25 @@ what.is.kyela:
     a: C'est une application web qui facilite l'organisation de réunions et regroupements de personnes.
 how.to.use.kyela:
     q: Comment l'utiliser ?
-    a: Depuis la page d'accueil, l'initateur crée un évènement, et diffuse l'adresse (URL) de l'évènement aux participants potentiels. Ensuite, chacun peu proposer des dates, et chacun donne ses disponibilités sur les dates proposées. Ainsi se construit une grille permettent de voir toutes les disponibilités d'un seul coup d'oeil et de voir les meilleures options. Pour les organisateurs, c'est bien plus pratique qu'une accumulation d'emails, de coups de fil et de SMS.
+    a: Depuis la page d'accueil, l'initateur crée un sondage, et diffuse l'adresse (URL) du sondage aux participants potentiels. Ensuite, chacun peu proposer des dates, et chacun donne ses disponibilités sur les dates proposées. Ainsi se construit une grille permettent de voir toutes les disponibilités d'un seul coup d'oeil et de voir les meilleures options. Pour les organisateurs, c'est bien plus pratique qu'une accumulation d'emails, de coups de fil et de SMS.
+registration:
+    q: Y a-t-il besoin de s'enregistrer ?
+    a: Non.
+examples:
+    q: À quelles occasions cela peut-il servir ?
+    a: L'organisation de repas de famille, d'assemblées associatives, de rencontres sportives ou musicales, d'ateliers divers... Pour toutes ces occasions, les organisateurs veulent trouver la date qui convient à un maximum de personnes, et savoir combien de personnes viendront.
 how.many.options:
     q: Quels choix sont proposés à chaque participant ?
     a: Seulement deux par défaut (oui/non), mais d'autres choix peuvent être ajoutés en cliquant sur le bouton "Éditer les options"
+recurrent.events:
+    q: Et pour les évènements mutiples/récurrents ?
+    a: Un seul sondage suffit. Il faut proposer les prochaines dates possibles, et détruire celles qui sont éliminées ou passées. Mais il est plus pratique d'utiliser un même sondage tout au long de l'année, plutôt que de jongler avec plusieurs sondages.
+how.secure:
+    q: Comment un sondage est protégé ?
+    a: Seules les personnes disposant du lien peuvent accéder au sondage. Il n'y a pas d'annuaire ni de moteur de recherche.
+what.permissions:
+    q: Comment fonctionnent les permissions, les restrictions d'accès ?
+    a: Il n'y en a pas. Tout le monde peut tout faire sur le sondage.
+about.vandalism:
+    q: Mon sondage ne risque-t-il pas d'être vandalisé ?
+    a: Si des personnes veulent se rencontrer, c'est qu'elles souhaitent collaborer. Sinon, il vaut mieux qu'elles ne se rencontrent pas!
