@@ -62,10 +62,9 @@ TODO
 * Ability to switch language
 * Edit choices : improve the look & feel, add a colorpicker
 * Edit Participant should let him edit his choices as well
-* Avoid duplicate in routing.yml
-* i18n for fields in participant_edit
+* form l18n
 * Make CSRF work (it is disabled in my main config.yml)
-* Add confirmation before deleting a Participant
+* Add confirmation before deleting a Participant/Event/Choice
 * Functional test for Participation
 * Use a cool date/time widget
 * Create a default list of choices when creating a new poll
