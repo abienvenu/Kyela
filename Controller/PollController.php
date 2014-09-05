@@ -40,7 +40,7 @@ class PollController extends Controller
 	use ControllerTraits;
 
 	protected $entityName = 'KyelaBundle:Poll';
-	protected $cancelRoute = 'poll_new';
+	protected $cancelRoute = 'poll_show';
 	protected $successRoute = 'poll_show';
 	protected $deleteRoute = 'poll_delete';
 	protected $createRoute = 'poll_create';
@@ -103,7 +103,7 @@ class PollController extends Controller
      */
     public function editAction($pollUrl)
     {
-    	return $this->doEditOrUpdateAction(new PollType(), $id);
+    	return $this->doEditOrUpdateAction(new PollType(), $this->poll->getId());
     }
 
     /**
@@ -115,7 +115,7 @@ class PollController extends Controller
      */
     public function updateAction(Request $request, $pollUrl)
     {
-    	return $this->doEditOrUpdateAction(new PollType(), $id, $request);
+    	return $this->doEditOrUpdateAction(new PollType(), $this->poll->getId(), $request);
     }
 
     /**
@@ -126,6 +126,6 @@ class PollController extends Controller
      */
     public function deleteAction(Request $request, $pollUrl)
     {
-    	return $this->doDeleteAction($request, $id);
+    	return $this->doDeleteAction($request, $this->poll->getId());
     }
 }
