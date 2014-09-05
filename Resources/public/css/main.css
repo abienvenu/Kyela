@@ -34,3 +34,6 @@ html, body {
 #forkongithub a::after {
 	bottom:1px;top:auto;
 }
+
+.btn-lg { margin-bottom: 5px; }
+th { background: #e0f0ff; }

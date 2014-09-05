@@ -49,6 +49,13 @@ class Event extends Entity
     private $name;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="place", type="string", length=255)
+     */
+    private $place;
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="datetime", type="datetime")
@@ -193,10 +200,33 @@ class Event extends Entity
     /**
      * Get poll
      *
-     * @return \Abienvenu\KyelaBundle\Entity\Poll 
+     * @return \Abienvenu\KyelaBundle\Entity\Poll
      */
     public function getPoll()
     {
         return $this->poll;
+    }
+
+    /**
+     * Set place
+     *
+     * @param string $place
+     * @return Event
+     */
+    public function setPlace($place)
+    {
+        $this->place = $place;
+
+        return $this;
+    }
+
+    /**
+     * Get place
+     *
+     * @return string 
+     */
+    public function getPlace()
+    {
+        return $this->place;
     }
 }

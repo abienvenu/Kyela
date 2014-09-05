@@ -35,6 +35,7 @@ class EventType extends AbstractType
     {
         $builder
             ->add('name')
+            ->add('place')
             ->add('datetime')
         ;
     }

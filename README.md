@@ -20,6 +20,8 @@ Server Installation
 If you want to run Kyela on your server :
 
 * Install Symfony 2.5
+* Download the bundle :
+    git clone https://github.com/abienvenu/Kyela.git
 * Add the bundle in your AppKernel.php :
 ```php
 new Abienvenu\KyelaBundle\KyelaBundle(),
@@ -31,6 +33,7 @@ kyela:
     prefix: /kyela
 ```
 * Include the config from your app/config.config.yml :
+    imports:
 	- { resource: "@KyelaBundle/Resources/config/config.yml" }
 
 * Add Kyela to the bundles handled by assetic in app/config/config.yml :
@@ -59,10 +62,8 @@ For further customisation, you have to edit the code. Because of the licence (Af
 
 TODO
 ----
-* Add event.place
 * Hide URL when creating a poll, generate a random one, let it editable only
 * Fusionner newAction avec createAction dans les contrôleurs ? editAction avec updateAction ?
-* Séparer le ControllerTrait en deux ou trois (create/new - edit/update - delete) ?
 * Ajouter getPoll() en abstract sur Entity.php ?
 * Dans AbstractController, override generateUrl pour lui rajouter la pollUrl ?
 * Nice handling of bad (forged) URLs
@@ -78,6 +79,7 @@ TODO
 * Sort dates
 * Archive old dates
 * Access to old dates
+* Add instructions how to download the product via composer
 * For a Poll, customize "Total" color cell at certain levels
 * Add unicity constraint for (event, participant, choice)
 * Ability to re-order choices
