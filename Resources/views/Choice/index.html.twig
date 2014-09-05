@@ -18,13 +18,13 @@
             </tr>
         </thead>
         <tbody>
-        {% for entity in entities %}
+        {% for choice in poll.choices %}
             <tr>
-                <td>{{ entity.name }}</td>
-                <td>{{ entity.value }}</td>
-                <td style="background-color: {{ entity.color }}">{{ entity.color }}</td>
+                <td>{{ choice.name }}</td>
+                <td>{{ choice.value }}</td>
+                <td style="background-color: {{ choice.color }}">{{ choice.color }}</td>
                 <td>
-                	<a class="btn btn-warning" role="button" href="{{ path('choice_edit', { 'pollUrl': poll.url, 'id': entity.id }) }}">
+                	<a class="btn btn-warning" role="button" href="{{ path('choice_edit', { 'pollUrl': poll.url, 'id': choice.id }) }}">
                 		<span class="glyphicon glyphicon-edit"></span>
                 		{% trans %}edit{% endtrans %}
                 	</a>

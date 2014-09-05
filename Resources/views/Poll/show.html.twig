@@ -25,7 +25,7 @@
 {% block body %}
 
 <ul class="list-group">
-{% for event in events %}
+{% for event in poll.events %}
 	<li class="list-group-item">
 		<a href="{{ path('event_edit', {'pollUrl': poll.url, 'id': event.id}) }}">
 			<span class="glyphicon glyphicon-edit"></span>
@@ -41,7 +41,7 @@
 		<thead>
 			<tr>
 				<th>{% trans %}participant{% endtrans %}</th>
-				{% for event in events %}
+				{% for event in poll.events %}
 					<th data-cell-key="{{ event.id }}">
 						{{ event.datetime|localizeddate('medium', 'none', app.request.locale, null, "d MMM h'h'mm") }}
 					</th>
@@ -49,7 +49,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			{% for participant in participants %}
+			{% for participant in poll.participants %}
 			<tr>
 				<td data-cell-key="{{ participant.id }}">
 					<a class="btn btn-info" role="button" href="{{ path('participant_edit', {'pollUrl': poll.url, 'id': participant.id}) }}">
@@ -57,7 +57,7 @@
 						{{ participant.name }}
 					</a>
 				</td>
-				{% for event in events %}
+				{% for event in poll.events %}
 					{% set accessKey = event.id ~ '-' ~ participant.id %}
 					<td>
 						<div class="btn-group">
@@ -66,7 +66,7 @@
 								<span class="caret"></span>
 							</button>
 							<ul class="dropdown-menu" role="menu">
-								{%  for choice in choices %}
+								{%  for choice in poll.choices %}
 									<li style="background-color: {{ choice.color }}">
 										{% set parameters = {'pollUrl': poll.url, 'event': event.id, 'participant': participant.id, 'choice': choice.id} %}
 										{% if attribute(participations, accessKey) is defined %}
@@ -95,7 +95,7 @@
 		<tfoot>
 			<tr>
 				<th>Total</th>
-				{% for event in events %}
+				{% for event in poll.events %}
 					<th>
 						{{ event.participationsscore }}
 					</th>

@@ -55,14 +55,9 @@ class ChoiceController extends Controller
      */
     public function indexAction()
     {
-        $em = $this->getDoctrine()->getManager();
-
-        $entities = $em->getRepository($this->entityName)->findAll();
-
-        return array(
+        return [
         	'poll'     => $this->poll,
-            'entities' => $entities,
-        );
+        ];
     }
 
     /**

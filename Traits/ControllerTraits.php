@@ -54,6 +54,10 @@ trait ControllerTraits
 	        {
 	        	$this->poll = $entity;
 	        }
+	        else
+	        {
+	        	$entity->setPoll($this->poll);
+	        }
 
 	        if ($form->get('actions')->get('cancel')->isClicked()) {
 	        	return $this->redirect($this->generateUrl($this->cancelRoute, ['pollUrl' => $this->poll->getUrl()]));

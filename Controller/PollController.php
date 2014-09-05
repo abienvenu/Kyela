@@ -80,9 +80,6 @@ class PollController extends Controller
     public function showAction($pollUrl)
     {
         $em = $this->getDoctrine()->getManager();
-        $participants = $em->getRepository('KyelaBundle:Participant')->findAll();
-        $events = $em->getRepository('KyelaBundle:Event')->findAll();
-        $choices = $em->getRepository('KyelaBundle:Choice')->findAll();
         $participations = $em->getRepository('KyelaBundle:Participation')->findAll();
         $participationsArray = [];
         foreach ($participations as $participation)
@@ -92,9 +89,6 @@ class PollController extends Controller
         }
         return [
         	'poll' => $this->poll,
-        	'participants' => $participants,
-        	'events' => $events,
-        	'choices' => $choices,
         	'participations' => $participationsArray,
 		];
     }
