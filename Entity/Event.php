@@ -176,4 +176,27 @@ class Event extends Entity
     	}
     	return $score;
     }
+
+    /**
+     * Set poll
+     *
+     * @param \Abienvenu\KyelaBundle\Entity\Poll $poll
+     * @return Event
+     */
+    public function setPoll(\Abienvenu\KyelaBundle\Entity\Poll $poll = null)
+    {
+        $this->poll = $poll;
+
+        return $this;
+    }
+
+    /**
+     * Get poll
+     *
+     * @return \Abienvenu\KyelaBundle\Entity\Poll 
+     */
+    public function getPoll()
+    {
+        return $this->poll;
+    }
 }

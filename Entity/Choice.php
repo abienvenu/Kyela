@@ -154,4 +154,67 @@ class Choice extends Entity
     {
         return $this->color;
     }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->participations = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add participations
+     *
+     * @param \Abienvenu\KyelaBundle\Entity\Participation $participations
+     * @return Choice
+     */
+    public function addParticipation(\Abienvenu\KyelaBundle\Entity\Participation $participations)
+    {
+        $this->participations[] = $participations;
+
+        return $this;
+    }
+
+    /**
+     * Remove participations
+     *
+     * @param \Abienvenu\KyelaBundle\Entity\Participation $participations
+     */
+    public function removeParticipation(\Abienvenu\KyelaBundle\Entity\Participation $participations)
+    {
+        $this->participations->removeElement($participations);
+    }
+
+    /**
+     * Get participations
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getParticipations()
+    {
+        return $this->participations;
+    }
+
+    /**
+     * Set poll
+     *
+     * @param \Abienvenu\KyelaBundle\Entity\Poll $poll
+     * @return Choice
+     */
+    public function setPoll(\Abienvenu\KyelaBundle\Entity\Poll $poll = null)
+    {
+        $this->poll = $poll;
+
+        return $this;
+    }
+
+    /**
+     * Get poll
+     *
+     * @return \Abienvenu\KyelaBundle\Entity\Poll 
+     */
+    public function getPoll()
+    {
+        return $this->poll;
+    }
 }

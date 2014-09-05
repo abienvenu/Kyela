@@ -124,4 +124,112 @@ class Poll extends Entity
     {
         return $this->title;
     }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->participants = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->events = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->choices = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add participants
+     *
+     * @param \Abienvenu\KyelaBundle\Entity\Participant $participants
+     * @return Poll
+     */
+    public function addParticipant(\Abienvenu\KyelaBundle\Entity\Participant $participants)
+    {
+        $this->participants[] = $participants;
+
+        return $this;
+    }
+
+    /**
+     * Remove participants
+     *
+     * @param \Abienvenu\KyelaBundle\Entity\Participant $participants
+     */
+    public function removeParticipant(\Abienvenu\KyelaBundle\Entity\Participant $participants)
+    {
+        $this->participants->removeElement($participants);
+    }
+
+    /**
+     * Get participants
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getParticipants()
+    {
+        return $this->participants;
+    }
+
+    /**
+     * Add events
+     *
+     * @param \Abienvenu\KyelaBundle\Entity\Event $events
+     * @return Poll
+     */
+    public function addEvent(\Abienvenu\KyelaBundle\Entity\Event $events)
+    {
+        $this->events[] = $events;
+
+        return $this;
+    }
+
+    /**
+     * Remove events
+     *
+     * @param \Abienvenu\KyelaBundle\Entity\Event $events
+     */
+    public function removeEvent(\Abienvenu\KyelaBundle\Entity\Event $events)
+    {
+        $this->events->removeElement($events);
+    }
+
+    /**
+     * Get events
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getEvents()
+    {
+        return $this->events;
+    }
+
+    /**
+     * Add choices
+     *
+     * @param \Abienvenu\KyelaBundle\Entity\Choice $choices
+     * @return Poll
+     */
+    public function addChoice(\Abienvenu\KyelaBundle\Entity\Choice $choices)
+    {
+        $this->choices[] = $choices;
+
+        return $this;
+    }
+
+    /**
+     * Remove choices
+     *
+     * @param \Abienvenu\KyelaBundle\Entity\Choice $choices
+     */
+    public function removeChoice(\Abienvenu\KyelaBundle\Entity\Choice $choices)
+    {
+        $this->choices->removeElement($choices);
+    }
+
+    /**
+     * Get choices
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getChoices()
+    {
+        return $this->choices;
+    }
 }

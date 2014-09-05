@@ -127,4 +127,27 @@ class Participant extends Entity
     {
         return $this->participations;
     }
+
+    /**
+     * Set poll
+     *
+     * @param \Abienvenu\KyelaBundle\Entity\Poll $poll
+     * @return Participant
+     */
+    public function setPoll(\Abienvenu\KyelaBundle\Entity\Poll $poll = null)
+    {
+        $this->poll = $poll;
+
+        return $this;
+    }
+
+    /**
+     * Get poll
+     *
+     * @return \Abienvenu\KyelaBundle\Entity\Poll 
+     */
+    public function getPoll()
+    {
+        return $this->poll;
+    }
 }
