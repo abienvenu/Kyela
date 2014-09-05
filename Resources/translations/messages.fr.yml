@@ -15,6 +15,9 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with Kyela.  If not, see <http://www.gnu.org/licenses/>.
 
+meta.description: Kyela - Planifiez des réunions - Créer des sondages, proposer des évènements, donnez les disponibilités, choisissez une date, gratuit
+bottom.line: Planifiez vos réunions
+main.title: Organisez un rendez-vous
 add.a.poll: Créer un sondage
 participant: Participant
 add.a.participant: Ajouter un participant
@@ -40,4 +43,5 @@ faq: FAQ
 faq.full: Questions / Réponses
 about: À propos
 about.kyela: À propos de Kyéla
-demos: Exemples
+example: Exemple
+next.training: Prochaines répétitions

@@ -18,6 +18,10 @@
 #}
 {% extends "KyelaBundle::layout.html.twig" %}
 
+{% block robots %}
+	<meta name="robots" content="{{ poll.url == 'exemple' ? 'index' : 'noindex' }}, nofollow">
+{% endblock %}
+
 {% block body %}
 
 <ul class="list-group">

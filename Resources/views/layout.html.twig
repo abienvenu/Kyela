@@ -23,11 +23,13 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Kyéla</title>
-        <meta name="description" content="">
+        <title>Kyéla - {{ poll is defined and poll.title ? poll.title : 'bottom.line'|trans }}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <meta name="description" content="{% trans %}meta.description{% endtrans %}">
+	    <meta name="copyright" content="Arnaud Bienvenu, France">
+	    <meta name="application-name" content="Kyela">
         {% block robots %}
-        	<meta name="robots" content="noindex, nofollow">
+	        <meta name="robots" content="noindex, nofollow">
         {% endblock %}
 
         {% stylesheets '@KyelaBundle/Resources/public/css/*' %}
@@ -75,14 +77,13 @@
 	      </div>
 	    </div>
 
-
 	    <div class="container">
 	   		{% block body %}{% endblock %}
 	    </div>
     </div>
     <div id="footer">
     	<p>
-    		&copy; Arnaud Bienvenu 2014 -
+    		&copy; Arnaud Bienvenu 2014 - v0.0.1 -
     		Icons by <a href="http://glyphicons.com/">GLYPHICONS.com</a> -
     		<span id="forkongithub"><a href="https://github.com/abienvenu/Kyela">Fork me on GitHub</a></span> -
     		<a href="https://insight.sensiolabs.com/projects/bca46a72-4438-47e7-b629-4b9926e802a6"><img src="https://insight.sensiolabs.com/projects/bca46a72-4438-47e7-b629-4b9926e802a6/small.png" alt="SensioLabsInsight Medal" /></a>

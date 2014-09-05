@@ -37,13 +37,17 @@ class StaticController extends Controller
 	protected function loadTranslations($domain, $locale)
 	{
 		$r = new \ReflectionClass($this);
-		$file   = dirname($r->getFilename())."/../Resources/translations/$domain.$locale.yml";
-    	$parsed = Yaml::parse(file_get_contents($file));
-    	$translations = [];
-    	foreach (array_keys($parsed) as $key)
-    	{
-    		$translations["$key.q"] = "$key.a";
-    	}
+		$dirName = dirname($r->getFilename());
+		$translations = [];
+		foreach (["$domain.$locale.yml", "$domain-me.$locale.yml"] as $fileName)
+		{
+			$fullFileName = "$dirName/../Resources/translations/$fileName";
+			if (file_exists($fullFileName))
+			{
+				$parsed = Yaml::parse(file_get_contents($fullFileName));
+			}
+			$translations += $parsed;
+		}
     	return $translations;
 	}
 
@@ -68,6 +72,6 @@ class StaticController extends Controller
      */
     public function aboutAction()
     {
-    	return ["faq" => $this->loadTranslations("about", "fr")];
+    	return ["about" => $this->loadTranslations("about", "fr")];
     }
 }

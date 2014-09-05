@@ -8,10 +8,10 @@
 	</div>
 
 	<div class="container">
-		{% trans_default_domain "faq" %}
-		{% for question, answer in faq %}
-		<h3>{{ question|trans }}</h3>
-		<p>{{ answer|trans }}</p>
+		{% for question_answer in faq %}
+			<h3>{{ question_answer.q }}</h3>
+			<p>{{ question_answer.a }}</p>
 		{% endfor %}
+		<hr />
 	</div>
 {% endblock %}

@@ -52,7 +52,8 @@ Add some rewritule to your apache configuration :
 
 TODO
 ----
-
+* Add event.place
+* Hide URL when creating a poll, generate a random one, let it editable only
 * Fusionner newAction avec createAction dans les contrôleurs ? editAction avec updateAction ?
 * Séparer le ControllerTrait en deux ou trois (create/new - edit/update - delete) ?
 * Ajouter getPoll() en abstract sur Entity.php ?
@@ -81,6 +82,7 @@ BUGS
 ----
 
 * Clash if lowercase(url1) = lowercase(url2) ?
+* When you click "FAQ" or "About" from a poll, the menu won't link back to the poll
 
 FUTURE FEATURES
 ---------------
@@ -89,5 +91,7 @@ FUTURE FEATURES
 * Syndication
 * Easy integration from remote websites
 * Aggregate/Anonymous mode, for events with lots of participants: the grid only displays total numbers, you can add yourself, then you get a personal link to modify/delete your participation
+* Integration with personal agendas ?
+* Make a logo, a favicon
 
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/bca46a72-4438-47e7-b629-4b9926e802a6/big.png)](https://insight.sensiolabs.com/projects/bca46a72-4438-47e7-b629-4b9926e802a6)

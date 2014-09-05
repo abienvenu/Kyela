@@ -9,19 +9,22 @@ registration:
     a: Non.
 examples:
     q: À quelles occasions cela peut-il servir ?
-    a: L'organisation de repas de famille, d'assemblées associatives, de rencontres sportives ou musicales, d'ateliers divers... Pour toutes ces occasions, les organisateurs veulent trouver la date qui convient à un maximum de personnes, et savoir combien de personnes viendront.
+    a: L'organisation de repas, d'assemblées associatives, de rencontres sportives ou musicales, d'ateliers divers... Pour toutes ces occasions, les organisateurs veulent trouver la date qui convient à un maximum de personnes, et savoir combien de personnes viendront.
 how.many.options:
     q: Quels choix sont proposés à chaque participant ?
     a: Seulement deux par défaut (oui/non), mais d'autres choix peuvent être ajoutés en cliquant sur le bouton "Éditer les options"
 recurrent.events:
     q: Et pour les évènements mutiples/récurrents ?
-    a: Un seul sondage suffit. Il faut proposer les prochaines dates possibles, et détruire celles qui sont éliminées ou passées. Mais il est plus pratique d'utiliser un même sondage tout au long de l'année, plutôt que de jongler avec plusieurs sondages.
+    a: Un seul sondage suffit. Il faut proposer les prochaines dates possibles, et détruire celles qui sont éliminées ou passées. Il est plus pratique d'utiliser un même sondage tout au long de l'année, plutôt que de jongler avec plusieurs sondages.
+short.url:
+    q: L'adresse web de mon sondage est trop longue, puis-je en avoir une facile à retenir ?
+    a: Oui, il suffit d'éditer votre sondage, et de changer l'URL. Attention, si votre URL est trop facile à deviner, des personnes qui n'ont pas été invitées peuvent trouver votre sondage. Et n'oubliez pas de prévenir les participants que l'adresse du sondage a changé.
 how.secure:
     q: Comment un sondage est protégé ?
-    a: Seules les personnes disposant du lien peuvent accéder au sondage. Il n'y a pas d'annuaire ni de moteur de recherche.
+    a: Seules les personnes disposant du lien peuvent accéder au sondage. Il n'y a pas d'index, et aucun moteur de recherche ne référence les sondages. Veillez à diffuser le lien uniquement aux personnes concernées.
 what.permissions:
     q: Comment fonctionnent les permissions, les restrictions d'accès ?
-    a: Il n'y en a pas. Tout le monde peut tout faire sur le sondage.
+    a: Il n'y en a pas. Tout le monde peut tout faire sur le sondage. C'est plus simple pour tout le monde.
 about.vandalism:
     q: Mon sondage ne risque-t-il pas d'être vandalisé ?
     a: Si des personnes veulent se rencontrer, c'est qu'elles souhaitent collaborer. Sinon, il vaut mieux qu'elles ne se rencontrent pas!

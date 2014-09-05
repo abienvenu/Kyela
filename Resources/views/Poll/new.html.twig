@@ -7,13 +7,14 @@
 {% block body -%}
 	<div class="jumbotron">
 		<div class="container">
-			<h1>{% trans %}new.poll{% endtrans %}</h1>
+			<h1>{% trans %}main.title{% endtrans %}</h1>
 		</div>
 	</div>
 
 	<div class="container">
+		<h2>{% trans %}new.poll{% endtrans %}</h2>
 		{{ form(form) }}
-		<h3>{% trans %}demos{% endtrans %}</h3>
-		<p><a href="{{ path("poll_show", {'pollUrl': 'a1'}) }}">A1</a></p>
+		<h3>{% trans %}example{% endtrans %}</h3>
+		<p><a href="{{ path("poll_show", {'pollUrl': 'exemple'}) }}">{% trans %}next.training{% endtrans %}</a></p>
 	</div>
 {% endblock %}
