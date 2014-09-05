@@ -51,7 +51,7 @@ class Participation extends Entity
     private $event;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Choice")
+     * @ORM\ManyToOne(targetEntity="Choice", inversedBy="participations")
      */
     private $choice;
 

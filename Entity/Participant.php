@@ -35,17 +35,22 @@ class Participant extends Entity
 	 * @ORM\Column(type="integer")
 	 * @ORM\GeneratedValue(strategy="AUTO")
 	 */
-	protected $id;
+	private $id;
 
 	/**
 	 * @ORM\Column(type="string", length=100)
 	 */
-	protected $name;
+	private $name;
 
 	/**
 	 * @ORM\OneToMany(targetEntity="Participation", mappedBy="participant", cascade={"remove"})
 	 */
-	protected $participations;
+	private $participations;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Poll", inversedBy="participants")
+     */
+    private $poll;
 
 	public function __construct()
 	{

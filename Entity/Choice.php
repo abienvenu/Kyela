@@ -53,11 +53,6 @@ class Choice extends Entity
     private $name;
 
     /**
-	 * @ORM\OneToMany(targetEntity="Participation", mappedBy="choice", cascade={"remove"})
-	 */
-	protected $participations;
-
-    /**
      * @var integer
      *
      * @ORM\Column(name="value", type="integer")
@@ -71,6 +66,15 @@ class Choice extends Entity
      */
     private $color;
 
+    /**
+	 * @ORM\OneToMany(targetEntity="Participation", mappedBy="choice", cascade={"remove"})
+	 */
+	private $participations;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Poll", inversedBy="choices")
+     */
+    private $poll;
 
     /**
      * Get id

@@ -58,7 +58,12 @@ class Event extends Entity
 	/**
 	 * @ORM\OneToMany(targetEntity="Participation", mappedBy="event", cascade={"remove"})
 	 */
-	protected $participations;
+	private $participations;
+
+	/**
+     * @ORM\ManyToOne(targetEntity="Poll", inversedBy="events")
+     */
+    private $poll;
 
 	public function __construct()
 	{

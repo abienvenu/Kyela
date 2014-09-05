@@ -54,8 +54,22 @@ class Poll extends Entity
      */
     private $title;
 
+	/**
+	 * @ORM\OneToMany(targetEntity="Participant", mappedBy="poll", cascade={"remove"})
+	 */
+	private $participants;
 
-    /**
+	/**
+	 * @ORM\OneToMany(targetEntity="Event", mappedBy="poll", cascade={"remove"})
+	 */
+	private $events;
+
+	/**
+	 * @ORM\OneToMany(targetEntity="Choice", mappedBy="poll", cascade={"remove"})
+	 */
+	private $choices;
+
+	/**
      * Get id
      *
      * @return integer

@@ -50,15 +50,22 @@ Add some rewritule to your apache configuration :
     RewriteEngine On
     RewriteRule ^/kyela/web/app_dev.php/fonts/(.*) /kyela/web/bundles/kyela/fonts/$1 [L]
 
+Customisation
+-------------
+
+You can create a file in Resources/translations called "faq-me.en.html" or "about-me.en.html" to add questions/answers to the FAQ or About page.
+
+For further customisation, you have to edit the code. Because of the licence (Affero GPL), you must publish the modified code as soon as your project is online.
+
 TODO
 ----
+* Multi-poll
 * Add event.place
 * Hide URL when creating a poll, generate a random one, let it editable only
 * Fusionner newAction avec createAction dans les contrôleurs ? editAction avec updateAction ?
 * Séparer le ControllerTrait en deux ou trois (create/new - edit/update - delete) ?
 * Ajouter getPoll() en abstract sur Entity.php ?
 * Dans AbstractController, override generateUrl pour lui rajouter la pollUrl ?
-* Multi-poll
 * Nice handling of bad (forged) URLs
 * Ability to switch language
 * Edit choices : improve the look & feel, add a colorpicker
