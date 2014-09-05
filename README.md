@@ -59,8 +59,7 @@ For further customisation, you have to edit the code. Because of the licence (Af
 
 TODO
 ----
-* Multi-poll
-* Poll editition
+* Poll edition
 * Add event.place
 * Hide URL when creating a poll, generate a random one, let it editable only
 * Fusionner newAction avec createAction dans les contrôleurs ? editAction avec updateAction ?

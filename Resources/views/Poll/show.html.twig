@@ -105,7 +105,7 @@
 	</table>
 </div>
 
-<p>
+<div class="text-center">
 	<a class="btn btn-primary btn-lg" role="button" href="{{ path('participant_new', {'pollUrl': poll.url}) }}">
 		<span class="glyphicon glyphicon-user"></span>
 		{% trans %}add.a.participant{% endtrans %}
@@ -118,6 +118,10 @@
 		<span class="glyphicon glyphicon-edit"></span>
 		{% trans %}edit.options{% endtrans %}
 	</a>
-</p>
+	<a class="btn btn-danger btn-lg" role="button" href="{{ path('poll_edit', {'pollUrl': poll.url}) }}">
+		<span class="glyphicon glyphicon-edit"></span>
+		{% trans %}edit.poll{% endtrans %}
+	</a>
+</div>
 
 {% endblock %}

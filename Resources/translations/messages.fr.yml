@@ -23,6 +23,7 @@ participant: Participant
 add.a.participant: Ajouter un participant
 add.a.date: Proposer une date
 edit.options: Éditer les options
+edit.poll: Modifier le sondage
 add.an.option: Ajouter une option
 new.poll: Nouveau sondage
 new.participant: Nouveau participant

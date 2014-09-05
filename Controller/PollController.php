@@ -79,14 +79,15 @@ class PollController extends Controller
      */
     public function showAction($pollUrl)
     {
-        $em = $this->getDoctrine()->getManager();
-        $participations = $em->getRepository('KyelaBundle:Participation')->findAll();
-        $participationsArray = [];
-        foreach ($participations as $participation)
-        {
-        	$accessKey = "{$participation->getEvent()->getId()}-{$participation->getParticipant()->getId()}";
-        	$participationsArray[$accessKey] = $participation;
-        }
+    	$participationsArray = [];
+    	foreach ($this->poll->getEvents() as $event)
+    	{
+    		foreach ($event->getParticipations() as $participation)
+    		{
+    			$accessKey = "{$event->getId()}-{$participation->getParticipant()->getId()}";
+    			$participationsArray[$accessKey] = $participation;
+    		}
+    	}
         return [
         	'poll' => $this->poll,
         	'participations' => $participationsArray,
