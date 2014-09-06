@@ -55,3 +55,6 @@ th { background: #e0f0ff; }
 .choice-purple:hover,.choice-purple:focus { background-color:#8080f0; color: #ffffff; }
 .choice-gray { background: #b0b0b0; color: #ffffff; }
 .choice-gray:hover,.choice-gray:focus { background-color:#909090; color: #ffffff; }
+
+a.symfony { background: #000000; color: #ffffff; font-size: 10px; padding: 1px 4px 1px 4px; font-style: italic; font-family: "Trebuchet MS", Helvetica, sans-serif; }
+a.symfony:hover { color: #ffffff; }
