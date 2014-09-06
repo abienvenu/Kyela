@@ -23,7 +23,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Kyéla - {{ poll is defined and poll.title ? poll.title : 'bottom.line'|trans }}</title>
+        <title>Kyéla - {{ poll is defined and poll and poll.title ? poll.title : 'bottom.line'|trans }}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
 	    <meta name="description" content="{% trans %}meta.description{% endtrans %}">
 	    <meta name="copyright" content="Arnaud Bienvenu, France">
@@ -63,7 +63,7 @@
 	        </div>
 		    <div class="collapse navbar-collapse">
 		    	<ul class="nav navbar-nav">
-		    		{% if poll is defined and poll.title %}
+		    		{% if poll is defined and poll and poll.title %}
 		    			<li><a href="{{ path('poll_show', {'pollUrl': poll.url}) }}">{{ poll.title }}</a>
 		    		{% endif %}
 		    		<li><a href="{{ path('faq') }}">{% trans %}faq{% endtrans %}</a></li>

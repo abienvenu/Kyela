@@ -123,6 +123,30 @@ class Event extends Entity
     }
 
     /**
+     * Set place
+     *
+     * @param string $place
+     * @return Event
+     */
+    public function setPlace($place)
+    {
+        $this->place = $place;
+
+        return $this;
+    }
+
+    /**
+     * Get place
+     *
+     * @return string
+     */
+    public function getPlace()
+    {
+        return $this->place;
+    }
+
+
+    /**
      * Add participations
      *
      * @param \Abienvenu\KyelaBundle\Entity\Participation $participations
@@ -189,29 +213,6 @@ class Event extends Entity
     public function getPoll()
     {
         return $this->poll;
-    }
-
-    /**
-     * Set place
-     *
-     * @param string $place
-     * @return Event
-     */
-    public function setPlace($place)
-    {
-        $this->place = $place;
-
-        return $this;
-    }
-
-    /**
-     * Get place
-     *
-     * @return string
-     */
-    public function getPlace()
-    {
-        return $this->place;
     }
 
     /**

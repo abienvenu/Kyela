@@ -59,7 +59,7 @@ trait ControllerTraits
 	        	$entity->setPoll($this->poll);
 	        }
 
-	        if ($form->get('actions')->get('cancel')->isClicked()) {
+	        if ($form->get('actions')->has('cancel') && $form->get('actions')->get('cancel')->isClicked()) {
 	        	return $this->redirect($this->generateUrl($this->cancelRoute, ['pollUrl' => $this->poll->getUrl()]));
 	        }
 
@@ -159,16 +159,20 @@ trait ControllerTraits
     protected function doCreateCreateForm(AbstractType $formType, Entity $entity, $action)
     {
         $form = $this->createForm($formType, $entity, array(
-            'action' => $this->generateUrl($action, ['pollUrl' => $this->poll->getUrl()]),
+            'action' => $this->generateUrl($action, ['pollUrl' => $this->poll ? $this->poll->getUrl() : ""]),
             'method' => 'POST',
         ));
 
-        $form->add('actions', 'form_actions', [
+        $options = [
         	'buttons' => [
         		'save' => ['type' => 'submit', 'options' => ['label' => 'create']],
-        		'cancel' => ['type' => 'submit', 'options' => ['label' => 'cancel', 'attr' => ['type' => 'default', 'novalidate' => true]]],
         	]
-        ]);
+        ];
+        if ($this->poll)
+        {
+        	$options['buttons']['cancel'] = ['type' => 'submit', 'options' => ['label' => 'cancel', 'attr' => ['type' => 'default', 'novalidate' => true]]];
+        }
+        $form->add('actions', 'form_actions', $options);
         return $form;
     }
 
@@ -224,11 +228,6 @@ trait ControllerTraits
     	if ($polls)
     	{
     		$this->poll = $em->getRepository('KyelaBundle:Poll')->findByUrl($pollUrl)[0];
-    	}
-    	else
-    	{
-    		$this->poll = new Poll();
-    		$this->poll->setUrl("-");
     	}
     }
 }

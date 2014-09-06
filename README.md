@@ -62,7 +62,6 @@ For further customisation, you have to edit the code. Because of the licence (Af
 
 TODO
 ----
-* The date widget is getting worse with bootstrap style...
 * Auto-select each first form field
 * Hide URL when creating a poll, generate a random one, let it editable only
 * Fusionner newAction avec createAction dans les contrôleurs ? editAction avec updateAction ?
@@ -70,13 +69,10 @@ TODO
 * Dans AbstractController, override generateUrl pour lui rajouter la pollUrl ?
 * Nice handling of bad (forged) URLs
 * Ability to switch language
-* Edit choices : improve the look & feel, add a colorpicker
 * Edit Participant should let him edit his choices as well
-* form l18n
 * Make CSRF work (it is disabled in my main config.yml)
 * Add confirmation before deleting a Participant/Event/Choice
 * Functional test for Participation
-* Use a cool date/time widget
 * Create a default list of choices when creating a new poll
 * Sort dates
 * Archive old dates
@@ -85,7 +81,7 @@ TODO
 * For a Poll, customize "Total" color cell at certain levels
 * Add unicity constraint for (event, participant, choice)
 * Ability to re-order choices
-* Ability to use a glyphicon for each choice
+* Ability to use a glyphicon(s) for each choice
 * formnovalidate is not valid HTML ?
 * Comments/Forum
 
@@ -105,5 +101,6 @@ FUTURE FEATURES
 * Integration with personal agendas ?
 * Ability to restrict access to some admin buttons (edit choices, edit poll...) ?
 * Make a logo, a favicon
+* AJAX calls to avoid page reload when updating participation
 
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/bca46a72-4438-47e7-b629-4b9926e802a6/big.png)](https://insight.sensiolabs.com/projects/bca46a72-4438-47e7-b629-4b9926e802a6)
