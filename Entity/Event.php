@@ -58,9 +58,16 @@ class Event extends Entity
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="datetime", type="datetime")
+     * @ORM\Column(name="date", type="date")
      */
-    private $datetime;
+    private $date;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="time", type="time")
+     */
+    private $time;
 
 	/**
 	 * @ORM\OneToMany(targetEntity="Participation", mappedBy="event", cascade={"remove"})
@@ -113,29 +120,6 @@ class Event extends Entity
     public function getName()
     {
         return $this->name;
-    }
-
-    /**
-     * Set datetime
-     *
-     * @param \DateTime $datetime
-     * @return Event
-     */
-    public function setDatetime($datetime)
-    {
-        $this->datetime = $datetime;
-
-        return $this;
-    }
-
-    /**
-     * Get datetime
-     *
-     * @return \DateTime
-     */
-    public function getDatetime()
-    {
-        return $this->datetime;
     }
 
     /**
@@ -223,10 +207,56 @@ class Event extends Entity
     /**
      * Get place
      *
-     * @return string 
+     * @return string
      */
     public function getPlace()
     {
         return $this->place;
+    }
+
+    /**
+     * Set date
+     *
+     * @param \DateTime $date
+     * @return Event
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    /**
+     * Get date
+     *
+     * @return \DateTime
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    /**
+     * Set time
+     *
+     * @param \DateTime $time
+     * @return Event
+     */
+    public function setTime($time)
+    {
+        $this->time = $time;
+
+        return $this;
+    }
+
+    /**
+     * Get time
+     *
+     * @return \DateTime
+     */
+    public function getTime()
+    {
+        return $this->time;
     }
 }
