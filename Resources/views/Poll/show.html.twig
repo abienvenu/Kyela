@@ -31,7 +31,7 @@
 			<span class="glyphicon glyphicon-edit"></span>
 		</a>
 		<span class="badge">{{ event.participationsscore }}</span>
-		{{ event.datetime|localizeddate('medium', 'none', app.request.locale, null, "cccc d MMMM h'h'mm") }}&nbsp;: {{ event.name }}
+		{{ event.datetime|localizeddate('medium', 'none', app.request.locale, null, "cccc d MMMM YYYY - H'h'mm") }}&nbsp;: {{ event.name }}
 	</li>
 {% endfor %}
 </ul>
@@ -42,7 +42,7 @@
 			<th>{% trans %}participant{% endtrans %}</th>
 			{% for event in poll.events %}
 				<th data-cell-key="{{ event.id }}">
-					{{ event.datetime|localizeddate('medium', 'none', app.request.locale, null, "d MMM h'h'mm") }}
+					{{ event.datetime|localizeddate('medium', 'none', app.request.locale, null, "ccc d/M H'h'mm") }}
 				</th>
 			{% endfor %}
 		</tr>
