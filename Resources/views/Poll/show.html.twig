@@ -36,74 +36,72 @@
 {% endfor %}
 </ul>
 
-<div class="table-responsive">
-	<table class="table table-striped table-hover table-bordered table-condensed">
-		<thead>
-			<tr>
-				<th>{% trans %}participant{% endtrans %}</th>
-				{% for event in poll.events %}
-					<th data-cell-key="{{ event.id }}">
-						{{ event.datetime|localizeddate('medium', 'none', app.request.locale, null, "d MMM h'h'mm") }}
-					</th>
-				{% endfor %}
-			</tr>
-		</thead>
-		<tbody>
-			{% for participant in poll.participants %}
-			<tr>
-				<td data-cell-key="{{ participant.id }}">
-					<a class="btn btn-info" role="button" href="{{ path('participant_edit', {'pollUrl': poll.url, 'id': participant.id}) }}">
-						<span class="glyphicon glyphicon-user"></span>
-						{{ participant.name }}
-					</a>
-				</td>
-				{% for event in poll.events %}
-					{% set accessKey = event.id ~ '-' ~ participant.id %}
-					<td>
-						<div class="btn-group">
-							<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"{% if attribute(participations, accessKey) is defined %} style="background-color:{{ attribute(participations, accessKey).choice.color }}"{% endif %}>
-								{{ attribute(participations, accessKey) is defined ? attribute(participations, accessKey).choice : '-' }}
-								<span class="caret"></span>
-							</button>
-							<ul class="dropdown-menu" role="menu">
-								{%  for choice in poll.choices %}
-									<li style="background-color: {{ choice.color }}">
-										{% set parameters = {'pollUrl': poll.url, 'event': event.id, 'participant': participant.id, 'choice': choice.id} %}
-										{% if attribute(participations, accessKey) is defined %}
-										<a href="{{ path('participation_edit', parameters|merge({'id': attribute(participations, accessKey).id})) }}">
-										{% else %}
-										<a href="{{ path('participation_new', parameters) }}">
-										{% endif %}
-											{{ choice.name }}
-										</a>
-									</li>
-								{% endfor %}
-								{% if attribute(participations, accessKey) is defined %}
-								<li>
-									<a href="{{ path('participation_delete', {'pollUrl': poll.url, 'id': attribute(participations, accessKey).id}) }}">
-										<span class="glyphicon glyphicon-trash"></span>
+<table class="table table-striped table-hover table-bordered table-condensed">
+	<thead>
+		<tr>
+			<th>{% trans %}participant{% endtrans %}</th>
+			{% for event in poll.events %}
+				<th data-cell-key="{{ event.id }}">
+					{{ event.datetime|localizeddate('medium', 'none', app.request.locale, null, "d MMM h'h'mm") }}
+				</th>
+			{% endfor %}
+		</tr>
+	</thead>
+	<tbody>
+		{% for participant in poll.participants %}
+		<tr>
+			<td data-cell-key="{{ participant.id }}">
+				<a class="btn btn-info" role="button" href="{{ path('participant_edit', {'pollUrl': poll.url, 'id': participant.id}) }}">
+					<span class="glyphicon glyphicon-user"></span>
+					{{ participant.name }}
+				</a>
+			</td>
+			{% for event in poll.events %}
+				{% set accessKey = event.id ~ '-' ~ participant.id %}
+				<td>
+					<div class="btn-group">
+						<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"{% if attribute(participations, accessKey) is defined %} style="background-color:{{ attribute(participations, accessKey).choice.color }}"{% endif %}>
+							{{ attribute(participations, accessKey) is defined ? attribute(participations, accessKey).choice : '-' }}
+							<span class="caret"></span>
+						</button>
+						<ul class="dropdown-menu" role="menu">
+							{%  for choice in poll.choices %}
+								<li style="background-color: {{ choice.color }}">
+									{% set parameters = {'pollUrl': poll.url, 'event': event.id, 'participant': participant.id, 'choice': choice.id} %}
+									{% if attribute(participations, accessKey) is defined %}
+									<a href="{{ path('participation_edit', parameters|merge({'id': attribute(participations, accessKey).id})) }}">
+									{% else %}
+									<a href="{{ path('participation_new', parameters) }}">
+									{% endif %}
+										{{ choice.name }}
 									</a>
 								</li>
-								{% endif %}
-							</ul>
-						</div>
-					</td>
-				{% endfor %}
-			</tr>
+							{% endfor %}
+							{% if attribute(participations, accessKey) is defined %}
+							<li>
+								<a href="{{ path('participation_delete', {'pollUrl': poll.url, 'id': attribute(participations, accessKey).id}) }}">
+									<span class="glyphicon glyphicon-trash"></span>
+								</a>
+							</li>
+							{% endif %}
+						</ul>
+					</div>
+				</td>
 			{% endfor %}
-		</tbody>
-		<tfoot>
-			<tr>
-				<th>Total</th>
-				{% for event in poll.events %}
-					<th>
-						{{ event.participationsscore }}
-					</th>
-				{% endfor %}
-			</tr>
-		</tfoot>
-	</table>
-</div>
+		</tr>
+		{% endfor %}
+	</tbody>
+	<tfoot>
+		<tr>
+			<th>Total</th>
+			{% for event in poll.events %}
+				<th>
+					{{ event.participationsscore }}
+				</th>
+			{% endfor %}
+		</tr>
+	</tfoot>
+</table>
 
 <div class="text-center">
 	<a class="btn btn-primary btn-lg" role="button" href="{{ path('participant_new', {'pollUrl': poll.url}) }}">

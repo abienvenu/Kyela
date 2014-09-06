@@ -62,6 +62,7 @@ For further customisation, you have to edit the code. Because of the licence (Af
 
 TODO
 ----
+* Auto-select each first form field
 * Hide URL when creating a poll, generate a random one, let it editable only
 * Fusionner newAction avec createAction dans les contrôleurs ? editAction avec updateAction ?
 * Ajouter getPoll() en abstract sur Entity.php ?
@@ -100,6 +101,7 @@ FUTURE FEATURES
 * Easy integration from remote websites
 * Aggregate/Anonymous mode, for events with lots of participants: the grid only displays total numbers, you can add yourself, then you get a personal link to modify/delete your participation
 * Integration with personal agendas ?
+* Ability to restrict access to some admin buttons (edit choices, edit poll...) ?
 * Make a logo, a favicon
 
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/bca46a72-4438-47e7-b629-4b9926e802a6/big.png)](https://insight.sensiolabs.com/projects/bca46a72-4438-47e7-b629-4b9926e802a6)
