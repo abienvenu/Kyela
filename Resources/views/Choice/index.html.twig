@@ -22,7 +22,8 @@
             <tr>
                 <td>{{ choice.name }}</td>
                 <td>{{ choice.value }}</td>
-                <td style="background-color: {{ choice.color }}">{{ choice.color }}</td>
+                <td>
+                	<button type="button" class="btn choice-{{ choice.color }}">{{ choice.color|trans }}</button>
                 <td>
                 	<a class="btn btn-warning" role="button" href="{{ path('choice_edit', { 'pollUrl': poll.url, 'id': choice.id }) }}">
                 		<span class="glyphicon glyphicon-edit"></span>

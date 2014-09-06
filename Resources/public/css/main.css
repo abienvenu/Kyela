@@ -37,3 +37,21 @@ html, body {
 
 .btn-lg { margin-bottom: 5px; }
 th { background: #e0f0ff; }
+
+.dropdown-menu { background: #f0f0f0; }
+.dropdown-menu>li>a:hover,.dropdown-menu>li>a:focus { background-image: none; background: #e8e8e8; }
+
+.choice-green { background: #5cb85c; color: #ffffff; }
+.choice-green:hover,.choice-green:focus { background-color:#419641; color: #ffffff; }
+.choice-orange { background: #f0ad4e; color: #ffffff; }
+.choice-orange:hover,.choice-orange:focus { background-color:#eb9316; color: #ffffff; }
+.choice-red { background: #d9534f; color: #ffffff; }
+.choice-red:hover,.choice-red:focus { background-color:#c12e2a; color: #ffffff; }
+.choice-blue { background: #428bca; color: #ffffff; }
+.choice-blue:hover,.choice-blue:focus { background-color:#2d6ca2; color: #ffffff; }
+.choice-cyan { background: #5bc0de; color: #ffffff; }
+.choice-cyan:hover,.choice-cyan:focus { background-color:#2aabd2; color: #ffffff; }
+.choice-purple { background: #a0a0ff; color: #ffffff; }
+.choice-purple:hover,.choice-purple:focus { background-color:#8080f0; color: #ffffff; }
+.choice-gray { background: #b0b0b0; color: #ffffff; }
+.choice-gray:hover,.choice-gray:focus { background-color:#909090; color: #ffffff; }

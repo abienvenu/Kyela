@@ -36,7 +36,7 @@ class ChoiceType extends AbstractType
         $builder
             ->add('name')
             ->add('value')
-            ->add('color')
+            ->add('color', 'choice', ['choices' => ['green' => 'green', 'orange' => 'orange', 'red' => 'red', 'blue' => 'blue', 'cyan' => 'cyan', 'purple' => 'purple', 'gray' => 'gray']])
         ;
     }
 
