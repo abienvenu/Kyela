@@ -62,6 +62,7 @@ For further customisation, you have to edit the code. Because of the licence (Af
 
 TODO
 ----
+* The date widget is getting worse with bootstrap style...
 * Auto-select each first form field
 * Hide URL when creating a poll, generate a random one, let it editable only
 * Fusionner newAction avec createAction dans les contrôleurs ? editAction avec updateAction ?
@@ -85,6 +86,7 @@ TODO
 * Add unicity constraint for (event, participant, choice)
 * Ability to re-order choices
 * Ability to use a glyphicon for each choice
+* formnovalidate is not valid HTML ?
 * Comments/Forum
 
 BUGS
