@@ -92,7 +92,6 @@ TODO
 * Make CSRF work (it is disabled in my main config.yml)
 * Add confirmation before deleting a Participant/Event/Choice
 * Functional test for Participation
-* Create a default list of choices when creating a new poll
 * Sort dates
 * Archive old dates
 * Access to old dates

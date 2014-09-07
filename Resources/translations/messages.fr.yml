@@ -49,6 +49,9 @@ about: À propos
 about.kyela: À propos de Kyéla
 example: Exemple
 next.training: Prochaines répétitions
+yes: Oui
+maybe: Peut-être
+no: Non
 green: Vert
 orange: Orange
 red: Rouge
@@ -72,4 +75,3 @@ thank.you: Merci à vous!
 mail.sent: Votre message a été envoyé, merci!
 contact: Contact
 success: Succès
-

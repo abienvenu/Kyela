@@ -65,7 +65,7 @@ class Poll extends Entity
 	private $events;
 
 	/**
-	 * @ORM\OneToMany(targetEntity="Choice", mappedBy="poll", cascade={"remove"})
+	 * @ORM\OneToMany(targetEntity="Choice", mappedBy="poll", cascade={"remove", "persist"})
 	 */
 	private $choices;
 
@@ -160,7 +160,7 @@ class Poll extends Entity
     /**
      * Get participants
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getParticipants()
     {
@@ -193,7 +193,7 @@ class Poll extends Entity
     /**
      * Get events
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getEvents()
     {
@@ -226,7 +226,7 @@ class Poll extends Entity
     /**
      * Get choices
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getChoices()
     {

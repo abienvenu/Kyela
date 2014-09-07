@@ -28,6 +28,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Abienvenu\KyelaBundle\Traits\ControllerTraits;
 use Abienvenu\KyelaBundle\Entity\Poll;
+use Abienvenu\KyelaBundle\Entity\Choice;
 use Abienvenu\KyelaBundle\Form\PollType;
 use Abienvenu\KyelaBundle\Form\NewPollType;
 
@@ -70,6 +71,10 @@ class PollController extends Controller
     {
     	$poll = new Poll();
     	$poll->setUrl(uniqid());
+    	$t = $this->get('translator');
+    	$poll->addChoice((new Choice)->setName($t->trans("yes"))->setValue(1)->setColor("green")->setPoll($poll));
+    	$poll->addChoice((new Choice)->setName($t->trans("maybe"))->setValue(0)->setColor("orange")->setPoll($poll));
+    	$poll->addChoice((new Choice)->setName($t->trans("no"))->setValue(0)->setColor("red")->setPoll($poll));
     	return $this->doCreateorNewAction(new NewPollType(), $poll, $request);
     }
 
