@@ -81,16 +81,13 @@ CHANGELOG
 
 TODO
 ----
-* Flashbag does not work (for contact)
-* Create a contact page
+* Ability to switch language
 * Auto-select each first form field
 * l18n for error message
-* Hide URL when creating a poll, generate a random one, let it editable only
 * Fusionner newAction avec createAction dans les contrôleurs ? editAction avec updateAction ?
 * Ajouter getPoll() en abstract sur Entity.php ?
 * Dans AbstractController, override generateUrl pour lui rajouter la pollUrl ?
 * Nice handling of bad (forged) URLs
-* Ability to switch language
 * Edit Participant should let him edit his choices as well
 * Make CSRF work (it is disabled in my main config.yml)
 * Add confirmation before deleting a Participant/Event/Choice

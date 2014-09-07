@@ -29,6 +29,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Abienvenu\KyelaBundle\Traits\ControllerTraits;
 use Abienvenu\KyelaBundle\Entity\Poll;
 use Abienvenu\KyelaBundle\Form\PollType;
+use Abienvenu\KyelaBundle\Form\NewPollType;
 
 /**
  * Poll controller.
@@ -55,7 +56,7 @@ class PollController extends Controller
      */
     public function newAction()
     {
-    	return $this->doCreateorNewAction(new PollType(), new Poll());
+    	return $this->doCreateorNewAction(new NewPollType(), new Poll());
     }
 
     /**
@@ -67,7 +68,9 @@ class PollController extends Controller
      */
     public function createAction(Request $request)
     {
-    	return $this->doCreateorNewAction(new PollType(), new Poll(), $request);
+    	$poll = new Poll();
+    	$poll->setUrl(uniqid());
+    	return $this->doCreateorNewAction(new NewPollType(), $poll, $request);
     }
 
     /**
