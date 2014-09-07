@@ -74,9 +74,18 @@
 		    </div>
 	      </div>
 	    </div>
-		{% for flashMessage in app.session.flashbag.get('success') %}
-		    {{ flashMessage }}
-		{% endfor %}
+	    {% if app.session.flashbag.get('success') %}
+	    <div class="panel panel-success">
+	    	<div class="panel-heading">
+	    		<h3 class="panel-title">{% trans %}success{% endtrans %}</h3>
+	    	</div>
+	    	<div class="panel-body">
+				{% for flashMessage in app.session.flashbag.get('success') %}
+					{{ flashMessage }}
+				{% endfor %}
+	    	</div>
+	    </div>
+	    {% endif %}
 	    <div class="container">
 	   		{% block body %}{% endblock %}
 	    </div>
