@@ -80,6 +80,10 @@ CHANGELOG
 
 TODO
 ----
+* Release v0.1 on GitHub
+* Add tracking (Piwik) ?
+* Create a contact page
+* Create a thanks page (Bootstrap, Jquery, JQuery-ui, Symfony, Github, Glyphicons, PHP, Linux, Debian...)
 * Auto-select each first form field
 * l18n for error message
 * Hide URL when creating a poll, generate a random one, let it editable only

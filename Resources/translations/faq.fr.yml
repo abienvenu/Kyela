@@ -1,20 +1,8 @@
-what.is.kyela:
-    q: Qu'est-ce que Kyéla ?
-    a: C'est une application web qui facilite l'organisation de réunions et regroupements de personnes.
-how.to.use.kyela:
-    q: Comment l'utiliser ?
-    a: Depuis la page d'accueil, l'initateur crée un sondage, et diffuse l'adresse (URL) du sondage aux participants potentiels. Ensuite, chacun peu proposer des dates, et chacun donne ses disponibilités sur les dates proposées. Ainsi se construit une grille permettent de voir toutes les disponibilités d'un seul coup d'oeil et de voir les meilleures options. Pour les organisateurs, c'est bien plus pratique qu'une accumulation d'emails, de coups de fil et de SMS.
-registration:
-    q: Y a-t-il besoin de s'enregistrer ?
-    a: Non.
-examples:
-    q: À quelles occasions cela peut-il servir ?
-    a: L'organisation de repas, d'assemblées associatives, de rencontres sportives ou musicales, d'ateliers divers... Pour toutes ces occasions, les organisateurs veulent trouver la date qui convient à un maximum de personnes, et savoir combien de personnes viendront.
 how.many.options:
     q: Quels choix sont proposés à chaque participant ?
     a: Seulement deux par défaut (oui/non), mais d'autres choix peuvent être ajoutés en cliquant sur le bouton "Éditer les options"
 recurrent.events:
-    q: Et pour les évènements mutiples/récurrents ?
+    q: Comment gérer les évènements mutiples/récurrents ?
     a: Un seul sondage suffit. Il faut proposer les prochaines dates possibles, et détruire celles qui sont éliminées ou passées. Il est plus pratique d'utiliser un même sondage tout au long de l'année, plutôt que de jongler avec plusieurs sondages.
 short.url:
     q: L'adresse web de mon sondage est trop longue, puis-je en avoir une facile à retenir ?
@@ -28,3 +16,9 @@ what.permissions:
 about.vandalism:
     q: Mon sondage ne risque-t-il pas d'être vandalisé ?
     a: Si des personnes veulent se rencontrer, c'est qu'elles souhaitent collaborer. Sinon, il vaut mieux qu'elles ne se rencontrent pas!
+registration:
+    q: Est-il possible de créer un compte, de s'enregistrer ?
+    a: Non, ce n'est pas utile.
+examples:
+    q: À quelles occasions cela peut-il servir ?
+    a: L'organisation de repas, d'assemblées associatives, de rencontres sportives ou musicales, d'ateliers divers... Pour toutes ces occasions, les organisateurs veulent trouver la date qui convient à un maximum de personnes, et savoir combien de personnes viendront.
