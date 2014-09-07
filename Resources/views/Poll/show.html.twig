@@ -33,6 +33,9 @@
 		<span class="badge">{{ event.participationsscore }}</span>
 		{{ event.date|localizeddate('medium', 'none', app.request.locale, null, "cccc d MMMM") }} -
 		{{ event.time|localizeddate('medium', 'none', app.request.locale, null, "H'h'mm") }}
+		{% if event.place %}
+			- {{ event.place }}
+		{% endif %}
 		&nbsp;: {{ event.name }}
 	</li>
 {% endfor %}
@@ -54,7 +57,7 @@
 		{% for participant in poll.participants %}
 		<tr>
 			<td data-cell-key="{{ participant.id }}">
-				<a class="btn btn-info" role="button" href="{{ path('participant_edit', {'pollUrl': poll.url, 'id': participant.id}) }}">
+				<a class="btn btn-sm btn-info" role="button" href="{{ path('participant_edit', {'pollUrl': poll.url, 'id': participant.id}) }}">
 					<span class="glyphicon glyphicon-user"></span>
 					{{ participant.name }}
 				</a>
@@ -63,7 +66,7 @@
 				{% set accessKey = event.id ~ '-' ~ participant.id %}
 				<td>
 					<div class="btn-group">
-						<button type="button" class="btn dropdown-toggle choice-{{ attribute(participations, accessKey) is defined ? attribute(participations, accessKey).choice.color : "none" }}" data-toggle="dropdown">
+						<button type="button" class="btn btn-sm dropdown-toggle choice-{{ attribute(participations, accessKey) is defined ? attribute(participations, accessKey).choice.color : "none" }}" data-toggle="dropdown">
 							{{ attribute(participations, accessKey) is defined ? attribute(participations, accessKey).choice : '-' }}
 							<span class="caret"></span>
 						</button>

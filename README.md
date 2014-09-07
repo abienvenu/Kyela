@@ -63,6 +63,8 @@ For further customisation, you have to edit the code. Because of the licence (Af
 TODO
 ----
 * Auto-select each first form field
+* l18n for error message
+* Event.place shoud not be required
 * Hide URL when creating a poll, generate a random one, let it editable only
 * Fusionner newAction avec createAction dans les contrôleurs ? editAction avec updateAction ?
 * Ajouter getPoll() en abstract sur Entity.php ?

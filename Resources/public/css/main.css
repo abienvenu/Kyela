@@ -41,6 +41,8 @@ th { background: #e0f0ff; }
 .dropdown-menu { background: #f0f0f0; }
 .dropdown-menu>li>a:hover,.dropdown-menu>li>a:focus { background-image: none; background: #e8e8e8; }
 
+.list-group-item { padding: 4px; }]
+
 .choice-green { background: #5cb85c; color: #ffffff; }
 .choice-green:hover,.choice-green:focus { background-color:#419641; color: #ffffff; }
 .choice-orange { background: #f0ad4e; color: #ffffff; }
