@@ -103,6 +103,7 @@ class StaticController extends Controller
 	                        array(
 	                            'ip' => $request->getClientIp(),
 	                            'name' => $form->get('name')->getData(),
+	                        	'subject' => $form->get('subject')->getData(),
 	                            'message' => $form->get('message')->getData()
 	                        )
 	                    )
