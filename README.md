@@ -77,6 +77,7 @@ For further customisation, you have to edit the code. Because of the licence (Af
 CHANGELOG
 ---------
 
+* v0.2 : Added contact page, default URL and choices for new polls
 * v0.1 : First (mostly) working release
 
 TODO
