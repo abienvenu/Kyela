@@ -51,6 +51,7 @@ kyela:
 assetic:
     bundles:        [ 'KyelaBundle' ]
 ```
+* In the Resources/config of the KyelaBundle directory, copy parameters.yml.dist to parameters.yml, and customize it
 * Dump the assets :
     app/console assetic:dump
 
@@ -80,6 +81,7 @@ CHANGELOG
 
 TODO
 ----
+* Flashbag does not work (for contact)
 * Create a contact page
 * Auto-select each first form field
 * l18n for error message

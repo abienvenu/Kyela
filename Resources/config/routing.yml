@@ -21,6 +21,11 @@ kyela_thanks:
         _controller: FrameworkBundle:Template:template
         template: KyelaBundle:Static:thanks.html.twig
 
+kyela_contact:
+    path: /contact
+    defaults:
+        _controller: KyelaBundle:Static:contact
+
 kyela_application:
     resource: "@KyelaBundle/Controller"
     type: annotation

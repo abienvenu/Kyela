@@ -63,5 +63,12 @@ Url: URL
 Title: Titre
 Place: Lieu
 Datetime: Date et heure
+Subject: Sujet
+Email: Email
+Message: Message
+send: Envoyer
 thanks: Merci
 thank.you: Merci à vous!
+mail.sent: Votre message a été envoyé, merci!
+contact: Contact
+

@@ -25,7 +25,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Yaml\Yaml;
+use Abienvenu\KyelaBundle\Form\ContactType;
 
 /**
  * Static content controller.
@@ -54,7 +56,6 @@ class StaticController extends Controller
     /**
      * Displays the FAQ
      *
-     * @Route("/faq", name="faq")
      * @Method("GET")
      * @Template()
      */
@@ -66,12 +67,54 @@ class StaticController extends Controller
     /**
      * Displays the About page
      *
-     * @Route("/about", name="about")
      * @Method("GET")
      * @Template()
      */
     public function aboutAction()
     {
     	return ["about" => $this->loadTranslations("about", "fr")];
+    }
+
+    /**
+     * Display the Contact form
+     *
+     * @Template()
+     */
+    public function contactAction(Request $request)
+    {
+    	$form = $this->createForm(new ContactType());
+        $form->add('actions', 'form_actions', [
+        	'buttons' => [
+        		'send' => ['type' => 'submit', 'options' => ['label' => 'send']],
+        	]
+        ]);
+
+    	if ($request->isMethod('POST')) {
+    		$form->bind($request);
+
+	        if ($form->isValid()) {
+	            $message = \Swift_Message::newInstance()
+	                ->setSubject($form->get('subject')->getData())
+	                ->setFrom($form->get('email')->getData())
+	                ->setTo($this->container->getParameter('kyela_contact_email'))
+	                ->setBody(
+	                    $this->renderView(
+	                        'KyelaBundle:Mail:contact.html.twig',
+	                        array(
+	                            'ip' => $request->getClientIp(),
+	                            'name' => $form->get('name')->getData(),
+	                            'message' => $form->get('message')->getData()
+	                        )
+	                    )
+	                );
+
+	            $this->get('mailer')->send($message);
+	            $request->getSession()->getFlashBag()->add('success', 'mail.sent');
+	            return $this->redirect($this->generateUrl('poll_new'));
+	        }
+	    }
+	    return array(
+	        'form' => $form->createView()
+	    );
     }
 }
