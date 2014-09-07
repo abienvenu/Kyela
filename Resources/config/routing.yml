@@ -15,6 +15,12 @@ kyela_about:
     defaults:
         _controller: KyelaBundle:Static:about
 
+kyela_thanks:
+    path: /thanks
+    defaults:
+        _controller: FrameworkBundle:Template:template
+        template: KyelaBundle:Static:thanks.html.twig
+
 kyela_application:
     resource: "@KyelaBundle/Controller"
     type: annotation
