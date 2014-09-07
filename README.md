@@ -14,6 +14,15 @@ Features
 * Mobile friendly
 * No ad, no fee, no spying, just OpenSource
 
+Basic Usage
+-----------
+
+* Point your browser to a website hosting the Kyela application, like http://kyela.net
+* Create a new poll
+* Add participants and events
+* Update availabilities
+* Enjoy!
+
 Server Installation
 -------------------
 
@@ -33,32 +42,41 @@ kyela:
     prefix: /kyela
 ```
 * Include the config from your app/config.config.yml :
+```YAML
     imports:
 	- { resource: "@KyelaBundle/Resources/config/config.yml" }
-
+```
 * Add Kyela to the bundles handled by assetic in app/config/config.yml :
 ```YAML
 assetic:
     bundles:        [ 'KyelaBundle' ]
 ```
-
 * Dump the assets :
     app/console assetic:dump
 
 * Install fonts :
+
 Bootstrap glyphicons needs fonts, which cannot be handled properly by assetic.
 Install the assets :
+
     app/console assets:install --symlink
+
 Add some rewritule to your apache configuration :
+
     RewriteEngine On
     RewriteRule ^/kyela/web/app_dev.php/fonts/(.*) /kyela/web/bundles/kyela/fonts/$1 [L]
 
 Customisation
 -------------
 
-You can create a file in Resources/translations called "faq-me.en.html" or "about-me.en.html" to add questions/answers to the FAQ or About page.
+You can create a file in Resources/translations called "faq-me.en.html" or "about-me.en.html" to add questions/answers to the FAQ or About page. See "faq.en.html" for the structure to be used.
 
 For further customisation, you have to edit the code. Because of the licence (Affero GPL), you must publish the modified code as soon as your project is online.
+
+CHANGELOG
+---------
+
+* v0.1 : First (mostly) working release
 
 TODO
 ----
