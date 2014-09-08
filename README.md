@@ -84,11 +84,10 @@ CHANGELOG
 TODO
 ----
 * Ability to switch language
-* l18n for error message
+* l18n for error messages
 * Nice handling of bad (forged) URLs
 * Edit Participant should let him edit his choices as well
 * Make CSRF work (it is disabled in my main config.yml)
-* Add confirmation before deleting a Participant/Event/Choice
 * Functional test for Participation
 * Sort dates
 * Archive old dates

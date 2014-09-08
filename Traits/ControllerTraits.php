@@ -154,6 +154,7 @@ trait ControllerTraits
 
             $em->remove($entity);
             $em->flush();
+            $request->getSession()->getFlashBag()->add('success', 'deleted');
         }
         return $this->redirect($this->generateUrl($this->deleteSuccessRoute));
     }
@@ -221,10 +222,11 @@ trait ControllerTraits
      */
     protected function createDeleteForm($id)
     {
+    	$t = $this->get('translator');
         return $this->createFormBuilder()
             ->setAction($this->generateUrl($this->deleteRoute, ['id' => $id]))
             ->setMethod('DELETE')
-            ->add('submit', 'submit', ['label' => 'delete', 'attr' => ['type' => 'danger']])
+            ->add('submit', 'submit', ['label' => 'delete', 'attr' => ['type' => 'danger', 'onclick' => "return confirm('{$t->trans("are.you.sure.to.delete")}');"]])
             ->getForm();
     }
 
