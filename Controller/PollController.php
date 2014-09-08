@@ -101,7 +101,7 @@ class PollController extends Controller
      */
     public function editAction(Request $request)
     {
-    	return $this->doEditOrUpdateAction(new PollType(), $this->poll->getId(), $request);
+    	return $this->doEditAction(new PollType(), $this->poll->getId(), $request);
     }
 
     /**
