@@ -78,6 +78,7 @@ For further customisation, you have to edit the code. Because of the licence (Af
 CHANGELOG
 ---------
 
+* v0.3 : Added deletion confirmation, autofocus, fixed poll deletion
 * v0.2 : Added contact page, default URL and choices for new polls
 * v0.1 : First (mostly) working release
 
