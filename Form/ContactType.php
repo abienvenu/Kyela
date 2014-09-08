@@ -29,7 +29,7 @@ class ContactType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name', 'text')
+            ->add('name', 'text', ['attr' => ['autofocus' => 'autofocus']])
             ->add('email', 'email')
             ->add('subject', 'text')
             ->add('message', 'textarea');

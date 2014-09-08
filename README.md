@@ -84,7 +84,6 @@ CHANGELOG
 TODO
 ----
 * Ability to switch language
-* Auto-select each first form field
 * l18n for error message
 * Ajouter getPoll() en abstract sur Entity.php ?
 * Dans AbstractController, override generateUrl pour lui rajouter la pollUrl ?

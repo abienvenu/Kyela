@@ -35,7 +35,7 @@ class PollType extends AbstractType
     {
         $builder
             ->add('url')
-            ->add('title')
+            ->add('title', null, ['attr' => ['autofocus' => 'autofocus']])
         ;
     }
 
