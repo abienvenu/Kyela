@@ -43,6 +43,7 @@ class ParticipantController extends Controller
 	protected $cancelRoute = 'poll_show';
 	protected $successRoute = 'poll_show';
 	protected $deleteRoute = 'participant_delete';
+	protected $deleteSuccessRoute = 'poll_show';
 
     /**
      * Displays a form to create a new Participant entity.

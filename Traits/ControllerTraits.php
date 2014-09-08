@@ -155,7 +155,7 @@ trait ControllerTraits
             $em->remove($entity);
             $em->flush();
         }
-        return $this->redirect($this->generateUrl($this->successRoute));
+        return $this->redirect($this->generateUrl($this->deleteSuccessRoute));
     }
 
     /**

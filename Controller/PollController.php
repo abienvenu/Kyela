@@ -45,6 +45,7 @@ class PollController extends Controller
 	protected $cancelRoute = 'poll_show';
 	protected $successRoute = 'poll_show';
 	protected $deleteRoute = 'poll_delete';
+	protected $deleteSuccessRoute = 'poll_new';
 
     /**
      * Displays a form to create a new Poll entity.

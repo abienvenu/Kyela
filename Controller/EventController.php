@@ -43,6 +43,7 @@ class EventController extends Controller
 	protected $cancelRoute = 'poll_show';
 	protected $successRoute = 'poll_show';
 	protected $deleteRoute = 'event_delete';
+	protected $deleteSuccessRoute = 'poll_show';
 
     /**
      * Displays a form to create a new Event entity.

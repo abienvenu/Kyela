@@ -43,6 +43,7 @@ class ChoiceController extends Controller
 	protected $cancelRoute = 'choice';
 	protected $successRoute = 'choice';
 	protected $deleteRoute = 'choice_delete';
+	protected $deleteSuccessRoute = 'choice';
 
     /**
      * Lists all Choice entities.
