@@ -85,8 +85,6 @@ TODO
 ----
 * Ability to switch language
 * l18n for error message
-* Ajouter getPoll() en abstract sur Entity.php ?
-* Dans AbstractController, override generateUrl pour lui rajouter la pollUrl ?
 * Nice handling of bad (forged) URLs
 * Edit Participant should let him edit his choices as well
 * Make CSRF work (it is disabled in my main config.yml)
@@ -109,15 +107,15 @@ BUGS
 * Clash if lowercase(url1) = lowercase(url2) ?
 * When you click "FAQ", "About" or "Contact" from a poll, the menu won't link back to the poll
 
-FUTURE FEATURES
----------------
+FUTURE (MAY BE) FEATURES
+------------------------
 
 * Notification subscriptions
 * Syndication
 * Easy integration from remote websites
 * Aggregate/Anonymous mode, for events with lots of participants: the grid only displays total numbers, you can add yourself, then you get a personal link to modify/delete your participation
-* Integration with personal agendas ?
-* Ability to restrict access to some admin buttons (edit choices, edit poll...) ?
+* Integration with personal agendas (Google, Yahoo...)
+* Ability to restrict access to some admin buttons (edit choices, edit poll...) with a pass phrase
 * Make a logo, a favicon
 * AJAX calls to avoid page reload when updating participation
 

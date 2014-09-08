@@ -35,6 +35,19 @@ trait ControllerTraits
 	abstract public function deleteAction(Request $request, $id);
 
 	/**
+	 * Adds pollUrl into the parameters
+	 *
+	 * @param string $route
+	 * @param mixed $parameters
+	 * @param Boolean $absolute
+	 */
+	public function generateUrl($route, $parameters = [], $absolute = false)
+	{
+		$parameters['pollUrl'] = $this->poll ? $this->poll->getUrl() : "";
+		return parent::generateUrl($route, $parameters, $absolute);
+	}
+
+	/**
 	 * Create a form to create a new entity, and create it when the form is submited
 	 *
 	 * @param AbstractType $formType
@@ -58,7 +71,7 @@ trait ControllerTraits
 	        }
 
 	        if ($form->get('actions')->has('cancel') && $form->get('actions')->get('cancel')->isClicked()) {
-	        	return $this->redirect($this->generateUrl($this->cancelRoute, ['pollUrl' => $this->poll->getUrl()]));
+	        	return $this->redirect($this->generateUrl($this->cancelRoute));
 	        }
 
 	        if ($form->isValid()) {
@@ -66,7 +79,7 @@ trait ControllerTraits
 	            $em->persist($entity);
 	            $em->flush();
 
-	            return $this->redirect($this->generateUrl($this->successRoute, ['pollUrl' => $this->poll->getUrl()]));
+	            return $this->redirect($this->generateUrl($this->successRoute));
 	        }
         }
 
@@ -101,13 +114,13 @@ trait ControllerTraits
 	        $editForm->handleRequest($request);
 
 	        if ($editForm->get('actions')->get('cancel')->isClicked()) {
-	        	return $this->redirect($this->generateUrl($this->cancelRoute, ['pollUrl' => $this->poll->getUrl()]));
+	        	return $this->redirect($this->generateUrl($this->cancelRoute));
 	        }
 
 	        if ($editForm->isValid()) {
 	            $em->flush();
 
-	            return $this->redirect($this->generateUrl($this->successRoute, ['pollUrl' => $this->poll->getUrl()]));
+	            return $this->redirect($this->generateUrl($this->successRoute));
 	        }
         }
 
@@ -142,7 +155,7 @@ trait ControllerTraits
             $em->remove($entity);
             $em->flush();
         }
-        return $this->redirect($this->generateUrl($this->successRoute, ['pollUrl' => $this->poll->getUrl()]));
+        return $this->redirect($this->generateUrl($this->successRoute));
     }
 
     /**
@@ -157,7 +170,7 @@ trait ControllerTraits
     protected function doCreateCreateForm(AbstractType $formType, Entity $entity, $action)
     {
         $form = $this->createForm($formType, $entity, array(
-            'action' => $this->generateUrl($action, ['pollUrl' => $this->poll ? $this->poll->getUrl() : ""]),
+            'action' => $this->generateUrl($action),
             'method' => 'POST',
         ));
 
@@ -186,7 +199,7 @@ trait ControllerTraits
     protected function doCreateEditForm(AbstractType $formType, Entity $entity, $action)
     {
         $form = $this->createForm($formType, $entity, array(
-            'action' => $this->generateUrl($action, ['pollUrl' => $this->poll->getUrl(), 'id' => $entity->getId()]),
+            'action' => $this->generateUrl($action, ['id' => $entity->getId()]),
             'method' => 'PUT',
         ));
 
@@ -209,7 +222,7 @@ trait ControllerTraits
     protected function createDeleteForm($id)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl($this->deleteRoute, ['pollUrl' => $this->poll->getUrl(), 'id' => $id]))
+            ->setAction($this->generateUrl($this->deleteRoute, ['id' => $id]))
             ->setMethod('DELETE')
             ->add('submit', 'submit', ['label' => 'delete', 'attr' => ['type' => 'danger']])
             ->getForm();
