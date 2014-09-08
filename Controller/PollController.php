@@ -45,7 +45,6 @@ class PollController extends Controller
 	protected $cancelRoute = 'poll_show';
 	protected $successRoute = 'poll_show';
 	protected $deleteRoute = 'poll_delete';
-	protected $updateRoute = 'poll_update';
 
     /**
      * Displays a form to create a new Poll entity.
@@ -66,7 +65,7 @@ class PollController extends Controller
 	    	$poll->addChoice((new Choice)->setName($t->trans("maybe"))->setValue(0)->setColor("orange")->setPoll($poll));
 	    	$poll->addChoice((new Choice)->setName($t->trans("no"))->setValue(0)->setColor("red")->setPoll($poll));
     	}
-    	return $this->doNewAction(new NewPollType(), new Poll(), $request);
+    	return $this->doNewAction(new NewPollType(), $poll, $request);
     }
 
     /**
@@ -97,22 +96,10 @@ class PollController extends Controller
      * Displays a form to edit an existing Poll entity.
      *
      * @Route("/{pollUrl}/edit", name="poll_edit")
-     * @Method("GET")
+     * @Method({"GET", "PUT"})
      * @Template()
      */
-    public function editAction($pollUrl)
-    {
-    	return $this->doEditOrUpdateAction(new PollType(), $this->poll->getId());
-    }
-
-    /**
-     * Edits an existing Poll entity.
-     *
-     * @Route("/{pollUrl}/", name="poll_update")
-     * @Method("PUT")
-     * @Template("KyelaBundle:Poll:edit.html.twig")
-     */
-    public function updateAction(Request $request, $pollUrl)
+    public function editAction(Request $request)
     {
     	return $this->doEditOrUpdateAction(new PollType(), $this->poll->getId(), $request);
     }

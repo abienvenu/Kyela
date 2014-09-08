@@ -43,7 +43,6 @@ class ChoiceController extends Controller
 	protected $cancelRoute = 'choice';
 	protected $successRoute = 'choice';
 	protected $deleteRoute = 'choice_delete';
-	protected $updateRoute = 'choice_update';
 
     /**
      * Lists all Choice entities.
@@ -54,9 +53,7 @@ class ChoiceController extends Controller
      */
     public function indexAction()
     {
-        return [
-        	'poll'     => $this->poll,
-        ];
+        return ['poll' => $this->poll];
     }
 
     /**
@@ -75,24 +72,12 @@ class ChoiceController extends Controller
      * Displays a form to edit an existing Choice entity.
      *
      * @Route("/{id}/edit", name="choice_edit")
-     * @Method("GET")
+     * @Method({"GET", "PUT"})
      * @Template()
      */
-    public function editAction($id)
+    public function editAction(Request $request, $id)
     {
-    	return $this->doEditOrUpdateAction(new ChoiceType(), $id);
-    }
-
-    /**
-     * Edits an existing Choice entity.
-     *
-     * @Route("/{id}", name="choice_update")
-     * @Method("PUT")
-     * @Template("KyelaBundle:Choice:edit.html.twig")
-     */
-    public function updateAction(Request $request, $id)
-    {
-    	return $this->doEditOrUpdateAction(new ChoiceType(), $id, $request);
+    	return $this->doEditAction(new ChoiceType(), $id, $request);
     }
 
     /**

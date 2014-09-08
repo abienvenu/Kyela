@@ -43,7 +43,6 @@ class EventController extends Controller
 	protected $cancelRoute = 'poll_show';
 	protected $successRoute = 'poll_show';
 	protected $deleteRoute = 'event_delete';
-	protected $updateRoute = 'event_update';
 
     /**
      * Displays a form to create a new Event entity.
@@ -61,24 +60,12 @@ class EventController extends Controller
      * Displays a form to edit an existing Event entity.
      *
      * @Route("/{id}/edit", name="event_edit")
-     * @Method("GET")
+     * @Method({"GET", "PUT"})
      * @Template()
      */
-    public function editAction($id)
+    public function editAction(Request $request, $id)
     {
-    	return $this->doEditOrUpdateAction(new EventType(), $id);
-    }
-
-    /**
-     * Edits an existing Event entity.
-     *
-     * @Route("/{id}", name="event_update")
-     * @Method("PUT")
-     * @Template("KyelaBundle:Event:edit.html.twig")
-     */
-    public function updateAction(Request $request, $id)
-    {
-    	return $this->doEditOrUpdateAction(new EventType(), $id, $request);
+    	return $this->doEditAction(new EventType(), $id, $request);
     }
 
     /**

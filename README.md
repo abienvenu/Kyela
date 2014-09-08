@@ -86,7 +86,6 @@ TODO
 * Ability to switch language
 * Auto-select each first form field
 * l18n for error message
-* Fusionner newAction avec createAction dans les contrôleurs ? editAction avec updateAction ?
 * Ajouter getPoll() en abstract sur Entity.php ?
 * Dans AbstractController, override generateUrl pour lui rajouter la pollUrl ?
 * Nice handling of bad (forged) URLs

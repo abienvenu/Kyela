@@ -31,8 +31,7 @@ trait ControllerTraits
 	protected $poll = null;
 
 	abstract public function newAction(Request $request);
-	abstract public function editAction($id);
-	abstract public function updateAction(Request $request, $id);
+	abstract public function editAction(Request $request, $id);
 	abstract public function deleteAction(Request $request, $id);
 
 	/**
@@ -85,7 +84,7 @@ trait ControllerTraits
      * @param int $id The entity id
      * @param Request $request
      */
-    protected function doEditOrUpdateAction(AbstractType $formType, $id, Request $request = null)
+    protected function doEditAction(AbstractType $formType, $id, Request $request)
     {
         $em = $this->getDoctrine()->getManager();
 
@@ -96,8 +95,8 @@ trait ControllerTraits
         }
 
         $deleteForm = $this->createDeleteForm($id);
-        $editForm = $this->doCreateEditForm($formType, $entity, $this->updateRoute);
-        if ($request)
+        $editForm = $this->doCreateEditForm($formType, $entity, $request->get('_route'));
+        if ($request->isMethod('PUT'))
         {
 	        $editForm->handleRequest($request);
 
