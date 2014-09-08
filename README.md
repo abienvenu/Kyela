@@ -31,6 +31,7 @@ If you want to run Kyela on your server :
 * Install Symfony 2.5
 * Download the bundle :
     git clone https://github.com/abienvenu/Kyela.git
+
 * Add the bundle in your AppKernel.php :
 ```php
 new Abienvenu\KyelaBundle\KyelaBundle(),
@@ -108,7 +109,7 @@ BUGS
 ----
 
 * Clash if lowercase(url1) = lowercase(url2) ?
-* When you click "FAQ" or "About" from a poll, the menu won't link back to the poll
+* When you click "FAQ", "About" or "Contact" from a poll, the menu won't link back to the poll
 
 FUTURE FEATURES
 ---------------

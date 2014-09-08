@@ -43,31 +43,18 @@ class EventController extends Controller
 	protected $cancelRoute = 'poll_show';
 	protected $successRoute = 'poll_show';
 	protected $deleteRoute = 'event_delete';
-	protected $createRoute = 'event_create';
 	protected $updateRoute = 'event_update';
 
     /**
      * Displays a form to create a new Event entity.
      *
      * @Route("/new", name="event_new")
-     * @Method("GET")
+     * @Method({"GET", "POST"})
      * @Template()
      */
-    public function newAction()
+    public function newAction(Request $request)
     {
-    	return $this->doCreateorNewAction(new EventType(), new Event());
-    }
-
-    /**
-     * Creates a new Event entity.
-     *
-     * @Route("/", name="event_create")
-     * @Method("POST")
-     * @Template("KyelaBundle:Event:new.html.twig")
-     */
-    public function createAction(Request $request)
-    {
-    	return $this->doCreateorNewAction(new EventType(), new Event(), $request);
+    	return $this->doNewAction(new EventType(), new Event(), $request);
     }
 
     /**

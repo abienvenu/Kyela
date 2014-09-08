@@ -45,37 +45,28 @@ class PollController extends Controller
 	protected $cancelRoute = 'poll_show';
 	protected $successRoute = 'poll_show';
 	protected $deleteRoute = 'poll_delete';
-	protected $createRoute = 'poll_create';
 	protected $updateRoute = 'poll_update';
 
     /**
      * Displays a form to create a new Poll entity.
      *
      * @Route("/", name="poll_new")
-     * @Method("GET")
+     * @Method({"GET", "POST"})
      * @Template()
      */
-    public function newAction()
-    {
-    	return $this->doCreateorNewAction(new NewPollType(), new Poll());
-    }
-
-    /**
-     * Creates a new Poll entity.
-     *
-     * @Route("/", name="poll_create")
-     * @Method("POST")
-     * @Template("KyelaBundle:Poll:new.html.twig")
-     */
-    public function createAction(Request $request)
+    public function newAction(Request $request)
     {
     	$poll = new Poll();
-    	$poll->setUrl(uniqid());
-    	$t = $this->get('translator');
-    	$poll->addChoice((new Choice)->setName($t->trans("yes"))->setValue(1)->setColor("green")->setPoll($poll));
-    	$poll->addChoice((new Choice)->setName($t->trans("maybe"))->setValue(0)->setColor("orange")->setPoll($poll));
-    	$poll->addChoice((new Choice)->setName($t->trans("no"))->setValue(0)->setColor("red")->setPoll($poll));
-    	return $this->doCreateorNewAction(new NewPollType(), $poll, $request);
+    	if ($request->isMethod('POST'))
+    	{
+    		// Setup default values
+	    	$poll->setUrl(uniqid());
+	    	$t = $this->get('translator');
+	    	$poll->addChoice((new Choice)->setName($t->trans("yes"))->setValue(1)->setColor("green")->setPoll($poll));
+	    	$poll->addChoice((new Choice)->setName($t->trans("maybe"))->setValue(0)->setColor("orange")->setPoll($poll));
+	    	$poll->addChoice((new Choice)->setName($t->trans("no"))->setValue(0)->setColor("red")->setPoll($poll));
+    	}
+    	return $this->doNewAction(new NewPollType(), new Poll(), $request);
     }
 
     /**

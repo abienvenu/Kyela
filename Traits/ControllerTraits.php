@@ -30,8 +30,7 @@ trait ControllerTraits
 {
 	protected $poll = null;
 
-	abstract public function newAction();
-	abstract public function createAction(Request $request);
+	abstract public function newAction(Request $request);
 	abstract public function editAction($id);
 	abstract public function updateAction(Request $request, $id);
 	abstract public function deleteAction(Request $request, $id);
@@ -43,10 +42,10 @@ trait ControllerTraits
 	 * @param Entity $entity
 	 * @param Request $request
 	 */
-    protected function doCreateorNewAction(AbstractType $formType, Entity $entity, Request $request = null)
+    protected function doNewAction(AbstractType $formType, Entity $entity, Request $request)
     {
-    	$form = $this->doCreateCreateForm($formType, $entity, $this->createRoute);
-        if ($request)
+    	$form = $this->doCreateCreateForm($formType, $entity, $request->get('_route'));
+        if ($request->isMethod('POST'))
         {
 	        $form->handleRequest($request);
 

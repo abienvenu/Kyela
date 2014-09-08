@@ -43,31 +43,18 @@ class ParticipantController extends Controller
 	protected $cancelRoute = 'poll_show';
 	protected $successRoute = 'poll_show';
 	protected $deleteRoute = 'participant_delete';
-	protected $createRoute = 'participant_create';
 	protected $updateRoute = 'participant_update';
 
     /**
      * Displays a form to create a new Participant entity.
      *
      * @Route("/new", name="participant_new")
-     * @Method("GET")
+     * @Method({"GET", "POST"})
      * @Template()
      */
-    public function newAction()
+    public function newAction(Request $request)
     {
-    	return $this->doCreateorNewAction(new ParticipantType(), new Participant());
-    }
-
-	/**
-     * Creates a new Participant entity.
-     *
-     * @Route("/", name="participant_create")
-     * @Method("POST")
-     * @Template("KyelaBundle:Participant:new.html.twig")
-     */
-    public function createAction(Request $request)
-    {
-    	return $this->doCreateorNewAction(new ParticipantType(), new Participant(), $request);
+    	return $this->doNewAction(new ParticipantType(), new Participant(), $request);
     }
 
     /**

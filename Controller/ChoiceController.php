@@ -43,7 +43,6 @@ class ChoiceController extends Controller
 	protected $cancelRoute = 'choice';
 	protected $successRoute = 'choice';
 	protected $deleteRoute = 'choice_delete';
-	protected $createRoute = 'choice_create';
 	protected $updateRoute = 'choice_update';
 
     /**
@@ -64,24 +63,12 @@ class ChoiceController extends Controller
      * Displays a form to create a new Choice entity.
      *
      * @Route("/new", name="choice_new")
-     * @Method("GET")
+     * @Method({"GET", "POST"})
      * @Template()
      */
-    public function newAction()
+    public function newAction(Request $request)
     {
-    	return $this->doCreateorNewAction(new ChoiceType(), new Choice());
-    }
-
-    /**
-     * Creates a new Choice entity.
-     *
-     * @Route("/", name="choice_create")
-     * @Method("POST")
-     * @Template("KyelaBundle:Choice:new.html.twig")
-     */
-    public function createAction(Request $request)
-    {
-    	return $this->doCreateorNewAction(new ChoiceType(), new Choice(), $request);
+    	return $this->doNewAction(new ChoiceType(), new Choice(), $request);
     }
 
     /**
