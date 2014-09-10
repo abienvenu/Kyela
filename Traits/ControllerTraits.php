@@ -59,7 +59,7 @@ trait ControllerTraits
     	$form = $this->doCreateCreateForm($formType, $entity, $request->get('_route'));
         if ($request->isMethod('POST'))
         {
-	        $form->handleRequest($request);
+        	$form->handleRequest($request);
 
 	        if ($entity instanceof Poll)
 	        {
@@ -75,8 +75,8 @@ trait ControllerTraits
 	        }
 
 	        if ($form->isValid()) {
-	            $em = $this->getDoctrine()->getManager();
-	            $em->persist($entity);
+	        	$em = $this->getDoctrine()->getManager();
+	        	$em->persist($entity);
 	            $em->flush();
 
 	            return $this->redirect($this->generateUrl($this->successRoute));
@@ -114,12 +114,12 @@ trait ControllerTraits
 	        $editForm->handleRequest($request);
 
 	        if ($editForm->get('actions')->get('cancel')->isClicked()) {
+	        	$em->refresh($entity);
 	        	return $this->redirect($this->generateUrl($this->cancelRoute));
 	        }
 
 	        if ($editForm->isValid()) {
-	            $em->flush();
-
+        		$em->flush();
 	            return $this->redirect($this->generateUrl($this->successRoute));
 	        }
         }

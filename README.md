@@ -26,7 +26,7 @@ Basic Usage
 Server Installation
 -------------------
 
-If you want to run Kyela on your server :
+If you want to install and run Kyela on your own server :
 
 * Install Symfony 2.5
 * Download the bundle :
@@ -84,6 +84,7 @@ CHANGELOG
 
 TODO
 ----
+* Error message presentation
 * Ability to switch language
 * l18n for error messages
 * Nice handling of bad (forged) URLs

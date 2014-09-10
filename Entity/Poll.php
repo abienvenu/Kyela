@@ -22,11 +22,13 @@
 namespace Abienvenu\KyelaBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * Poll
  *
- * @ORM\Table()
+ * @ORM\Table(uniqueConstraints={@ORM\UniqueConstraint(name="url_idx", columns={"url"})})
+ * @UniqueEntity(fields={"url"})
  * @ORM\Entity
  */
 class Poll extends Entity
