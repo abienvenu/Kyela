@@ -97,6 +97,7 @@ TODO
 * Add instructions how to download the product via composer
 * For a Poll, customize "Total" color cell at certain levels
 * Add unicity constraint for (event, participant, choice)
+* Prevent special urls (like "faq" or "contact") to be allowed for poll urls
 * Ability to re-order choices
 * Ability to use a glyphicon(s) for each choice
 * formnovalidate is not valid HTML ?

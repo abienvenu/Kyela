@@ -14,10 +14,15 @@
 	{{ block('base_form_start') }}
 {%- endblock form_start %}
 
-{% use 'form_div_layout.html.twig' with form_row as base_form_row %}
 {% block form_row -%}
     <div class="form-group">
-    	{{ block('base_form_row') }}
+        <div class="col-sm-2">
+    		{{- form_label(form) -}}
+        </div>
+        <div class="col-sm-10">
+	        {{- form_errors(form) -}}
+	        {{- form_widget(form) -}}
+	    </div>
     </div>
 {%- endblock form_row %}
 
@@ -36,45 +41,43 @@
 
 {% use 'form_div_layout.html.twig' with form_widget_simple as base_form_widget_simple %}
 {% block form_widget_simple -%}
-    <div class="col-sm-10">
-    	{% set attr = attr|merge({'class': (attr.class|default('') ~ " form-control")|trim }) %}
-    	{{ block('base_form_widget_simple') }}
-    </div>
+ 	{% set attr = attr|merge({'class': (attr.class|default('') ~ " form-control")|trim }) %}
+   	{{ block('base_form_widget_simple') }}
 {%- endblock form_widget_simple %}
 
 {% use 'form_div_layout.html.twig' with form_label as base_form_label %}
 {% block form_label -%}
-	{% set label_attr = label_attr|merge({'class': (label_attr.class|default('') ~ " col-sm-2 control-label")|trim }) %}
+	{% set label_attr = label_attr|merge({'class': (label_attr.class|default('') ~ " control-label")|trim }) %}
 	{{ block('base_form_label') }}
 {%- endblock form_label %}
 
 {% use 'form_div_layout.html.twig' with choice_widget as base_choice_widget %}
 {% block choice_widget -%}
-	<div class="col-sm-10">
-		{% set attr = attr|merge({'class': (attr.class|default('') ~ " form-control")|trim }) %}
-		{{ block('base_choice_widget') }}
-	</div>
+	{% set attr = attr|merge({'class': (attr.class|default('') ~ " form-control")|trim }) %}
+	{{ block('base_choice_widget') }}
 {%- endblock choice_widget %}
 
 {% use 'form_div_layout.html.twig' with textarea_widget as base_textarea_widget %}
 {% block textarea_widget -%}
-	<div class="col-sm-10">
-		{% set attr = attr|merge({'class': (attr.class|default('') ~ " form-control")|trim }) %}
-		{{ block('base_textarea_widget') }}
-	</div>
+	{% set attr = attr|merge({'class': (attr.class|default('') ~ " form-control")|trim }) %}
+	{{ block('base_textarea_widget') }}
 {%- endblock textarea_widget %}
 
 {% use 'form_div_layout.html.twig' with time_widget as base_time_widget %}
 {% block time_widget -%}
     {% if widget == 'single_text' %}
-    	<div class="col-sm-10">
-    		<div class="input-group bootstrap-timepicker">
-    			{% set attr = attr|merge({'class': (attr.class|default('') ~ " timepicker form-control")|trim }) %}
-    			{{ block('base_form_widget_simple') }}
-    			<span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
-    		</div>
-    	</div>
+   		<div class="input-group bootstrap-timepicker">
+   			{% set attr = attr|merge({'class': (attr.class|default('') ~ " timepicker form-control")|trim }) %}
+  			{{ block('base_form_widget_simple') }}
+   			<span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+   		</div>
     {% else -%}
     	{{ block('base_time_widget') }}
     {%- endif %}
 {%- endblock time_widget %}
+
+{% block form_errors -%}
+    {%- for error in errors -%}
+        <span class="alert alert-danger pull-right" role="alert">{{ error.message }}</span>
+    {%- endfor -%}
+{%- endblock form_errors %}
