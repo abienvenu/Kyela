@@ -37,7 +37,7 @@ class EventType extends AbstractType
             ->add('name', null, ['attr' => ['autofocus' => 'autofocus']])
             ->add('place', null, ['required' => false])
             ->add('date', null, ['widget' => 'single_text', 'format' => 'dd-MM-yyyy', 'attr' => ['class' => 'datepicker']])
-            ->add('time')
+            ->add('time', null, ['widget' => 'single_text'])
         ;
     }
 

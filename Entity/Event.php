@@ -261,7 +261,7 @@ class Event extends Entity
         return $this->time;
     }
 
-    public function getIsOld()
+    public function isOld()
     {
     	return $this->date < new \DateTime('yesterday');
     }

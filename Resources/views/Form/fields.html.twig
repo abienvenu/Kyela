@@ -64,15 +64,17 @@
 	</div>
 {%- endblock textarea_widget %}
 
+{% use 'form_div_layout.html.twig' with time_widget as base_time_widget %}
 {% block time_widget -%}
     {% if widget == 'single_text' %}
-        {{- block('form_widget_simple') -}}
-    {% else -%}
     	<div class="col-sm-10">
     		<div class="input-group bootstrap-timepicker">
-    			<input class="timepicker form-control" style="z-index: 0;" type="text">
+    			{% set attr = attr|merge({'class': (attr.class|default('') ~ " timepicker form-control")|trim }) %}
+    			{{ block('base_form_widget_simple') }}
     			<span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
     		</div>
     	</div>
+    {% else -%}
+    	{{ block('base_time_widget') }}
     {%- endif %}
 {%- endblock time_widget %}

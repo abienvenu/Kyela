@@ -105,7 +105,6 @@ TODO
 BUGS
 ----
 
-* Impossible to create an event : time is null
 * When you click "FAQ", "About" or "Contact" from a poll, the menu won't link back to the poll
 
 FUTURE (MAY BE) FEATURES
