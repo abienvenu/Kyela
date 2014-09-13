@@ -26,6 +26,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Yaml\Yaml;
 use Abienvenu\KyelaBundle\Form\ContactType;
 
@@ -47,8 +48,8 @@ class StaticController extends Controller
 			if (file_exists($fullFileName))
 			{
 				$parsed = Yaml::parse(file_get_contents($fullFileName));
+				$translations += $parsed;
 			}
-			$translations += $parsed;
 		}
     	return $translations;
 	}
@@ -59,9 +60,9 @@ class StaticController extends Controller
      * @Method("GET")
      * @Template()
      */
-    public function faqAction()
+    public function faqAction(Request $request)
     {
-    	return ["faq" => $this->loadTranslations("faq", "fr")];
+    	return ["faq" => $this->loadTranslations("faq", $request->getLocale())];
     }
 
     /**
@@ -70,9 +71,27 @@ class StaticController extends Controller
      * @Method("GET")
      * @Template()
      */
-    public function aboutAction()
+    public function aboutAction(Request $request)
     {
-    	return ["about" => $this->loadTranslations("about", "fr")];
+    	return ["about" => $this->loadTranslations("about", $request->getLocale())];
+    }
+
+    /**
+     * Switch locale
+     *
+     * @Method("GET")
+     */
+    public function switchAction(Request $request)
+    {
+    	if ($request->headers->has('referer'))
+    	{
+    		$returnUrl = $request->headers->get('referer');
+    	}
+    	else
+    	{
+    		$returnUrl = $this->generateUrl("poll_new");
+    	}
+    	return new RedirectResponse($returnUrl, 302);
     }
 
     /**

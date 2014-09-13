@@ -18,7 +18,63 @@
 meta.description: Kyela - Schedule meetings - Create polls, suggest events, tell availabilities, pick dates, for free
 bottom.line: Planning made easy
 main.title: Schedule a meeting
+poll: Poll
+choice: Choice
+participant: Participant
+event: Event
+add.a.poll: Add a poll
 add.a.participant: Add a participant
 add.a.date: Suggest a date
-edit.options: Edit the options
+edit.options: Edit the choices
+edit.poll: Edit the poll
+add.an.option: Add a choice
+new.poll: New poll
+new.participant: New participant
+new.event: New event
+new.choice: New choice
+choice.list: List of choices
+cancel: Cancel
+create: Create
+save: Save
+delete: Delete
+edit: Edit
+back: Back
+name: Name
+value: Value
+color: Color
+action: Action
+faq: FAQ
+faq.full: Frequently Asked Questions
+about: About
+about.kyela: About Kyela
+example: Example
+next.training: Next training
+yes: Yes
+maybe: Maybe
+no: No
+green: Green
+orange: Orange
+red: Red
+blue: Blue
+cyan: Cyan
+purple: Purple
+gray: Gray
+Name: Name
+Value: Value
+Color: Color
+Url: URL
+Title: Title
+Place: Place
+Date: Date
+Time: Time
+Subject: Subject
+Email: Email
+Message: Message
+send: Send
+thanks: Thanks
+thank.you: Thanks to you!
 mail.sent: Your email has been sent! Thanks!
+contact: Contact
+success: Success
+are.you.sure.to.delete: Are you sure you want to delete this?
+deleted: Deleted

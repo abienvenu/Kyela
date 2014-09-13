@@ -26,6 +26,11 @@ kyela_contact:
     defaults:
         _controller: KyelaBundle:Static:contact
 
+kyela_switch:
+    path: /switch/{_locale}
+    defaults:
+        _controller: KyelaBundle:Static:switch
+
 kyela_application:
     resource: "@KyelaBundle/Controller"
     type: annotation

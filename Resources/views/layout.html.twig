@@ -70,7 +70,14 @@
 		    		<li><a href="{{ path('kyela_about') }}">{% trans %}about{% endtrans %}</a></li>
 		    		<li><a href="{{ path('kyela_thanks') }}">{% trans %}thanks{% endtrans %}</a></li>
 		    		<li><a href="{{ path('kyela_contact') }}">{% trans %}contact{% endtrans %}</a></li>
-		    	</ul>
+					{% set routeParams = app.request.get('_route_params') %}
+				    {% for locale, language in {'en': 'English', 'fr': 'Français'} %}
+				    	{% if locale != app.request.locale %}
+						    {% set routeParams = routeParams|merge({'_locale': locale}) %}
+						    <li><a href="{{ path('kyela_switch', routeParams) }}">{{ language }}</a></li>
+				    	{% endif %}
+				    {% endfor %}
+		    		</ul>
 		    </div>
 	      </div>
 	    </div>
@@ -92,7 +99,7 @@
     </div>
     <div id="footer">
     	<p>
-    		&copy; Arnaud Bienvenu 2014 - v0.3.2 -
+    		&copy; Arnaud Bienvenu 2014 - v0.4 -
     		Icons by <a href="http://glyphicons.com/">GLYPHICONS.com</a> -
     		<span id="forkongithub"><a href="https://github.com/abienvenu/Kyela">Fork me on GitHub</a></span> -
     		{% image 'https://insight.sensiolabs.com/projects/bca46a72-4438-47e7-b629-4b9926e802a6/small.png' %}

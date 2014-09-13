@@ -78,6 +78,8 @@ For further customisation, you have to edit the code. Because of the licence (Af
 CHANGELOG
 ---------
 
+* v0.4 : Added ability to switch language English/French
+* v0.3.2 : Added time widget
 * v0.3 : Added deletion confirmation, autofocus, fixed poll deletion
 * v0.2 : Added contact page, default URL and choices for new polls
 * v0.1 : First (mostly) working release
@@ -85,12 +87,10 @@ CHANGELOG
 TODO
 ----
 * Error message presentation
-* Ability to switch language
 * l18n for error messages
 * Nice handling of bad (forged) URLs
 * Edit Participant should let him edit his choices as well
-* Make CSRF work (it is disabled in my main config.yml)
-* Functional test for Participation
+* Functional tests
 * Sort dates
 * Archive old dates
 * Access to old dates
@@ -105,7 +105,7 @@ TODO
 BUGS
 ----
 
-* There is not clue about the format to use for time
+* Impossible to create an event : time is null
 * When you click "FAQ", "About" or "Contact" from a poll, the menu won't link back to the poll
 
 FUTURE (MAY BE) FEATURES

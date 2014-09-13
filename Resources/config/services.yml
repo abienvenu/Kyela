@@ -9,6 +9,12 @@ services:
         tags:
             - { name: kernel.event_listener, event: kernel.controller, method: onKernelController }
 
+    abienvenu.kyela.locale_listener:
+        class: Abienvenu\KyelaBundle\EventListener\LocaleListener
+        arguments: ["%kernel.default_locale%"]
+        tags:
+            - { name: kernel.event_subscriber }
+
     twig.extension.intl:
         class: Twig_Extensions_Extension_Intl
         tags:
