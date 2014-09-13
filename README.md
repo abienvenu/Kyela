@@ -105,7 +105,7 @@ TODO
 BUGS
 ----
 
-* Clash if lowercase(url1) = lowercase(url2) ?
+* There is not clue about the format to use for time
 * When you click "FAQ", "About" or "Contact" from a poll, the menu won't link back to the poll
 
 FUTURE (MAY BE) FEATURES
