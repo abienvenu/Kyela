@@ -27,7 +27,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Choice
  *
  * @ORM\Table()
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Abienvenu\KyelaBundle\Entity\ChoiceRepository")
  */
 class Choice extends Entity
 {

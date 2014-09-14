@@ -27,7 +27,7 @@ use Doctrine\ORM\EntityRepository;
  * EventRepository
  *
  */
-class EventRepository extends EntityRepository
+class ChoiceRepository extends EntityRepository
 {
 	/**
      * Get future events
@@ -35,17 +35,15 @@ class EventRepository extends EntityRepository
 	 * @param Poll $poll
      * @return \Doctrine\Common\Collections\Collection
 	 */
-	public function getFutureEvents(Poll $poll)
+	public function getOrderedChoices(Poll $poll)
 	{
 		$query = $this->getEntityManager()->createQuery(
-			'SELECT event
-			FROM KyelaBundle:Event event
-			WHERE event.poll = :poll
-				AND event.date >= :date
-			ORDER BY event.date'
+			'SELECT choice
+			FROM KyelaBundle:Choice choice
+			WHERE choice.poll = :poll
+			ORDER BY choice.priority'
 		);
 		$query->setParameter('poll', $poll->getId());
-		$query->setParameter('date', new \DateTime("yesterday"));
 		return $query->getResult();
 	}
 }

@@ -55,7 +55,9 @@ class ChoiceController extends Controller
      */
     public function indexAction()
     {
-        return ['poll' => $this->poll];
+    	$em = $this->getDoctrine()->getManager();
+    	$choices = $em->getRepository("KyelaBundle:Choice")->getOrderedChoices($this->poll);
+        return ['poll' => $this->poll, 'choices' => $choices];
     }
 
     /**

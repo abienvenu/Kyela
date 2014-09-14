@@ -78,6 +78,7 @@ For further customisation, you have to edit the code. Because of the licence (Af
 CHANGELOG
 ---------
 
+* v0.5 : Added ability to reorder choices
 * v0.4 : Added ability to switch language English/French
 * v0.3.2 : Added time widget
 * v0.3 : Added deletion confirmation, autofocus, fixed poll deletion
@@ -93,7 +94,6 @@ TODO
 * Access to old dates
 * Add instructions how to download the product via composer
 * Add unicity constraint for (event, participant, choice)
-* Ability to re-order choices
 * Ability to use a glyphicon(s) for each choice
 * formnovalidate is not valid HTML ?
 * Comments/Forum

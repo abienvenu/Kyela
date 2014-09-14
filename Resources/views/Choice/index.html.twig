@@ -18,7 +18,7 @@
             </tr>
         </thead>
         <tbody>
-        {% for choice in poll.choices %}
+        {% for choice in choices %}
             <tr id="choice_{{ choice.id }}">
                 <td><span class="sort-button ui-icon ui-icon-arrowthick-2-n-s"></span>{{ choice.name }}</td>
                 <td>{{ choice.value }}</td>
