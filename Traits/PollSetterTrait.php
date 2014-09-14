@@ -1,0 +1,50 @@
+<?php
+/**
+ * Copyright 2014 Arnaud Bienvenu
+ *
+ * This file is part of Kyela.
+
+ * Kyela is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+
+ * Kyela is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+
+ * You should have received a copy of the GNU Affero General Public License
+ * along with Kyela.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ */
+
+namespace Abienvenu\KyelaBundle\Traits;
+
+use Symfony\Component\HttpFoundation\Request;
+
+trait PollSetterTrait
+{
+	protected $poll = null;
+
+    /**
+     * Set poll from Url or session
+     */
+    public function setPollFromRequest(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+    	$pollUrl = $request->get('pollUrl');
+    	if ($pollUrl) {
+    		$request->getSession()->set("pollUrl", $pollUrl);
+    	}
+    	else {
+    		$pollUrl = $request->getSession()->get("pollUrl");
+    	}
+    	$repository = $em->getRepository('KyelaBundle:Poll');
+    	$polls = $repository->findByUrl($pollUrl);
+    	if ($polls)
+    	{
+    		$this->poll = $repository->findByUrl($pollUrl)[0];
+    	}
+    }
+}
