@@ -87,6 +87,7 @@ CHANGELOG
 TODO
 ----
 * Error message presentation
+* Optim : Get all participations in a single DQL join
 * l18n for error messages
 * Nice handling of bad (forged) URLs
 * Edit Participant should let him edit his choices as well

@@ -237,10 +237,11 @@ trait ControllerTraits
     {
         $em = $this->getDoctrine()->getManager();
     	$pollUrl = $request->get('pollUrl');
-    	$polls = $em->getRepository('KyelaBundle:Poll')->findByUrl($pollUrl);
+    	$repository = $em->getRepository('KyelaBundle:Poll');
+    	$polls = $repository->findByUrl($pollUrl);
     	if ($polls)
     	{
-    		$this->poll = $em->getRepository('KyelaBundle:Poll')->findByUrl($pollUrl)[0];
+    		$this->poll = $repository->findByUrl($pollUrl)[0];
     	}
     }
 }

@@ -28,7 +28,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  * Event
  *
  * @ORM\Table()
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Abienvenu\KyelaBundle\Entity\EventRepository")
  */
 class Event extends Entity
 {
@@ -259,10 +259,5 @@ class Event extends Entity
     public function getTime()
     {
         return $this->time;
-    }
-
-    public function isOld()
-    {
-    	return $this->date < new \DateTime('yesterday');
     }
 }

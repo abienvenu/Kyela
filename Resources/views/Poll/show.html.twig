@@ -25,8 +25,8 @@
 {% block body %}
 
 <div class="list-group">
-{% for event in poll.events %}
-	<div class="{{ event.isold ? 'collapse' : 'list-group-item' }}">
+{% for event in events %}
+	<div class="list-group-item">
 		<a href="{{ path('event_edit', {'pollUrl': poll.url, 'id': event.id}) }}">
 			<span class="glyphicon glyphicon-edit"></span>
 		</a>
@@ -45,8 +45,8 @@
 	<thead>
 		<tr>
 			<th>{% trans %}participant{% endtrans %}</th>
-			{% for event in poll.events %}
-				<th data-cell-key="{{ event.id }}"{% if event.isold %} class="collapse"{% endif %}>
+			{% for event in events %}
+				<th data-cell-key="{{ event.id }}">
 					{{ event.date|localizeddate('medium', 'none', app.request.locale, null, "ccc d/M") }}
 					{{ event.time|localizeddate('medium', 'none', app.request.locale, null, "H'h'mm") }}
 				</th>
@@ -62,9 +62,9 @@
 					{{ participant.name }}
 				</a>
 			</td>
-			{% for event in poll.events %}
+			{% for event in events %}
 				{% set accessKey = event.id ~ '-' ~ participant.id %}
-				<td{% if event.isold %} class="collapse"{% endif %}>
+				<td>
 					<div class="btn-group">
 						<button type="button" class="btn btn-sm dropdown-toggle choice-{{ attribute(participations, accessKey) is defined ? attribute(participations, accessKey).choice.color : "none" }}" data-toggle="dropdown">
 							{{ attribute(participations, accessKey) is defined ? attribute(participations, accessKey).choice : '-' }}
@@ -100,8 +100,8 @@
 	<tfoot>
 		<tr>
 			<th>Total</th>
-			{% for event in poll.events %}
-				<th{% if event.isold %} class="collapse"{% endif %}>
+			{% for event in events %}
+				<th>
 					{{ event.participationsscore }}
 				</th>
 			{% endfor %}
