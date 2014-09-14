@@ -66,7 +66,7 @@
 {% use 'form_div_layout.html.twig' with time_widget as base_time_widget %}
 {% block time_widget -%}
     {% if widget == 'single_text' %}
-   		<div class="input-group bootstrap-timepicker">
+   		<div class="input-group bootstrap-timepicker" style="z-index: 0">
    			{% set attr = attr|merge({'class': (attr.class|default('') ~ " timepicker form-control")|trim }) %}
   			{{ block('base_form_widget_simple') }}
    			<span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>

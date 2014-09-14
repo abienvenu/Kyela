@@ -13,7 +13,9 @@
 			{{ form(delete_form) }}
 		</div>
 	</div>
-	<script>
+
+    <script type="text/javascript">
 		$('.datepicker').datepicker({ dateFormat: 'dd-mm-yy' });
-	</script>
+        $('.timepicker').timepicker({ showMeridian: false, minuteStep: 5});
+    </script>
 {% endblock %}
