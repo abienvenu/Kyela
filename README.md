@@ -87,12 +87,9 @@ CHANGELOG
 TODO
 ----
 * Error message presentation
-* Optim : Get all participations in a single DQL join
 * l18n for error messages
 * Nice handling of bad (forged) URLs
-* Edit Participant should let him edit his choices as well
 * Functional tests
-* Sort dates
 * Archive old dates
 * Access to old dates
 * Add instructions how to download the product via composer
@@ -103,6 +100,7 @@ TODO
 * Ability to use a glyphicon(s) for each choice
 * formnovalidate is not valid HTML ?
 * Comments/Forum
+* Optim : Get all participations in a single DQL join
 
 BUGS
 ----
