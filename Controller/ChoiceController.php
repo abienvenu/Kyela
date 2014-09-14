@@ -105,8 +105,6 @@ class ChoiceController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $repository = $em->getRepository("KyelaBundle:Choice");
-
-    	$logger = $this->get("logger");
     	$order = $request->request->get('choice');
     	foreach ($order as $priority => $choiceId)
     	{
