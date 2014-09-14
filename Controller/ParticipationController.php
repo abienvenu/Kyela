@@ -33,7 +33,6 @@ use Abienvenu\KyelaBundle\Entity\Participation;
  */
 class ParticipationController extends Controller
 {
-
     /**
      * Creates a new Participation on the fly.
      *

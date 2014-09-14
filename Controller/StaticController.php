@@ -37,6 +37,8 @@ use Abienvenu\KyelaBundle\Form\ContactType;
  */
 class StaticController extends Controller
 {
+	use \Abienvenu\KyelaBundle\Traits\PollSetterTrait;
+
 	protected function loadTranslations($domain, $locale)
 	{
 		$r = new \ReflectionClass($this);
@@ -62,7 +64,7 @@ class StaticController extends Controller
      */
     public function faqAction(Request $request)
     {
-    	return ["faq" => $this->loadTranslations("faq", $request->getLocale())];
+    	return ["poll" => $this->poll, "faq" => $this->loadTranslations("faq", $request->getLocale())];
     }
 
     /**
@@ -73,7 +75,18 @@ class StaticController extends Controller
      */
     public function aboutAction(Request $request)
     {
-    	return ["about" => $this->loadTranslations("about", $request->getLocale())];
+    	return ["poll" => $this->poll, "about" => $this->loadTranslations("about", $request->getLocale())];
+    }
+
+    /**
+     * Displays the Thanks page
+     *
+     * @Method("GET")
+     * @Template()
+     */
+    public function thanksAction(Request $request)
+    {
+    	return ["poll" => $this->poll];
     }
 
     /**
@@ -134,7 +147,8 @@ class StaticController extends Controller
 	        }
 	    }
 	    return array(
-	        'form' => $form->createView()
+	        'poll' => $this->poll,
+	    	'form' => $form->createView()
 	    );
     }
 }

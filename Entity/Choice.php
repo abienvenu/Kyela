@@ -188,7 +188,7 @@ class Choice extends Entity
     /**
      * Get participations
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getParticipations()
     {
@@ -211,7 +211,7 @@ class Choice extends Entity
     /**
      * Get poll
      *
-     * @return \Abienvenu\KyelaBundle\Entity\Poll 
+     * @return \Abienvenu\KyelaBundle\Entity\Poll
      */
     public function getPoll()
     {

@@ -26,7 +26,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use Abienvenu\KyelaBundle\Traits\ControllerTraits;
 use Abienvenu\KyelaBundle\Entity\Participant;
 use Abienvenu\KyelaBundle\Form\ParticipantType;
 
@@ -37,7 +36,8 @@ use Abienvenu\KyelaBundle\Form\ParticipantType;
  */
 class ParticipantController extends Controller
 {
-	use ControllerTraits;
+	use \Abienvenu\KyelaBundle\Traits\CRUDTrait;
+	use \Abienvenu\KyelaBundle\Traits\PollSetterTrait;
 
 	protected $entityName = 'KyelaBundle:Participant';
 	protected $cancelRoute = 'poll_show';

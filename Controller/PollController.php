@@ -26,7 +26,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use Abienvenu\KyelaBundle\Traits\ControllerTraits;
 use Abienvenu\KyelaBundle\Entity\Poll;
 use Abienvenu\KyelaBundle\Entity\Choice;
 use Abienvenu\KyelaBundle\Form\PollType;
@@ -39,7 +38,8 @@ use Abienvenu\KyelaBundle\Form\NewPollType;
  */
 class PollController extends Controller
 {
-	use ControllerTraits;
+	use \Abienvenu\KyelaBundle\Traits\CRUDTrait;
+	use \Abienvenu\KyelaBundle\Traits\PollSetterTrait;
 
 	protected $entityName = 'KyelaBundle:Poll';
 	protected $cancelRoute = 'poll_show';

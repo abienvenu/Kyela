@@ -18,8 +18,7 @@ kyela_about:
 kyela_thanks:
     path: /thanks
     defaults:
-        _controller: FrameworkBundle:Template:template
-        template: KyelaBundle:Static:thanks.html.twig
+        _controller: KyelaBundle:Static:thanks
 
 kyela_contact:
     path: /contact

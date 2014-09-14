@@ -90,10 +90,8 @@ TODO
 * l18n for error messages
 * Nice handling of bad (forged) URLs
 * Functional tests
-* Archive old dates
 * Access to old dates
 * Add instructions how to download the product via composer
-* For a Poll, customize "Total" color cell at certain levels
 * Add unicity constraint for (event, participant, choice)
 * Ability to re-order choices
 * Ability to use a glyphicon(s) for each choice
@@ -103,11 +101,12 @@ TODO
 BUGS
 ----
 
-* When you click "FAQ", "About" or "Contact" from a poll, the menu won't link back to the poll
+* No known yet
 
 FUTURE (MAY BE) FEATURES
 ------------------------
 
+* For a Poll, customize "Total" color cell at certain thresholds
 * Notification subscriptions
 * Syndication
 * Easy integration from remote websites

@@ -26,10 +26,8 @@ use Abienvenu\KyelaBundle\Entity\Poll;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\AbstractType;
 
-trait ControllerTraits
+trait CRUDTrait
 {
-	protected $poll = null;
-
 	abstract public function newAction(Request $request);
 	abstract public function editAction(Request $request, $id);
 	abstract public function deleteAction(Request $request, $id);
@@ -228,26 +226,5 @@ trait ControllerTraits
             ->setMethod('DELETE')
             ->add('submit', 'submit', ['label' => 'delete', 'attr' => ['type' => 'danger', 'onclick' => "return confirm('{$t->trans("are.you.sure.to.delete")}');"]])
             ->getForm();
-    }
-
-    /**
-     * Set poll from Url
-     */
-    public function setPollFromRequest(Request $request)
-    {
-        $em = $this->getDoctrine()->getManager();
-    	$pollUrl = $request->get('pollUrl');
-    	if ($pollUrl) {
-    		$request->getSession()->set("pollUrl", $pollUrl);
-    	}
-    	else {
-    		$pollUrl = $request->getSession()->get("pollUrl");
-    	}
-    	$repository = $em->getRepository('KyelaBundle:Poll');
-    	$polls = $repository->findByUrl($pollUrl);
-    	if ($polls)
-    	{
-    		$this->poll = $repository->findByUrl($pollUrl)[0];
-    	}
     }
 }
