@@ -67,6 +67,13 @@ class Choice extends Entity
     private $color;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="priority", type="integer")
+     */
+    private $priority;
+
+    /**
 	 * @ORM\OneToMany(targetEntity="Participation", mappedBy="choice", cascade={"remove"})
 	 */
 	private $participations;
@@ -216,5 +223,28 @@ class Choice extends Entity
     public function getPoll()
     {
         return $this->poll;
+    }
+
+    /**
+     * Set priority
+     *
+     * @param integer $priority
+     * @return Choice
+     */
+    public function setPriority($priority)
+    {
+        $this->priority = $priority;
+
+        return $this;
+    }
+
+    /**
+     * Get priority
+     *
+     * @return integer
+     */
+    public function getPriority()
+    {
+        return $this->priority;
     }
 }

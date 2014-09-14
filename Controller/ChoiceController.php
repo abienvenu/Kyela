@@ -22,6 +22,7 @@
 namespace Abienvenu\KyelaBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -91,4 +92,30 @@ class ChoiceController extends Controller
     {
     	return $this->doDeleteAction($request, $id);
     }
+
+    /**
+     * Reorder choices
+     *
+     * @Route("/order", name="choice_order")
+     * @Method("POST")
+     */
+    public function orderAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $repository = $em->getRepository("KyelaBundle:Choice");
+
+    	$logger = $this->get("logger");
+    	$order = $request->request->get('choice');
+    	foreach ($order as $priority => $choiceId)
+    	{
+    		$choice = $repository->find($choiceId);
+    		$choice->setPriority($priority);
+    	}
+    	$em->flush();
+
+    	$response = new JsonResponse();
+    	$response->setData(array("code" => 100, "success" => true));
+    	return $response;
+    }
+
 }
