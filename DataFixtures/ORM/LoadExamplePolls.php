@@ -13,7 +13,7 @@ class LoadExamplePolls implements FixtureInterface
 {
 	protected function loadConcert(ObjectManager $manager)
 	{
-		$poll = (new Poll)->setUrl('exemple')->setTitle('Prochaines répétitions');
+		$poll = (new Poll)->setUrl('concert')->setTitle('Prochaines répétitions');
 		$names = ['Aretha', 'Jimmy', 'Miles', 'John', 'Paul'];
 		$participantsObj = [];
 		foreach ($names as $name)

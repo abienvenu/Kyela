@@ -78,6 +78,7 @@ For further customisation, you have to edit the code. Because of the licence (Af
 CHANGELOG
 ---------
 
+* v0.6 : Added fixtures and images for examples
 * v0.5 : Added ability to reorder choices
 * v0.4 : Added ability to switch language English/French
 * v0.3.2 : Added time widget
@@ -93,8 +94,6 @@ TODO
 * Functional tests
 * Access to old dates
 * Ability to add MOTD below and/or above the table
-* Add an example of picnic (sucré/salé)
-* Add screenshots for examples
 * Add instructions how to download the product via composer
 * Add unicity constraint for (event, participant, choice)
 * Ability to use a glyphicon(s) for each choice
