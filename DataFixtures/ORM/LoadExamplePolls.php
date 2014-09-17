@@ -11,10 +11,7 @@ use Abienvenu\KyelaBundle\Entity\Participation;
 
 class LoadExamplePolls implements FixtureInterface
 {
-    /**
-     * {@inheritDoc}
-     */
-	public function load(ObjectManager $manager)
+	protected function loadConcert(ObjectManager $manager)
 	{
 		$poll = (new Poll)->setUrl('exemple')->setTitle('Prochaines répétitions');
 		$names = ['Aretha', 'Jimmy', 'Miles', 'John', 'Paul'];
@@ -94,6 +91,87 @@ class LoadExamplePolls implements FixtureInterface
 		}
 
 		$manager->persist($poll);
+	}
+
+	protected function loadPicnic(ObjectManager $manager)
+	{
+		$poll = (new Poll)->setUrl('picnic')->setTitle('Pique-nique');
+		$names = ['Élise', 'Jules', 'Marie', 'Romain', 'Margaux'];
+		$participantsObj = [];
+		foreach ($names as $name)
+		{
+			$participant = (new Participant)->setName($name)->setPoll($poll);
+			$manager->persist($participant);
+			$participantsObj[$name] = $participant;
+		}
+
+		$events = [
+			['name' => 'Date 1', 'place' => 'Central Park', 'date' => new \DateTime('+10 year'), 'time' => new \DateTime('12:00')],
+			['name' => 'Date 2', 'place' => 'Central Park', 'date' => new \DateTime('+10 year +1 days'), 'time' => new \DateTime('12:00')],
+		];
+		$eventsObj = [];
+		foreach ($events as $event)
+		{
+			$eventObj = (new Event)
+				->setName($event['name'])
+				->setPlace($event['place'])
+				->setDate($event['date'])
+				->setTime($event['time'])
+				->setPoll($poll);
+			$manager->persist($eventObj);
+			$eventsObj[$event['name']] = $eventObj;
+		}
+
+		$choices = [
+			['name' => 'Sucré', 'value' => 1, 'color' => 'blue', 'priority' => 0],
+			['name' => 'Salé', 'value' => 1, 'color' => 'cyan', 'priority' => 1],
+			['name' => 'Boisson', 'value' => 1, 'color' => 'purple', 'priority' => 2],
+			['name' => 'Absent', 'value' => 0, 'color' => 'gray', 'priority' => 3],
+		];
+		$choicesObj = [];
+		foreach ($choices as $choice)
+		{
+			$choiceObj = (new Choice)
+				->setName($choice['name'])
+				->setValue($choice['value'])
+				->setColor($choice['color'])
+				->setPriority($choice['priority'])
+				->setPoll($poll);
+			$manager->persist($choiceObj);
+			$choicesObj[$choice['name']] = $choiceObj;
+		}
+
+		$participations = [
+			['who' => 'Élise', 'when' => 'Date 1', 'choice' => 'Sucré'],
+			['who' => 'Jules', 'when' => 'Date 1', 'choice' => 'Salé'],
+			['who' => 'Marie', 'when' => 'Date 1', 'choice' => 'Boisson'],
+			['who' => 'Romain', 'when' => 'Date 1', 'choice' => 'Sucré'],
+			['who' => 'Margaux', 'when' => 'Date 1', 'choice' => 'Salé'],
+			['who' => 'Élise', 'when' => 'Date 2', 'choice' => 'Sucré'],
+			['who' => 'Jules', 'when' => 'Date 2', 'choice' => 'Absent'],
+			['who' => 'Marie', 'when' => 'Date 2', 'choice' => 'Boisson'],
+			['who' => 'Romain', 'when' => 'Date 2', 'choice' => 'Sucré'],
+			['who' => 'Margaux', 'when' => 'Date 2', 'choice' => 'Salé'],
+		];
+		foreach ($participations as $row)
+		{
+			$participation = (new Participation)
+				->setParticipant($participantsObj[$row['who']])
+				->setEvent($eventsObj[$row['when']])
+				->setChoice($choicesObj[$row['choice']]);
+			$manager->persist($participation);
+		}
+
+		$manager->persist($poll);
+	}
+
+    /**
+     * {@inheritDoc}
+     */
+	public function load(ObjectManager $manager)
+	{
+		$this->loadConcert($manager);
+		$this->loadPicnic($manager);
 		$manager->flush();
 	}
 }

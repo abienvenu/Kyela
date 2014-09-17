@@ -93,7 +93,6 @@ TODO
 * Functional tests
 * Access to old dates
 * Ability to add MOTD below and/or above the table
-* Let the examples be deleted/created by a fixture
 * Add an example of picnic (sucré/salé)
 * Add screenshots for examples
 * Add instructions how to download the product via composer
