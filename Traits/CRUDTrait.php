@@ -33,7 +33,7 @@ trait CRUDTrait
 	abstract public function deleteAction(Request $request, $id);
 
 	/**
-	 * Adds pollUrl into the parameters
+	 * Adds pollUrl into the parameters if not explicitly set
 	 *
 	 * @param string $route
 	 * @param mixed $parameters

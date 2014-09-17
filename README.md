@@ -90,7 +90,6 @@ TODO
 * Error message presentation
 * l18n for error messages
 * Nice handling of bad (forged) URLs
-* When creating/modifying the poll, tell the link
 * Functional tests
 * Access to old dates
 * Ability to add MOTD below and/or above the table

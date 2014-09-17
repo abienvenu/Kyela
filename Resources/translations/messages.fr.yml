@@ -79,3 +79,4 @@ success: Succès
 are.you.sure.to.delete: Êtes-vous sûr(e) de vouloir supprimer cela ?
 deleted: Supprimé
 poll.created %url%: Votre sondage a été créé. L'adresse à communiquer aux participants est %url%
+poll.modified %url%: Votre sondage a été modifié. La nouvelle adresse à communiquer aux participants est %url%
