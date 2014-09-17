@@ -155,7 +155,8 @@ trait CRUDTrait
 
             $em->remove($entity);
             $em->flush();
-            $request->getSession()->getFlashBag()->add('success', 'deleted');
+            $flashMessage = $this->get('translator')->trans('deleted');
+            $request->getSession()->getFlashBag()->add('success', $flashMessage);
         }
         return $this->redirect($this->generateUrl($this->deleteSuccessRoute));
     }

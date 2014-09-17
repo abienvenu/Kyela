@@ -66,8 +66,8 @@ class PollController extends Controller
 	    	$poll->addChoice((new Choice)->setName($t->trans("maybe"))->setValue(0)->setColor("orange")->setPriority(1)->setPoll($poll));
 	    	$poll->addChoice((new Choice)->setName($t->trans("no"))->setValue(0)->setColor("red")->setPriority(2)->setPoll($poll));
 	    	$baseUrl = $this->generateUrl('poll_show', ['pollUrl' => $poll->getUrl()], true);
-	    	$message = $this->get('translator')->trans('poll.created %url%', ['%url%' => $baseUrl]);
-	    	$request->getSession()->getFlashBag()->add('success', $message);
+	    	$flashMessage = $this->get('translator')->trans('poll.created %url%', ['%url%' => $baseUrl]);
+	    	$request->getSession()->getFlashBag()->add('success', $flashMessage);
     	}
     	return $this->doNewAction(new NewPollType(), $poll, $request);
     }
@@ -112,8 +112,8 @@ class PollController extends Controller
     	if ($request->isMethod('PUT'))
     	{
 	        $baseUrl = $this->generateUrl('poll_show', ['pollUrl' => $this->poll->getUrl()], true);
-		    $message = $this->get('translator')->trans('poll.modified %url%', ['%url%' => $baseUrl]);
-		    $request->getSession()->getFlashBag()->add('success', $message);
+		    $flashMessage = $this->get('translator')->trans('poll.modified %url%', ['%url%' => $baseUrl]);
+		    $request->getSession()->getFlashBag()->add('success', $flashMessage);
     	}
     	return $response;
     }

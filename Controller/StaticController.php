@@ -142,7 +142,8 @@ class StaticController extends Controller
 	                );
 
 	            $this->get('mailer')->send($message);
-	            $request->getSession()->getFlashBag()->add('success', 'mail.sent');
+	            $flashMessage = $this->get('translator')->trans('mail.sent');
+	            $request->getSession()->getFlashBag()->add('success', $flashMessage);
 	            return $this->redirect($this->generateUrl('poll_new'));
 	        }
 	    }
