@@ -88,7 +88,7 @@
 	    	</div>
 	    	<div class="panel-body">
 				{% for flashMessage in app.session.flashbag.get('success') %}
-					{{ flashMessage }}<br />
+					{{ flashMessage|raw }}<br />
 				{% endfor %}
 	    	</div>
 	    </div>
