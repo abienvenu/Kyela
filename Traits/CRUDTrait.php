@@ -41,7 +41,10 @@ trait CRUDTrait
 	 */
 	public function generateUrl($route, $parameters = [], $absolute = false)
 	{
-		$parameters['pollUrl'] = $this->poll ? $this->poll->getUrl() : "";
+		if (!isset($parameters['pollUrl']))
+		{
+			$parameters['pollUrl'] = $this->poll ? $this->poll->getUrl() : "";
+		}
 		return parent::generateUrl($route, $parameters, $absolute);
 	}
 
