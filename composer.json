@@ -3,7 +3,7 @@
     "type": "symfony-bundle",
     "description": "Participation polls for group events",
     "keywords": ["Symfony", "Poll", "Event", "Participation", "Schedule"],
-    "homepage": "http://kyela.net/",
+    "homepage": "http://kyela.net",
     "license": "AGPL",
     "authors": [
         {

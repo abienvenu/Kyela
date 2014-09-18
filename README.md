@@ -2,6 +2,7 @@ Kyela
 =====
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/abienvenu/Kyela/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/abienvenu/Kyela/?branch=master)
 [![Build Status](https://scrutinizer-ci.com/g/abienvenu/Kyela/badges/build.png?b=master)](https://scrutinizer-ci.com/g/abienvenu/Kyela/build-status/master)
+[![Latest Stable Version](https://poser.pugx.org/abienvenu/kyela/v/stable.svg)](https://packagist.org/packages/abienvenu/kyela) [![Total Downloads](https://poser.pugx.org/abienvenu/kyela/downloads.svg)](https://packagist.org/packages/abienvenu/kyela) [![Latest Unstable Version](https://poser.pugx.org/abienvenu/kyela/v/unstable.svg)](https://packagist.org/packages/abienvenu/kyela) [![License](https://poser.pugx.org/abienvenu/kyela/license.svg)](https://packagist.org/packages/abienvenu/kyela)
 
 Participation polls for group events
 
@@ -32,11 +33,20 @@ If you want to install and run Kyela on your own server :
 
 * Install Symfony 2.5
 * Download the bundle :
-    git clone https://github.com/abienvenu/Kyela.git
-
+```bash
+$ php composer.phar require "abienvenu/kyela":"dev-master"
+```
 * Add the bundle in your AppKernel.php :
 ```php
-new Abienvenu\KyelaBundle\KyelaBundle(),
+// app/AppKernel.php
+
+public function registerBundles()
+{
+    $bundles = array(
+        // ...
+        new Abienvenu\KyelaBundle\KyelaBundle(),
+    );
+}
 ```
 * Include the route from your app/config/routing.yml :
 ```YAML
@@ -90,8 +100,7 @@ CHANGELOG
 
 TODO
 ----
-* Publish on Packagist
-* Add counter on github (see https://github.com/formapro/JsFormValidatorBundle/blob/master/README.md)
+* A knpbundles readme
 * Remove customized generateUrl(), it breaks things
 * Translate About
 * Make a distinction between required fields and optional fields
@@ -102,12 +111,10 @@ TODO
 * Enable tests in scrutinizer-ci.com
 * Access to old dates
 * Ability to add MOTD below and/or above the table
-* Add instructions how to download the product via composer
 * Add unicity constraint for (event, participant, choice)
 * Ability to use a glyphicon(s) for each choice
 * formnovalidate is not valid HTML ?
 * A github page that links to kyela.net
-* A knpbundles readme
 * Comments/Forum
 
 BUGS
