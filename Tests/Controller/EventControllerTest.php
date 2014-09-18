@@ -50,7 +50,7 @@ class EventControllerTest extends WebTestCase
         // Delete the entity
         $crawler = $client->click($link->filter('a')->link());
         $client->submit($crawler->selectButton($t->trans('delete'))->form());
-        $crawler = $client->followRedirect();
+        $client->followRedirect();
 
         // Check the entity has been delete on the list
         $this->assertNotRegExp("/$name/", $client->getResponse()->getContent());

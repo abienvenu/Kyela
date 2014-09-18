@@ -36,6 +36,12 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
  */
 class FormActionsType extends AbstractType
 {
+	/**
+	 * Add buttons to the form
+	 *
+	 * @param FormBuilderInterface $builder
+	 * @param array $options
+	 */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         foreach ($options['buttons'] as $name => $config) {
@@ -52,7 +58,7 @@ class FormActionsType extends AbstractType
         array_map(array($this, 'validateButton'), $form->all());
     }
 
-    protected function addButton($builder, $name, $config)
+    protected function addButton(FormBuilderInterface $builder, $name, $config)
     {
     	$options = (isset($config['options']))? $config['options'] : [];
         $builder->add($name, $config['type'], $options);

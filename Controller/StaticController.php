@@ -39,6 +39,13 @@ class StaticController extends Controller
 {
 	use \Abienvenu\KyelaBundle\Traits\PollSetterTrait;
 
+	/**
+	 * Load additionnal translations
+	 *
+	 * @param string $domain
+	 * @param string $locale
+	 * @return array
+	 */
 	protected function loadTranslations($domain, $locale)
 	{
 		$r = new \ReflectionClass($this);
@@ -84,7 +91,7 @@ class StaticController extends Controller
      * @Method("GET")
      * @Template()
      */
-    public function thanksAction(Request $request)
+    public function thanksAction()
     {
     	return ["poll" => $this->poll];
     }
@@ -122,7 +129,7 @@ class StaticController extends Controller
         ]);
 
     	if ($request->isMethod('POST')) {
-    		$form->bind($request);
+    		$form->handleRequest($request);
 
 	        if ($form->isValid()) {
 	            $message = \Swift_Message::newInstance()

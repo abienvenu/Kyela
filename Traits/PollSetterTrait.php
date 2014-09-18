@@ -27,9 +27,11 @@ trait PollSetterTrait
 {
 	protected $poll = null;
 
-    /**
-     * Set poll from Url or session
-     */
+	/**
+	 * Set poll from Url or session
+	 *
+	 * @param Request $request
+	 */
     public function setPollFromRequest(Request $request)
     {
         $em = $this->getDoctrine()->getManager();

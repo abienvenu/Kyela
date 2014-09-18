@@ -79,7 +79,7 @@ class PollController extends Controller
      * @Method("GET")
      * @Template()
      */
-    public function showAction($pollUrl)
+    public function showAction()
     {
     	$em = $this->getDoctrine()->getManager();
     	$hasPastEvents = count($em->getRepository("KyelaBundle:Event")->getFutureOrPastEvents($this->poll, false));
@@ -96,7 +96,7 @@ class PollController extends Controller
      * @Method("GET")
      * @Template()
      */
-    public function archiveAction($pollUrl)
+    public function archiveAction()
     {
         return ['poll' => $this->poll];
     }
@@ -169,7 +169,7 @@ class PollController extends Controller
      * @Route("/{pollUrl}/", name="poll_delete")
      * @Method("DELETE")
      */
-    public function deleteAction(Request $request, $pollUrl)
+    public function deleteAction(Request $request)
     {
     	return $this->doDeleteAction($request, $this->poll->getId());
     }
