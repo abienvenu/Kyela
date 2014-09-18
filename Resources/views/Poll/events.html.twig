@@ -1,0 +1,16 @@
+<div class="list-group">
+{% for event in events %}
+	<div class="list-group-item">
+		<a href="{{ path('event_edit', {'pollUrl': poll.url, 'id': event.id}) }}">
+			<span class="glyphicon glyphicon-edit"></span>
+		</a>
+		<span class="badge">{{ event.participationsscore }}</span>
+		{{ event.date|localizeddate('medium', 'none', app.request.locale, null, "cccc d MMMM") }} -
+		{{ event.time|localizeddate('medium', 'none', app.request.locale, null, "H'h'mm") }}
+		{% if event.place %}
+			- {{ event.place }}
+		{% endif %}
+		&nbsp;: {{ event.name }}
+	</div>
+{% endfor %}
+</div>

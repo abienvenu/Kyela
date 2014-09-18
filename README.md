@@ -95,6 +95,7 @@ For further customisation, you have to edit the code. Because of the licence (GN
 CHANGELOG
 ---------
 
+* v0.7 : Added access to past events
 * v0.6 : Added fixtures and images for examples
 * v0.5 : Added ability to reorder choices
 * v0.4 : Added ability to switch language English/French
@@ -105,7 +106,7 @@ CHANGELOG
 
 TODO
 ----
-* Remove customized generateUrl(), it breaks things
+* Access to old dates
 * Translate About
 * Make a distinction between required fields and optional fields
 * Error message presentation
@@ -113,7 +114,6 @@ TODO
 * Nice handling of bad (forged) URLs
 * Functional tests
 * Enable tests in scrutinizer-ci.com
-* Access to old dates
 * Ability to add MOTD below and/or above the table
 * Add unicity constraint for (event, participant, choice)
 * Ability to use a glyphicon(s) for each choice

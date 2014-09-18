@@ -73,7 +73,7 @@ class PollController extends Controller
     }
 
     /**
-     * Displays a form to edit an existing Poll entity.
+     * Shows the poll
      *
      * @Route("/{pollUrl}/", name="poll_show")
      * @Method("GET")
@@ -82,7 +82,51 @@ class PollController extends Controller
     public function showAction($pollUrl)
     {
     	$em = $this->getDoctrine()->getManager();
-    	$events = $em->getRepository("KyelaBundle:Event")->getFutureEvents($this->poll);
+    	$hasPastEvents = count($em->getRepository("KyelaBundle:Event")->getFutureOrPastEvents($this->poll, false));
+    	return [
+    		'poll' => $this->poll,
+    		'hasPastEvents' => $hasPastEvents,
+		];
+    }
+
+    /**
+     * Shows the poll with past events only
+     *
+     * @Route("/{pollUrl}/archive", name="poll_archive")
+     * @Method("GET")
+     * @Template()
+     */
+    public function archiveAction($pollUrl)
+    {
+        return ['poll' => $this->poll];
+    }
+
+    /**
+     * Displays poll events
+     *
+     * @Method("GET")
+     * @Template()
+     */
+    public function eventsAction($isFuture)
+    {
+    	$em = $this->getDoctrine()->getManager();
+    	$events = $em->getRepository("KyelaBundle:Event")->getFutureOrPastEvents($this->poll, $isFuture);
+    	return [
+        	'poll' => $this->poll,
+        	'events' => $events,
+		];
+    }
+
+    /**
+     * Displays interative participation table
+     *
+     * @Method("GET")
+     * @Template()
+     */
+    public function participationsAction($isFuture)
+    {
+    	$em = $this->getDoctrine()->getManager();
+    	$events = $em->getRepository("KyelaBundle:Event")->getFutureOrPastEvents($this->poll, $isFuture);
     	$participationsArray = [];
     	foreach ($events as $event)
     	{

@@ -81,3 +81,5 @@ are.you.sure.to.delete: Are you sure you want to delete this?
 deleted: Deleted
 poll.created %url%: Your poll has been created. The URL to communicate to participants is <pre>%url%</pre> You can modify this URL clicking on "Edit the poll"
 poll.modified %url%: Your poll has been modified. The new URL to communicate to partipants is <pre>%url%</pre>
+archive.access: Access to archives
+past.events: Past events
