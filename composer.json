@@ -1,0 +1,24 @@
+{
+    "name": "abienvenu/Kyela",
+    "type": "symfony-bundle",
+    "description": "Participation polls for group events",
+    "keywords": ["Symfony", "Poll", "Event", "Participation", "Schedule"],
+    "homepage": "http://kyela.net/",
+    "license": "AGPL",
+    "authors": [
+        {
+            "name": "Arnaud Bienvenu"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "symfony/symfony": ">=2.3",
+        "doctrine/orm": ">=2.2.3",
+        "doctrine/doctrine-bundle": "~1.2",
+        "twig/extensions": "~1.0"
+    }
+    "require-dev": {
+        "doctrine/doctrine-fixtures-bundle": "2.2.*"
+    }
+}
+

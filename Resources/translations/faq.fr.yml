@@ -6,7 +6,7 @@ recurrent.events:
     a: Un seul sondage suffit. Il faut proposer les prochaines dates possibles. Les anciennes dates disparaissent automatiquement 24h après l'événement. Il est plus pratique d'utiliser un même sondage tout au long de l'année, plutôt que de jongler avec plusieurs sondages.
 short.url:
     q: L'adresse web de mon sondage est trop longue, puis-je en avoir une facile à retenir ?
-    a: Oui, il suffit d'éditer votre sondage, et de changer l'URL. Attention, si votre URL est trop facile à deviner, des personnes qui n'ont pas été invitées peuvent trouver votre sondage. Et n'oubliez pas de prévenir les participants que l'adresse du sondage a changé.
+    a: Oui, il suffit d'éditer votre sondage, et de changer l'URL. Attention, si votre URL est trop facile à deviner, des personnes qui n'ont pas été invitées peuvent trouver votre sondage.
 how.secure:
     q: Comment un sondage est-il protégé ?
     a: Seules les personnes disposant du lien peuvent accéder au sondage. Il n'y a pas d'index, et aucun moteur de recherche ne référence les sondages. Veillez à diffuser le lien uniquement aux personnes concernées.

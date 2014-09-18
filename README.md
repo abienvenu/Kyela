@@ -1,5 +1,7 @@
 Kyela
 =====
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/abienvenu/Kyela/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/abienvenu/Kyela/?branch=master)
+[![Build Status](https://scrutinizer-ci.com/g/abienvenu/Kyela/badges/build.png?b=master)](https://scrutinizer-ci.com/g/abienvenu/Kyela/build-status/master)
 
 Participation polls for group events
 
@@ -88,17 +90,24 @@ CHANGELOG
 
 TODO
 ----
-* Traduire FAQ/About
+* Publish on Packagist
+* Add counter on github (see https://github.com/formapro/JsFormValidatorBundle/blob/master/README.md)
+* Remove customized generateUrl(), it breaks things
+* Translate About
+* Make a distinction between required fields and optional fields
 * Error message presentation
 * l18n for error messages
 * Nice handling of bad (forged) URLs
 * Functional tests
+* Enable tests in scrutinizer-ci.com
 * Access to old dates
 * Ability to add MOTD below and/or above the table
 * Add instructions how to download the product via composer
 * Add unicity constraint for (event, participant, choice)
 * Ability to use a glyphicon(s) for each choice
 * formnovalidate is not valid HTML ?
+* A github page that links to kyela.net
+* A knpbundles readme
 * Comments/Forum
 
 BUGS
@@ -118,5 +127,6 @@ FUTURE (MAY BE) FEATURES
 * Ability to restrict access to some admin buttons (edit choices, edit poll...) with a pass phrase
 * Make a logo, a favicon
 * AJAX calls to avoid page reload when updating participation
+* Integrate to Travis-CI
 
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/bca46a72-4438-47e7-b629-4b9926e802a6/big.png)](https://insight.sensiolabs.com/projects/bca46a72-4438-47e7-b629-4b9926e802a6)
