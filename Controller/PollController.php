@@ -152,8 +152,9 @@ class PollController extends Controller
      */
     public function editAction(Request $request)
     {
+    	$oldUrl = $this->poll->getUrl();
     	$response = $this->doEditAction(new PollType(), $this->poll->getId(), $request);
-    	if ($request->isMethod('PUT'))
+    	if ($request->isMethod('PUT') && $oldUrl != $this->poll->getUrl())
     	{
 	        $baseUrl = $this->generateUrl('poll_show', ['pollUrl' => $this->poll->getUrl()], true);
 		    $flashMessage = $this->get('translator')->trans('poll.modified %url%', ['%url%' => $baseUrl]);
