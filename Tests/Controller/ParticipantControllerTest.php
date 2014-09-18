@@ -16,6 +16,11 @@ class ParticipantControllerTest extends WebTestCase
 		self::$translator = self::$client->getContainer()->get('translator');
 	}
 
+	/**
+	 * Creates a participant
+	 *
+	 * @param string $name
+	 */
 	public static function createEntry($name)
 	{
         // Create a new entry in the database
@@ -29,6 +34,11 @@ class ParticipantControllerTest extends WebTestCase
         return self::$client->followRedirect();
 	}
 
+	/**
+	 * Deletes a participant
+	 *
+	 * @param string $name
+	 */
 	public static function deleteEntry($name)
 	{
         // Create a new entry in the database

@@ -29,6 +29,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Yaml\Yaml;
 use Abienvenu\KyelaBundle\Form\ContactType;
+use Abienvenu\KyelaBundle\Traits\PollSetterTrait;
 
 /**
  * Static content controller.
@@ -37,7 +38,7 @@ use Abienvenu\KyelaBundle\Form\ContactType;
  */
 class StaticController extends Controller
 {
-	use \Abienvenu\KyelaBundle\Traits\PollSetterTrait;
+	use PollSetterTrait;
 
 	/**
 	 * Load additionnal translations

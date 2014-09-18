@@ -29,6 +29,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Abienvenu\KyelaBundle\Entity\Choice;
 use Abienvenu\KyelaBundle\Form\ChoiceType;
+use Abienvenu\KyelaBundle\Traits\CRUDTrait;
 
 /**
  * Choice controller.
@@ -37,7 +38,7 @@ use Abienvenu\KyelaBundle\Form\ChoiceType;
  */
 class ChoiceController extends Controller
 {
-	use \Abienvenu\KyelaBundle\Traits\CRUDTrait;
+	use CRUDTrait;
 
 	protected $entityName = 'KyelaBundle:Choice';
 	protected $cancelRoute = 'choice';

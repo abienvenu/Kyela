@@ -28,6 +28,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Abienvenu\KyelaBundle\Entity\Event;
 use Abienvenu\KyelaBundle\Form\EventType;
+use Abienvenu\KyelaBundle\Traits\CRUDTrait;
 
 /**
  * Event controller.
@@ -36,7 +37,7 @@ use Abienvenu\KyelaBundle\Form\EventType;
  */
 class EventController extends Controller
 {
-	use \Abienvenu\KyelaBundle\Traits\CRUDTrait;
+	use CRUDTrait;
 
 	protected $entityName = 'KyelaBundle:Event';
 	protected $cancelRoute = 'poll_show';

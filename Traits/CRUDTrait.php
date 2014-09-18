@@ -25,14 +25,17 @@ use Abienvenu\KyelaBundle\Entity\Entity;
 use Abienvenu\KyelaBundle\Entity\Poll;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\AbstractType;
+use Abienvenu\KyelaBundle\Traits\PollSetterTrait;
 
 trait CRUDTrait
 {
-	use \Abienvenu\KyelaBundle\Traits\PollSetterTrait;
+	use PollSetterTrait;
 
 	abstract public function newAction(Request $request);
 	abstract public function editAction(Request $request, $id);
 	abstract public function deleteAction(Request $request, $id);
+
+	abstract public function getDoctrine();
 
 	/**
 	 * Adds pollUrl into the parameters if not explicitly set

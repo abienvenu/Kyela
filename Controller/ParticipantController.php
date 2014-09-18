@@ -28,6 +28,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Abienvenu\KyelaBundle\Entity\Participant;
 use Abienvenu\KyelaBundle\Form\ParticipantType;
+use Abienvenu\KyelaBundle\Traits\CRUDTrait;
 
 /**
  * Participant controller.
@@ -36,7 +37,7 @@ use Abienvenu\KyelaBundle\Form\ParticipantType;
  */
 class ParticipantController extends Controller
 {
-	use \Abienvenu\KyelaBundle\Traits\CRUDTrait;
+	use CRUDTrait;
 
 	protected $entityName = 'KyelaBundle:Participant';
 	protected $cancelRoute = 'poll_show';

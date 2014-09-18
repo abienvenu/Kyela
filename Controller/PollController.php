@@ -30,6 +30,7 @@ use Abienvenu\KyelaBundle\Entity\Poll;
 use Abienvenu\KyelaBundle\Entity\Choice;
 use Abienvenu\KyelaBundle\Form\PollType;
 use Abienvenu\KyelaBundle\Form\NewPollType;
+use Abienvenu\KyelaBundle\Traits\CRUDTrait;
 
 /**
  * Poll controller.
@@ -38,7 +39,7 @@ use Abienvenu\KyelaBundle\Form\NewPollType;
  */
 class PollController extends Controller
 {
-	use \Abienvenu\KyelaBundle\Traits\CRUDTrait;
+	use CRUDTrait;
 
 	protected $entityName = 'KyelaBundle:Poll';
 	protected $cancelRoute = 'poll_show';
