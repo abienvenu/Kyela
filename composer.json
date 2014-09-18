@@ -1,5 +1,5 @@
 {
-    "name": "abienvenu/Kyela",
+    "name": "abienvenu/kyela",
     "type": "symfony-bundle",
     "description": "Participation polls for group events",
     "keywords": ["Symfony", "Poll", "Event", "Participation", "Schedule"],
