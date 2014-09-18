@@ -106,7 +106,6 @@ CHANGELOG
 
 TODO
 ----
-* Access to old dates
 * Translate About
 * Make a distinction between required fields and optional fields
 * Error message presentation
