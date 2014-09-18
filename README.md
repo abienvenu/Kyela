@@ -88,6 +88,7 @@ CHANGELOG
 
 TODO
 ----
+* Traduire FAQ/About
 * Error message presentation
 * l18n for error messages
 * Nice handling of bad (forged) URLs
