@@ -28,6 +28,8 @@ use Symfony\Component\Form\AbstractType;
 
 trait CRUDTrait
 {
+	use \Abienvenu\KyelaBundle\Traits\PollSetterTrait;
+
 	abstract public function newAction(Request $request);
 	abstract public function editAction(Request $request, $id);
 	abstract public function deleteAction(Request $request, $id);

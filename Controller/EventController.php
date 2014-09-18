@@ -37,7 +37,6 @@ use Abienvenu\KyelaBundle\Form\EventType;
 class EventController extends Controller
 {
 	use \Abienvenu\KyelaBundle\Traits\CRUDTrait;
-	use \Abienvenu\KyelaBundle\Traits\PollSetterTrait;
 
 	protected $entityName = 'KyelaBundle:Event';
 	protected $cancelRoute = 'poll_show';

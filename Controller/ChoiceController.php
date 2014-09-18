@@ -38,7 +38,6 @@ use Abienvenu\KyelaBundle\Form\ChoiceType;
 class ChoiceController extends Controller
 {
 	use \Abienvenu\KyelaBundle\Traits\CRUDTrait;
-	use \Abienvenu\KyelaBundle\Traits\PollSetterTrait;
 
 	protected $entityName = 'KyelaBundle:Choice';
 	protected $cancelRoute = 'choice';
