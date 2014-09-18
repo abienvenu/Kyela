@@ -23,6 +23,7 @@ namespace Abienvenu\KyelaBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use Abienvenu\KyelaBundle\Entity\Entity;
 
 /**
  * Event

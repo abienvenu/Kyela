@@ -22,6 +22,7 @@
 namespace Abienvenu\KyelaBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Abienvenu\KyelaBundle\Entity\Entity;
 
 /**
  * Participation
