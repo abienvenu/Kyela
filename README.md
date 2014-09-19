@@ -132,6 +132,7 @@ CHANGELOG
 
 TODO
 ----
+* Why CRITICAL errors are not logged on kyela.net ?
 * Functional tests
 * Enable tests in scrutinizer-ci.com
 * Translate About
