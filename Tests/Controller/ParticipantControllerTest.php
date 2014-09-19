@@ -3,6 +3,7 @@
 namespace Abienvenu\KyelaBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Abienvenu\KyelaBundle\Tests\Controller\PollControllerTest;
 
 class ParticipantControllerTest extends WebTestCase
 {
@@ -21,10 +22,9 @@ class ParticipantControllerTest extends WebTestCase
 	 *
 	 * @param string $name
 	 */
-	public static function createEntry($name)
+	public static function createEntry($crawler, $name)
 	{
         // Create a new entry in the database
-        $crawler = self::$client->request('GET', '/kyela/');
         $link = $crawler->selectLink(self::$translator->trans('add.a.participant'))->link();
         $crawler = self::$client->click($link);
 
@@ -39,10 +39,9 @@ class ParticipantControllerTest extends WebTestCase
 	 *
 	 * @param string $name
 	 */
-	public static function deleteEntry($name)
+	public static function deleteEntry($crawler, $name)
 	{
         // Create a new entry in the database
-        $crawler = self::$client->request('GET', '/kyela/');
         $link = $crawler->filter('a:contains("' . $name . '")');
         $crawler = self::$client->click($link->link());
         self::$client->submit($crawler->selectButton(self::$translator->trans('delete'))->form());
@@ -51,12 +50,16 @@ class ParticipantControllerTest extends WebTestCase
 
     public function testCompleteScenario()
     {
+    	$poll = uniqid('Test Poll ');
     	$name = uniqid('Test Participant ');
-    	$crawler = self::createEntry($name);
+    	PollControllerTest::setUpBeforeClass();
+    	$crawler = PollControllerTest::createEntry($poll);
+    	$crawler = self::createEntry($crawler, $name);
 
         // Check data in the show view
-        $link = $crawler->filter('a:contains("' . $name . '")');
-        $this->assertEquals(1, $link->count(), 'Missing element a:contains("' . $name . '")');
+        $filter = 'a:contains("' . $name . '")';
+        $link = $crawler->filter($filter);
+        $this->assertEquals(1, $link->count(), "Missing element $filter");
 
         // Edit the entity
         $crawler = self::$client->click($link->link());
@@ -67,13 +70,16 @@ class ParticipantControllerTest extends WebTestCase
         $crawler = self::$client->followRedirect();
 
         // Check data in the show view
-        $link = $crawler->filter('a:contains("' . $name . '")');
-        $this->assertEquals(1, $link->count(), 'Missing element a:contains("' . $name . '")');
+        $filter = 'a:contains("' . $name . '")';
+        $link = $crawler->filter($filter);
+        $this->assertEquals(1, $link->count(), "Missing element $filter");
 
         // Delete the entity
-        return self::deleteEntry($name);
+        $crawler = self::deleteEntry($crawler, $name);
 
         // Check the entity has been delete on the list
         $this->assertNotRegExp("/$name/", self::$client->getResponse()->getContent());
+
+        PollControllerTest::deleteEntry($crawler);
     }
 }

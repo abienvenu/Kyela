@@ -77,7 +77,7 @@ class PollControllerTest extends WebTestCase
         $this->assertEquals(1, $linkToPoll->count(), "Missing element $filter");
 
         // Edit entry
-        $newtitle = "$title 2";
+        $newtitle = "M $title";
         $crawler = self::editEntry($crawler, $newtitle);
         $filter = 'a:contains("' . $newtitle . '")';
         $linkToPoll = $crawler->filter($filter);
