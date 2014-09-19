@@ -85,6 +85,32 @@ Add some rewritule to your apache configuration :
     RewriteEngine On
     RewriteRule ^/kyela/web/app_dev.php/fonts/(.*) /kyela/web/bundles/kyela/fonts/$1 [L]
 
+Loading examples
+----------------
+
+Fixtures are available to automatically load examples (concert and picnic).
+
+* Install DoctrineFixturesBundle :
+```bash
+$ php composer.phar require "doctrine/doctrine-fixtures-bundle": "2.2.*"
+```
+* Register the bundle :
+```php
+// app/AppKernel.php
+
+public function registerBundles()
+{
+    $bundles = array(
+        // ...
+        new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
+    );
+}
+```
+* Load the fixtures :
+```bash
+$ php app/console doctrine:fixtures:load --append
+```
+
 Customisation
 -------------
 
@@ -106,19 +132,19 @@ CHANGELOG
 
 TODO
 ----
+* Functional tests
+* Enable tests in scrutinizer-ci.com
 * Translate About
 * Make a distinction between required fields and optional fields
 * Error message presentation
 * l18n for error messages
 * Nice handling of bad (forged) URLs
-* Functional tests
-* Enable tests in scrutinizer-ci.com
 * Ability to add MOTD below and/or above the table
 * Add unicity constraint for (event, participant, choice)
 * Ability to use a glyphicon(s) for each choice
 * formnovalidate is not valid HTML ?
-* A github page that links to kyela.net
 * Comments/Forum
+* A github page that links to kyela.net
 * Make a knpbundles readme
 
 
