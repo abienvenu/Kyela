@@ -10,6 +10,9 @@ class PollWebTestCase extends WebTestCase
 	protected static $client;
 	protected static $translator;
 
+	/**
+	 * WebTestCase setup (automitically called by framework before any test)
+	 */
 	public static function setUpBeforeClass()
 	{
         // Create a new client to browse the application
@@ -22,6 +25,8 @@ class PollWebTestCase extends WebTestCase
 	 *
 	 * @param Crawler $crawler
 	 * @param string $where Translation key of the link text
+	 *
+	 * @return Crawler
 	 */
 	public static function clickLink(Crawler $crawler, $where)
 	{
@@ -36,6 +41,8 @@ class PollWebTestCase extends WebTestCase
 	 * @param string $where Translation key of the button name
 	 * @param string $formName Name of the template
 	 * @param array $formData Form data
+	 *
+	 * @return Crawler
 	 */
 	public static function submitForm(Crawler $crawler, $button, $formName = "", $formData = [])
 	{
@@ -69,6 +76,8 @@ class PollWebTestCase extends WebTestCase
 	 * Creates a poll
 	 *
 	 * @param string $name
+	 *
+	 * @return Crawler
 	 */
 	public static function createPollEntry($title)
 	{
@@ -81,6 +90,8 @@ class PollWebTestCase extends WebTestCase
 	 * Deletes a poll
 	 *
 	 * @param Crawler $crawler
+	 *
+	 * @return Crawler
 	 */
 	public static function deletePollEntry(Crawler $crawler)
 	{

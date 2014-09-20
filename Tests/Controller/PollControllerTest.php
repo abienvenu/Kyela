@@ -4,6 +4,9 @@ namespace Abienvenu\KyelaBundle\Tests\Controller;
 
 class PollControllerTest extends PollWebTestCase
 {
+	/**
+	 * Creates, edits and deletes a poll
+	 */
     public function testCompleteScenario()
     {
     	// Create entry
