@@ -17,6 +17,43 @@ class PollWebTestCase extends WebTestCase
 	}
 
 	/**
+	 * Clicks a link
+	 *
+	 * @param Crawler $crawler
+	 * @param string $where Translation key of the link text
+	 */
+	public static function clickLink($crawler, $where)
+	{
+		$link = $crawler->selectLink(self::$translator->trans($where));
+        return self::$client->click($link->link());
+	}
+
+	/**
+	 * Clicks a button
+	 *
+	 * @param Crawler $crawler
+	 * @param string $where Translation key of the button name
+	 * @param string $formName Name of the template
+	 * @param array $formData Form data
+	 */
+	public static function submitForm($crawler, $button, $formName, $formData = [])
+	{
+        $form = $crawler->selectButton(self::$translator->trans($button));
+        foreach ($formData as $key => $value)
+        {
+        	$form = $form->form(['abienvenu_kyelabundle_' . $formName . "[$key]"  => $value]);
+        }
+        self::$client->submit($form);
+        return self::$client->followRedirect();
+	}
+
+	public function checkElement($crawler, $filter, $count = 1)
+	{
+        $message = $crawler->filter($filter);
+        $this->assertEquals($count, $message->count(), "Missing element $filter");
+	}
+
+	/**
 	 * Creates a poll
 	 *
 	 * @param string $name
