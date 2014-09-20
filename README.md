@@ -136,7 +136,7 @@ TODO
 * Functional tests
 * Enable tests in scrutinizer-ci.com
 * Translate About
-* Make a distinction between required fields and optional fields
+* Make a visible distinction between required fields and optional fields
 * Error message presentation
 * l18n for error messages
 * Nice handling of bad (forged) URLs

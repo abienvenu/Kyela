@@ -2,21 +2,8 @@
 
 namespace Abienvenu\KyelaBundle\Tests\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
-use Abienvenu\KyelaBundle\Tests\Controller\PollControllerTest;
-
-class ParticipantControllerTest extends WebTestCase
+class ParticipantControllerTest extends PollWebTestCase
 {
-	protected static $client;
-	protected static $translator;
-
-	public static function setUpBeforeClass()
-	{
-        // Create a new client to browse the application
-		self::$client = static::createClient();
-		self::$translator = self::$client->getContainer()->get('translator');
-	}
-
 	/**
 	 * Creates a participant
 	 *
@@ -50,10 +37,8 @@ class ParticipantControllerTest extends WebTestCase
 
     public function testCompleteScenario()
     {
-    	$poll = uniqid('Test Poll ');
     	$name = uniqid('Test Participant ');
-    	PollControllerTest::setUpBeforeClass();
-    	$crawler = PollControllerTest::createEntry($poll);
+    	$crawler = self::createPollEntry(uniqid('Test Poll '));
     	$crawler = self::createEntry($crawler, $name);
 
         // Check data in the show view
@@ -80,6 +65,6 @@ class ParticipantControllerTest extends WebTestCase
         // Check the entity has been delete on the list
         $this->assertNotRegExp("/$name/", self::$client->getResponse()->getContent());
 
-        PollControllerTest::deleteEntry($crawler);
+        self::deletePollEntry($crawler);
     }
 }
