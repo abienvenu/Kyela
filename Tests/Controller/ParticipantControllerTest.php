@@ -11,14 +11,8 @@ class ParticipantControllerTest extends PollWebTestCase
 	 */
 	public static function createEntry($crawler, $name)
 	{
-        // Create a new entry in the database
-        $link = $crawler->selectLink(self::$translator->trans('add.a.participant'))->link();
-        $crawler = self::$client->click($link);
-
-        // Fill in the form and submit it
-        $form = $crawler->selectButton(self::$translator->trans('create'))->form(['abienvenu_kyelabundle_participant[name]'  => $name]);
-        self::$client->submit($form);
-        return self::$client->followRedirect();
+        $crawler = self::clickLink($crawler, 'add.a.participant');
+        return self::submitForm($crawler, 'create', 'participant', ['name' => $name]);
 	}
 
 	/**
@@ -28,11 +22,8 @@ class ParticipantControllerTest extends PollWebTestCase
 	 */
 	public static function deleteEntry($crawler, $name)
 	{
-        // Create a new entry in the database
-        $link = $crawler->filter('a:contains("' . $name . '")');
-        $crawler = self::$client->click($link->link());
-        self::$client->submit($crawler->selectButton(self::$translator->trans('delete'))->form());
-        return self::$client->followRedirect();
+        $crawler = self::clickLink($crawler, $name);
+        return self::submitForm($crawler, 'delete');
 	}
 
     public function testCompleteScenario()
