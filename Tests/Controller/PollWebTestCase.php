@@ -46,15 +46,13 @@ class PollWebTestCase extends WebTestCase
 	 */
 	public static function submitForm(Crawler $crawler, $button, $formName = "", $formData = [])
 	{
-        $form = $crawler->selectButton(self::$translator->trans($button));
+        $crawler = $crawler->selectButton(self::$translator->trans($button));
+        $data = [];
         foreach ($formData as $key => $value)
         {
-        	$form = $form->form(['abienvenu_kyelabundle_' . $formName . "[$key]"  => $value]);
+        	$data['abienvenu_kyelabundle_' . $formName . "[$key]"] = $value;
         }
-        if (!$formData)
-        {
-        	$form = $form->form();
-        }
+        $form = $crawler->form($data);
         self::$client->submit($form);
         return self::$client->followRedirect();
 	}
@@ -65,11 +63,14 @@ class PollWebTestCase extends WebTestCase
 	 * @param Crawler $crawler
 	 * @param string $filter CSS filter
 	 * @param number $count number of expected occurences
+	 *
+	 * @return Crawler
 	 */
 	public function checkElement(Crawler $crawler, $filter, $count = 1)
 	{
-        $message = $crawler->filter($filter);
-        $this->assertEquals($count, $message->count(), "Wrong count of element $filter");
+        $crawler = $crawler->filter($filter);
+        $this->assertEquals($count, $crawler->count(), "Wrong count of element $filter");
+        return $crawler;
 	}
 
 	/**

@@ -2,60 +2,46 @@
 
 namespace Abienvenu\KyelaBundle\Tests\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
-
-class ChoiceControllerTest extends WebTestCase
+class ChoiceControllerTest extends PollWebTestCase
 {
+
     public function testCompleteScenario()
     {
-        // Create a new client to browse the application
-        $client = static::createClient();
-        $t = $client->getContainer()->get('translator');
+    	// Create a poll to work with
+    	$crawler = self::createPollEntry(uniqid('Test Poll '));
 
-        // Create a new entry in the database
-        $crawler = $client->request('GET', '/kyela/choice/');
-        $this->assertEquals(200, $client->getResponse()->getStatusCode(), "Unexpected HTTP status code for GET /kyela/choice/");
-        $link = $crawler->selectLink($t->trans('add.an.option'))->link();
-        $crawler = $client->click($link);
+    	// Go to options list
+    	$crawler = self::clickLink($crawler, 'edit.options');
 
-        // Fill in the form and submit it
-        $name = uniqid('Test Choice ');
-        $form = $crawler->selectButton($t->trans('create'))->form(array(
-            'abienvenu_kyelabundle_choice[name]'  => $name,
-        	'abienvenu_kyelabundle_choice[value]'  => 0,
-        	'abienvenu_kyelabundle_choice[color]'  => '#000000',
-        ));
+    	// Create a choice
+    	$name = uniqid('Test Choice ');
+        $crawler = self::clickLink($crawler, 'add.an.option');
+        self::checkElement($crawler, 'h1:contains("' . self::$translator->trans('new.choice') . '")');
+        $crawler = self::submitForm($crawler, 'create', 'choice', ['name' => $name, 'value' => 1, 'color' => 'green']);
 
-        $client->submit($form);
-        $crawler = $client->followRedirect();
+        return;
 
         // Check data in the show view
-        $entryRow = $crawler->filter('tr:contains("' . $name . '")');
-        $this->assertEquals(1, $entryRow->count(), 'Missing element tr:contains("' . $name . '")');
+        $filter = 'tr:contains("' . $name . '")';
+        $crawler = self::checkElement($crawler, $filter);
 
-        // Edit the entity
-        $crawler = $client->click($entryRow->filter('a')->link());
-
+        // Edit the choice
+        $crawler = self::clickLink($crawler, 'edit');
         $name = "M $name";
-        $form = $crawler->selectButton($t->trans('save'))->form(array(
-            'abienvenu_kyelabundle_choice[name]'  => $name,
-        	'abienvenu_kyelabundle_choice[value]'  => 0,
-        	'abienvenu_kyelabundle_choice[color]'  => '#000000',
-        ));
-
-        $client->submit($form);
-        $crawler = $client->followRedirect();
+        $crawler = self::submitForm($crawler, 'save', 'choice', ['name' => $name, 'value' => 1, 'color' => 'green']);
 
         // Check data in the show view
-        $entryRow = $crawler->filter('tr:contains("' . $name . '")');
-        $this->assertEquals(1, $entryRow->count(), 'Missing element tr:contains("' . $name . '")');
+        $filter = 'tr:contains("' . $name . '")';
+        $crawler = self::checkElement($crawler, $filter);
 
-        // Delete the entity
-        $crawler = $client->click($entryRow->filter('a')->link());
-        $client->submit($crawler->selectButton($t->trans('delete'))->form());
-        $client->followRedirect();
+        // Delete the choice
+        $crawler = self::clickLink($crawler, 'edit');
+        $crawler = self::submitForm($crawler, 'delete');
 
-        // Check the entity has been delete on the list
-        $this->assertNotRegExp("/$name/", $client->getResponse()->getContent());
+        // Check the choice has been deleted from the list
+        $this->assertNotRegExp("/$name/", self::$client->getResponse()->getContent());
+
+        // Delete the poll
+        self::deletePollEntry($crawler);
     }
 }
