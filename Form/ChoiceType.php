@@ -37,6 +37,7 @@ class ChoiceType extends AbstractType
             ->add('name', null, ['attr' => ['autofocus' => 'autofocus']])
             ->add('value')
             ->add('color', 'choice', ['choices' => ['green' => 'green', 'orange' => 'orange', 'red' => 'red', 'blue' => 'blue', 'cyan' => 'cyan', 'purple' => 'purple', 'gray' => 'gray']])
+            ->add('priority')
         ;
     }
 
