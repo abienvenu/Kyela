@@ -31,11 +31,18 @@ trait CRUDTrait
 {
 	use PollSetterTrait;
 
+	// Methods to be implemented in the custom controller
 	abstract public function newAction(Request $request);
 	abstract public function editAction(Request $request, $id);
 	abstract public function deleteAction(Request $request, $id);
 
+	// Symfony controller methods used in this trait
 	abstract public function getDoctrine();
+	abstract public function redirect($url, $status = 302);
+	abstract public function createNotFoundException($message = 'Not Found', \Exception $previous = null);
+	abstract public function get($id);
+	abstract public function createForm($type, $data = null, array $options = array());
+	abstract public function createFormBuilder($data = null, array $options = array());
 
 	/**
 	 * Adds pollUrl into the parameters if not explicitly set

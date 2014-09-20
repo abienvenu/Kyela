@@ -30,7 +30,7 @@ use Abienvenu\KyelaBundle\Entity\Entity;
  * @ORM\Table()
  * @ORM\Entity
  */
-class Participation extends Entity
+class Participation
 {
     /**
      * @var integer
