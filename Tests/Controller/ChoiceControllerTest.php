@@ -31,6 +31,7 @@ class ChoiceControllerTest extends PollWebTestCase
 
     	// Go to options list
     	$crawler = self::clickLink($crawler, 'edit.options');
+    	$this->assertNotNull($crawler);
 
     	// Create a choice
     	$name = uniqid('Test Choice ');
