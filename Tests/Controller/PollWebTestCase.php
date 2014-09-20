@@ -3,6 +3,7 @@
 namespace Abienvenu\KyelaBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Symfony\Component\DomCrawler\Crawler;
 
 class PollWebTestCase extends WebTestCase
 {
@@ -22,7 +23,7 @@ class PollWebTestCase extends WebTestCase
 	 * @param Crawler $crawler
 	 * @param string $where Translation key of the link text
 	 */
-	public static function clickLink($crawler, $where)
+	public static function clickLink(Crawler $crawler, $where)
 	{
 		$link = $crawler->selectLink(self::$translator->trans($where));
         return self::$client->click($link->link());
@@ -36,21 +37,32 @@ class PollWebTestCase extends WebTestCase
 	 * @param string $formName Name of the template
 	 * @param array $formData Form data
 	 */
-	public static function submitForm($crawler, $button, $formName, $formData = [])
+	public static function submitForm(Crawler $crawler, $button, $formName = "", $formData = [])
 	{
         $form = $crawler->selectButton(self::$translator->trans($button));
         foreach ($formData as $key => $value)
         {
         	$form = $form->form(['abienvenu_kyelabundle_' . $formName . "[$key]"  => $value]);
         }
+        if (!$formData)
+        {
+        	$form = $form->form();
+        }
         self::$client->submit($form);
         return self::$client->followRedirect();
 	}
 
-	public function checkElement($crawler, $filter, $count = 1)
+	/**
+	 * Checks an element is present in the page
+	 *
+	 * @param Crawler $crawler
+	 * @param string $filter CSS filter
+	 * @param number $count number of expected occurences
+	 */
+	public function checkElement(Crawler $crawler, $filter, $count = 1)
 	{
         $message = $crawler->filter($filter);
-        $this->assertEquals($count, $message->count(), "Missing element $filter");
+        $this->assertEquals($count, $message->count(), "Wrong count of element $filter");
 	}
 
 	/**
@@ -62,12 +74,7 @@ class PollWebTestCase extends WebTestCase
 	{
         $baseUrl = '/kyela/';
         $crawler = self::$client->request('GET', $baseUrl);
-
-        $form = $crawler->selectButton(
-        	self::$translator->trans('create'))
-        	->form(['abienvenu_kyelabundle_newpoll[title]'  => $title]);
-        self::$client->submit($form);
-        return self::$client->followRedirect();
+        return self::submitForm($crawler, 'create', 'newpoll', ['title' => $title]);
 	}
 
 	/**
@@ -75,11 +82,9 @@ class PollWebTestCase extends WebTestCase
 	 *
 	 * @param Crawler $crawler
 	 */
-	public static function deletePollEntry($crawler)
+	public static function deletePollEntry(Crawler $crawler)
 	{
-        $link = $crawler->selectLink(self::$translator->trans('edit.poll'));
-        $crawler = self::$client->click($link->link());
-        self::$client->submit($crawler->selectButton(self::$translator->trans('delete'))->form());
-        return self::$client->followRedirect();
+		$crawler = self::clickLink($crawler, 'edit.poll');
+		return self::submitForm($crawler, 'delete');
 	}
 }
