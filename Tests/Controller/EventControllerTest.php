@@ -12,11 +12,9 @@ class EventControllerTest extends PollWebTestCase
     	// Create a poll to work with
     	$crawler = self::createPollEntry(uniqid('Test Poll '));
 
-    	// Create a participant
+    	// Create an event
     	$name = uniqid('Test Event ');
         $crawler = self::clickLink($crawler, 'add.a.date');
-        //$date = ['day' => '2', 'month' => '3', $year => '2014'];
-        //$time = ['hours' => '20', 'minute' => '30'];
         $crawler = self::submitForm($crawler, 'create', 'event',
         	['name' => $name, 'place' => 'Nowhere', 'date' => '04-09-2034', 'time' => '20:30']);
 
