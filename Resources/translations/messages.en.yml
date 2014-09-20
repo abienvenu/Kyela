@@ -63,6 +63,7 @@ gray: Gray
 Name: Name
 Value: Value
 Color: Color
+Priority: Priority
 Url: URL
 Title: Title
 Place: Place
