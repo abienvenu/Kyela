@@ -21,7 +21,7 @@ class ParticipantControllerTest extends PollWebTestCase
         $filter = 'a:contains("' . $name . '")';
         self::checkElement($crawler, $filter);
 
-        // Edit the entity
+        // Edit the participant
         $crawler = self::clickLink($crawler, $name);
         $name = "M $name";
         $crawler = self::submitForm($crawler, 'save', 'participant', ['name' => $name]);

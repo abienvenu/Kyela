@@ -2,57 +2,46 @@
 
 namespace Abienvenu\KyelaBundle\Tests\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
-
-class EventControllerTest extends WebTestCase
+class EventControllerTest extends PollWebTestCase
 {
+	/**
+	 * Creates, edits and deletes an event
+	 */
     public function testCompleteScenario()
     {
-        // Create a new client to browse the application
-        $client = static::createClient();
-        $t = $client->getContainer()->get('translator');
+    	// Create a poll to work with
+    	$crawler = self::createPollEntry(uniqid('Test Poll '));
 
-        // Create a new entry in the database
-        $crawler = $client->request('GET', '/kyela/');
-        $this->assertEquals(200, $client->getResponse()->getStatusCode(), "Unexpected HTTP status code for GET /kyela/");
-        $link = $crawler->selectLink('Proposer une date')->link();
-        $crawler = $client->click($link);
-
-        // Fill in the form and submit it
-        $name = uniqid('Test Event ');
-        $datetime = [
-        	'abienvenu_kyelabundle_event[datetime][date][day]' => '2',
-        	'abienvenu_kyelabundle_event[datetime][date][month]' => '3',
-        	'abienvenu_kyelabundle_event[datetime][date][year]' => '2014',
-        	'abienvenu_kyelabundle_event[datetime][time][hour]' => '20',
-        	'abienvenu_kyelabundle_event[datetime][time][minute]' => '30',
-        ];
-        $form = $crawler->selectButton($t->trans('create'))->form(['abienvenu_kyelabundle_event[name]'  => $name] + $datetime);
-        $client->submit($form);
-        $crawler = $client->followRedirect();
+    	// Create a participant
+    	$name = uniqid('Test Event ');
+        $crawler = self::clickLink($crawler, 'add.a.date');
+        //$date = ['day' => '2', 'month' => '3', $year => '2014'];
+        //$time = ['hours' => '20', 'minute' => '30'];
+        $crawler = self::submitForm($crawler, 'create', 'event',
+        	['name' => $name, 'place' => 'Nowhere', 'date' => '04-09-2034', 'time' => '20:30']);
 
         // Check data in the show view
-        $link = $crawler->filter('li:contains("' . $name . '")');
-        $this->assertEquals(1, $link->count(), 'Missing element li:contains("' . $name . '")');
+        $filter = 'div.list-group-item:contains("' . $name . '")';
+        $crawler = self::checkElement($crawler, $filter);
 
-        // Edit the entity
-        $crawler = $client->click($link->filter('a')->link());
-
+        // Edit the event
+        $crawler = self::clickLink($crawler, '');
         $name = "M $name";
-        $form = $crawler->selectButton($t->trans('save'))->form(['abienvenu_kyelabundle_event[name]'  => $name] + $datetime);
-        $client->submit($form);
-        $crawler = $client->followRedirect();
+        $crawler = self::submitForm($crawler, 'save', 'event',
+			['name' => $name, 'place' => 'Nowhere', 'date' => '04-09-2034', 'time' => '20:30']);
 
         // Check data in the show view
-        $link = $crawler->filter('li:contains("' . $name . '")');
-        $this->assertEquals(1, $link->count(), 'Missing element li:contains("' . $name . '")');
+        $filter = 'div.list-group-item:contains("' . $name . '")';
+        $crawler = self::checkElement($crawler, $filter);
 
-        // Delete the entity
-        $crawler = $client->click($link->filter('a')->link());
-        $client->submit($crawler->selectButton($t->trans('delete'))->form());
-        $client->followRedirect();
+        // Delete the event
+        $crawler = self::clickLink($crawler, '');
+        $crawler = self::submitForm($crawler, 'delete');
 
-        // Check the entity has been delete on the list
-        $this->assertNotRegExp("/$name/", $client->getResponse()->getContent());
+        // Check the participant has been deleted from the list
+        $this->assertNotRegExp("/$name/", self::$client->getResponse()->getContent());
+
+        // Delete the poll
+        self::deletePollEntry($crawler);
     }
 }
