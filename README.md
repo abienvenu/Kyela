@@ -137,7 +137,6 @@ TODO
 * Make a visible distinction between required fields and optional fields
 * Error message presentation
 * l18n for error messages
-* Nice handling of bad (forged) URLs
 * Ability to add MOTD below and/or above the table
 * Add unicity constraint for (event, participant, choice)
 * Ability to use a glyphicon(s) for each choice

@@ -22,6 +22,7 @@
 namespace Abienvenu\KyelaBundle\Traits;
 
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 trait PollSetterTrait
 {
@@ -43,10 +44,10 @@ trait PollSetterTrait
     		$pollUrl = $request->getSession()->get("pollUrl");
     	}
     	$repository = $em->getRepository('KyelaBundle:Poll');
-    	$polls = $repository->findByUrl($pollUrl);
-    	if ($polls)
+    	$this->poll = $repository->findOneByUrl($pollUrl);
+    	if (!$this->poll)
     	{
-    		$this->poll = $repository->findByUrl($pollUrl)[0];
+    		throw new NotFoundHttpException('Poll object not found.');
     	}
     }
 }
