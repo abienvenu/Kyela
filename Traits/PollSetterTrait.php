@@ -45,7 +45,7 @@ trait PollSetterTrait
     	}
     	$repository = $em->getRepository('KyelaBundle:Poll');
     	$this->poll = $repository->findOneByUrl($pollUrl);
-    	if (!$this->poll)
+    	if ($pollUrl && !$this->poll)
     	{
     		throw new NotFoundHttpException('Poll object not found.');
     	}
