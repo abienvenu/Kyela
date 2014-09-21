@@ -28,6 +28,9 @@
 	    <meta name="description" content="{% trans %}meta.description{% endtrans %}">
 	    <meta name="copyright" content="Arnaud Bienvenu, France">
 	    <meta name="application-name" content="Kyela">
+	    {% image '@KyelaBundle/Resources/public/kyela.png' %}
+	    	<link rel="icon" type="image/png" href="{{ asset_url }}" />
+	    {% endimage %}
         {% block robots %}
 	        <meta name="robots" content="noindex, nofollow">
         {% endblock %}

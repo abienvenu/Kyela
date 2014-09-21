@@ -38,16 +38,19 @@ trait PollSetterTrait
         $em = $this->getDoctrine()->getManager();
     	$pollUrl = $request->get('pollUrl');
     	if ($pollUrl) {
-    		$request->getSession()->set("pollUrl", $pollUrl);
+    		$request->getSession()->set('pollUrl', $pollUrl);
     	}
     	else {
-    		$pollUrl = $request->getSession()->get("pollUrl");
+    		$pollUrl = $request->getSession()->get('pollUrl');
     	}
-    	$repository = $em->getRepository('KyelaBundle:Poll');
-    	$this->poll = $repository->findOneByUrl($pollUrl);
-    	if ($pollUrl && !$this->poll)
-    	{
-    		throw new NotFoundHttpException('Poll object not found.');
+    	if ($pollUrl) {
+    		$repository = $em->getRepository('KyelaBundle:Poll');
+    		$this->poll = $repository->findOneByUrl($pollUrl);
+	    	if (!$this->poll)
+	    	{
+	    		$request->getSession()->remove('pollUrl');
+	    		throw new NotFoundHttpException('Poll object not found.');
+	    	}
     	}
     }
 }

@@ -158,7 +158,7 @@ FUTURE (MAY BE) FEATURES
 * Aggregate/Anonymous mode, for events with lots of participants: the grid only displays total numbers, you can add yourself, then you get a personal link to modify/delete your participation
 * Integration with personal agendas (Google, Yahoo...)
 * Ability to restrict access to some admin buttons (edit choices, edit poll...) with a pass phrase
-* Make a logo, a favicon
+* Make a logo, a decent favicon
 * AJAX calls to avoid page reload when updating participation
 * Integrate to Travis-CI
 
