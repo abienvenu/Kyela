@@ -194,7 +194,7 @@ trait CRUDTrait
         		'save' => ['type' => 'submit', 'options' => ['label' => 'create']],
         	]
         ];
-        if ($this->poll)
+        if (!($entity instanceof Poll))
         {
         	$options['buttons']['cancel'] = ['type' => 'submit', 'options' => ['label' => 'cancel', 'attr' => ['type' => 'default', 'novalidate' => true]]];
         }

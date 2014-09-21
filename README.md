@@ -132,7 +132,6 @@ CHANGELOG
 
 TODO
 ----
-* Why CRITICAL errors are not logged on kyela.net ?
 * Translate About
 * Make a visible distinction between required fields and optional fields
 * Error message presentation
