@@ -132,18 +132,16 @@ CHANGELOG
 
 TODO
 ----
-* Translate About
 * Make a visible distinction between required fields and optional fields
 * Error message presentation
+* formnovalidate is not valid HTML ?
 * l18n for error messages
 * Ability to add MOTD below and/or above the table
 * Add unicity constraint for (event, participant, choice)
 * Ability to use a glyphicon(s) for each choice
-* formnovalidate is not valid HTML ?
 * Comments/Forum
 * A github page that links to kyela.net
 * Make a knpbundles readme
-
 
 BUGS
 ----
