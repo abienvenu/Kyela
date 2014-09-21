@@ -1,0 +1,9 @@
+what.is.kyela:
+    q: What is Kyela ?
+    a: It is a web application to facilitate the organization of meetings and people gatherings.
+where.does.the.name.come.from:
+    q: Where does this name come from ?
+    a: It is an approximative phonetic transcription of the French "Qui est là ?" which means "Who is there ?"
+kyela.or.kyela:
+    q: Shall we write "Kyela" or "Kyélà" ?
+    a: The official name is "Kyela" (without any accent) to improve accessibility. In many countries, French accents are not easy to type on a keyboard. But the accents are a nice decoration, that you can add here or there to give some "French touch".
