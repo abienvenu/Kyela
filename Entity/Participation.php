@@ -22,12 +22,16 @@
 namespace Abienvenu\KyelaBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * Participation
  *
- * @ORM\Table()
+ * @ORM\Table(uniqueConstraints={
+ * 	@ORM\UniqueConstraint(name="participant_event_unicity", columns={ "participant_id", "event_id"})
+ * })
  * @ORM\Entity
+ * @UniqueEntity(fields={"participant", "event"})
  */
 class Participation
 {
