@@ -48,9 +48,15 @@ trait PollSetterTrait
     		$this->poll = $repository->findOneByUrl($pollUrl);
 	    	if (!$this->poll)
 	    	{
-	    		$request->getSession()->remove('pollUrl');
+	    		$this->unsetPoll($request);
 	    		throw new NotFoundHttpException('Poll object not found.');
 	    	}
     	}
+    }
+
+    public function unsetPoll(Request $request)
+    {
+    	$this->poll = null;
+    	$request->getSession()->remove('pollUrl');
     }
 }

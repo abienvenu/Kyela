@@ -53,9 +53,9 @@ trait CRUDTrait
 	 */
 	public function generateUrl($route, $parameters = [], $absolute = false)
 	{
-		if (!isset($parameters['pollUrl']))
+		if (!isset($parameters['pollUrl']) && $this->poll)
 		{
-			$parameters['pollUrl'] = $this->poll ? $this->poll->getUrl() : "";
+			$parameters['pollUrl'] = $this->poll->getUrl();
 		}
 		return parent::generateUrl($route, $parameters, $absolute);
 	}
@@ -167,6 +167,9 @@ trait CRUDTrait
 
             $em->remove($entity);
             $em->flush();
+            if ($entity instanceof Poll) {
+            	$this->unsetPoll($request);
+            }
             $flashMessage = $this->get('translator')->trans('deleted');
             $request->getSession()->getFlashBag()->add('success', $flashMessage);
         }
