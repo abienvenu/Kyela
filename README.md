@@ -132,7 +132,6 @@ CHANGELOG
 
 TODO
 ----
-* Error message presentation
 * formnovalidate is not valid HTML ?
 * l18n for error messages
 * Ability to add MOTD below and/or above the table
