@@ -132,8 +132,6 @@ CHANGELOG
 
 TODO
 ----
-* formnovalidate is not valid HTML ?
-* l18n for error messages
 * Ability to add MOTD below and/or above the table
 * Ability to use a glyphicon(s) for each choice
 * Comments/Forum

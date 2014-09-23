@@ -34,7 +34,7 @@
 		{% set attr = attr|merge({ 'class': (attr.class|default('') ~ ' btn btn-lg btn-'~attr.type|default('default'))|trim }) %}
 	{% endif %}
     {% if attr.novalidate is defined and attr.novalidate %}
-    	{% set attr = attr|merge({'formnovalidate': 'formnovalidate'}) %}
+    	{% set attr = attr|merge({'formnovalidate': ''}) %}
     {% endif %}
     {{ block('base_button_widget') }}
 {% endblock button_widget %}
