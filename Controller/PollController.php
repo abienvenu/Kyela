@@ -61,6 +61,8 @@ class PollController extends Controller
     	{
     		// Setup default values
 	    	$poll->setUrl(uniqid());
+	    	$poll->setHeadLines('');
+	    	$poll->setBottomLines('');
 	    	$t = $this->get('translator');
 	    	$poll->addChoice((new Choice)->setName($t->trans("yes"))->setValue(1)->setColor("green")->setPriority(0)->setPoll($poll));
 	    	$poll->addChoice((new Choice)->setName($t->trans("maybe"))->setValue(0)->setColor("orange")->setPriority(1)->setPoll($poll));

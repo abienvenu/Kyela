@@ -26,7 +26,23 @@
 
 {{ render(controller('KyelaBundle:Poll:events', {'isFuture': true})) }}
 
+{% if poll.headlines %}
+<div class="panel panel-default">
+	<div class="panel-body">
+		{{ poll.headlines|raw }}
+	</div>
+</div>
+{% endif %}
+
 {{ render(controller('KyelaBundle:Poll:participations', {'isFuture': true})) }}
+
+{% if poll.bottomlines %}
+<div class="panel panel-default">
+	<div class="panel-body">
+		{{ poll.bottomlines|raw }}
+	</div>
+</div>
+{% endif %}
 
 <div class="text-center">
 	<a class="btn btn-primary btn-lg" role="button" href="{{ path('participant_new', {'pollUrl': poll.url}) }}">

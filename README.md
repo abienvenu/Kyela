@@ -120,6 +120,7 @@ For further customisation, you have to edit the code. Because of the licence (GN
 CHANGELOG
 ---------
 
+* v0.8 : Added ability to add custom HTML above and below the poll
 * v0.7.1 : Critical fix for creating choices
 * v0.7 : Added access to past events
 * v0.6 : Added fixtures and images for examples
@@ -132,7 +133,7 @@ CHANGELOG
 
 TODO
 ----
-* Ability to add MOTD below and/or above the table
+* Ability to restrict access to some admin buttons (edit choices, edit poll...) with a pass phrase
 * Ability to use a glyphicon(s) for each choice
 * Comments/Forum
 * Make a knpbundles readme
@@ -152,7 +153,6 @@ FUTURE (MAY BE) FEATURES
 * Easy integration from remote websites
 * Aggregate/Anonymous mode, for events with lots of participants: the grid only displays total numbers, you can add yourself, then you get a personal link to modify/delete your participation
 * Integration with personal agendas (Google, Yahoo...)
-* Ability to restrict access to some admin buttons (edit choices, edit poll...) with a pass phrase
 * Make a logo, a decent favicon
 * AJAX calls to avoid page reload when updating participation
 * Integrate to Travis-CI

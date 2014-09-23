@@ -57,6 +57,20 @@ class Poll extends Entity
      */
     private $title;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="headLines", type="string", length=32000)
+     */
+    private $headLines;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="bottomLines", type="string", length=32000)
+     */
+    private $bottomLines;
+
 	/**
 	 * @ORM\OneToMany(targetEntity="Participant", mappedBy="poll", cascade={"remove"})
 	 */
@@ -234,5 +248,51 @@ class Poll extends Entity
     public function getChoices()
     {
         return $this->choices;
+    }
+
+    /**
+     * Set headLines
+     *
+     * @param string $headLines
+     * @return Poll
+     */
+    public function setHeadLines($headLines)
+    {
+        $this->headLines = $headLines;
+
+        return $this;
+    }
+
+    /**
+     * Get headLines
+     *
+     * @return string 
+     */
+    public function getHeadLines()
+    {
+        return $this->headLines;
+    }
+
+    /**
+     * Set bottomLines
+     *
+     * @param string $bottomLines
+     * @return Poll
+     */
+    public function setBottomLines($bottomLines)
+    {
+        $this->bottomLines = $bottomLines;
+
+        return $this;
+    }
+
+    /**
+     * Get bottomLines
+     *
+     * @return string 
+     */
+    public function getBottomLines()
+    {
+        return $this->bottomLines;
     }
 }
