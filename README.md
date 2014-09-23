@@ -132,7 +132,6 @@ CHANGELOG
 
 TODO
 ----
-* Make a visible distinction between required fields and optional fields
 * Error message presentation
 * formnovalidate is not valid HTML ?
 * l18n for error messages
@@ -149,6 +148,7 @@ BUGS
 FUTURE (MAY BE) FEATURES
 ------------------------
 
+* Descriptive placeholders
 * For a Poll, customize "Total" color cell at certain thresholds
 * Notification subscriptions
 * Syndication
