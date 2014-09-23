@@ -135,6 +135,9 @@ trait CRUDTrait
         		$em->flush();
 	            return $this->redirect($this->generateUrl($this->successRoute));
 	        }
+	        else {
+	        	$em->refresh($entity);
+	        }
         }
 
         return array(
