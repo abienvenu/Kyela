@@ -30,6 +30,7 @@ use Abienvenu\KyelaBundle\Entity\Poll;
 use Abienvenu\KyelaBundle\Entity\Choice;
 use Abienvenu\KyelaBundle\Form\PollType;
 use Abienvenu\KyelaBundle\Form\NewPollType;
+use Abienvenu\KyelaBundle\Form\LockPollType;
 use Abienvenu\KyelaBundle\Traits\CRUDTrait;
 
 /**
@@ -174,5 +175,50 @@ class PollController extends Controller
     public function deleteAction(Request $request)
     {
     	return $this->doDeleteAction($request, $this->poll->getId());
+    }
+
+    /**
+     * Display a form to setup a lock on the Poll
+     *
+     * @Route("/{pollUrl}/lock", name="poll_lock")
+     * @Method({"GET", "PUT"})
+     * @Template()
+     */
+    public function lockAction(Request $request)
+    {
+        $form = $this->createForm(new LockPollType(), $this->poll, array(
+            'method' => 'PUT',
+        ));
+
+        $form->add('actions', 'form_actions', [
+        	'buttons' => [
+        		'save' => ['type' => 'submit', 'options' => ['label' => 'save']],
+        		'cancel' => ['type' => 'submit', 'options' => ['label' => 'cancel', 'attr' => ['type' => 'default', 'novalidate' => true]]],
+        	]
+        ]);
+
+        if ($request->isMethod('PUT'))
+        {
+        	$em = $this->getDoctrine()->getManager();
+	        $form->handleRequest($request);
+        	if ($form->get('actions')->get('cancel')->isClicked()) {
+	        	$em->refresh($this->poll);
+	        	return $this->redirect($this->generateUrl("poll_edit", ['pollUrl' => $this->poll->getUrl()]));
+	        }
+	        if ($form->isValid()) {
+        		$em->flush();
+        		$flashMessage = $this->get('translator')->trans('poll.locked %lock%', ['%lock%' => $this->poll->getAccessCode()]);
+        		$request->getSession()->getFlashBag()->add('success', $flashMessage);
+	            return $this->redirect($this->generateUrl("poll_show", ['pollUrl' => $this->poll->getUrl()]));
+	        }
+	        else {
+	        	$em->refresh($this->poll);
+	        }
+        }
+
+        return [
+        	'poll'   => $this->poll,
+            'form'   => $form->createView(),
+        ];
     }
 }

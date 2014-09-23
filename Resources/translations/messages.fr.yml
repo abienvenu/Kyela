@@ -37,6 +37,7 @@ cancel: Annuler
 create: Créer
 save: Enregistrer
 delete: Supprimer
+lock: Cadenasser
 edit: Modifier
 back: Retour
 name: Nom
@@ -72,6 +73,7 @@ Time: Heure
 Subject: Sujet
 Email: Email
 Message: Message
+Access code: Code d'accès
 send: Envoyer
 thanks: Merci
 thank.you: Merci à vous!
@@ -84,3 +86,4 @@ poll.created %url%: Votre sondage a été créé. L'adresse à communiquer aux p
 poll.modified %url%: Votre sondage a été modifié. La nouvelle adresse à communiquer aux participants est <pre>%url%</pre>
 archive.access: Accéder aux archives
 past.events: Évènements passés
+poll.locked %lock%: "Votre sondage a été cadenassé avec le code suivant : <pre>%lock%</pre>"

@@ -71,6 +71,13 @@ class Poll extends Entity
      */
     private $bottomLines;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="accessCode", type="string", length=255)
+     */
+    private $accessCode;
+
 	/**
 	 * @ORM\OneToMany(targetEntity="Participant", mappedBy="poll", cascade={"remove"})
 	 */
@@ -266,7 +273,7 @@ class Poll extends Entity
     /**
      * Get headLines
      *
-     * @return string 
+     * @return string
      */
     public function getHeadLines()
     {
@@ -289,10 +296,33 @@ class Poll extends Entity
     /**
      * Get bottomLines
      *
-     * @return string 
+     * @return string
      */
     public function getBottomLines()
     {
         return $this->bottomLines;
+    }
+
+    /**
+     * Set accessCode
+     *
+     * @param string $accessCode
+     * @return Poll
+     */
+    public function setAccessCode($accessCode)
+    {
+        $this->accessCode = $accessCode;
+
+        return $this;
+    }
+
+    /**
+     * Get accessCode
+     *
+     * @return string
+     */
+    public function getAccessCode()
+    {
+        return $this->accessCode;
     }
 }

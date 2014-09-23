@@ -12,6 +12,13 @@
 		<div class="pull-right">
 			{{ form(delete_form) }}
 		</div>
+		<div class="pull-right">
+			<a class="btn btn-default btn-lg" role="button" href="{{ path('poll_lock', {'pollUrl': poll.url}) }}">
+				<span class="glyphicon glyphicon-lock"></span>
+				{% trans %}lock{% endtrans %}
+			</a>
+			&nbsp;
+		</div>
 	</div>
 </ul>
 {% endblock %}

@@ -37,6 +37,7 @@ cancel: Cancel
 create: Create
 save: Save
 delete: Delete
+lock: Lock
 edit: Edit
 back: Back
 name: Name
@@ -72,6 +73,7 @@ Time: Time
 Subject: Subject
 Email: Email
 Message: Message
+Access code: Access code
 send: Send
 thanks: Thanks
 thank.you: Thanks to you!
