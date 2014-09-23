@@ -120,6 +120,7 @@ For further customisation, you have to edit the code. Because of the licence (GN
 CHANGELOG
 ---------
 
+* v0.9 : Added ability to lock a poll
 * v0.8 : Added ability to add custom HTML above and below the poll
 * v0.7.1 : Critical fix for creating choices
 * v0.7 : Added access to past events
@@ -133,7 +134,6 @@ CHANGELOG
 
 TODO
 ----
-* Ability to restrict access to some admin buttons (edit choices, edit poll...) with a pass phrase
 * Ability to use a glyphicon(s) for each choice
 * Comments/Forum
 * Make a knpbundles readme

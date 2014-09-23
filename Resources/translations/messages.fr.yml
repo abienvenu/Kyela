@@ -73,6 +73,8 @@ Time: Heure
 Subject: Sujet
 Email: Email
 Message: Message
+Head lines: En-tête
+Bottom lines: Pied de page
 Access code: Code d'accès
 send: Envoyer
 thanks: Merci
@@ -87,3 +89,7 @@ poll.modified %url%: Votre sondage a été modifié. La nouvelle adresse à comm
 archive.access: Accéder aux archives
 past.events: Évènements passés
 poll.locked %lock%: "Votre sondage a été cadenassé avec le code suivant : <pre>%lock%</pre>"
+unlock.failed: Code d'accès incorrect
+poll.unlocked: Votre sondage a été débloqué
+lock.explanation: Si vous saississez un code d'accès, il sera impossible de modifier le titre, l'URL, l'en-tête ou le pied de page de votre sondage sans saisir à nouveau le code.
+unlock: Débloquer

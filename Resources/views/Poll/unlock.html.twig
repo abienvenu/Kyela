@@ -3,12 +3,11 @@
 {% block body -%}
 	<div class="jumbotron">
 		<div class="container">
-			<h1>{% trans %}lock{% endtrans %} {{ poll.title }}</h1>
+			<h1>{% trans %}unlock{% endtrans %} {{ poll.title }}</h1>
 		</div>
 	</div>
 
 	<div class="container">
-		<p>{% trans %}lock.explanation{% endtrans %}</p>
 		{{ form(form) }}
 	</div>
 {% endblock %}

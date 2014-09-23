@@ -74,6 +74,8 @@ Subject: Subject
 Email: Email
 Message: Message
 Access code: Access code
+Head lines: Head lines
+Bottom lines: Bottom lines
 send: Send
 thanks: Thanks
 thank.you: Thanks to you!
@@ -86,3 +88,7 @@ poll.created %url%: Your poll has been created. The URL to communicate to partic
 poll.modified %url%: Your poll has been modified. The new URL to communicate to partipants is <pre>%url%</pre>
 archive.access: Access to archives
 past.events: Past events
+poll.locked %lock%: "Your poll has been locked with the following code: <pre>%lock%</pre>"
+unlock.failed: Wrong access code
+poll.unlocked: Your poll has been unlocked
+unlock: Unlock
