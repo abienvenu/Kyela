@@ -16,6 +16,7 @@ Features
 * Each poll has a randomized URL; only people who get the link can have access
 * Suggest one or many dates
 * Customize the choices (text and color), add more choices
+* User comments
 * Simple usage, no authentication
 * Mobile friendly
 * No ad, no fee, no spying, just OpenSource
