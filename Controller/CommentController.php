@@ -59,7 +59,7 @@ class CommentController extends Controller
     	{
     		$comment->setDatetime(new \DateTime());
     	}
-    	return $this->doNewAction(new CommentType(), $comment, $request);
+    	return $this->doNewAction(new CommentType($this->poll->getParticipantsAsArrayOfNames()), $comment, $request);
     }
 
     /**
@@ -71,7 +71,7 @@ class CommentController extends Controller
      */
     public function editAction(Request $request, $id)
     {
-    	return $this->doEditAction(new CommentType(), $id, $request);
+    	return $this->doEditAction(new CommentType($this->poll->getParticipantsAsArrayOfNames()), $id, $request);
     }
 
     /**

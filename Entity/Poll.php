@@ -357,10 +357,20 @@ class Poll extends Entity
     /**
      * Get comments
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getComments()
     {
         return $this->comments;
+    }
+
+    public function getParticipantsAsArrayOfNames()
+    {
+        $participants = [];
+    	foreach ($this->getParticipants() as $participant)
+    	{
+    		$participants[$participant->getName()] = $participant->getName();
+    	}
+    	return $participants;
     }
 }

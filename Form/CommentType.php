@@ -27,6 +27,13 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class CommentType extends AbstractType
 {
+	protected $authors = [];
+
+	public function __construct(array $authors)
+	{
+		$this->authors = $authors;
+	}
+
     /**
      * @param FormBuilderInterface $builder
      * @param array $options
@@ -34,7 +41,7 @@ class CommentType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('author', null, ['attr' => ['autofocus' => 'autofocus']])
+        	->add('author', 'choice', ['choices' => $this->authors, 'attr' => ['autofocus' => 'autofocus']])
             ->add('content', 'textarea');
     }
 
