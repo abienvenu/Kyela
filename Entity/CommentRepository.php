@@ -24,10 +24,10 @@ class CommentRepository extends EntityRepository
 			"SELECT comment
 			FROM KyelaBundle:Comment comment
 			WHERE comment.poll = :poll
-			ORDER BY event.date DESC
-			LIMIT 3"
+			ORDER BY comment.datetime DESC"
 		);
 		$query->setParameter('poll', $poll->getId());
+		$query->setMaxResults(6);
 		return $query->getResult();
 	}
 }

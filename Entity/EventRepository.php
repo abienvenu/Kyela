@@ -29,8 +29,6 @@ use Doctrine\ORM\EntityRepository;
  */
 class EventRepository extends EntityRepository
 {
-
-
 	/**
      * Get future or past events
      *

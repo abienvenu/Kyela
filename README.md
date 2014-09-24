@@ -120,6 +120,7 @@ For further customisation, you have to edit the code. Because of the licence (GN
 CHANGELOG
 ---------
 
+* v1.0 : Added ability to add comments
 * v0.9 : Added ability to lock a poll
 * v0.8 : Added ability to add custom HTML above and below the poll
 * v0.7.1 : Critical fix for creating choices
@@ -135,8 +136,8 @@ CHANGELOG
 TODO
 ----
 * Ability to use a glyphicon(s) for each choice
-* Comments/Forum
 * Make a knpbundles readme
+* Code improvements (see Scrutinizer)
 
 BUGS
 ----

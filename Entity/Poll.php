@@ -94,6 +94,11 @@ class Poll extends Entity
 	private $choices;
 
 	/**
+	 * @ORM\OneToMany(targetEntity="Comment", mappedBy="poll", cascade={"remove"})
+	 */
+	private $comments;
+
+	/**
      * Get id
      *
      * @return integer
@@ -324,5 +329,38 @@ class Poll extends Entity
     public function getAccessCode()
     {
         return $this->accessCode;
+    }
+
+    /**
+     * Add comments
+     *
+     * @param \Abienvenu\KyelaBundle\Entity\Comment $comments
+     * @return Poll
+     */
+    public function addComment(\Abienvenu\KyelaBundle\Entity\Comment $comments)
+    {
+        $this->comments[] = $comments;
+
+        return $this;
+    }
+
+    /**
+     * Remove comments
+     *
+     * @param \Abienvenu\KyelaBundle\Entity\Comment $comments
+     */
+    public function removeComment(\Abienvenu\KyelaBundle\Entity\Comment $comments)
+    {
+        $this->comments->removeElement($comments);
+    }
+
+    /**
+     * Get comments
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getComments()
+    {
+        return $this->comments;
     }
 }

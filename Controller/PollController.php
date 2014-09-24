@@ -66,9 +66,9 @@ class PollController extends Controller
 	    	$poll->setBottomLines('');
 	    	$poll->setAccessCode('');
 	    	$t = $this->get('translator');
-	    	$poll->addChoice((new Choice)->setName($t->trans("yes"))->setValue(1)->setColor("green")->setPriority(0)->setPoll($poll));
-	    	$poll->addChoice((new Choice)->setName($t->trans("maybe"))->setValue(0)->setColor("orange")->setPriority(1)->setPoll($poll));
-	    	$poll->addChoice((new Choice)->setName($t->trans("no"))->setValue(0)->setColor("red")->setPriority(2)->setPoll($poll));
+	    	$poll->addChoice((new Choice)->setName($t->trans('yes'))->setValue(1)->setColor('green')->setPriority(0)->setPoll($poll));
+	    	$poll->addChoice((new Choice)->setName($t->trans('maybe'))->setValue(0)->setColor('orange')->setPriority(1)->setPoll($poll));
+	    	$poll->addChoice((new Choice)->setName($t->trans('no'))->setValue(0)->setColor('red')->setPriority(2)->setPoll($poll));
 	    	$baseUrl = $this->generateUrl('poll_show', ['pollUrl' => $poll->getUrl()], true);
 	    	$flashMessage = $this->get('translator')->trans('poll.created %url%', ['%url%' => $baseUrl]);
 	    	$request->getSession()->getFlashBag()->add('success', $flashMessage);
@@ -86,7 +86,7 @@ class PollController extends Controller
     public function showAction()
     {
     	$em = $this->getDoctrine()->getManager();
-    	$hasPastEvents = count($em->getRepository("KyelaBundle:Event")->getFutureOrPastEvents($this->poll, false));
+    	$hasPastEvents = count($em->getRepository('KyelaBundle:Event')->getFutureOrPastEvents($this->poll, false));
     	return [
     		'poll' => $this->poll,
     		'hasPastEvents' => $hasPastEvents,
@@ -114,7 +114,7 @@ class PollController extends Controller
     public function eventsAction($isFuture)
     {
     	$em = $this->getDoctrine()->getManager();
-    	$events = $em->getRepository("KyelaBundle:Event")->getFutureOrPastEvents($this->poll, $isFuture);
+    	$events = $em->getRepository('KyelaBundle:Event')->getFutureOrPastEvents($this->poll, $isFuture);
     	return [
         	'poll' => $this->poll,
         	'events' => $events,
@@ -130,7 +130,7 @@ class PollController extends Controller
     public function participationsAction($isFuture)
     {
     	$em = $this->getDoctrine()->getManager();
-    	$events = $em->getRepository("KyelaBundle:Event")->getFutureOrPastEvents($this->poll, $isFuture);
+    	$events = $em->getRepository('KyelaBundle:Event')->getFutureOrPastEvents($this->poll, $isFuture);
     	$participationsArray = [];
     	foreach ($events as $event)
     	{
@@ -148,6 +148,19 @@ class PollController extends Controller
     }
 
     /**
+     * Displays latest comments
+     *
+     * @Method("GET")
+     * @Template()
+     */
+    public function commentsAction()
+    {
+    	$em = $this->getDoctrine()->getManager();
+    	$comments = $em->getRepository('KyelaBundle:Comment')->getLatestComments($this->poll);
+    	return ['poll' => $this->poll, 'comments' => $comments];
+    }
+
+    /**
      * Displays a form to edit an existing Poll entity.
      *
      * @Route("/{pollUrl}/edit", name="poll_edit")
@@ -157,7 +170,7 @@ class PollController extends Controller
     public function editAction(Request $request)
     {
     	if ($this->poll->getAccessCode()) {
-    		return $this->redirect($this->generateUrl("poll_unlock", ['pollUrl' => $this->poll->getUrl()]));
+    		return $this->redirect($this->generateUrl('poll_unlock', ['pollUrl' => $this->poll->getUrl()]));
     	}
     	$oldUrl = $this->poll->getUrl();
     	$response = $this->doEditAction(new PollType(), $this->poll->getId(), $request);
@@ -207,13 +220,13 @@ class PollController extends Controller
 	        $form->handleRequest($request);
         	if ($form->get('actions')->get('cancel')->isClicked()) {
 	        	$em->refresh($this->poll);
-	        	return $this->redirect($this->generateUrl("poll_edit", ['pollUrl' => $this->poll->getUrl()]));
+	        	return $this->redirect($this->generateUrl('poll_edit', ['pollUrl' => $this->poll->getUrl()]));
 	        }
 	        if ($form->isValid()) {
         		$em->flush();
         		$flashMessage = $this->get('translator')->trans('poll.locked %lock%', ['%lock%' => $this->poll->getAccessCode()]);
         		$request->getSession()->getFlashBag()->add('success', $flashMessage);
-	            return $this->redirect($this->generateUrl("poll_show", ['pollUrl' => $this->poll->getUrl()]));
+	            return $this->redirect($this->generateUrl('poll_show', ['pollUrl' => $this->poll->getUrl()]));
 	        }
 	        else {
 	        	$em->refresh($this->poll);
@@ -250,7 +263,7 @@ class PollController extends Controller
         {
 	        $form->handleRequest($request);
         	if ($form->get('actions')->get('cancel')->isClicked()) {
-	        	return $this->redirect($this->generateUrl("poll_show", ['pollUrl' => $this->poll->getUrl()]));
+	        	return $this->redirect($this->generateUrl('poll_show', ['pollUrl' => $this->poll->getUrl()]));
 	        }
 	        if ($form->isValid()) {
 	        	if ($poll->getAccessCode() == $this->poll->getAccessCode()) {
@@ -259,7 +272,7 @@ class PollController extends Controller
 	        		$em->flush();
 	        		$flashMessage = $this->get('translator')->trans('poll.unlocked');
 	        		$request->getSession()->getFlashBag()->add('success', $flashMessage);
-		            return $this->redirect($this->generateUrl("poll_edit", ['pollUrl' => $this->poll->getUrl()]));
+		            return $this->redirect($this->generateUrl('poll_edit', ['pollUrl' => $this->poll->getUrl()]));
 	        	}
 	        	else {
 	        		$flashMessage = $this->get('translator')->trans('unlock.failed');

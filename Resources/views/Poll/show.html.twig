@@ -44,10 +44,16 @@
 </div>
 {% endif %}
 
+{{ render(controller('KyelaBundle:Poll:comments')) }}
+
 <div class="text-center">
-	<a class="btn btn-primary btn-lg" role="button" href="{{ path('participant_new', {'pollUrl': poll.url}) }}">
+	<a class="btn btn-info btn-lg" role="button" href="{{ path('participant_new', {'pollUrl': poll.url}) }}">
 		<span class="glyphicon glyphicon-user"></span>
 		{% trans %}add.a.participant{% endtrans %}
+	</a>
+	<a class="btn btn-primary btn-lg" role="button" href="{{ path('comment_new', {'pollUrl': poll.url}) }}">
+		<span class="glyphicon glyphicon-comment"></span>
+		{% trans %}add.a.comment{% endtrans %}
 	</a>
 	<a class="btn btn-success btn-lg" role="button" href="{{ path('event_new', {'pollUrl': poll.url}) }}">
 		<span class="glyphicon glyphicon-plus"></span>

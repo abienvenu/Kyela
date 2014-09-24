@@ -22,15 +22,19 @@ poll: Poll
 choice: Choice
 participant: Participant
 event: Event
+comment: Comment
+comments: Comments
 add.a.poll: Add a poll
 add.a.participant: Add a participant
 add.a.date: Suggest a date
+add.a.comment: Add a comment
 edit.options: Edit the choices
 edit.poll: Edit the poll
 add.an.option: Add a choice
 new.poll: New poll
 new.participant: New participant
 new.event: New event
+new.comment: New comment
 new.choice: New choice
 choice.list: List of choices
 cancel: Cancel
@@ -76,6 +80,8 @@ Message: Message
 Access code: Access code
 Head lines: Head lines
 Bottom lines: Bottom lines
+Author: Author
+Content: Texte
 send: Send
 thanks: Thanks
 thank.you: Thanks to you!
