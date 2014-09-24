@@ -147,6 +147,7 @@ FUTURE (MAY BE) FEATURES
 ------------------------
 
 * Descriptive placeholders
+* Put Glyphicons on every button, including standard "Save", "Cancel"...
 * For a Poll, customize "Total" color cell at certain thresholds
 * Notification subscriptions
 * Syndication

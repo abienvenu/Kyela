@@ -91,4 +91,5 @@ past.events: Past events
 poll.locked %lock%: "Your poll has been locked with the following code: <pre>%lock%</pre>"
 unlock.failed: Wrong access code
 poll.unlocked: Your poll has been unlocked
+lock.explanation: If you setup an access code, it will be impossible to edit the title, URL, headlines or bottom of your poll, until one unlocks the poll using the same access code.
 unlock: Unlock
