@@ -1,0 +1,13 @@
+{% extends "KyelaBundle::layout.html.twig" %}
+
+{% block body %}
+	<div class="jumbotron">
+		<div class="container">
+			<h1>{% trans %}new.comment{% endtrans %}</h1>
+		</div>
+	</div>
+
+	<div class="container">
+		{{ form(form) }}
+	</div>
+{% endblock %}

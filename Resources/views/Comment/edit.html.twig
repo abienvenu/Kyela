@@ -1,0 +1,16 @@
+{% extends "KyelaBundle::layout.html.twig" %}
+
+{% block body %}
+	<div class="jumbotron">
+		<div class="container">
+			<h1>{% trans %}comment{% endtrans%} - {{ entity.author }}</h1>
+		</div>
+	</div>
+
+	<div class="container">
+		{{ form(edit_form) }}
+		<div class="pull-right">
+			{{ form(delete_form) }}
+		</div>
+	</div>
+{% endblock %}
