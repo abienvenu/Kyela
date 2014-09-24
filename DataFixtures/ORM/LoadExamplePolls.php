@@ -33,7 +33,12 @@ class LoadExamplePolls implements FixtureInterface
 {
 	protected function loadConcert(ObjectManager $manager)
 	{
-		$poll = (new Poll)->setUrl('concert')->setTitle('Prochaines répétitions');
+		$poll = (new Poll)
+			->setUrl('concert')
+			->setTitle('Prochaines répétitions')
+			->setHeadLines('')
+			->setBottomLines('')
+			->setAccessCode('kode');
 		$names = ['Aretha', 'Jimmy', 'Miles', 'John', 'Paul'];
 		$participantsObj = [];
 		foreach ($names as $name)
@@ -115,7 +120,12 @@ class LoadExamplePolls implements FixtureInterface
 
 	protected function loadPicnic(ObjectManager $manager)
 	{
-		$poll = (new Poll)->setUrl('picnic')->setTitle('Pique-nique');
+		$poll = (new Poll)
+			->setUrl('picnic')
+			->setTitle('Pique-nique')
+			->setHeadLines('Pour le pique-unique, merci d\'indiquer si vous apportez du salé, du sucré, ou des boissons.')
+			->setBottomLines('')
+			->setAccessCode('kode');
 		$names = ['Élise', 'Jules', 'Marie', 'Romain', 'Margaux'];
 		$participantsObj = [];
 		foreach ($names as $name)
