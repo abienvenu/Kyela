@@ -46,11 +46,22 @@
 
 {{ render(controller('KyelaBundle:Poll:comments')) }}
 
+{{ form_start(participant_form) }}
+<div class="row">
+	<div class="col-sm-9" style="padding-top: 5px;">
+		{{ form_errors(participant_form) }}
+		{{ form_row(participant_form.name) }}
+	</div>
+	<div class="col-sm-3">
+		<button class="btn btn-info btn-lg" role="button">
+			<span class="glyphicon glyphicon-user"></span>
+			{% trans %}add.a.participant{% endtrans %}
+		</button>
+	</div>
+</div>
+{{ form_end(participant_form) }}
+
 <div class="text-center">
-	<a class="btn btn-info btn-lg" role="button" href="{{ path('participant_new', {'pollUrl': poll.url}) }}">
-		<span class="glyphicon glyphicon-user"></span>
-		{% trans %}add.a.participant{% endtrans %}
-	</a>
 	<a class="btn btn-primary btn-lg" role="button" href="{{ path('comment_new', {'pollUrl': poll.url}) }}">
 		<span class="glyphicon glyphicon-comment"></span>
 		{% trans %}add.a.comment{% endtrans %}

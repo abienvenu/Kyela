@@ -28,9 +28,11 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Abienvenu\KyelaBundle\Entity\Poll;
 use Abienvenu\KyelaBundle\Entity\Choice;
+use Abienvenu\KyelaBundle\Entity\Participant;
 use Abienvenu\KyelaBundle\Form\PollType;
 use Abienvenu\KyelaBundle\Form\NewPollType;
 use Abienvenu\KyelaBundle\Form\LockPollType;
+use Abienvenu\KyelaBundle\Form\ParticipantType;
 use Abienvenu\KyelaBundle\Traits\CRUDTrait;
 
 /**
@@ -86,9 +88,16 @@ class PollController extends Controller
     {
     	$em = $this->getDoctrine()->getManager();
     	$hasPastEvents = count($em->getRepository('KyelaBundle:Event')->getFutureOrPastEvents($this->poll, false));
+
+    	$participant_form = $this->createForm(new ParticipantType(), new Participant(), [
+    		'action' => $this->generateUrl('participant_new'),
+    		'method' => 'POST'
+		]);
+
     	return [
     		'poll' => $this->poll,
     		'hasPastEvents' => $hasPastEvents,
+    		'participant_form' => $participant_form->createView(),
 		];
     }
 

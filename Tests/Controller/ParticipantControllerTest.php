@@ -33,8 +33,7 @@ class ParticipantControllerTest extends PollWebTestCase
 
     	// Create a participant
     	$name = uniqid('Test Participant ');
-        $crawler = self::clickLink($crawler, 'add.a.participant');
-        $crawler = self::submitForm($crawler, 'create', 'participant', ['name' => $name]);
+        $crawler = self::submitForm($crawler, 'add.a.participant', 'participant', ['name' => $name]);
 
         // Check data in the show view
         $filter = 'a:contains("' . $name . '")';

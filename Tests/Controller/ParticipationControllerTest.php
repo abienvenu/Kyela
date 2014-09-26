@@ -33,8 +33,7 @@ class ParticipationControllerTest extends PollWebTestCase
 
     	// Create a participant
     	$participant = uniqid('Test Participant ');
-        $crawler = self::clickLink($crawler, 'add.a.participant');
-        $crawler = self::submitForm($crawler, 'create', 'participant', ['name' => $participant]);
+        $crawler = self::submitForm($crawler, 'add.a.participant', 'participant', ['name' => $participant]);
 
     	// Create an event
     	$event = uniqid('Test Event ');
