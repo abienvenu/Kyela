@@ -20,7 +20,7 @@
         <tbody>
         {% for choice in choices %}
             <tr id="choice_{{ choice.id }}">
-                <td><span class="sort-button ui-icon ui-icon-arrowthick-2-n-s"></span>{{ choice.name }}</td>
+                <td><span class="glyphicon glyphicon-move pull-left"></span>{{ choice.name }}</td>
                 <td>{{ choice.value }}</td>
                 <td>
                     <button type="button" class="btn choice-{{ choice.color }}">{{ choice.color|trans }}</button>
@@ -48,13 +48,14 @@
 </p>
 
 <script>
+    // Thanks to http://www.miximum.fr/creer-une-liste-triable-avec-symfony-et-jquery-ui.html
     $(function() {
         $("table tbody").sortable({
             // limitons les déplacements sur l'axe des ordonnées, ce sera plus propre
             axis: 'y',
 
             // Il faut cliquer sur cet élément pour pouvoir initier le drag'n'drop
-            handle: '.sort-button',
+            handle: 'td',
 
             // Créons un joli trou stylé lors des déplacements
             placeholder: 'ui-state-highlight',
