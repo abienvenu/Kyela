@@ -69,7 +69,10 @@ class ChoiceController extends Controller
      */
     public function newAction(Request $request)
     {
-    	return $this->doNewAction(new ChoiceType(), new Choice(), $request);
+    	$choice = new Choice();
+    	// By default, this new choice will be added at the end
+    	$choice->setPriority(count($this->poll->getChoices()));
+    	return $this->doNewAction(new ChoiceType(), $choice, $request);
     }
 
     /**
