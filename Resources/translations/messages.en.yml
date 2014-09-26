@@ -41,7 +41,7 @@ cancel: Cancel
 create: Create
 save: Save
 delete: Delete
-lock: Lock
+lock: Setup an access code
 edit: Edit
 back: Back
 name: Name
@@ -98,4 +98,6 @@ poll.locked %lock%: "Your poll has been locked with the following code: <pre>%lo
 unlock.failed: Wrong access code
 poll.unlocked: Your poll has been unlocked
 lock.explanation: If you setup an access code, it will be impossible to edit the title, URL, headlines or bottom of your poll, until one unlocks the poll using the same access code.
+lock.explanation2: It will still be possible for everyone to update availabilities, add events or particpants.
 unlock: Unlock
+unlock.explanation: Someone setup an access code. To edit the poll, you are required to enter this code.

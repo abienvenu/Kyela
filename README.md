@@ -125,6 +125,7 @@ CHANGELOG
   - Hide Choice priority, this is purely internal data
   - Better ergonomy for choice reordering
   - Fixed the bug when creating a Poll/Comment/Participant/Event with only spaces
+  - Fixed choice ordering in poll view
 * v1.0 : Added ability to add comments
 * v0.9 : Added ability to lock a poll
 * v0.8 : Added ability to add custom HTML above and below the poll

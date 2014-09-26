@@ -249,7 +249,7 @@ class PollController extends Controller
      */
     public function unlockAction(Request $request)
     {
-    	$poll = new Poll();
+    	$poll = (new Poll)->setTitle("dummy")->setUrl("dummy");
         $form = $this->createForm(new LockPollType(), $poll, array(
             'method' => 'PUT',
         ));
