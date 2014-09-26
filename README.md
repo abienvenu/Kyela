@@ -121,7 +121,10 @@ For further customisation, you have to edit the code. Because of the licence (GN
 CHANGELOG
 ---------
 
-* v1.1 : Hide Choice priority, this is purely internal data
+* v1.1 : Many small improvements
+  - Hide Choice priority, this is purely internal data
+  - Better ergonomy for choice reordering
+  - Fixed the bug when creating a Poll/Comment/Participant/Event with only spaces
 * v1.0 : Added ability to add comments
 * v0.9 : Added ability to lock a poll
 * v0.8 : Added ability to add custom HTML above and below the poll

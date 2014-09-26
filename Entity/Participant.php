@@ -21,6 +21,7 @@
 
 namespace Abienvenu\KyelaBundle\Entity;
 
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 use Abienvenu\KyelaBundle\Entity\Entity;
@@ -40,6 +41,7 @@ class Participant extends Entity
 
 	/**
 	 * @ORM\Column(type="string", length=100)
+	 * @Assert\NotBlank()
 	 */
 	private $name;
 

@@ -2,6 +2,7 @@
 
 namespace Abienvenu\KyelaBundle\Entity;
 
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -32,6 +33,7 @@ class Comment extends Entity
      * @var string
      *
      * @ORM\Column(name="content", type="string", length=5000)
+     * @Assert\NotBlank()
      */
     private $content;
 

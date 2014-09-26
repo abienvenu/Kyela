@@ -21,6 +21,7 @@
 
 namespace Abienvenu\KyelaBundle\Entity;
 
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 use Abienvenu\KyelaBundle\Entity\Entity;
 
@@ -50,6 +51,7 @@ class Choice extends Entity
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=64)
+     * @Assert\NotBlank()
      */
     private $name;
 

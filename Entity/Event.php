@@ -21,6 +21,7 @@
 
 namespace Abienvenu\KyelaBundle\Entity;
 
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 use Abienvenu\KyelaBundle\Entity\Entity;
@@ -46,6 +47,7 @@ class Event extends Entity
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $name;
 
