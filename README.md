@@ -122,6 +122,7 @@ CHANGELOG
 ---------
 
 * v1.1 : Many small improvements
+  - Ability to add a participant directly from poll view
   - Hide Choice priority, this is purely internal data
   - Better ergonomy for choice reordering
   - Fixed the bug when creating a Poll/Comment/Participant/Event with only spaces
