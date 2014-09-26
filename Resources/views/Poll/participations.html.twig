@@ -28,7 +28,7 @@
 							<span class="caret"></span>
 						</button>
 						<ul class="dropdown-menu" role="menu">
-							{%  for choice in poll.choices %}
+							{%  for choice in choices %}
 								<li>
 									{% set parameters = {'pollUrl': poll.url, 'event': event.id, 'participant': participant.id, 'choice': choice.id} %}
 									{% if attribute(participations, accessKey) is defined %}

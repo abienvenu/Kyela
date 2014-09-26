@@ -130,6 +130,7 @@ class PollController extends Controller
     {
     	$em = $this->getDoctrine()->getManager();
     	$events = $em->getRepository('KyelaBundle:Event')->getFutureOrPastEvents($this->poll, $isFuture);
+    	$choices = $em->getRepository("KyelaBundle:Choice")->getOrderedChoices($this->poll);
     	$participationsArray = [];
     	foreach ($events as $event)
     	{
@@ -141,6 +142,7 @@ class PollController extends Controller
     	}
         return [
         	'poll' => $this->poll,
+        	'choices' => $choices,
         	'events' => $events,
         	'participations' => $participationsArray,
 		];
