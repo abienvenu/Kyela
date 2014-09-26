@@ -67,7 +67,7 @@ trait CRUDTrait
 	 * @param Entity $entity
 	 * @param Request $request
 	 */
-    protected function doNewAction(AbstractType $formType, Entity $entity, Request $request)
+    protected function doNewAction(AbstractType $formType, Entity $entity, Request $request, $successMessage = null)
     {
     	$form = $this->doCreateCreateForm($formType, $entity, $request->get('_route'));
         if ($request->isMethod('POST'))
@@ -92,6 +92,9 @@ trait CRUDTrait
 	        	$em->persist($entity);
 	            $em->flush();
 
+	            if ($successMessage) {
+	            	$request->getSession()->getFlashBag()->add('success', $successMessage);
+	            }
 	            return $this->redirect($this->generateUrl($this->successRoute));
 	        }
         }

@@ -58,22 +58,21 @@ class PollController extends Controller
     public function newAction(Request $request)
     {
     	$poll = new Poll();
-    	if ($request->isMethod('POST'))
-    	{
-    		// Setup default values
-	    	$poll->setUrl(uniqid());
-	    	$poll->setHeadLines('');
-	    	$poll->setBottomLines('');
-	    	$poll->setAccessCode('');
-	    	$t = $this->get('translator');
-	    	$poll->addChoice((new Choice)->setName($t->trans('yes'))->setValue(1)->setColor('green')->setPriority(0)->setPoll($poll));
-	    	$poll->addChoice((new Choice)->setName($t->trans('maybe'))->setValue(0)->setColor('orange')->setPriority(1)->setPoll($poll));
-	    	$poll->addChoice((new Choice)->setName($t->trans('no'))->setValue(0)->setColor('red')->setPriority(2)->setPoll($poll));
-	    	$baseUrl = $this->generateUrl('poll_show', ['pollUrl' => $poll->getUrl()], true);
-	    	$flashMessage = $this->get('translator')->trans('poll.created %url%', ['%url%' => $baseUrl]);
-	    	$request->getSession()->getFlashBag()->add('success', $flashMessage);
-    	}
-    	return $this->doNewAction(new NewPollType(), $poll, $request);
+
+   		// Setup default (and hidden) values
+    	$poll->setUrl(uniqid());
+    	$poll->setHeadLines('');
+    	$poll->setBottomLines('');
+    	$poll->setAccessCode('');
+    	$t = $this->get('translator');
+    	$poll->addChoice((new Choice)->setName($t->trans('yes'))->setValue(1)->setColor('green')->setPriority(0)->setPoll($poll));
+    	$poll->addChoice((new Choice)->setName($t->trans('maybe'))->setValue(0)->setColor('orange')->setPriority(1)->setPoll($poll));
+    	$poll->addChoice((new Choice)->setName($t->trans('no'))->setValue(0)->setColor('red')->setPriority(2)->setPoll($poll));
+
+    	$baseUrl = $this->generateUrl('poll_show', ['pollUrl' => $poll->getUrl()], true);
+    	$successMessage = $this->get('translator')->trans('poll.created %url%', ['%url%' => $baseUrl]);
+
+    	return $this->doNewAction(new NewPollType(), $poll, $request, $successMessage);
     }
 
     /**

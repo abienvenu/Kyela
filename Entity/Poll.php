@@ -21,8 +21,9 @@
 
 namespace Abienvenu\KyelaBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\ORM\Mapping as ORM;
 use Abienvenu\KyelaBundle\Entity\Entity;
 
 /**
@@ -47,6 +48,7 @@ class Poll extends Entity
      * @var string
      *
      * @ORM\Column(name="url", type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $url;
 
@@ -54,6 +56,7 @@ class Poll extends Entity
      * @var string
      *
      * @ORM\Column(name="title", type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $title;
 
