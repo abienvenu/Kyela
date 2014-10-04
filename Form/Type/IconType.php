@@ -31,19 +31,26 @@ class IconType extends AbstractType
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
+    	$icons = [
+      		'ok', 'remove',
+       		'thumbs-up', 'thumbs-down',
+       		'ok-sign', 'question-sign', 'info-sign',
+       		'glass', 'cutlery', 'music', 'gift',
+       		'home', 'time', 'lock', 'flag', 'camera', 'book', 'facetime-video', 'film',
+       		'pushpin', 'phone', 'phone-alt', 'earphone', 'comment', 'bullhorn', 'volume-off',
+       		'shopping-cart', 'wrench', 'header', 'briefcase', 'paperclip',
+       		'envelope', 'pencil', 'user', 'asterisk', 'euro',
+       		'eye-open', 'plane', 'send', 'globe', 'tree-conifer', 'tree-deciduous',
+       		'heart', 'star', 'star-empty', 'flash',
+   		];
+    	$choices = [];
+    	foreach ($icons as $icon)
+    	{
+    		$choices[$icon] = $icon;
+    	}
+
         $resolver->setDefaults([
-            'choices' => [
-        		1 => 'ok', 'remove',
-        		'thumbs-up', 'thumbs-down',
-        		'ok-sign', 'question-sign', 'info-sign',
-        		'glass', 'cutlery', 'music', 'gift',
-        		'home', 'time', 'lock', 'flag', 'camera', 'book', 'facetime-video', 'film',
-        		'pushpin', 'phone', 'phone-alt', 'earphone', 'comment', 'bullhorn', 'volume-off',
-        		'shopping-cart', 'wrench', 'header', 'briefcase', 'paperclip',
-        		'envelope', 'pencil', 'user', 'asterisk', 'euro',
-        		'eye-open', 'plane', 'send', 'globe', 'tree-conifer', 'tree-deciduous',
-        		'heart', 'star', 'star-empty', 'flash',
-        		],
+            'choices' => $choices,
         	'expanded' => true,
         	'required' => false,
         ]);

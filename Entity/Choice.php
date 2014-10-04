@@ -72,7 +72,7 @@ class Choice extends Entity
     /**
      * @var string
      *
-     * @ORM\Column(name="icon", type="integer")
+     * @ORM\Column(name="icon", type="string", length=16)
      */
     private $icon;
 
@@ -261,7 +261,7 @@ class Choice extends Entity
     /**
      * Set icon
      *
-     * @param integer $icon
+     * @param string $icon
      * @return Choice
      */
     public function setIcon($icon)
@@ -274,7 +274,7 @@ class Choice extends Entity
     /**
      * Get icon
      *
-     * @return integer
+     * @return string
      */
     public function getIcon()
     {

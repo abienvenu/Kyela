@@ -24,7 +24,12 @@
 				<td>
 					<div class="btn-group">
 						<button type="button" class="btn btn-sm dropdown-toggle choice-{{ attribute(participations, accessKey) is defined ? attribute(participations, accessKey).choice.color : "none" }}" data-toggle="dropdown">
-							{{ attribute(participations, accessKey) is defined ? attribute(participations, accessKey).choice : '-' }}
+							{% if attribute(participations, accessKey) is defined %}
+								<span class="glyphicon glyphicon-{{ attribute(participations, accessKey).choice.icon }}"></span>
+								{{ attribute(participations, accessKey).choice.name }}
+							{% else %}
+								-
+							{% endif %}
 							<span class="caret"></span>
 						</button>
 						<ul class="dropdown-menu" role="menu">
@@ -36,7 +41,10 @@
 									{% else %}
 									<a href="{{ path('participation_new', parameters) }}">
 									{% endif %}
-										<button type="button" class="btn btn-sm choice-{{ choice.color }}">{{ choice.name }}</button>
+										<button type="button" class="btn btn-sm choice-{{ choice.color }}">
+											<span class="glyphicon glyphicon-{{ choice.icon }}"></span>
+											{{ choice.name }}
+										</button>
 									</a>
 								</li>
 							{% endfor %}
