@@ -68,9 +68,9 @@ class LoadExamplePolls implements FixtureInterface
 		}
 
 		$choices = [
-			['name' => 'Oui', 'value' => 1, 'color' => 'green', 'priority' => 0],
-			['name' => 'Non', 'value' => 0, 'color' => 'red', 'priority' => 1],
-			['name' => 'Peut-être', 'value' => 0, 'color' => 'gray', 'priority' => 2],
+			['name' => 'Oui', 'value' => 1, 'color' => 'green', 'priority' => 0, 'icon' => 'ok'],
+			['name' => 'Non', 'value' => 0, 'color' => 'red', 'priority' => 1, 'icon' => 'remove'],
+			['name' => 'Peut-être', 'value' => 0, 'color' => 'gray', 'priority' => 2, 'icon' => 'time'],
 		];
 		$choicesObj = [];
 		foreach ($choices as $choice)
@@ -80,6 +80,7 @@ class LoadExamplePolls implements FixtureInterface
 				->setValue($choice['value'])
 				->setColor($choice['color'])
 				->setPriority($choice['priority'])
+				->setIcon($choice['icon'])
 				->setPoll($poll);
 			$manager->persist($choiceObj);
 			$choicesObj[$choice['name']] = $choiceObj;
@@ -153,10 +154,10 @@ class LoadExamplePolls implements FixtureInterface
 		}
 
 		$choices = [
-			['name' => 'Sucré', 'value' => 1, 'color' => 'blue', 'priority' => 0],
-			['name' => 'Salé', 'value' => 1, 'color' => 'cyan', 'priority' => 1],
-			['name' => 'Boisson', 'value' => 1, 'color' => 'purple', 'priority' => 2],
-			['name' => 'Absent', 'value' => 0, 'color' => 'gray', 'priority' => 3],
+			['name' => 'Sucré', 'value' => 1, 'color' => 'blue', 'priority' => 0, 'icon' => 'cutlery'],
+			['name' => 'Salé', 'value' => 1, 'color' => 'cyan', 'priority' => 1, 'icon' => 'cutlery'],
+			['name' => 'Boisson', 'value' => 1, 'color' => 'purple', 'priority' => 2, 'icon' => 'glass'],
+			['name' => 'Absent', 'value' => 0, 'color' => 'gray', 'priority' => 3, 'icon' => 'plane'],
 		];
 		$choicesObj = [];
 		foreach ($choices as $choice)
@@ -166,6 +167,7 @@ class LoadExamplePolls implements FixtureInterface
 				->setValue($choice['value'])
 				->setColor($choice['color'])
 				->setPriority($choice['priority'])
+				->setIcon($choice['icon'])
 				->setPoll($poll);
 			$manager->persist($choiceObj);
 			$choicesObj[$choice['name']] = $choiceObj;
