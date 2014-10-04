@@ -153,7 +153,6 @@ TODO
 * Tooltips
 * Ability to create an event with multiple dates
 * Sort participants alphabetically ?
-* Ability to use a glyphicon(s) for each choice
 * Make a knpbundles readme
 * Code improvements (see Scrutinizer)
 

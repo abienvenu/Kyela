@@ -37,7 +37,7 @@ class ChoiceControllerTest extends PollWebTestCase
     	$name = uniqid('Test Choice ');
         $crawler = self::clickLink($crawler, 'add.an.option');
         self::checkElement($crawler, 'h1:contains("' . self::$translator->trans('new.choice') . '")');
-        $crawler = self::submitForm($crawler, 'create', 'choice', ['name' => $name, 'value' => 1, 'color' => 'green']);
+        $crawler = self::submitForm($crawler, 'create', 'choice', ['name' => $name, 'value' => 1, 'color' => 'green', 'icon' => 'ok']);
 
         // Check data in the show view
         $filter = 'tr:contains("' . $name . '")';

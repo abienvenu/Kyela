@@ -67,9 +67,9 @@ class PollController extends Controller
     	$poll->setBottomLines('');
     	$poll->setAccessCode('');
     	$t = $this->get('translator');
-    	$poll->addChoice((new Choice)->setName($t->trans('yes'))->setValue(1)->setColor('green')->setPriority(0)->setPoll($poll));
-    	$poll->addChoice((new Choice)->setName($t->trans('maybe'))->setValue(0)->setColor('orange')->setPriority(1)->setPoll($poll));
-    	$poll->addChoice((new Choice)->setName($t->trans('no'))->setValue(0)->setColor('red')->setPriority(2)->setPoll($poll));
+    	$poll->addChoice((new Choice)->setName($t->trans('yes'))->setValue(1)->setColor('green')->setPriority(0)->setPoll($poll)->setIcon('ok'));
+    	$poll->addChoice((new Choice)->setName($t->trans('maybe'))->setValue(0)->setColor('orange')->setPriority(1)->setPoll($poll)->setIcon('time'));
+    	$poll->addChoice((new Choice)->setName($t->trans('no'))->setValue(0)->setColor('red')->setPriority(2)->setPoll($poll)->setIcon('remove'));
 
     	$baseUrl = $this->generateUrl('poll_show', ['pollUrl' => $poll->getUrl()], true);
     	$successMessage = $this->get('translator')->trans('poll.created %url%', ['%url%' => $baseUrl]);
