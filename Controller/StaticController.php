@@ -51,17 +51,8 @@ class StaticController extends Controller
 	{
 		$r = new \ReflectionClass($this);
 		$dirName = dirname($r->getFilename());
-		$translations = [];
-		foreach (["$domain.$locale.yml", "$domain-me.$locale.yml"] as $fileName)
-		{
-			$fullFileName = "$dirName/../Resources/translations/$fileName";
-			if (file_exists($fullFileName))
-			{
-				$parsed = Yaml::parse(file_get_contents($fullFileName));
-				$translations += $parsed;
-			}
-		}
-    	return $translations;
+		$fullFileName = "$dirName/../Resources/translations/$domain.$locale.yml";
+		return Yaml::parse(file_get_contents($fullFileName));
 	}
 
     /**

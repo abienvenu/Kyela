@@ -114,14 +114,16 @@ $ php app/console doctrine:fixtures:load --append
 Customisation
 -------------
 
-You can create a file in Resources/translations called "faq-me.en.html" or "about-me.en.html" to add questions/answers to the FAQ or About page. See "faq.en.html" for the structure to be used.
+To edit or extend the FAQ or About page, you just have to add entries in Resources/translations/faq.en.yml (or about.en.yml).
 
-For further customisation, you have to edit the code. Because of the licence (GNU Affero GPL), you must publish the modified code as soon as your project is online.
+For further customisation, you have to edit the templates or the code. Because of the licence (GNU Affero GPL-3.0), you must publish the modified code as soon as your project is online.
 
 CHANGELOG
 ---------
 
-* v1.2 : Added ability to add an icon for each choice
+* v1.2 :
+  - Added ability to add an icon for each choice
+  - Removed the idea of a separate file about-me.en.yml and faq-me.en.yml - just edit the files
 * v1.1 : Many small improvements
   - Ability to add a participant directly from poll view
   - Hide Choice priority, this is purely internal data
@@ -143,13 +145,8 @@ CHANGELOG
 
 TODO
 ----
-* Supprimer Piwik
-* Remplacer Piwik par des stats basées sur les logs
-* Programmer la rétention des logs
-* Fonctionner cookieless
+* Remove session usage and associated cookie
 * Bottomline : Pas d'inscription, pas d'email, pas de publicité, pas de cookie. Gratuit, OpenSource, pour tous, tout simplement.
-* About: parler de la vie privée
-* Supprimer les versions locales de faq et about, les instances éditeront le fichier principal
 * Tooltips
 * Ability to create an event with multiple dates
 * Sort participants alphabetically ?
