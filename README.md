@@ -121,6 +121,7 @@ For further customisation, you have to edit the code. Because of the licence (GN
 CHANGELOG
 ---------
 
+* v1.2 : Added ability to add an icon for each choice
 * v1.1 : Many small improvements
   - Ability to add a participant directly from poll view
   - Hide Choice priority, this is purely internal data
@@ -142,6 +143,16 @@ CHANGELOG
 
 TODO
 ----
+* Supprimer Piwik
+* Remplacer Piwik par des stats basées sur les logs
+* Programmer la rétention des logs
+* Fonctionner cookieless
+* Bottomline : Pas d'inscription, pas d'email, pas de publicité, pas de cookie. Gratuit, OpenSource, pour tous, tout simplement.
+* About: parler de la vie privée
+* Supprimer les versions locales de faq et about, les instances éditeront le fichier principal
+* Tooltips
+* Ability to create an event with multiple dates
+* Sort participants alphabetically ?
 * Ability to use a glyphicon(s) for each choice
 * Make a knpbundles readme
 * Code improvements (see Scrutinizer)

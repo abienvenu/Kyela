@@ -81,3 +81,29 @@
         <span class="alert alert-danger pull-right" role="alert">{{ error.message }}</span>
     {%- endfor -%}
 {%- endblock form_errors %}
+
+{% block abienvenu_kyelabundle_icon_widget2 %}
+	<div class="bs-glyphicons">
+		<ul class="bs-glyphicons-list">
+		{% for value, choice in choices %}
+			<li>
+				<input type="radio" {{ block('widget_attributes') }}{% if value %} value="{{ value }}"{% endif %} />
+		   		<span class="glyphicon glyphicon-{{ choice.label }}"></span>
+	   		</li>
+	    {% endfor %}
+	    </ul>
+    </div>
+{% endblock %}
+
+{% block abienvenu_kyelabundle_icon_widget -%}
+	<div {{ block('widget_container_attributes') }} class="bs-glyphicons">
+		<ul class="bs-glyphicons-list">
+		{%- for child in form %}
+			<li>
+				{{- form_widget(child) -}}
+				<span class="glyphicon glyphicon-{{ child.vars.label }}"></span>
+			</li>
+		{% endfor %}
+		</ul>
+    </div>
+{% endblock %}

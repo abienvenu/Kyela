@@ -63,3 +63,17 @@ table.table-condensed>tbody>tr>td { padding: 2px; }
 .choice-purple:hover,.choice-purple:focus { background-color:#8080f0; color: #ffffff; }
 .choice-gray { background: #b0b0b0; color: #ffffff; }
 .choice-gray:hover,.choice-gray:focus { background-color:#909090; color: #ffffff; }
+
+.bs-glyphicons { margin:0 -10px 20px; overflow:hidden }
+.bs-glyphicons-list { padding-left:0; list-style:none }
+.bs-glyphicons li {
+	float:left; width:25%; height:60px; padding:10px; font-size:10px;
+	line-height:1.4; text-align:center; background-color:#f9f9f9; border:1px solid #fff
+}
+.bs-glyphicons .glyphicon { margin-top:5px; margin-bottom:10px; font-size:24px }
+.bs-glyphicons .glyphicon-class { display:block; text-align:center; word-wrap:break-word }
+.bs-glyphicons li:hover { background-color:#f0f0f0 }
+@media (min-width:768px) {
+	.bs-glyphicons { margin-right:0; margin-left:0 }
+	.bs-glyphicons li {width:12.5%;font-size:12px}
+}

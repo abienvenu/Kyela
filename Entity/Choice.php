@@ -70,6 +70,13 @@ class Choice extends Entity
     private $color;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="icon", type="integer")
+     */
+    private $icon;
+
+    /**
      * @var integer
      *
      * @ORM\Column(name="priority", type="integer")
@@ -249,5 +256,28 @@ class Choice extends Entity
     public function getPriority()
     {
         return $this->priority;
+    }
+
+    /**
+     * Set icon
+     *
+     * @param integer $icon
+     * @return Choice
+     */
+    public function setIcon($icon)
+    {
+        $this->icon = $icon;
+
+        return $this;
+    }
+
+    /**
+     * Get icon
+     *
+     * @return integer
+     */
+    public function getIcon()
+    {
+        return $this->icon;
     }
 }

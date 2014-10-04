@@ -14,6 +14,7 @@
                 <th>{% trans %}name{% endtrans %}</th>
                 <th>{% trans %}value{% endtrans %}</th>
                 <th>{% trans %}color{% endtrans %}</th>
+                <th>{% trans %}Icon{% endtrans %}</th>
                 <th>{% trans %}action{% endtrans %}</th>
             </tr>
         </thead>
@@ -22,8 +23,8 @@
             <tr id="choice_{{ choice.id }}">
                 <td><span class="glyphicon glyphicon-move pull-left"></span>{{ choice.name }}</td>
                 <td>{{ choice.value }}</td>
-                <td>
-                    <button type="button" class="btn choice-{{ choice.color }}">{{ choice.color|trans }}</button>
+                <td><button type="button" class="btn choice-{{ choice.color }}">{{ choice.color|trans }}</button></td>
+                <td><span class="glyphicon glyphicon-{{ choice.icon }}"></span></td>
                 <td>
                     <a class="btn btn-warning" role="button" href="{{ path('choice_edit', { 'pollUrl': poll.url, 'id': choice.id }) }}">
                         <span class="glyphicon glyphicon-edit"></span>

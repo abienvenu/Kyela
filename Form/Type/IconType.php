@@ -19,37 +19,39 @@
  *
  */
 
-namespace Abienvenu\KyelaBundle\Form;
+namespace Abienvenu\KyelaBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-use Abienvenu\KyelaBundle\Form\Type\IconType;
 
-class ChoiceType extends AbstractType
+class IconType extends AbstractType
 {
-        /**
-     * @param FormBuilderInterface $builder
-     * @param array $options
-     */
-    public function buildForm(FormBuilderInterface $builder, array $options)
-    {
-        $builder
-            ->add('name', null, ['attr' => ['autofocus' => 'autofocus']])
-            ->add('value')
-            ->add('color', 'choice', ['choices' => ['green' => 'green', 'orange' => 'orange', 'red' => 'red', 'blue' => 'blue', 'cyan' => 'cyan', 'purple' => 'purple', 'gray' => 'gray']])
-            ->add('icon', new IconType)
-        ;
-    }
-
     /**
      * @param OptionsResolverInterface $resolver
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        $resolver->setDefaults(array(
-            'data_class' => 'Abienvenu\KyelaBundle\Entity\Choice'
-        ));
+        $resolver->setDefaults([
+            'choices' => [
+        		1 => 'ok', 'remove',
+        		'thumbs-up', 'thumbs-down',
+        		'ok-sign', 'question-sign', 'info-sign',
+        		'glass', 'cutlery', 'music', 'gift',
+        		'home', 'time', 'lock', 'flag', 'camera', 'book', 'facetime-video', 'film',
+        		'pushpin', 'phone', 'phone-alt', 'earphone', 'comment', 'bullhorn', 'volume-off',
+        		'shopping-cart', 'wrench', 'header', 'briefcase', 'paperclip',
+        		'envelope', 'pencil', 'user', 'asterisk', 'euro',
+        		'eye-open', 'plane', 'send', 'globe', 'tree-conifer', 'tree-deciduous',
+        		'heart', 'star', 'star-empty', 'flash',
+        		],
+        	'expanded' => true,
+        	'required' => false,
+        ]);
+    }
+
+    public function getParent()
+    {
+    	return 'choice';
     }
 
     /**
@@ -57,6 +59,6 @@ class ChoiceType extends AbstractType
      */
     public function getName()
     {
-        return 'abienvenu_kyelabundle_choice';
+        return 'abienvenu_kyelabundle_icon';
     }
 }
