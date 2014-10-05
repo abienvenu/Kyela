@@ -40,7 +40,7 @@ class IconType extends AbstractType
        		'pushpin', 'phone', 'phone-alt', 'earphone', 'comment', 'bullhorn', 'volume-off',
        		'shopping-cart', 'wrench', 'header', 'briefcase', 'paperclip',
        		'envelope', 'pencil', 'user', 'asterisk', 'euro',
-       		'eye-open', 'plane', 'send', 'globe', 'tree-conifer', 'tree-deciduous',
+       		'eye-open', 'road', 'plane', 'send', 'globe', 'tree-conifer', 'tree-deciduous',
        		'heart', 'star', 'star-empty', 'flash',
    		];
     	$choices = [];
