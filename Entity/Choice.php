@@ -72,7 +72,7 @@ class Choice extends Entity
     /**
      * @var string
      *
-     * @ORM\Column(name="icon", type="string", length=16)
+     * @ORM\Column(name="icon", type="string", length=16, nullable=true)
      */
     private $icon;
 
