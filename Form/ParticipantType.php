@@ -33,7 +33,7 @@ class ParticipantType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name');
+        $builder->add('name', 'text', ['attr' => ['placeholder' => 'participant.name.placeholder']]);
     }
 
     /**

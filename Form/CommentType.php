@@ -42,7 +42,7 @@ class CommentType extends AbstractType
     {
         $builder
         	->add('author', 'choice', ['choices' => $this->authors, 'attr' => ['autofocus' => 'autofocus']])
-            ->add('content', 'textarea');
+            ->add('content', 'textarea', ['attr' => ['placeholder' => 'comment.placeholder']]);
     }
 
     /**

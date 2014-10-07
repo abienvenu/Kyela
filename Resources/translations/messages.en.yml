@@ -102,3 +102,10 @@ lock.explanation: If you setup an access code, it will be impossible to edit the
 lock.explanation2: It will still be possible for everyone to update availabilities, add events or particpants.
 unlock: Unlock
 unlock.explanation: Someone setup an access code. To edit the poll, you are required to enter this code.
+participant.name.placeholder: Enter the firstname, nickname or other identifier
+poll.title.placeholder: Enter the title of your new poll
+comment.placeholder: After selecting the author, please type in your comment
+date.name.placeholder: Enter the name or titre of the event
+date.place.placeholder: Enter the place of the event (optional)
+poll.headlines.placeholder: You can type in a texte that will be displayed above the poll. HTML tags are allowed.
+poll.bottomlines.placeholder: You can type in a texte that will be displayed below the poll. HTML tags are allowed.
