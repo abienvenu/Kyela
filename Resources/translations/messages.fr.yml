@@ -109,3 +109,5 @@ date.name.placeholder: Entrez le nom ou titre de l'évènement
 date.place.placeholder: Entrez le lieu de l'évènement (optionnel)
 poll.headlines.placeholder: Vous pouvez saisir un texte qui apparaîtra au-dessus du sondage. Les tags HTML sont autorisés.
 poll.bottomlines.placeholder: Vous pouvez saisir un texte qui apparaîtra au-dessous du sondage.  Les tags HTML sont autorisés.
+choice.name.placeholder: "Entrez le nom de l'option : Oui, Non, Peut-être..."
+choice.name.value: Chiffre entier, utilisé pour calculer le nombre total de participants - souvent 0 ou 1.

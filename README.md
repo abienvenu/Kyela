@@ -148,10 +148,8 @@ CHANGELOG
 
 TODO
 ----
-* Make date/time optional (to allow standard polls)
 * Remove session usage and associated cookie
 * Bottomline : Pas d'inscription, pas d'email, pas de publicité, pas de cookie. Gratuit, OpenSource, pour tous, tout simplement.
-* Tooltips
 * Ability to create an event with multiple dates
 * Sort participants alphabetically ?
 * Make a knpbundles readme
