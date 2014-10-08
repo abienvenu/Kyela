@@ -121,6 +121,9 @@ For further customisation, you have to edit the templates or the code. Because o
 CHANGELOG
 ---------
 
+* v1.3 :
+  - Added placeholders
+  - Date and time are now optional
 * v1.2 :
   - Added ability to add an icon for each choice
   - Removed the idea of a separate file about-me.en.yml and faq-me.en.yml - just edit the files
@@ -145,6 +148,7 @@ CHANGELOG
 
 TODO
 ----
+* Make date/time optional (to allow standard polls)
 * Remove session usage and associated cookie
 * Bottomline : Pas d'inscription, pas d'email, pas de publicité, pas de cookie. Gratuit, OpenSource, pour tous, tout simplement.
 * Tooltips

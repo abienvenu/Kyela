@@ -43,7 +43,7 @@ class EventRepository extends EntityRepository
 			"SELECT event
 			FROM KyelaBundle:Event event
 			WHERE event.poll = :poll
-				AND event.date $sign :date
+				AND (event.date $sign :date OR event.date IS NULL)
 			ORDER BY event.date"
 		);
 		$query->setParameter('poll', $poll->getId());

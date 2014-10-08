@@ -61,14 +61,14 @@ class Event extends Entity
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date", type="date")
+     * @ORM\Column(name="date", type="date", nullable=true)
      */
     private $date;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="time", type="time")
+     * @ORM\Column(name="time", type="time", nullable=true)
      */
     private $time;
 
