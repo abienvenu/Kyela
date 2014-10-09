@@ -19,13 +19,13 @@
  *
  */
 
-namespace Abienvenu\KyelaBundle\Form;
+namespace Abienvenu\KyelaBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class NewPollType extends AbstractType
+class LockPollType extends AbstractType
 {
         /**
      * @param FormBuilderInterface $builder
@@ -33,9 +33,7 @@ class NewPollType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder
-            ->add('title', null, ['attr' => ['autofocus' => 'autofocus', 'placeholder' => 'poll.title.placeholder']])
-        ;
+        $builder->add('accessCode', null, ['attr' => ['autofocus' => 'autofocus']]);
     }
 
     /**
@@ -53,6 +51,6 @@ class NewPollType extends AbstractType
      */
     public function getName()
     {
-        return 'abienvenu_kyelabundle_newpoll';
+        return 'abienvenu_kyelabundle_lockpoll';
     }
 }

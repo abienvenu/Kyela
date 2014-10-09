@@ -19,25 +19,26 @@
  *
  */
 
-namespace Abienvenu\KyelaBundle\Form;
+namespace Abienvenu\KyelaBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Abienvenu\KyelaBundle\Form\Type\IconType;
 
-class PollType extends AbstractType
+class ChoiceType extends AbstractType
 {
-    /**
+        /**
      * @param FormBuilderInterface $builder
      * @param array $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('url')
-            ->add('title', null, ['attr' => ['autofocus' => 'autofocus']])
-            ->add('headLines', 'textarea', ['required' => false, 'attr' => ['rows' => 7, 'placeholder' => 'poll.headlines.placeholder']])
-            ->add('bottomLines', 'textarea', ['required' => false, 'attr' => ['rows' => 7, 'placeholder' => 'poll.bottomlines.placeholder']])
+            ->add('name', null, ['attr' => ['autofocus' => 'autofocus', 'placeholder' => "choice.name.placeholder"]])
+            ->add('value', null, ['attr' => ['placeholder' => 'choice.name.value']])
+            ->add('color', 'choice', ['choices' => ['green' => 'green', 'orange' => 'orange', 'red' => 'red', 'blue' => 'blue', 'cyan' => 'cyan', 'purple' => 'purple', 'gray' => 'gray']])
+            ->add('icon', new IconType)
         ;
     }
 
@@ -47,7 +48,7 @@ class PollType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Abienvenu\KyelaBundle\Entity\Poll'
+            'data_class' => 'Abienvenu\KyelaBundle\Entity\Choice'
         ));
     }
 
@@ -56,6 +57,6 @@ class PollType extends AbstractType
      */
     public function getName()
     {
-        return 'abienvenu_kyelabundle_poll';
+        return 'abienvenu_kyelabundle_choice';
     }
 }

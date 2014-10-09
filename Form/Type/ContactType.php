@@ -19,47 +19,24 @@
  *
  */
 
-namespace Abienvenu\KyelaBundle\Form;
+namespace Abienvenu\KyelaBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class CommentType extends AbstractType
+class ContactType extends AbstractType
 {
-	protected $authors = [];
-
-	public function __construct(array $authors)
-	{
-		$this->authors = $authors;
-	}
-
-    /**
-     * @param FormBuilderInterface $builder
-     * @param array $options
-     */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-        	->add('author', 'choice', ['choices' => $this->authors, 'attr' => ['autofocus' => 'autofocus']])
-            ->add('content', 'textarea', ['attr' => ['placeholder' => 'comment.placeholder']]);
+            ->add('name', 'text', ['attr' => ['autofocus' => 'autofocus']])
+            ->add('email', 'email')
+            ->add('subject', 'text')
+            ->add('message', 'textarea');
     }
 
-    /**
-     * @param OptionsResolverInterface $resolver
-     */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
-    {
-        $resolver->setDefaults(array(
-            'data_class' => 'Abienvenu\KyelaBundle\Entity\Comment'
-        ));
-    }
-
-    /**
-     * @return string
-     */
     public function getName()
     {
-        return 'abienvenu_kyelabundle_comment';
+        return 'contact';
     }
 }

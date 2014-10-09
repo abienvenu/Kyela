@@ -27,7 +27,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Abienvenu\KyelaBundle\Entity\Participant;
-use Abienvenu\KyelaBundle\Form\ParticipantType;
+use Abienvenu\KyelaBundle\Form\Type\ParticipantType;
 use Abienvenu\KyelaBundle\Traits\CRUDTrait;
 
 /**

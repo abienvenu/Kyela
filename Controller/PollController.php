@@ -29,10 +29,10 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Abienvenu\KyelaBundle\Entity\Poll;
 use Abienvenu\KyelaBundle\Entity\Choice;
 use Abienvenu\KyelaBundle\Entity\Participant;
-use Abienvenu\KyelaBundle\Form\PollType;
-use Abienvenu\KyelaBundle\Form\NewPollType;
-use Abienvenu\KyelaBundle\Form\LockPollType;
-use Abienvenu\KyelaBundle\Form\ParticipantType;
+use Abienvenu\KyelaBundle\Form\Type\PollType;
+use Abienvenu\KyelaBundle\Form\Type\NewPollType;
+use Abienvenu\KyelaBundle\Form\Type\LockPollType;
+use Abienvenu\KyelaBundle\Form\Type\ParticipantType;
 use Abienvenu\KyelaBundle\Traits\CRUDTrait;
 
 /**

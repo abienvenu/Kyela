@@ -19,27 +19,30 @@
  *
  */
 
-namespace Abienvenu\KyelaBundle\Form;
+namespace Abienvenu\KyelaBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-use Abienvenu\KyelaBundle\Form\Type\IconType;
 
-class ChoiceType extends AbstractType
+class CommentType extends AbstractType
 {
-        /**
+	protected $authors = [];
+
+	public function __construct(array $authors)
+	{
+		$this->authors = $authors;
+	}
+
+    /**
      * @param FormBuilderInterface $builder
      * @param array $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name', null, ['attr' => ['autofocus' => 'autofocus', 'placeholder' => "choice.name.placeholder"]])
-            ->add('value', null, ['attr' => ['placeholder' => 'choice.name.value']])
-            ->add('color', 'choice', ['choices' => ['green' => 'green', 'orange' => 'orange', 'red' => 'red', 'blue' => 'blue', 'cyan' => 'cyan', 'purple' => 'purple', 'gray' => 'gray']])
-            ->add('icon', new IconType)
-        ;
+        	->add('author', 'choice', ['choices' => $this->authors, 'attr' => ['autofocus' => 'autofocus']])
+            ->add('content', 'textarea', ['attr' => ['placeholder' => 'comment.placeholder']]);
     }
 
     /**
@@ -48,7 +51,7 @@ class ChoiceType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Abienvenu\KyelaBundle\Entity\Choice'
+            'data_class' => 'Abienvenu\KyelaBundle\Entity\Comment'
         ));
     }
 
@@ -57,6 +60,6 @@ class ChoiceType extends AbstractType
      */
     public function getName()
     {
-        return 'abienvenu_kyelabundle_choice';
+        return 'abienvenu_kyelabundle_comment';
     }
 }

@@ -27,7 +27,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Abienvenu\KyelaBundle\Entity\Comment;
-use Abienvenu\KyelaBundle\Form\CommentType;
+use Abienvenu\KyelaBundle\Form\Type\CommentType;
 use Abienvenu\KyelaBundle\Traits\CRUDTrait;
 
 /**

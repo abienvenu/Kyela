@@ -28,7 +28,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Yaml\Yaml;
-use Abienvenu\KyelaBundle\Form\ContactType;
+use Abienvenu\KyelaBundle\Form\Type\ContactType;
 use Abienvenu\KyelaBundle\Traits\PollSetterTrait;
 
 /**

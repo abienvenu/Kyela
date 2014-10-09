@@ -28,7 +28,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Abienvenu\KyelaBundle\Entity\Choice;
-use Abienvenu\KyelaBundle\Form\ChoiceType;
+use Abienvenu\KyelaBundle\Form\Type\ChoiceType;
 use Abienvenu\KyelaBundle\Traits\CRUDTrait;
 
 /**

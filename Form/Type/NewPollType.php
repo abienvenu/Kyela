@@ -19,25 +19,22 @@
  *
  */
 
-namespace Abienvenu\KyelaBundle\Form;
+namespace Abienvenu\KyelaBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class EventType extends AbstractType
+class NewPollType extends AbstractType
 {
-    /**
+        /**
      * @param FormBuilderInterface $builder
      * @param array $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name', null, ['attr' => ['autofocus' => 'autofocus', 'placeholder' => 'date.name.placeholder']])
-            ->add('place', null, ['required' => false, 'attr' => ['placeholder' => 'date.place.placeholder']])
-            ->add('date', null, ['required' => false, 'widget' => 'single_text', 'format' => 'dd-MM-yyyy', 'attr' => ['class' => 'datepicker']])
-            ->add('time', null, ['required' => false, 'widget' => 'single_text'])
+            ->add('title', null, ['attr' => ['autofocus' => 'autofocus', 'placeholder' => 'poll.title.placeholder']])
         ;
     }
 
@@ -47,7 +44,7 @@ class EventType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Abienvenu\KyelaBundle\Entity\Event'
+            'data_class' => 'Abienvenu\KyelaBundle\Entity\Poll'
         ));
     }
 
@@ -56,6 +53,6 @@ class EventType extends AbstractType
      */
     public function getName()
     {
-        return 'abienvenu_kyelabundle_event';
+        return 'abienvenu_kyelabundle_newpoll';
     }
 }
