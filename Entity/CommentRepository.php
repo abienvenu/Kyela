@@ -12,22 +12,22 @@ use Doctrine\ORM\EntityRepository;
  */
 class CommentRepository extends EntityRepository
 {
-	/**
+    /**
      * Get latest comments
      *
-	 * @param Poll $poll
+     * @param Poll $poll
      * @return \Doctrine\Common\Collections\Collection
-	 */
-	public function getLatestComments(Poll $poll)
-	{
-		$query = $this->getEntityManager()->createQuery(
-			"SELECT comment
-			FROM KyelaBundle:Comment comment
-			WHERE comment.poll = :poll
-			ORDER BY comment.datetime DESC"
-		);
-		$query->setParameter('poll', $poll->getId());
-		$query->setMaxResults(6);
-		return $query->getResult();
-	}
+     */
+    public function getLatestComments(Poll $poll)
+    {
+        $query = $this->getEntityManager()->createQuery(
+            "SELECT comment
+            FROM KyelaBundle:Comment comment
+            WHERE comment.poll = :poll
+            ORDER BY comment.datetime DESC"
+        );
+        $query->setParameter('poll', $poll->getId());
+        $query->setMaxResults(6);
+        return $query->getResult();
+    }
 }

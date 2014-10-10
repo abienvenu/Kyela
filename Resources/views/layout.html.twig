@@ -25,18 +25,18 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title>Kyélà - {{ poll is defined and poll and poll.title ? poll.title : 'bottom.line'|trans }}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-	    <meta name="description" content="{% trans %}meta.description{% endtrans %}">
-	    <meta name="copyright" content="Arnaud Bienvenu, France">
-	    <meta name="application-name" content="Kyela">
-	    {% image '@KyelaBundle/Resources/public/kyela.png' %}
-	    	<link rel="icon" type="image/png" href="{{ asset_url }}" />
-	    {% endimage %}
+        <meta name="description" content="{% trans %}meta.description{% endtrans %}">
+        <meta name="copyright" content="Arnaud Bienvenu, France">
+        <meta name="application-name" content="Kyela">
+        {% image '@KyelaBundle/Resources/public/kyela.png' %}
+            <link rel="icon" type="image/png" href="{{ asset_url }}" />
+        {% endimage %}
         {% block robots %}
-	        <meta name="robots" content="noindex, nofollow">
+            <meta name="robots" content="noindex, nofollow">
         {% endblock %}
 
         {% stylesheets 'bundles/kyela/css/*' filter='cssrewrite' %}
-        	<link rel="stylesheet" href="{{ asset_url }}" />
+            <link rel="stylesheet" href="{{ asset_url }}" />
         {% endstylesheets %}
         <style>
             body {
@@ -45,7 +45,7 @@
             }
         </style>
         {% javascripts '@KyelaBundle/Resources/public/js/*' %}
-        	<script type="text/javascript" src="{{ asset_url }}"></script>
+            <script type="text/javascript" src="{{ asset_url }}"></script>
         {% endjavascripts %}
     </head>
     <body>
@@ -53,62 +53,62 @@
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-	    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-	      <div class="container">
-	        <div class="navbar-header">
-	          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-	            <span class="sr-only">Toggle navigation</span>
-	            <span class="icon-bar"></span>
-	            <span class="icon-bar"></span>
-	            <span class="icon-bar"></span>
-	          </button>
-	          <a class="navbar-brand" href="{{ path('poll_new') }}">Kyélà</a>
-	        </div>
-		    <div class="collapse navbar-collapse">
-		    	<ul class="nav navbar-nav">
-		    		{% if poll is defined and poll and poll.title %}
-		    			<li><a href="{{ path('poll_show', {'pollUrl': poll.url}) }}">{{ poll.title }}</a>
-		    		{% endif %}
-		    		<li><a href="{{ path('kyela_faq') }}">{% trans %}faq{% endtrans %}</a></li>
-		    		<li><a href="{{ path('kyela_about') }}">{% trans %}about{% endtrans %}</a></li>
-		    		<li><a href="{{ path('kyela_thanks') }}">{% trans %}thanks{% endtrans %}</a></li>
-		    		<li><a href="{{ path('kyela_contact') }}">{% trans %}contact{% endtrans %}</a></li>
-					{% set routeParams = app.request.get('_route_params') %}
-				    {% for locale, language in {'en': 'English', 'fr': 'Français'} %}
-				    	{% if locale != app.request.locale %}
-						    {% set routeParams = routeParams|merge({'_locale': locale}) %}
-						    <li><a href="{{ path('kyela_switch', routeParams) }}">{{ language }}</a></li>
-				    	{% endif %}
-				    {% endfor %}
-		    		</ul>
-		    </div>
-	      </div>
-	    </div>
-	    {% if app.session.flashbag.has('success') %}
-	    <div class="panel panel-success">
-	    	<div class="panel-heading">
-	    		<h3 class="panel-title">{% trans %}success{% endtrans %}</h3>
-	    	</div>
-	    	<div class="panel-body">
-				{% for flashMessage in app.session.flashbag.get('success') %}
-					{{ flashMessage|raw }}<br />
-				{% endfor %}
-	    	</div>
-	    </div>
-	    {% endif %}
-	    <div class="container">
-	   		{% block body %}{% endblock %}
-	    </div>
+        <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="{{ path('poll_new') }}">Kyélà</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    {% if poll is defined and poll and poll.title %}
+                        <li><a href="{{ path('poll_show', {'pollUrl': poll.url}) }}">{{ poll.title }}</a>
+                    {% endif %}
+                    <li><a href="{{ path('kyela_faq') }}">{% trans %}faq{% endtrans %}</a></li>
+                    <li><a href="{{ path('kyela_about') }}">{% trans %}about{% endtrans %}</a></li>
+                    <li><a href="{{ path('kyela_thanks') }}">{% trans %}thanks{% endtrans %}</a></li>
+                    <li><a href="{{ path('kyela_contact') }}">{% trans %}contact{% endtrans %}</a></li>
+                    {% set routeParams = app.request.get('_route_params') %}
+                    {% for locale, language in {'en': 'English', 'fr': 'Français'} %}
+                        {% if locale != app.request.locale %}
+                            {% set routeParams = routeParams|merge({'_locale': locale}) %}
+                            <li><a href="{{ path('kyela_switch', routeParams) }}">{{ language }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+                    </ul>
+            </div>
+          </div>
+        </div>
+        {% if app.session.flashbag.has('success') %}
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <h3 class="panel-title">{% trans %}success{% endtrans %}</h3>
+            </div>
+            <div class="panel-body">
+                {% for flashMessage in app.session.flashbag.get('success') %}
+                    {{ flashMessage|raw }}<br />
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+        <div class="container">
+               {% block body %}{% endblock %}
+        </div>
     </div>
     <div id="footer">
-    	<p>
-    		&copy; Arnaud Bienvenu 2014 - v1.3 -
-    		Icons by <a href="http://glyphicons.com/">GLYPHICONS.com</a> -
-    		<span id="forkongithub"><a href="https://github.com/abienvenu/Kyela">Fork me on GitHub</a></span> -
-    		{% image 'https://insight.sensiolabs.com/projects/bca46a72-4438-47e7-b629-4b9926e802a6/mini.png' %}
-    			<a href="https://insight.sensiolabs.com/projects/bca46a72-4438-47e7-b629-4b9926e802a6"><img src="{{ asset_url }}" alt="SensioLabsInsight Medal" /></a>
-    		{% endimage %}
-    	</p>
+        <p>
+            &copy; Arnaud Bienvenu 2014 - v1.3 -
+            Icons by <a href="http://glyphicons.com/">GLYPHICONS.com</a> -
+            <span id="forkongithub"><a href="https://github.com/abienvenu/Kyela">Fork me on GitHub</a></span> -
+            {% image 'https://insight.sensiolabs.com/projects/bca46a72-4438-47e7-b629-4b9926e802a6/mini.png' %}
+                <a href="https://insight.sensiolabs.com/projects/bca46a72-4438-47e7-b629-4b9926e802a6"><img src="{{ asset_url }}" alt="SensioLabsInsight Medal" /></a>
+            {% endimage %}
+        </p>
     </div>
     </body>
 </html>

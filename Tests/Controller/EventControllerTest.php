@@ -23,19 +23,19 @@ namespace Abienvenu\KyelaBundle\Tests\Controller;
 
 class EventControllerTest extends PollWebTestCase
 {
-	/**
-	 * Creates, edits and deletes an event
-	 */
+    /**
+     * Creates, edits and deletes an event
+     */
     public function testCompleteScenario()
     {
-    	// Create a poll to work with
-    	$crawler = self::createPollEntry(uniqid('Test Poll '));
+        // Create a poll to work with
+        $crawler = self::createPollEntry(uniqid('Test Poll '));
 
-    	// Create an event
-    	$name = uniqid('Test Event ');
+        // Create an event
+        $name = uniqid('Test Event ');
         $crawler = self::clickLink($crawler, 'add.a.date');
         $crawler = self::submitForm($crawler, 'create', 'event',
-        	['name' => $name, 'place' => 'Nowhere', 'date' => '04-09-2034', 'time' => '20:30']);
+            ['name' => $name, 'place' => 'Nowhere', 'date' => '04-09-2034', 'time' => '20:30']);
 
         // Check data in the show view
         $filter = 'div.list-group-item:contains("' . $name . '")';
@@ -45,7 +45,7 @@ class EventControllerTest extends PollWebTestCase
         $crawler = self::clickLink($crawler, '');
         $name = "M $name";
         $crawler = self::submitForm($crawler, 'save', 'event',
-			['name' => $name, 'place' => 'Nowhere', 'date' => '04-09-2034', 'time' => '20:30']);
+            ['name' => $name, 'place' => 'Nowhere', 'date' => '04-09-2034', 'time' => '20:30']);
 
         // Check data in the show view
         $filter = 'div.list-group-item:contains("' . $name . '")';

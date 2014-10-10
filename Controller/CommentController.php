@@ -37,13 +37,13 @@ use Abienvenu\KyelaBundle\Traits\CRUDTrait;
  */
 class CommentController extends Controller
 {
-	use CRUDTrait;
+    use CRUDTrait;
 
-	protected $entityName = 'KyelaBundle:Comment';
-	protected $cancelRoute = 'poll_show';
-	protected $successRoute = 'poll_show';
-	protected $deleteRoute = 'comment_delete';
-	protected $deleteSuccessRoute = 'poll_show';
+    protected $entityName = 'KyelaBundle:Comment';
+    protected $cancelRoute = 'poll_show';
+    protected $successRoute = 'poll_show';
+    protected $deleteRoute = 'comment_delete';
+    protected $deleteSuccessRoute = 'poll_show';
 
     /**
      * Displays a form to create a new Comment entity.
@@ -54,12 +54,12 @@ class CommentController extends Controller
      */
     public function newAction(Request $request)
     {
-    	$comment = new Comment();
-    	if ($request->isMethod('POST'))
-    	{
-    		$comment->setDatetime(new \DateTime());
-    	}
-    	return $this->doNewAction(new CommentType($this->poll->getParticipantsAsArrayOfNames()), $comment, $request);
+        $comment = new Comment();
+        if ($request->isMethod('POST'))
+        {
+            $comment->setDatetime(new \DateTime());
+        }
+        return $this->doNewAction(new CommentType($this->poll->getParticipantsAsArrayOfNames()), $comment, $request);
     }
 
     /**
@@ -71,7 +71,7 @@ class CommentController extends Controller
      */
     public function editAction(Request $request, $id)
     {
-    	return $this->doEditAction(new CommentType($this->poll->getParticipantsAsArrayOfNames()), $id, $request);
+        return $this->doEditAction(new CommentType($this->poll->getParticipantsAsArrayOfNames()), $id, $request);
     }
 
     /**
@@ -82,6 +82,6 @@ class CommentController extends Controller
      */
     public function deleteAction(Request $request, $id)
     {
-    	return $this->doDeleteAction($request, $id);
+        return $this->doDeleteAction($request, $id);
     }
 }

@@ -1,43 +1,43 @@
 {% extends "KyelaBundle::layout.html.twig" %}
 
 {% block robots %}
-	<meta name="robots" content="index, follow">
+    <meta name="robots" content="index, follow">
 {% endblock %}
 
 {% block body -%}
-	<div class="jumbotron">
-		<div class="container">
-			<h1>{% trans %}thank.you{% endtrans %}</h1>
-		</div>
-	</div>
+    <div class="jumbotron">
+        <div class="container">
+            <h1>{% trans %}thank.you{% endtrans %}</h1>
+        </div>
+    </div>
 
-	<div class="container">
-		{% image '@KyelaBundle/Resources/public/images/bootstrap.png' %}
-			<a href="http://getbootstrap.com/" target="_blank"><img src="{{ asset_url }}" alt="PHP" /></a>
-		{% endimage %}
-		{% image '@KyelaBundle/Resources/public/images/glyphicons.png' %}
-			<a href="http://glyphicons.com/" target="_blank"><img src="{{ asset_url }}" alt="JQuery" /></a>
-		{% endimage %}
-		{% image '@KyelaBundle/Resources/public/images/jquery.png' %}
-			<a href="http://jquery.com/" target="_blank"><img src="{{ asset_url }}" alt="JQuery" /></a>
-		{% endimage %}
-		{% image '@KyelaBundle/Resources/public/images/symfony_black_03.png' %}
-			<a href="http://symfony.com/" target="_blank"><img src="{{ asset_url }}" alt="Symfony" /></a>
-		{% endimage %}
-		{% image '@KyelaBundle/Resources/public/images/php-logo.png' %}
-			<a href="http://php.net/" target="_blank"><img src="{{ asset_url }}" alt="PHP" /></a>
-		{% endimage %}
-		{% image '@KyelaBundle/Resources/public/images/mysql.png' %}
-			<a href="http://mysql.com/" target="_blank"><img src="{{ asset_url }}" alt="MySQL" /></a>
-		{% endimage %}
-		{% image '@KyelaBundle/Resources/public/images/debian.png' %}
-			<a href="http://www.debian.org/" target="_blank"><img src="{{ asset_url }}" alt="Debian" /></a>
-		{% endimage %}
-		{% image '@KyelaBundle/Resources/public/images/github.png' %}
-			<a href="https://github.com/" target="_blank"><img src="{{ asset_url }}" alt="GitHub" /></a>
-		{% endimage %}
-		{% image '@KyelaBundle/Resources/public/images/piwik.png' %}
-			<a href="http://piwik.org/" target="_blank"><img src="{{ asset_url }}" alt="JQuery" /></a>
-		{% endimage %}
-	</div>
+    <div class="container">
+        {% image '@KyelaBundle/Resources/public/images/bootstrap.png' %}
+            <a href="http://getbootstrap.com/" target="_blank"><img src="{{ asset_url }}" alt="PHP" /></a>
+        {% endimage %}
+        {% image '@KyelaBundle/Resources/public/images/glyphicons.png' %}
+            <a href="http://glyphicons.com/" target="_blank"><img src="{{ asset_url }}" alt="JQuery" /></a>
+        {% endimage %}
+        {% image '@KyelaBundle/Resources/public/images/jquery.png' %}
+            <a href="http://jquery.com/" target="_blank"><img src="{{ asset_url }}" alt="JQuery" /></a>
+        {% endimage %}
+        {% image '@KyelaBundle/Resources/public/images/symfony_black_03.png' %}
+            <a href="http://symfony.com/" target="_blank"><img src="{{ asset_url }}" alt="Symfony" /></a>
+        {% endimage %}
+        {% image '@KyelaBundle/Resources/public/images/php-logo.png' %}
+            <a href="http://php.net/" target="_blank"><img src="{{ asset_url }}" alt="PHP" /></a>
+        {% endimage %}
+        {% image '@KyelaBundle/Resources/public/images/mysql.png' %}
+            <a href="http://mysql.com/" target="_blank"><img src="{{ asset_url }}" alt="MySQL" /></a>
+        {% endimage %}
+        {% image '@KyelaBundle/Resources/public/images/debian.png' %}
+            <a href="http://www.debian.org/" target="_blank"><img src="{{ asset_url }}" alt="Debian" /></a>
+        {% endimage %}
+        {% image '@KyelaBundle/Resources/public/images/github.png' %}
+            <a href="https://github.com/" target="_blank"><img src="{{ asset_url }}" alt="GitHub" /></a>
+        {% endimage %}
+        {% image '@KyelaBundle/Resources/public/images/piwik.png' %}
+            <a href="http://piwik.org/" target="_blank"><img src="{{ asset_url }}" alt="JQuery" /></a>
+        {% endimage %}
+    </div>
 {% endblock %}

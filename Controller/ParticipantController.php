@@ -37,13 +37,13 @@ use Abienvenu\KyelaBundle\Traits\CRUDTrait;
  */
 class ParticipantController extends Controller
 {
-	use CRUDTrait;
+    use CRUDTrait;
 
-	protected $entityName = 'KyelaBundle:Participant';
-	protected $cancelRoute = 'poll_show';
-	protected $successRoute = 'poll_show';
-	protected $deleteRoute = 'participant_delete';
-	protected $deleteSuccessRoute = 'poll_show';
+    protected $entityName = 'KyelaBundle:Participant';
+    protected $cancelRoute = 'poll_show';
+    protected $successRoute = 'poll_show';
+    protected $deleteRoute = 'participant_delete';
+    protected $deleteSuccessRoute = 'poll_show';
 
     /**
      * Displays a form to create a new Participant entity.
@@ -54,7 +54,7 @@ class ParticipantController extends Controller
      */
     public function newAction(Request $request)
     {
-    	return $this->doNewAction(new ParticipantType(), new Participant(), $request);
+        return $this->doNewAction(new ParticipantType(), new Participant(), $request);
     }
 
     /**
@@ -66,7 +66,7 @@ class ParticipantController extends Controller
      */
     public function editAction(Request $request, $id)
     {
-    	return $this->doEditAction(new ParticipantType(), $id, $request);
+        return $this->doEditAction(new ParticipantType(), $id, $request);
     }
 
     /**
@@ -77,6 +77,6 @@ class ParticipantController extends Controller
      */
     public function deleteAction(Request $request, $id)
     {
-    	return $this->doDeleteAction($request, $id);
+        return $this->doDeleteAction($request, $id);
     }
 }

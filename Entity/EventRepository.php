@@ -29,25 +29,25 @@ use Doctrine\ORM\EntityRepository;
  */
 class EventRepository extends EntityRepository
 {
-	/**
+    /**
      * Get future or past events
      *
-	 * @param Poll $poll
-	 * @param Boolean $isFuture
+     * @param Poll $poll
+     * @param Boolean $isFuture
      * @return \Doctrine\Common\Collections\Collection
-	 */
-	public function getFutureOrPastEvents(Poll $poll, $isFuture = true)
-	{
-		$sign = $isFuture ? ">=" : "<";
-		$query = $this->getEntityManager()->createQuery(
-			"SELECT event
-			FROM KyelaBundle:Event event
-			WHERE event.poll = :poll
-				AND (event.date $sign :date OR event.date IS NULL)
-			ORDER BY event.date"
-		);
-		$query->setParameter('poll', $poll->getId());
-		$query->setParameter('date', new \DateTime("today"));
-		return $query->getResult();
-	}
+     */
+    public function getFutureOrPastEvents(Poll $poll, $isFuture = true)
+    {
+        $sign = $isFuture ? ">=" : "<";
+        $query = $this->getEntityManager()->createQuery(
+            "SELECT event
+            FROM KyelaBundle:Event event
+            WHERE event.poll = :poll
+                AND (event.date $sign :date OR event.date IS NULL)
+            ORDER BY event.date"
+        );
+        $query->setParameter('poll', $poll->getId());
+        $query->setParameter('date', new \DateTime("today"));
+        return $query->getResult();
+    }
 }

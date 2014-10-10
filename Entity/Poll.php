@@ -81,27 +81,27 @@ class Poll extends Entity
      */
     private $accessCode;
 
-	/**
-	 * @ORM\OneToMany(targetEntity="Participant", mappedBy="poll", cascade={"remove"})
-	 */
-	private $participants;
+    /**
+     * @ORM\OneToMany(targetEntity="Participant", mappedBy="poll", cascade={"remove"})
+     */
+    private $participants;
 
-	/**
-	 * @ORM\OneToMany(targetEntity="Event", mappedBy="poll", cascade={"remove"})
-	 */
-	private $events;
+    /**
+     * @ORM\OneToMany(targetEntity="Event", mappedBy="poll", cascade={"remove"})
+     */
+    private $events;
 
-	/**
-	 * @ORM\OneToMany(targetEntity="Choice", mappedBy="poll", cascade={"remove", "persist"})
-	 */
-	private $choices;
+    /**
+     * @ORM\OneToMany(targetEntity="Choice", mappedBy="poll", cascade={"remove", "persist"})
+     */
+    private $choices;
 
-	/**
-	 * @ORM\OneToMany(targetEntity="Comment", mappedBy="poll", cascade={"remove"})
-	 */
-	private $comments;
+    /**
+     * @ORM\OneToMany(targetEntity="Comment", mappedBy="poll", cascade={"remove"})
+     */
+    private $comments;
 
-	/**
+    /**
      * Get id
      *
      * @return integer
@@ -370,10 +370,10 @@ class Poll extends Entity
     public function getParticipantsAsArrayOfNames()
     {
         $participants = [];
-    	foreach ($this->getParticipants() as $participant)
-    	{
-    		$participants[$participant->getName()] = $participant->getName();
-    	}
-    	return $participants;
+        foreach ($this->getParticipants() as $participant)
+        {
+            $participants[$participant->getName()] = $participant->getName();
+        }
+        return $participants;
     }
 }

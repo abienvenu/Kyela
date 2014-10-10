@@ -27,7 +27,7 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class NewPollType extends AbstractType
 {
-        /**
+    /**
      * @param FormBuilderInterface $builder
      * @param array $options
      */

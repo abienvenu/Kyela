@@ -38,22 +38,22 @@ use Abienvenu\KyelaBundle\Traits\PollSetterTrait;
  */
 class StaticController extends Controller
 {
-	use PollSetterTrait;
+    use PollSetterTrait;
 
-	/**
-	 * Load additionnal translations
-	 *
-	 * @param string $domain
-	 * @param string $locale
-	 * @return array
-	 */
-	protected function loadTranslations($domain, $locale)
-	{
-		$r = new \ReflectionClass($this);
-		$dirName = dirname($r->getFilename());
-		$fullFileName = "$dirName/../Resources/translations/$domain.$locale.yml";
-		return Yaml::parse(file_get_contents($fullFileName));
-	}
+    /**
+     * Load additionnal translations
+     *
+     * @param string $domain
+     * @param string $locale
+     * @return array
+     */
+    protected function loadTranslations($domain, $locale)
+    {
+        $r = new \ReflectionClass($this);
+        $dirName = dirname($r->getFilename());
+        $fullFileName = "$dirName/../Resources/translations/$domain.$locale.yml";
+        return Yaml::parse(file_get_contents($fullFileName));
+    }
 
     /**
      * Displays the FAQ
@@ -63,7 +63,7 @@ class StaticController extends Controller
      */
     public function faqAction(Request $request)
     {
-    	return ["poll" => $this->poll, "faq" => $this->loadTranslations("faq", $request->getLocale())];
+        return ["poll" => $this->poll, "faq" => $this->loadTranslations("faq", $request->getLocale())];
     }
 
     /**
@@ -74,7 +74,7 @@ class StaticController extends Controller
      */
     public function aboutAction(Request $request)
     {
-    	return ["poll" => $this->poll, "about" => $this->loadTranslations("about", $request->getLocale())];
+        return ["poll" => $this->poll, "about" => $this->loadTranslations("about", $request->getLocale())];
     }
 
     /**
@@ -85,7 +85,7 @@ class StaticController extends Controller
      */
     public function thanksAction()
     {
-    	return ["poll" => $this->poll];
+        return ["poll" => $this->poll];
     }
 
     /**
@@ -95,15 +95,15 @@ class StaticController extends Controller
      */
     public function switchAction(Request $request)
     {
-    	if ($request->headers->has('referer'))
-    	{
-    		$returnUrl = $request->headers->get('referer');
-    	}
-    	else
-    	{
-    		$returnUrl = $this->generateUrl("poll_new");
-    	}
-    	return new RedirectResponse($returnUrl, 302);
+        if ($request->headers->has('referer'))
+        {
+            $returnUrl = $request->headers->get('referer');
+        }
+        else
+        {
+            $returnUrl = $this->generateUrl("poll_new");
+        }
+        return new RedirectResponse($returnUrl, 302);
     }
 
     /**
@@ -113,42 +113,42 @@ class StaticController extends Controller
      */
     public function contactAction(Request $request)
     {
-    	$form = $this->createForm(new ContactType());
+        $form = $this->createForm(new ContactType());
         $form->add('actions', 'form_actions', [
-        	'buttons' => [
-        		'send' => ['type' => 'submit', 'options' => ['label' => 'send']],
-        	]
+            'buttons' => [
+                'send' => ['type' => 'submit', 'options' => ['label' => 'send']],
+            ]
         ]);
 
-    	if ($request->isMethod('POST')) {
-    		$form->handleRequest($request);
+        if ($request->isMethod('POST')) {
+            $form->handleRequest($request);
 
-	        if ($form->isValid()) {
-	            $message = \Swift_Message::newInstance()
-	                ->setSubject($form->get('subject')->getData())
-	                ->setFrom($form->get('email')->getData())
-	                ->setTo($this->container->getParameter('kyela_contact_email'))
-	                ->setBody(
-	                    $this->renderView(
-	                        'KyelaBundle:Mail:contact.html.twig',
-	                        array(
-	                            'ip' => $request->getClientIp(),
-	                            'name' => $form->get('name')->getData(),
-	                        	'subject' => $form->get('subject')->getData(),
-	                            'message' => $form->get('message')->getData()
-	                        )
-	                    )
-	                );
+            if ($form->isValid()) {
+                $message = \Swift_Message::newInstance()
+                    ->setSubject($form->get('subject')->getData())
+                    ->setFrom($form->get('email')->getData())
+                    ->setTo($this->container->getParameter('kyela_contact_email'))
+                    ->setBody(
+                        $this->renderView(
+                            'KyelaBundle:Mail:contact.html.twig',
+                            array(
+                                'ip' => $request->getClientIp(),
+                                'name' => $form->get('name')->getData(),
+                                'subject' => $form->get('subject')->getData(),
+                                'message' => $form->get('message')->getData()
+                            )
+                        )
+                    );
 
-	            $this->get('mailer')->send($message);
-	            $flashMessage = $this->get('translator')->trans('mail.sent');
-	            $request->getSession()->getFlashBag()->add('success', $flashMessage);
-	            return $this->redirect($this->generateUrl('poll_new'));
-	        }
-	    }
-	    return array(
-	        'poll' => $this->poll,
-	    	'form' => $form->createView()
-	    );
+                $this->get('mailer')->send($message);
+                $flashMessage = $this->get('translator')->trans('mail.sent');
+                $request->getSession()->getFlashBag()->add('success', $flashMessage);
+                return $this->redirect($this->generateUrl('poll_new'));
+            }
+        }
+        return array(
+            'poll' => $this->poll,
+            'form' => $form->createView()
+        );
     }
 }

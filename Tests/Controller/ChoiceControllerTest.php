@@ -26,15 +26,15 @@ class ChoiceControllerTest extends PollWebTestCase
 
     public function testCompleteScenario()
     {
-    	// Create a poll to work with
-    	$crawler = self::createPollEntry(uniqid('Test Poll '));
+        // Create a poll to work with
+        $crawler = self::createPollEntry(uniqid('Test Poll '));
 
-    	// Go to options list
-    	$crawler = self::clickLink($crawler, 'edit.options');
-    	$this->assertNotNull($crawler);
+        // Go to options list
+        $crawler = self::clickLink($crawler, 'edit.options');
+        $this->assertNotNull($crawler);
 
-    	// Create a choice
-    	$name = uniqid('Test Choice ');
+        // Create a choice
+        $name = uniqid('Test Choice ');
         $crawler = self::clickLink($crawler, 'add.an.option');
         self::checkElement($crawler, 'h1:contains("' . self::$translator->trans('new.choice') . '")');
         $crawler = self::submitForm($crawler, 'create', 'choice', ['name' => $name, 'value' => 1, 'color' => 'green', 'icon' => 'ok']);

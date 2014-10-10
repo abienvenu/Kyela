@@ -19,7 +19,7 @@
 {% extends "KyelaBundle::layout.html.twig" %}
 
 {% block robots %}
-	<meta name="robots" content="{{ poll.url == 'exemple' ? 'index' : 'noindex' }}, nofollow">
+    <meta name="robots" content="{{ poll.url == 'exemple' ? 'index' : 'noindex' }}, nofollow">
 {% endblock %}
 
 {% block body %}
@@ -28,9 +28,9 @@
 
 {% if poll.headlines %}
 <div class="panel panel-default">
-	<div class="panel-body">
-		{{ poll.headlines|raw }}
-	</div>
+    <div class="panel-body">
+        {{ poll.headlines|raw }}
+    </div>
 </div>
 {% endif %}
 
@@ -38,9 +38,9 @@
 
 {% if poll.bottomlines %}
 <div class="panel panel-default">
-	<div class="panel-body">
-		{{ poll.bottomlines|raw }}
-	</div>
+    <div class="panel-body">
+        {{ poll.bottomlines|raw }}
+    </div>
 </div>
 {% endif %}
 
@@ -48,42 +48,42 @@
 
 {{ form_start(participant_form) }}
 <div class="row">
-	<div class="col-sm-9" style="padding-top: 5px;">
-		{{ form_errors(participant_form) }}
-		{{ form_row(participant_form.name) }}
-	</div>
-	<div class="col-sm-3">
-		<button class="btn btn-info btn-lg" role="button">
-			<span class="glyphicon glyphicon-user"></span>
-			{% trans %}add.a.participant{% endtrans %}
-		</button>
-	</div>
+    <div class="col-sm-9" style="padding-top: 5px;">
+        {{ form_errors(participant_form) }}
+        {{ form_row(participant_form.name) }}
+    </div>
+    <div class="col-sm-3">
+        <button class="btn btn-info btn-lg" role="button">
+            <span class="glyphicon glyphicon-user"></span>
+            {% trans %}add.a.participant{% endtrans %}
+        </button>
+    </div>
 </div>
 {{ form_end(participant_form) }}
 
 <div class="text-center">
-	<a class="btn btn-primary btn-lg" role="button" href="{{ path('comment_new', {'pollUrl': poll.url}) }}">
-		<span class="glyphicon glyphicon-comment"></span>
-		{% trans %}add.a.comment{% endtrans %}
-	</a>
-	<a class="btn btn-success btn-lg" role="button" href="{{ path('event_new', {'pollUrl': poll.url}) }}">
-		<span class="glyphicon glyphicon-plus"></span>
-		{% trans %}add.a.date{% endtrans %}
-	</a>
-	<a class="btn btn-warning btn-lg" role="button" href="{{ path('choice', {'pollUrl': poll.url}) }}">
-		<span class="glyphicon glyphicon-edit"></span>
-		{% trans %}edit.options{% endtrans %}
-	</a>
-	<a class="btn btn-danger btn-lg" role="button" href="{{ path('poll_edit', {'pollUrl': poll.url}) }}">
-		<span class="glyphicon glyphicon-edit"></span>
-		{% trans %}edit.poll{% endtrans %}
-	</a>
-	{% if hasPastEvents %}
-	<a class="btn btn-default btn-lg" role="button" href="{{ path('poll_archive', {'pollUrl': poll.url}) }}">
-		<span class="glyphicon glyphicon-hdd"></span>
-		{% trans %}archive.access{% endtrans %}
-	</a>
-	{% endif %}
+    <a class="btn btn-primary btn-lg" role="button" href="{{ path('comment_new', {'pollUrl': poll.url}) }}">
+        <span class="glyphicon glyphicon-comment"></span>
+        {% trans %}add.a.comment{% endtrans %}
+    </a>
+    <a class="btn btn-success btn-lg" role="button" href="{{ path('event_new', {'pollUrl': poll.url}) }}">
+        <span class="glyphicon glyphicon-plus"></span>
+        {% trans %}add.a.date{% endtrans %}
+    </a>
+    <a class="btn btn-warning btn-lg" role="button" href="{{ path('choice', {'pollUrl': poll.url}) }}">
+        <span class="glyphicon glyphicon-edit"></span>
+        {% trans %}edit.options{% endtrans %}
+    </a>
+    <a class="btn btn-danger btn-lg" role="button" href="{{ path('poll_edit', {'pollUrl': poll.url}) }}">
+        <span class="glyphicon glyphicon-edit"></span>
+        {% trans %}edit.poll{% endtrans %}
+    </a>
+    {% if hasPastEvents %}
+    <a class="btn btn-default btn-lg" role="button" href="{{ path('poll_archive', {'pollUrl': poll.url}) }}">
+        <span class="glyphicon glyphicon-hdd"></span>
+        {% trans %}archive.access{% endtrans %}
+    </a>
+    {% endif %}
 </div>
 
 {% endblock %}

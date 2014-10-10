@@ -29,21 +29,21 @@ use Doctrine\ORM\EntityRepository;
  */
 class ChoiceRepository extends EntityRepository
 {
-	/**
+    /**
      * Get future events
      *
-	 * @param Poll $poll
+     * @param Poll $poll
      * @return \Doctrine\Common\Collections\Collection
-	 */
-	public function getOrderedChoices(Poll $poll)
-	{
-		$query = $this->getEntityManager()->createQuery(
-			'SELECT choice
-			FROM KyelaBundle:Choice choice
-			WHERE choice.poll = :poll
-			ORDER BY choice.priority'
-		);
-		$query->setParameter('poll', $poll->getId());
-		return $query->getResult();
-	}
+     */
+    public function getOrderedChoices(Poll $poll)
+    {
+        $query = $this->getEntityManager()->createQuery(
+            'SELECT choice
+            FROM KyelaBundle:Choice choice
+            WHERE choice.poll = :poll
+            ORDER BY choice.priority'
+        );
+        $query->setParameter('poll', $poll->getId());
+        return $query->getResult();
+    }
 }

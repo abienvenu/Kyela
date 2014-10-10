@@ -1,21 +1,21 @@
 {% extends "KyelaBundle::layout.html.twig" %}
 
 {% block robots %}
-	<meta name="robots" content="index, follow">
+    <meta name="robots" content="index, follow">
 {% endblock %}
 
 {% block body -%}
-	<div class="jumbotron">
-		<div class="container">
-			<h1>{% trans %}about.kyela{% endtrans %}</h1>
-		</div>
-	</div>
+    <div class="jumbotron">
+        <div class="container">
+            <h1>{% trans %}about.kyela{% endtrans %}</h1>
+        </div>
+    </div>
 
-	<div class="container">
-		{% for question_answer in about %}
-			<h3>{{ question_answer.q }}</h3>
-			<p>{{ question_answer.a }}</p>
-		{% endfor %}
-	</div>
-	<hr />
+    <div class="container">
+        {% for question_answer in about %}
+            <h3>{{ question_answer.q }}</h3>
+            <p>{{ question_answer.a }}</p>
+        {% endfor %}
+    </div>
+    <hr />
 {% endblock %}

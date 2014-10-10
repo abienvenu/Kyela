@@ -72,25 +72,25 @@ class Event extends Entity
      */
     private $time;
 
-	/**
-	 * @ORM\OneToMany(targetEntity="Participation", mappedBy="event", cascade={"remove"})
-	 */
-	private $participations;
+    /**
+     * @ORM\OneToMany(targetEntity="Participation", mappedBy="event", cascade={"remove"})
+     */
+    private $participations;
 
-	/**
+    /**
      * @ORM\ManyToOne(targetEntity="Poll", inversedBy="events")
      */
     private $poll;
 
-	public function __construct()
-	{
-		$this->participations = new ArrayCollection();
-	}
+    public function __construct()
+    {
+        $this->participations = new ArrayCollection();
+    }
 
-	public function __toString()
-	{
-		return $this->name;
-	}
+    public function __toString()
+    {
+        return $this->name;
+    }
 
     /**
      * Get id
@@ -187,12 +187,12 @@ class Event extends Entity
      */
     public function getParticipationsScore()
     {
-    	$score = 0;
-    	foreach ($this->participations as $participation)
-    	{
-    		$score += $participation->getChoice()->getValue();
-    	}
-    	return $score;
+        $score = 0;
+        foreach ($this->participations as $participation)
+        {
+            $score += $participation->getChoice()->getValue();
+        }
+        return $score;
     }
 
     /**

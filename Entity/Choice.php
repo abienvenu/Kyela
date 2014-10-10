@@ -33,10 +33,10 @@ use Abienvenu\KyelaBundle\Entity\Entity;
  */
 class Choice extends Entity
 {
-	public function __toString()
-	{
-		return $this->name;
-	}
+    public function __toString()
+    {
+        return $this->name;
+    }
 
     /**
      * @var integer
@@ -84,9 +84,9 @@ class Choice extends Entity
     private $priority;
 
     /**
-	 * @ORM\OneToMany(targetEntity="Participation", mappedBy="choice", cascade={"remove"})
-	 */
-	private $participations;
+     * @ORM\OneToMany(targetEntity="Participation", mappedBy="choice", cascade={"remove"})
+     */
+    private $participations;
 
     /**
      * @ORM\ManyToOne(targetEntity="Poll", inversedBy="choices")

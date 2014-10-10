@@ -26,37 +26,37 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 trait PollSetterTrait
 {
-	protected $poll = null;
+    protected $poll = null;
 
-	/**
-	 * Set poll from Url or session
-	 *
-	 * @param Request $request
-	 */
+    /**
+     * Set poll from Url or session
+     *
+     * @param Request $request
+     */
     public function setPollFromRequest(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-    	$pollUrl = $request->get('pollUrl');
-    	if ($pollUrl) {
-    		$request->getSession()->set('pollUrl', $pollUrl);
-    	}
-    	else {
-    		$pollUrl = $request->getSession()->get('pollUrl');
-    	}
-    	if ($pollUrl) {
-    		$repository = $em->getRepository('KyelaBundle:Poll');
-    		$this->poll = $repository->findOneByUrl($pollUrl);
-	    	if (!$this->poll)
-	    	{
-	    		$this->unsetPoll($request);
-	    		throw new NotFoundHttpException('Poll object not found.');
-	    	}
-    	}
+        $pollUrl = $request->get('pollUrl');
+        if ($pollUrl) {
+            $request->getSession()->set('pollUrl', $pollUrl);
+        }
+        else {
+            $pollUrl = $request->getSession()->get('pollUrl');
+        }
+        if ($pollUrl) {
+            $repository = $em->getRepository('KyelaBundle:Poll');
+            $this->poll = $repository->findOneByUrl($pollUrl);
+            if (!$this->poll)
+            {
+                $this->unsetPoll($request);
+                throw new NotFoundHttpException('Poll object not found.');
+            }
+        }
     }
 
     public function unsetPoll(Request $request)
     {
-    	$this->poll = null;
-    	$request->getSession()->remove('pollUrl');
+        $this->poll = null;
+        $request->getSession()->remove('pollUrl');
     }
 }

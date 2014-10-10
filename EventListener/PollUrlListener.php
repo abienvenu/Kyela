@@ -25,15 +25,15 @@ use Symfony\Component\HttpKernel\Event\FilterControllerEvent;
 
 class PollUrlListener
 {
-	public function onKernelController(FilterControllerEvent $event)
-	{
-		$controller = $event->getController();
-		if (!is_array($controller)) {
+    public function onKernelController(FilterControllerEvent $event)
+    {
+        $controller = $event->getController();
+        if (!is_array($controller)) {
             return;
         }
 
         if (method_exists($controller[0], "setPollFromRequest")) {
-        	$controller[0]->setPollFromRequest($event->getRequest());
+            $controller[0]->setPollFromRequest($event->getRequest());
         }
-	}
+    }
 }

@@ -44,7 +44,7 @@ class Comment extends Entity
      */
     private $datetime;
 
-	/**
+    /**
      * @ORM\ManyToOne(targetEntity="Poll", inversedBy="comments")
      */
     private $poll;

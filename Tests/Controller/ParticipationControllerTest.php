@@ -23,23 +23,23 @@ namespace Abienvenu\KyelaBundle\Tests\Controller;
 
 class ParticipationControllerTest extends PollWebTestCase
 {
-	/**
-	 * Creates, edits and deletes a participation
-	 */
+    /**
+     * Creates, edits and deletes a participation
+     */
     public function testCompleteScenario()
     {
-    	// Create a poll to work with
-    	$crawler = self::createPollEntry(uniqid('Test Poll '));
+        // Create a poll to work with
+        $crawler = self::createPollEntry(uniqid('Test Poll '));
 
-    	// Create a participant
-    	$participant = uniqid('Test Participant ');
+        // Create a participant
+        $participant = uniqid('Test Participant ');
         $crawler = self::submitForm($crawler, 'add.a.participant', 'participant', ['name' => $participant]);
 
-    	// Create an event
-    	$event = uniqid('Test Event ');
+        // Create an event
+        $event = uniqid('Test Event ');
         $crawler = self::clickLink($crawler, 'add.a.date');
         $crawler = self::submitForm($crawler, 'create', 'event',
-        	['name' => $event, 'place' => 'Nowhere', 'date' => '04-09-2034', 'time' => '20:30']);
+            ['name' => $event, 'place' => 'Nowhere', 'date' => '04-09-2034', 'time' => '20:30']);
 
         // Check "yes" is not selected
         $filter = 'button:contains("' . self::$translator->trans('yes') . '")';

@@ -29,78 +29,78 @@ use Abienvenu\KyelaBundle\Traits\PollSetterTrait;
 
 trait CRUDTrait
 {
-	use PollSetterTrait;
+    use PollSetterTrait;
 
-	// Methods to be implemented in the custom controller
-	abstract public function newAction(Request $request);
-	abstract public function editAction(Request $request, $id);
-	abstract public function deleteAction(Request $request, $id);
+    // Methods to be implemented in the custom controller
+    abstract public function newAction(Request $request);
+    abstract public function editAction(Request $request, $id);
+    abstract public function deleteAction(Request $request, $id);
 
-	// Symfony controller methods used in this trait
-	abstract public function getDoctrine();
-	abstract public function redirect($url, $status = 302);
-	abstract public function createNotFoundException($message = 'Not Found', \Exception $previous = null);
-	abstract public function get($id);
-	abstract public function createForm($type, $data = null, array $options = array());
-	abstract public function createFormBuilder($data = null, array $options = array());
+    // Symfony controller methods used in this trait
+    abstract public function getDoctrine();
+    abstract public function redirect($url, $status = 302);
+    abstract public function createNotFoundException($message = 'Not Found', \Exception $previous = null);
+    abstract public function get($id);
+    abstract public function createForm($type, $data = null, array $options = array());
+    abstract public function createFormBuilder($data = null, array $options = array());
 
-	/**
-	 * Adds pollUrl into the parameters if not explicitly set
-	 *
-	 * @param string $route
-	 * @param mixed $parameters
-	 * @param Boolean $absolute
-	 */
-	public function generateUrl($route, $parameters = [], $absolute = false)
-	{
-		if (!isset($parameters['pollUrl']) && $this->poll)
-		{
-			$parameters['pollUrl'] = $this->poll->getUrl();
-		}
-		return parent::generateUrl($route, $parameters, $absolute);
-	}
+    /**
+     * Adds pollUrl into the parameters if not explicitly set
+     *
+     * @param string $route
+     * @param mixed $parameters
+     * @param Boolean $absolute
+     */
+    public function generateUrl($route, $parameters = [], $absolute = false)
+    {
+        if (!isset($parameters['pollUrl']) && $this->poll)
+        {
+            $parameters['pollUrl'] = $this->poll->getUrl();
+        }
+        return parent::generateUrl($route, $parameters, $absolute);
+    }
 
-	/**
-	 * Create a form to create a new entity, and create it when the form is submited
-	 *
-	 * @param AbstractType $formType
-	 * @param Entity $entity
-	 * @param Request $request
-	 */
+    /**
+     * Create a form to create a new entity, and create it when the form is submited
+     *
+     * @param AbstractType $formType
+     * @param Entity $entity
+     * @param Request $request
+     */
     protected function doNewAction(AbstractType $formType, Entity $entity, Request $request, $successMessage = null)
     {
-    	$form = $this->doCreateCreateForm($formType, $entity, $request->get('_route'));
+        $form = $this->doCreateCreateForm($formType, $entity, $request->get('_route'));
         if ($request->isMethod('POST'))
         {
-        	$form->handleRequest($request);
+            $form->handleRequest($request);
 
-	        if ($entity instanceof Poll)
-	        {
-	        	$this->poll = $entity;
-	        }
-	        else
-	        {
-	        	$entity->setPoll($this->poll);
-	        }
+            if ($entity instanceof Poll)
+            {
+                $this->poll = $entity;
+            }
+            else
+            {
+                $entity->setPoll($this->poll);
+            }
 
-	        if ($form->get('actions')->has('cancel') && $form->get('actions')->get('cancel')->isClicked()) {
-	        	return $this->redirect($this->generateUrl($this->cancelRoute));
-	        }
+            if ($form->get('actions')->has('cancel') && $form->get('actions')->get('cancel')->isClicked()) {
+                return $this->redirect($this->generateUrl($this->cancelRoute));
+            }
 
-	        if ($form->isValid()) {
-	        	$em = $this->getDoctrine()->getManager();
-	        	$em->persist($entity);
-	            $em->flush();
+            if ($form->isValid()) {
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($entity);
+                $em->flush();
 
-	            if ($successMessage) {
-	            	$request->getSession()->getFlashBag()->add('success', $successMessage);
-	            }
-	            return $this->redirect($this->generateUrl($this->successRoute));
-	        }
+                if ($successMessage) {
+                    $request->getSession()->getFlashBag()->add('success', $successMessage);
+                }
+                return $this->redirect($this->generateUrl($this->successRoute));
+            }
         }
 
         return [
-        	'poll'   => $this->poll,
+            'poll'   => $this->poll,
             'entity' => $entity,
             'form'   => $form->createView(),
         ];
@@ -127,24 +127,24 @@ trait CRUDTrait
         $editForm = $this->doCreateEditForm($formType, $entity, $request->get('_route'));
         if ($request->isMethod('PUT'))
         {
-	        $editForm->handleRequest($request);
+            $editForm->handleRequest($request);
 
-	        if ($editForm->get('actions')->get('cancel')->isClicked()) {
-	        	$em->refresh($entity);
-	        	return $this->redirect($this->generateUrl($this->cancelRoute));
-	        }
+            if ($editForm->get('actions')->get('cancel')->isClicked()) {
+                $em->refresh($entity);
+                return $this->redirect($this->generateUrl($this->cancelRoute));
+            }
 
-	        if ($editForm->isValid()) {
-        		$em->flush();
-	            return $this->redirect($this->generateUrl($this->successRoute));
-	        }
-	        else {
-	        	$em->refresh($entity);
-	        }
+            if ($editForm->isValid()) {
+                $em->flush();
+                return $this->redirect($this->generateUrl($this->successRoute));
+            }
+            else {
+                $em->refresh($entity);
+            }
         }
 
         return array(
-        	'poll'        => $this->poll,
+            'poll'        => $this->poll,
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -160,11 +160,11 @@ trait CRUDTrait
      */
     public function doDeleteAction(Request $request, $id)
     {
-    	$form = $this->createDeleteForm($id);
+        $form = $this->createDeleteForm($id);
         $form->handleRequest($request);
 
         if ($form->isValid()) {
-        	$em = $this->getDoctrine()->getManager();
+            $em = $this->getDoctrine()->getManager();
             $entity = $em->getRepository($this->entityName)->find($id);
 
             if (!$entity) {
@@ -174,7 +174,7 @@ trait CRUDTrait
             $em->remove($entity);
             $em->flush();
             if ($entity instanceof Poll) {
-            	$this->unsetPoll($request);
+                $this->unsetPoll($request);
             }
             $flashMessage = $this->get('translator')->trans('deleted');
             $request->getSession()->getFlashBag()->add('success', $flashMessage);
@@ -199,13 +199,13 @@ trait CRUDTrait
         ));
 
         $options = [
-        	'buttons' => [
-        		'save' => ['type' => 'submit', 'options' => ['label' => 'create']],
-        	]
+            'buttons' => [
+                'save' => ['type' => 'submit', 'options' => ['label' => 'create']],
+            ]
         ];
         if (!($entity instanceof Poll))
         {
-        	$options['buttons']['cancel'] = ['type' => 'submit', 'options' => ['label' => 'cancel', 'attr' => ['type' => 'default', 'novalidate' => true]]];
+            $options['buttons']['cancel'] = ['type' => 'submit', 'options' => ['label' => 'cancel', 'attr' => ['type' => 'default', 'novalidate' => true]]];
         }
         $form->add('actions', 'form_actions', $options);
         return $form;
@@ -228,10 +228,10 @@ trait CRUDTrait
         ));
 
         $form->add('actions', 'form_actions', [
-        	'buttons' => [
-        		'save' => ['type' => 'submit', 'options' => ['label' => 'save']],
-        		'cancel' => ['type' => 'submit', 'options' => ['label' => 'cancel', 'attr' => ['type' => 'default', 'novalidate' => true]]],
-        	]
+            'buttons' => [
+                'save' => ['type' => 'submit', 'options' => ['label' => 'save']],
+                'cancel' => ['type' => 'submit', 'options' => ['label' => 'cancel', 'attr' => ['type' => 'default', 'novalidate' => true]]],
+            ]
         ]);
         return $form;
     }
@@ -245,7 +245,7 @@ trait CRUDTrait
      */
     protected function createDeleteForm($id)
     {
-    	$t = $this->get('translator');
+        $t = $this->get('translator');
         return $this->createFormBuilder()
             ->setAction($this->generateUrl($this->deleteRoute, ['id' => $id]))
             ->setMethod('DELETE')

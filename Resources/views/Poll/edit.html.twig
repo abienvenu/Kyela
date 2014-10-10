@@ -1,24 +1,24 @@
 {% extends "KyelaBundle::layout.html.twig" %}
 
 {% block body -%}
-	<div class="jumbotron">
-		<div class="container">
-			<h1>{% trans %}poll{% endtrans%} - {{ entity.title }}</h1>
-		</div>
-	</div>
+    <div class="jumbotron">
+        <div class="container">
+            <h1>{% trans %}poll{% endtrans%} - {{ entity.title }}</h1>
+        </div>
+    </div>
 
-	<div class="container">
-		{{ form(edit_form) }}
-		<div class="pull-right">
-			{{ form(delete_form) }}
-		</div>
-		<div class="pull-right">
-			<a class="btn btn-default btn-lg" role="button" href="{{ path('poll_lock', {'pollUrl': poll.url}) }}">
-				<span class="glyphicon glyphicon-lock"></span>
-				{% trans %}lock{% endtrans %}
-			</a>
-			&nbsp;
-		</div>
-	</div>
+    <div class="container">
+        {{ form(edit_form) }}
+        <div class="pull-right">
+            {{ form(delete_form) }}
+        </div>
+        <div class="pull-right">
+            <a class="btn btn-default btn-lg" role="button" href="{{ path('poll_lock', {'pollUrl': poll.url}) }}">
+                <span class="glyphicon glyphicon-lock"></span>
+                {% trans %}lock{% endtrans %}
+            </a>
+            &nbsp;
+        </div>
+    </div>
 </ul>
 {% endblock %}

@@ -37,13 +37,13 @@ use Abienvenu\KyelaBundle\Traits\CRUDTrait;
  */
 class EventController extends Controller
 {
-	use CRUDTrait;
+    use CRUDTrait;
 
-	protected $entityName = 'KyelaBundle:Event';
-	protected $cancelRoute = 'poll_show';
-	protected $successRoute = 'poll_show';
-	protected $deleteRoute = 'event_delete';
-	protected $deleteSuccessRoute = 'poll_show';
+    protected $entityName = 'KyelaBundle:Event';
+    protected $cancelRoute = 'poll_show';
+    protected $successRoute = 'poll_show';
+    protected $deleteRoute = 'event_delete';
+    protected $deleteSuccessRoute = 'poll_show';
 
     /**
      * Displays a form to create a new Event entity.
@@ -54,7 +54,7 @@ class EventController extends Controller
      */
     public function newAction(Request $request)
     {
-    	return $this->doNewAction(new EventType(), new Event(), $request);
+        return $this->doNewAction(new EventType(), new Event(), $request);
     }
 
     /**
@@ -66,7 +66,7 @@ class EventController extends Controller
      */
     public function editAction(Request $request, $id)
     {
-    	return $this->doEditAction(new EventType(), $id, $request);
+        return $this->doEditAction(new EventType(), $id, $request);
     }
 
     /**
@@ -77,6 +77,6 @@ class EventController extends Controller
      */
     public function deleteAction(Request $request, $id)
     {
-    	return $this->doDeleteAction($request, $id);
+        return $this->doDeleteAction($request, $id);
     }
 }

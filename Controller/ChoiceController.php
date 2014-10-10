@@ -38,13 +38,13 @@ use Abienvenu\KyelaBundle\Traits\CRUDTrait;
  */
 class ChoiceController extends Controller
 {
-	use CRUDTrait;
+    use CRUDTrait;
 
-	protected $entityName = 'KyelaBundle:Choice';
-	protected $cancelRoute = 'choice';
-	protected $successRoute = 'choice';
-	protected $deleteRoute = 'choice_delete';
-	protected $deleteSuccessRoute = 'choice';
+    protected $entityName = 'KyelaBundle:Choice';
+    protected $cancelRoute = 'choice';
+    protected $successRoute = 'choice';
+    protected $deleteRoute = 'choice_delete';
+    protected $deleteSuccessRoute = 'choice';
 
     /**
      * Lists all Choice entities.
@@ -55,8 +55,8 @@ class ChoiceController extends Controller
      */
     public function indexAction()
     {
-    	$em = $this->getDoctrine()->getManager();
-    	$choices = $em->getRepository("KyelaBundle:Choice")->getOrderedChoices($this->poll);
+        $em = $this->getDoctrine()->getManager();
+        $choices = $em->getRepository("KyelaBundle:Choice")->getOrderedChoices($this->poll);
         return ['poll' => $this->poll, 'choices' => $choices];
     }
 
@@ -69,10 +69,10 @@ class ChoiceController extends Controller
      */
     public function newAction(Request $request)
     {
-    	$choice = new Choice();
-    	// By default, this new choice will be added at the end
-    	$choice->setPriority(count($this->poll->getChoices()));
-    	return $this->doNewAction(new ChoiceType(), $choice, $request);
+        $choice = new Choice();
+        // By default, this new choice will be added at the end
+        $choice->setPriority(count($this->poll->getChoices()));
+        return $this->doNewAction(new ChoiceType(), $choice, $request);
     }
 
     /**
@@ -84,7 +84,7 @@ class ChoiceController extends Controller
      */
     public function editAction(Request $request, $id)
     {
-    	return $this->doEditAction(new ChoiceType(), $id, $request);
+        return $this->doEditAction(new ChoiceType(), $id, $request);
     }
 
     /**
@@ -95,7 +95,7 @@ class ChoiceController extends Controller
      */
     public function deleteAction(Request $request, $id)
     {
-    	return $this->doDeleteAction($request, $id);
+        return $this->doDeleteAction($request, $id);
     }
 
     /**
@@ -108,17 +108,16 @@ class ChoiceController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $repository = $em->getRepository("KyelaBundle:Choice");
-    	$order = $request->request->get('choice');
-    	foreach ($order as $priority => $choiceId)
-    	{
-    		$choice = $repository->find($choiceId);
-    		$choice->setPriority($priority);
-    	}
-    	$em->flush();
+        $order = $request->request->get('choice');
+        foreach ($order as $priority => $choiceId)
+        {
+            $choice = $repository->find($choiceId);
+            $choice->setPriority($priority);
+        }
+        $em->flush();
 
-    	$response = new JsonResponse();
-    	$response->setData(array("code" => 100, "success" => true));
-    	return $response;
+        $response = new JsonResponse();
+        $response->setData(array("code" => 100, "success" => true));
+        return $response;
     }
-
 }

@@ -32,38 +32,38 @@ use Abienvenu\KyelaBundle\Entity\Entity;
  */
 class Participant extends Entity
 {
-	/**
-	 * @ORM\Id
-	 * @ORM\Column(type="integer")
-	 * @ORM\GeneratedValue(strategy="AUTO")
-	 */
-	private $id;
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
 
-	/**
-	 * @ORM\Column(type="string", length=100)
-	 * @Assert\NotBlank()
-	 */
-	private $name;
+    /**
+     * @ORM\Column(type="string", length=100)
+     * @Assert\NotBlank()
+     */
+    private $name;
 
-	/**
-	 * @ORM\OneToMany(targetEntity="Participation", mappedBy="participant", cascade={"remove"})
-	 */
-	private $participations;
+    /**
+     * @ORM\OneToMany(targetEntity="Participation", mappedBy="participant", cascade={"remove"})
+     */
+    private $participations;
 
     /**
      * @ORM\ManyToOne(targetEntity="Poll", inversedBy="participants")
      */
     private $poll;
 
-	public function __construct()
-	{
-		$this->participations = new ArrayCollection();
-	}
+    public function __construct()
+    {
+        $this->participations = new ArrayCollection();
+    }
 
-	public function __toString()
-	{
-		return $this->name;
-	}
+    public function __toString()
+    {
+        return $this->name;
+    }
 
     /**
      * Get id

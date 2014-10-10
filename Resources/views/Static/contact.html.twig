@@ -1,17 +1,17 @@
 {% extends "KyelaBundle::layout.html.twig" %}
 
 {% block robots %}
-	<meta name="robots" content="index, follow">
+    <meta name="robots" content="index, follow">
 {% endblock %}
 
 {% block body %}
-	<div class="jumbotron">
-		<div class="container">
-			<h1>{% trans %}contact{% endtrans%}</h1>
-		</div>
-	</div>
+    <div class="jumbotron">
+        <div class="container">
+            <h1>{% trans %}contact{% endtrans%}</h1>
+        </div>
+    </div>
 
-	<div class="container">
-		{{ form(form) }}
-	</div>
+    <div class="container">
+        {{ form(form) }}
+    </div>
 {% endblock %}

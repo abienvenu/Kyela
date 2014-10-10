@@ -28,7 +28,7 @@ use Abienvenu\KyelaBundle\Form\Type\IconType;
 
 class ChoiceType extends AbstractType
 {
-        /**
+    /**
      * @param FormBuilderInterface $builder
      * @param array $options
      */

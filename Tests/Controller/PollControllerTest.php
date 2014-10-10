@@ -23,12 +23,12 @@ namespace Abienvenu\KyelaBundle\Tests\Controller;
 
 class PollControllerTest extends PollWebTestCase
 {
-	/**
-	 * Creates, edits and deletes a poll
-	 */
+    /**
+     * Creates, edits and deletes a poll
+     */
     public function testCompleteScenario()
     {
-    	// Create entry
+        // Create entry
         $title = uniqid('Test Poll ');
         $crawler = self::createPollEntry($title);
 
@@ -40,10 +40,10 @@ class PollControllerTest extends PollWebTestCase
 
         // Edit entry
         $newtitle = "M $title";
-		$crawler = self::clickLink($crawler, 'edit.poll');
-		$crawler = self::submitForm($crawler, 'save', 'poll', ['title' => $newtitle]);
+        $crawler = self::clickLink($crawler, 'edit.poll');
+        $crawler = self::submitForm($crawler, 'save', 'poll', ['title' => $newtitle]);
 
-		// Check the edition worked
+        // Check the edition worked
         $filter = 'a:contains("' . $newtitle . '")';
         $this->checkElement($crawler, $filter);
 

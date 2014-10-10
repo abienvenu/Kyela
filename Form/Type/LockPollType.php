@@ -27,7 +27,7 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class LockPollType extends AbstractType
 {
-        /**
+    /**
      * @param FormBuilderInterface $builder
      * @param array $options
      */

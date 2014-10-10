@@ -23,16 +23,16 @@ namespace Abienvenu\KyelaBundle\Tests\Controller;
 
 class ParticipantControllerTest extends PollWebTestCase
 {
-	/**
-	 * Creates, edits and deletes a participant
-	 */
+    /**
+     * Creates, edits and deletes a participant
+     */
     public function testCompleteScenario()
     {
-    	// Create a poll to work with
-    	$crawler = self::createPollEntry(uniqid('Test Poll '));
+        // Create a poll to work with
+        $crawler = self::createPollEntry(uniqid('Test Poll '));
 
-    	// Create a participant
-    	$name = uniqid('Test Participant ');
+        // Create a participant
+        $name = uniqid('Test Participant ');
         $crawler = self::submitForm($crawler, 'add.a.participant', 'participant', ['name' => $name]);
 
         // Check data in the show view

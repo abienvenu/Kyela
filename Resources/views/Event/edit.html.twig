@@ -1,21 +1,21 @@
 {% extends "KyelaBundle::layout.html.twig" %}
 
 {% block body %}
-	<div class="jumbotron">
-		<div class="container">
-			<h1>{% trans %}event{% endtrans%} - {{ entity.name }}</h1>
-		</div>
-	</div>
+    <div class="jumbotron">
+        <div class="container">
+            <h1>{% trans %}event{% endtrans%} - {{ entity.name }}</h1>
+        </div>
+    </div>
 
-	<div class="container">
-		{{ form(edit_form) }}
-		<div class="pull-right">
-			{{ form(delete_form) }}
-		</div>
-	</div>
+    <div class="container">
+        {{ form(edit_form) }}
+        <div class="pull-right">
+            {{ form(delete_form) }}
+        </div>
+    </div>
 
     <script type="text/javascript">
-		$('.datepicker').datepicker({ dateFormat: 'dd-mm-yy' });
+        $('.datepicker').datepicker({ dateFormat: 'dd-mm-yy' });
         $('.timepicker').timepicker({ showMeridian: false, minuteStep: 5, defaultTime: false});
     </script>
 {% endblock %}
