@@ -42,13 +42,21 @@ class ParticipationController extends Controller
     public function newAction($pollUrl, $event, $participant, $choice)
     {
         $em = $this->getDoctrine()->getManager();
-        $entity = new Participation();
         $eventObj = $em->getRepository('KyelaBundle:Event')->find($event);
-        $entity->setEvent($eventObj);
         $participantObj = $em->getRepository('KyelaBundle:Participant')->find($participant);
-        $entity->setParticipant($participantObj);
         $choiceObj = $em->getRepository('KyelaBundle:Choice')->find($choice);
+
+        // If participation exists, editAction should have been called, not newAction
+        // But just in case, we look for an existing participation
+        $entity = $em->getRepository('KyelaBundle:Participation')->findOneBy(['participant' => $participant, 'event' => $event]);
+        if (!$entity)
+        {
+            $entity = new Participation();
+        }
+        $entity->setEvent($eventObj);
+        $entity->setParticipant($participantObj);
         $entity->setChoice($choiceObj);
+
         $em->persist($entity);
         $em->flush();
 
