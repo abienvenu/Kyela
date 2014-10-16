@@ -103,7 +103,7 @@ lock.explanation2: It will still be possible for everyone to update availabiliti
 unlock: Unlock
 unlock.explanation: Someone setup an access code. To edit the poll, you are required to enter this code.
 participant.name.placeholder: Enter the firstname, nickname or other identifier
-poll.title.placeholder: Enter the title of your new poll
+poll.title.placeholder: Enter a title for your new poll
 comment.placeholder: After selecting the author, please type in your comment
 date.name.placeholder: Enter the name or titre of the event
 date.place.placeholder: Enter the place of the event (optional)

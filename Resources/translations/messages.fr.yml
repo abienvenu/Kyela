@@ -103,7 +103,7 @@ lock.explanation2: Il sera toujours possible pour tout le monde de mettre à jou
 unlock: Débloquer
 unlock.explanation: Quelqu'un a mis un code d'accès. Pour éditer le sondage, vous devez d'abord saisir ce code.
 participant.name.placeholder: Entrez le prénom, surnom ou autre identifiant
-poll.title.placeholder: Entrez le titre de votre nouveau sondage
+poll.title.placeholder: Entrez un nom pour votre nouveau sondage
 comment.placeholder: Après avoir précisé l'auteur, saisissez votre commentaire
 date.name.placeholder: Entrez le nom ou titre de l'évènement
 date.place.placeholder: Entrez le lieu de l'évènement (optionnel)
