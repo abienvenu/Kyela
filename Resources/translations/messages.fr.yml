@@ -108,7 +108,7 @@ unlock.explanation: Quelqu'un a mis un code d'accès. Pour éditer le sondage, v
 participant.name.placeholder: Entrez le prénom, surnom ou autre identifiant
 poll.title.placeholder: Entrez un titre pour votre nouveau sondage
 comment.placeholder: Après avoir précisé l'auteur, saisissez votre commentaire
-date.name.placeholder: Entrez le nom ou titre de l'évènement
+date.name.placeholder: Entrez le nom de l'évènement, ou le titre de la question (optionnel)
 date.place.placeholder: Entrez le lieu de l'évènement (optionnel)
 poll.headlines.placeholder: Vous pouvez saisir un texte qui apparaîtra au-dessus du sondage. Les tags HTML sont autorisés.
 poll.bottomlines.placeholder: Vous pouvez saisir un texte qui apparaîtra au-dessous du sondage.  Les tags HTML sont autorisés.

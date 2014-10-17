@@ -123,6 +123,7 @@ CHANGELOG
 * v1.4 :
   - Content enhancements on Homepage/Faq/About
   - New example: holidays
+  - Ability to add dates without specifying name nor time
 * v1.3 :
   - Added placeholders
   - Date and time are now optional
@@ -150,8 +151,6 @@ CHANGELOG
 
 TODO
 ----
-* Event name should be optionnal
-* Ability to create an event with multiple dates
 * Try to host Kyela on Amazon EC2
 * Sort participants alphabetically ?
 * Make a knpbundles readme

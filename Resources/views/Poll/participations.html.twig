@@ -4,9 +4,13 @@
             <th>{% trans %}participant{% endtrans %}</th>
             {% for event in events %}
                 <th data-cell-key="{{ event.id }}">
-                    {% if event.date %}
-                        {{ event.date|localizeddate('medium', 'none', app.request.locale, null, "ccc d/M") }}
-                        {{ event.time|localizeddate('medium', 'none', app.request.locale, null, "H'h'mm") }}
+                    {% if event.date or event.time %}
+                        {% if event.date %}
+                            {{ event.date|localizeddate('medium', 'none', app.request.locale, null, "ccc d/M") }}
+                        {% endif %}
+                        {% if event.time %}
+                            {{ event.time|localizeddate('medium', 'none', app.request.locale, null, "H'h'mm") }}
+                        {% endif %}
                     {% else %}
                         {{ event.name }}
                     {% endif %}
