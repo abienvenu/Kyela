@@ -18,7 +18,7 @@
 meta.description: Kyela - Schedule meetings - Create polls, suggest events, tell availabilities, pick dates, for free
 bottom.line: Planning made easy
 main.title: Schedule a meeting
-main.subtitle: Kyela - free, anonymous, no subscription, no advertisements, OpenSource
+main.subtitle: Kyela - free, anonymous, no subscription, no advertisement, OpenSource
 poll: Poll
 choice: Choice
 participant: Participant
@@ -57,6 +57,7 @@ about.kyela: About Kyela
 examples: Examples
 next.concert: Concert
 next.picnic: Picnic
+next.holidays: Holidays
 yes: Yes
 maybe: Maybe
 no: No

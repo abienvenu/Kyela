@@ -197,13 +197,96 @@ class LoadExamplePolls implements FixtureInterface
         $manager->persist($poll);
     }
 
+    protected function loadHolidays(ObjectManager $manager)
+    {
+        $poll = (new Poll)
+            ->setUrl('holidays')
+            ->setTitle('Vacances')
+            ->setHeadLines('Où souhaitez-vous partir ?')
+            ->setBottomLines('')
+            ->setAccessCode('kode');
+        $names = ['Jean', 'Lisa', 'Étienne', 'Martine', 'Lilou'];
+        $participantsObj = [];
+        foreach ($names as $name)
+        {
+            $participant = (new Participant)->setName($name)->setPoll($poll);
+            $manager->persist($participant);
+            $participantsObj[$name] = $participant;
+        }
+
+        $events = [
+            ['name' => 'Vacances de février'],
+            ['name' => 'Vacances de Pâques'],
+            ['name' => 'Vacances d\'été'],
+        ];
+        $eventsObj = [];
+        foreach ($events as $event)
+        {
+            $eventObj = (new Event)
+                ->setName($event['name'])
+                ->setPoll($poll);
+            $manager->persist($eventObj);
+            $eventsObj[$event['name']] = $eventObj;
+        }
+
+        $choices = [
+            ['name' => 'Les Alpes', 'value' => 1, 'color' => 'cyan', 'priority' => 0, 'icon' => 'tree-conifer'],
+            ['name' => 'Les Pyrénées', 'value' => 1, 'color' => 'blue', 'priority' => 1, 'icon' => 'tree-conifer'],
+            ['name' => 'Les Canaries', 'value' => 1, 'color' => 'orange', 'priority' => 2, 'icon' => 'plane'],
+            ['name' => 'Peu importe', 'value' => 1, 'color' => 'purple', 'priority' => 2, 'icon' => 'globe'],
+            ['name' => 'Je ne pars pas', 'value' => 0, 'color' => 'gray', 'priority' => 3, 'icon' => 'home'],
+        ];
+        $choicesObj = [];
+        foreach ($choices as $choice)
+        {
+            $choiceObj = (new Choice)
+                ->setName($choice['name'])
+                ->setValue($choice['value'])
+                ->setColor($choice['color'])
+                ->setPriority($choice['priority'])
+                ->setIcon($choice['icon'])
+                ->setPoll($poll);
+            $manager->persist($choiceObj);
+            $choicesObj[$choice['name']] = $choiceObj;
+        }
+
+        $participations = [
+            ['who' => 'Jean', 'when' => 'Vacances de février', 'choice' => 'Les Alpes'],
+            ['who' => 'Lisa', 'when' => 'Vacances de février', 'choice' => 'Les Alpes'],
+            ['who' => 'Étienne', 'when' => 'Vacances de février', 'choice' => 'Les Canaries'],
+            ['who' => 'Martine', 'when' => 'Vacances de février', 'choice' => 'Les Pyrénées'],
+            ['who' => 'Lilou', 'when' => 'Vacances de février', 'choice' => 'Les Alpes'],
+            ['who' => 'Jean', 'when' => 'Vacances de Pâques', 'choice' => 'Les Alpes'],
+            ['who' => 'Lisa', 'when' => 'Vacances de Pâques', 'choice' => 'Je ne pars pas'],
+            ['who' => 'Étienne', 'when' => 'Vacances de Pâques', 'choice' => 'Les Canaries'],
+            ['who' => 'Martine', 'when' => 'Vacances de Pâques', 'choice' => 'Les Pyrénées'],
+            ['who' => 'Lilou', 'when' => 'Vacances de Pâques', 'choice' => 'Je ne pars pas'],
+            ['who' => 'Jean', 'when' => 'Vacances d\'été', 'choice' => 'Les Canaries'],
+            ['who' => 'Lisa', 'when' => 'Vacances d\'été', 'choice' => 'Les Canaries'],
+            ['who' => 'Étienne', 'when' => 'Vacances d\'été', 'choice' => 'Les Canaries'],
+            ['who' => 'Martine', 'when' => 'Vacances d\'été', 'choice' => 'Peu importe'],
+            ['who' => 'Lilou', 'when' => 'Vacances d\'été', 'choice' => 'Les Canaries'],
+		];
+        foreach ($participations as $row)
+        {
+            $participation = (new Participation)
+                ->setParticipant($participantsObj[$row['who']])
+                ->setEvent($eventsObj[$row['when']])
+                ->setChoice($choicesObj[$row['choice']]);
+            $manager->persist($participation);
+        }
+
+        $manager->persist($poll);
+    }
+
     /**
      * {@inheritDoc}
      */
     public function load(ObjectManager $manager)
     {
-        $this->loadConcert($manager);
-        $this->loadPicnic($manager);
+        // $this->loadConcert($manager);
+        // $this->loadPicnic($manager);
+        $this->loadHolidays($manager);
         $manager->flush();
     }
 }
