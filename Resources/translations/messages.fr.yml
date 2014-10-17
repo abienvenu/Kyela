@@ -17,7 +17,7 @@
 
 meta.description: Kyela - Planifiez des réunions - Créer des sondages, proposer des évènements, donnez les disponibilités, choisissez une date, gratuit
 bottom.line: Planifiez vos réunions
-main.title: Organisez un rendez-vous
+main.title: Organisez des rencontres
 poll: Sondage
 choice: Option
 participant: Participant
@@ -103,7 +103,7 @@ lock.explanation2: Il sera toujours possible pour tout le monde de mettre à jou
 unlock: Débloquer
 unlock.explanation: Quelqu'un a mis un code d'accès. Pour éditer le sondage, vous devez d'abord saisir ce code.
 participant.name.placeholder: Entrez le prénom, surnom ou autre identifiant
-poll.title.placeholder: Entrez un nom pour votre nouveau sondage
+poll.title.placeholder: Entrez un titre pour votre nouveau sondage
 comment.placeholder: Après avoir précisé l'auteur, saisissez votre commentaire
 date.name.placeholder: Entrez le nom ou titre de l'évènement
 date.place.placeholder: Entrez le lieu de l'évènement (optionnel)

@@ -8,28 +8,55 @@
     <div class="jumbotron">
         <div class="container">
             <h1>{% trans %}main.title{% endtrans %}</h1>
+            <p>Kyélà - Gratuit, simple, anonyme, sans inscription, sans publicité, OpenSource</p>
         </div>
     </div>
 
     <div class="container">
         <h2>{% trans %}new.poll{% endtrans %}</h2>
+        <p>Un sondage permet à vos amis d'indiquer leurs disponibilités pour plusieurs dates (ou leur choix pour plusieurs questions). Si vous prévoyez d'organiser plusieurs évènements, donnez à ce sondage le nom de votre association ou groupe d'amis. Sinon, donnez lui simplement le nom de l'évènement que vous organisez.</p>
         {{ form(form) }}
         <h2 class="text-center">{% trans %}examples{% endtrans %}</h2>
-        <p>
-            <h3 class="text-center">{% trans %}next.concert{% endtrans %}</h3>
-            {% image '@KyelaBundle/Resources/public/images/concert.png' %}
-                <a href="{{ path("poll_show", {'pollUrl': 'concert'}) }}">
-                    <img src="{{ asset_url }}" alt="{% trans %}next.concert{% endtrans %}" style="opacity: 0.6" class="img-rounded center-block" />
-                </a>
-            {% endimage %}
-        </p>
-        <p>
-            <h3 class="text-center">{% trans %}next.picnic{% endtrans %}</h3>
-            {% image '@KyelaBundle/Resources/public/images/picnic.png' %}
-                <a href="{{ path("poll_show", {'pollUrl': 'picnic'}) }}">
-                    <img src="{{ asset_url }}" alt="{% trans %}next.picnic{% endtrans %}" style="opacity: 0.6" class="img-rounded center-block" />
-                </a>
-            {% endimage %}
-        </p>
+        <div class="row">
+        	<div class="col-md-6 col-lg-4">
+        		<div class="thumbnail text-center">
+		            <h3>{% trans %}next.concert{% endtrans %}</h3>
+		            {% image '@KyelaBundle/Resources/public/images/concert.png' %}
+		                <a href="{{ path("poll_show", {'pollUrl': 'concert'}) }}">
+		                    <img src="{{ asset_url }}" alt="{% trans %}next.concert{% endtrans %}" style="opacity: 0.6" class="img-rounded center-block" />
+		                </a>
+		            {% endimage %}
+		            <div class="caption">
+		            	<p><a href="{{ path("poll_show", {'pollUrl': 'concert'}) }}" class="btn btn-primary" role="button">Accéder à la démo</a></p>
+		            </div>
+		        </div>
+	        </div>
+	        <div class="col-md-6 col-lg-4">
+        		<div class="thumbnail text-center">
+	        		<h3>{% trans %}next.picnic{% endtrans %}</h3>
+		            {% image '@KyelaBundle/Resources/public/images/picnic.png' %}
+		                <a href="{{ path("poll_show", {'pollUrl': 'picnic'}) }}">
+		                    <img src="{{ asset_url }}" alt="{% trans %}next.picnic{% endtrans %}" style="opacity: 0.6" class="img-rounded center-block" />
+		                </a>
+		            {% endimage %}
+		            <div class="caption">
+		            	<p><a href="{{ path("poll_show", {'pollUrl': 'picnic'}) }}" class="btn btn-primary" role="button">Accéder à la démo</a></p>
+		            </div>
+		        </div>
+            </div>
+	        <div class="col-md-6 col-lg-4">
+        		<div class="thumbnail text-center">
+	        		<h3>{% trans %}next.picnic{% endtrans %}</h3>
+		            {% image '@KyelaBundle/Resources/public/images/picnic.png' %}
+		                <a href="{{ path("poll_show", {'pollUrl': 'picnic'}) }}">
+		                    <img src="{{ asset_url }}" alt="{% trans %}next.picnic{% endtrans %}" style="opacity: 0.6" class="img-rounded center-block" />
+		                </a>
+		            {% endimage %}
+		            <div class="caption">
+		            	<p><a href="{{ path("poll_show", {'pollUrl': 'picnic'}) }}" class="btn btn-primary" role="button">Accéder à la démo</a></p>
+		            </div>
+		        </div>
+            </div>
+        </div>
     </div>
 {% endblock %}
