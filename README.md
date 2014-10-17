@@ -151,13 +151,8 @@ CHANGELOG
 TODO
 ----
 * Event name should be optionnal
-* Try to host Kyela on Amazon EC2 / RDS
-* Create a kyela.net branch in github ?
-* Add explicit links to examples
-* Examples should be one same horizontal line if screen is large enough
-* Remove session usage and associated cookie
-* Bottomline : Pas d'inscription, pas d'email, pas de publicité, pas de cookie. Gratuit, OpenSource, pour tous, tout simplement.
 * Ability to create an event with multiple dates
+* Try to host Kyela on Amazon EC2
 * Sort participants alphabetically ?
 * Make a knpbundles readme
 * Code improvements (see Scrutinizer)

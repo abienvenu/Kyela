@@ -3,7 +3,7 @@ what.is.kyela:
     a: C'est une application web qui facilite l'organisation de regroupements de personnes, et permet de faire des sondages d'opinion.
 doodle.difference:
     q: Quelle différence avec Doodle (tm) ?
-    a: Les choix possibles sont entièrement personnalisables (texte, couleur et icônes). C'est entièrement gratuit, anonyme, sans inscription et sans publicité. En prime, c'est OpenSource, si bien que tout le monde peut installer une copie de Kyélà sur son propre serveur.
+    a: Les réponses possibles sont multiples et entièrement personnalisables (texte, couleur et icônes). C'est entièrement gratuit, anonyme, sans inscription et sans publicité. En prime, c'est OpenSource, si bien que tout le monde peut installer une copie de Kyélà sur son propre serveur.
 how.many.options:
     q: Quels choix sont proposés à chaque participant ?
     a: Seulement trois par défaut (oui/peut-être/non), mais ces choix peut-être modifiés ou étendus en cliquant sur "Éditer les options"

@@ -47,7 +47,6 @@ class Event extends Entity
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255)
-     * @Assert\NotBlank()
      */
     private $name;
 

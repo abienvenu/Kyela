@@ -6,13 +6,19 @@
         </a>
         <span class="badge">{{ event.participationsscore }}</span>
         {% if event.date %}
-            {{ event.date|localizeddate('medium', 'none', app.request.locale, null, "cccc d MMMM") }} -
+            {{ event.date|localizeddate('medium', 'none', app.request.locale, null, "cccc d MMMM") }}
+        {% endif %}
+        {% if event.date and event.time %}
+            -
+        {% endif %}
+        {% if event.time %}
             {{ event.time|localizeddate('medium', 'none', app.request.locale, null, "H'h'mm") }}
         {% endif %}
-        {% if event.place %}
-            - {{ event.place }}
+        {% if (event.date or event.time) and event.place %}
+            -
         {% endif %}
-        {% if event.date or event.date %}
+        {{ event.place }}
+        {% if (event.date or event.time or event.place) and event.name %}
             &nbsp;:
         {% endif %}
         <strong>{{ event.name }}</strong>
