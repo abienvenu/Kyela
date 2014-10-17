@@ -266,7 +266,7 @@ class LoadExamplePolls implements FixtureInterface
             ['who' => 'Étienne', 'when' => 'Vacances d\'été', 'choice' => 'Les Canaries'],
             ['who' => 'Martine', 'when' => 'Vacances d\'été', 'choice' => 'Peu importe'],
             ['who' => 'Lilou', 'when' => 'Vacances d\'été', 'choice' => 'Les Canaries'],
-		];
+        ];
         foreach ($participations as $row)
         {
             $participation = (new Participation)
@@ -284,8 +284,8 @@ class LoadExamplePolls implements FixtureInterface
      */
     public function load(ObjectManager $manager)
     {
-        // $this->loadConcert($manager);
-        // $this->loadPicnic($manager);
+        $this->loadConcert($manager);
+        $this->loadPicnic($manager);
         $this->loadHolidays($manager);
         $manager->flush();
     }

@@ -151,6 +151,7 @@ CHANGELOG
 
 TODO
 ----
+* Timezones
 * Try to host Kyela on Amazon EC2
 * Sort participants alphabetically ?
 * Make a knpbundles readme
