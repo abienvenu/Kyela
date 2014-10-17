@@ -1,9 +1,48 @@
-what.is.kyela:
-    q: Qu'est-ce que Kyélà ?
-    a: C'est une application web qui facilite l'organisation de réunions et regroupements de personnes.
 where.does.the.name.come.from:
     q: D'où vient le nom Kyélà ?
     a: C'est la transcription phonétique approximative de la question "Qui est là ?".
 kyela.or.kyela:
     q: On écrit "Kyela" ou "Kyélà" ?
     a: Le nom officiel est "Kyela" (sans accent) pour faciliter l'accessibilité. Dans beaucoup de pays, les accents français ne sont pas évidents à saisir sur un clavier. Mais les accents sont une décoration sympathique, qu'on peut rajouter ici ou là pour donner un petite "French touch".
+difference.kyela.net:
+    q: Quelle différence entre Kyélà et kyela.net ?
+    a: Kyélà est une application logicielle que chacun peut installer sur son serveur. Kyela.net est une instance de cette application, accessible à tous depuis un navigateur web.
+is.it.free:
+    q: Kyela.net est-il un service gratuit ?
+    a: Oui.
+will.it.stay.free:
+    q: Est-ce que kyela.net va rester gratuit ?
+    a: Oui. La licence utilisée (Affero GPL) rend pratiquement impossible la création d'un service payant sur la base de Kyélà.
+is.there.a.premium.service:
+    q: Y a-t-il des fonctionnalités "premium" sur kyela.net ?
+    a: Non, toutes les fonctionnalités sont disponibles pour tout le monde.
+are.there.ads:
+    q: Y a-t-il de la publicité sur kyela.net ?
+    a: Non.
+how.is.it.funded:
+    q: Comment est-ce financé ?
+    a: Ça ne coûte pas grand chose.
+can.i.contribute:
+    q: Puis-je aider ?
+    a: Oui! Si vous êtes développeur Symfony, allez sur le GitHub (lien en pied de page), et participez au projet. Si vous êtes graphiste, créez un logo, un favicon, ou des thèmes graphiques pour Kyélà. En tant que simple utilisateur, rapportez les éventuels problèmes que vous rencontrez; une description précise d'un bug reproductible simplifie énormément la résolution du problème.
+can.i.contribute.no.problem:
+    q: Je ne suis pas développeur, ni graphiste, je ne rencontre aucun problème, puis-je aider ?
+    a: Oui, en parlant de Kyélà autour de vous.
+can.icontribute.money:
+    q: Puis-je faire un don à kyela.net ?
+    a: Pas encore. Cette option sera proposée si Kyela.net rencontre un beau succès, et s'il faut louer un serveur plus musclé.
+what.about.doodle:
+    q: Kyélà n'aurait-il pas volé l'idée de Doodle (tm) ?
+    a: Non. Les outils se ressemblent, mais l'idée de base n'a rien d'original. Des outils similaires existaient déjà avant Doodle.
+what.about.alternatives:
+    q: Quelles sont les alternatives à Kyélà ?
+    a: Framadate et STUdS ont des fonctionnalités similaires, avec un esprit libre et gratuit, comme Kyélà.
+about.spam:
+    q: Comment exercer mon droit de rectification ou de suppression de mes données personnelles ?
+    a: kyela.net ne demande aucun email, aucune inscription. Si vous avez donné votre vrai nom, ou toute autre information personnelle sur un sondage, il suffit de le modifier ou de l'effacer en se rendant sur ce sondage.
+about.third.parties:
+    q: Les informations collectées par kyela.net sont-elles communiquées à des tiers ?
+    a: Non, sauf à la police, sur requête judiciaire uniquement.
+about.confidentiality:
+    q: Quelle législation régit kyela.net ?
+    a: Kyela.net est hébergé en France, donc soumis à la loi française. Cette loi oblige à conserver les logs du serveur pendant un an, et à les communiquer à la police sur requête judiciaire. Ces logs, contenant l'adresse IP, lui permettent d'identifier facilement les auteurs. En d'autres mots, utiliser kyela.net pour planifier quelquechose d'illégal est une très mauvaise idée.

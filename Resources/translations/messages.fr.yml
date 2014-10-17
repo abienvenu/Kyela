@@ -18,6 +18,7 @@
 meta.description: Kyela - Planifiez des réunions - Créer des sondages, proposer des évènements, donnez les disponibilités, choisissez une date, gratuit
 bottom.line: Planifiez vos réunions
 main.title: Organisez des rencontres
+main.subtitle: Kyélà - gratuit, anonyme, sans inscription, sans publicité, OpenSource
 poll: Sondage
 choice: Option
 participant: Participant
@@ -32,6 +33,7 @@ edit.options: Éditer les options
 edit.poll: Modifier le sondage
 add.an.option: Ajouter une option
 new.poll: Nouveau sondage
+new.poll.tooltip: Un sondage permet à vos amis d'indiquer leurs disponibilités pour plusieurs dates (ou leur choix pour plusieurs questions). Si vous prévoyez d'organiser plusieurs évènements, donnez à ce sondage le nom de votre association ou groupe d'amis. Sinon, donnez lui simplement le nom de l'évènement que vous organisez.
 new.participant: Nouveau participant
 new.event: Nouvelle date
 new.comment: Ajouter un commentaire
@@ -111,3 +113,4 @@ poll.headlines.placeholder: Vous pouvez saisir un texte qui apparaîtra au-dessu
 poll.bottomlines.placeholder: Vous pouvez saisir un texte qui apparaîtra au-dessous du sondage.  Les tags HTML sont autorisés.
 choice.name.placeholder: "Entrez le nom de l'option : Oui, Non, Peut-être..."
 choice.name.value: Chiffre entier, utilisé pour calculer le nombre total de participants - souvent 0 ou 1.
+access.demo: Accéder à la démo

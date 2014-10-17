@@ -120,7 +120,8 @@ For further customisation, you have to edit the templates or the code. Because o
 
 CHANGELOG
 ---------
-
+* v1.4 :
+  - Content enhancements on Homepage/Faq/About
 * v1.3 :
   - Added placeholders
   - Date and time are now optional
@@ -148,6 +149,7 @@ CHANGELOG
 
 TODO
 ----
+* Make an opinion poll as an example
 * Event name should be optionnal
 * Try to host Kyela on Amazon EC2 / RDS
 * Create a kyela.net branch in github ?

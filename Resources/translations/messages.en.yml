@@ -18,6 +18,7 @@
 meta.description: Kyela - Schedule meetings - Create polls, suggest events, tell availabilities, pick dates, for free
 bottom.line: Planning made easy
 main.title: Schedule a meeting
+main.subtitle: Kyela - free, anonymous, no subscription, no advertisements, OpenSource
 poll: Poll
 choice: Choice
 participant: Participant
@@ -32,6 +33,7 @@ edit.options: Edit the choices
 edit.poll: Edit the poll
 add.an.option: Add a choice
 new.poll: New poll
+new.poll.tooltip: A poll enable your friends to tell their availabilities for several dates (or their opinion for several questions). If you plan several events, name this poll afer the name of your association or friends group. Else, name it after the name of the event you plan.
 new.participant: New participant
 new.event: New event
 new.comment: New comment
@@ -111,3 +113,4 @@ poll.headlines.placeholder: You can type in a texte that will be displayed above
 poll.bottomlines.placeholder: You can type in a texte that will be displayed below the poll. HTML tags are allowed.
 choice.name.placeholder: "Enter the name of the option: Yes, No, Maybe..."
 choice.name.value: Integer used to compute the total number of participants - often 0 or 1
+access.demo: Go to the demo
