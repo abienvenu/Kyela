@@ -151,6 +151,7 @@ CHANGELOG
 
 TODO
 ----
+* Ban the bot which is deleting example participations
 * Timezones ?
 * Tell about cookies policy : session only, language + active poll
 * Try to host Kyela on Amazon EC2
