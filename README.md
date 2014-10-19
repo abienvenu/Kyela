@@ -120,6 +120,9 @@ For further customisation, you have to edit the templates or the code. Because o
 
 CHANGELOG
 ---------
+* v1.4.1 :
+  - Added protection against dumb crawlers
+  - Explained cookie policy
 * v1.4 :
   - Content enhancements on Homepage/Faq/About
   - New example: holidays
