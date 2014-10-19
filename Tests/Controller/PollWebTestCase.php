@@ -57,7 +57,7 @@ class PollWebTestCase extends WebTestCase
      * Clicks a button
      *
      * @param Crawler $crawler
-     * @param string $where Translation key of the button name
+     * @param string $button Translation key of the button name
      * @param string $formName Name of the template
      * @param array $formData Form data
      *

@@ -151,7 +151,8 @@ CHANGELOG
 
 TODO
 ----
-* Timezones
+* Timezones ?
+* Tell about cookies policy : session only, language + active poll
 * Try to host Kyela on Amazon EC2
 * Sort participants alphabetically ?
 * Make a knpbundles readme
