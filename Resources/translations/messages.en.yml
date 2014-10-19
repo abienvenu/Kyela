@@ -115,3 +115,4 @@ poll.bottomlines.placeholder: You can type in a text that will be displayed belo
 choice.name.placeholder: "Enter the name of the option: Yes, No, Maybe..."
 choice.name.value: Integer used to compute the total number of participants - often 0 or 1
 access.demo: Go to the demo
+crawler.action.denied: We detected your user-agent as a robot or crawler. You are not allowed to do this action.

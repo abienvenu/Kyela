@@ -15,6 +15,11 @@ services:
         tags:
             - { name: kernel.event_subscriber }
 
+    abienvenu.kyela.crawler_listener:
+        class: Abienvenu\KyelaBundle\EventListener\CrawlerListener
+        tags:
+            - { name: kernel.event_listener, event: kernel.controller, method: onKernelController }
+
     twig.extension.intl:
         class: Twig_Extensions_Extension_Intl
         tags:

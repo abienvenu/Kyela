@@ -115,3 +115,4 @@ poll.bottomlines.placeholder: Vous pouvez saisir un texte qui apparaîtra au-des
 choice.name.placeholder: "Entrez le nom de l'option : Oui, Non, Peut-être..."
 choice.name.value: Chiffre entier, utilisé pour calculer le nombre total de participants - souvent 0 ou 1.
 access.demo: Accéder à la démo
+crawler.action.denied: Nous avons détecté que votre navigateur est un robot. Il n'est pas autorisé à effectuer cette action.

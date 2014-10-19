@@ -82,8 +82,8 @@ class ParticipationController extends Controller
         $participantObj = $em->getRepository('KyelaBundle:Participant')->find($participant);
         $entity->setParticipant($participantObj);
         $choiceObj = $em->getRepository('KyelaBundle:Choice')->find($choice);
-           $entity->setChoice($choiceObj);
-           $em->persist($entity);
+        $entity->setChoice($choiceObj);
+        $em->persist($entity);
         $em->flush();
 
         return $this->redirect($this->generateUrl('poll_show', ['pollUrl' => $pollUrl]));
