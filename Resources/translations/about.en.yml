@@ -19,6 +19,9 @@ is.there.a.premium.service:
 are.there.ads:
     q: Is there advertisements on kyela.net ?
     a: No.
+about.cookies:
+    q: Does kyela.net uses cookies ?
+    a: No third party cookie nor tracking cookies. Only a private session cookie, to recall which language you switched, and which poll you are visiting.
 how.is.it.funded:
     q: How it is funded ?
     a: It does not cost much.

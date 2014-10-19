@@ -19,6 +19,9 @@ is.there.a.premium.service:
 are.there.ads:
     q: Y a-t-il de la publicité sur kyela.net ?
     a: Non.
+about.cookies:
+    q: Kyela.net utilise-t-il des cookies ?
+    a: Pas de cookie tiers ni de cookie de suivi. Simplement un cookie session privé, pour mémoriser quelle langue vous avez choisi, et sur quel sondage vous êtes.
 how.is.it.funded:
     q: Comment est-ce financé ?
     a: Ça ne coûte pas grand chose.
