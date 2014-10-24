@@ -33,12 +33,7 @@ class LoadExamplePolls implements FixtureInterface
 {
     protected function loadConcert(ObjectManager $manager)
     {
-        $poll = (new Poll)
-            ->setUrl('concert')
-            ->setTitle('Prochaines répétitions')
-            ->setHeadLines('')
-            ->setBottomLines('')
-            ->setAccessCode('kode');
+        $poll = $this->resetPoll($manager, 'concert', 'Prochaines répétitions');
         $names = ['Aretha', 'Jimmy', 'Miles', 'John', 'Paul'];
         $participantsObj = [];
         foreach ($names as $name)
@@ -116,17 +111,11 @@ class LoadExamplePolls implements FixtureInterface
             $manager->persist($participation);
         }
 
-        $manager->persist($poll);
     }
 
     protected function loadPicnic(ObjectManager $manager)
     {
-        $poll = (new Poll)
-            ->setUrl('picnic')
-            ->setTitle('Pique-nique')
-            ->setHeadLines('Pour le pique-unique, merci d\'indiquer si vous apportez du salé, du sucré, ou des boissons.')
-            ->setBottomLines('')
-            ->setAccessCode('kode');
+        $poll = $this->resetPoll($manager, 'picnic', 'Pique-nique', 'Pour le pique-unique, merci d\'indiquer si vous apportez du salé, du sucré, ou des boissons.');
         $names = ['Élise', 'Jules', 'Marie', 'Romain', 'Margaux'];
         $participantsObj = [];
         foreach ($names as $name)
@@ -193,18 +182,11 @@ class LoadExamplePolls implements FixtureInterface
                 ->setChoice($choicesObj[$row['choice']]);
             $manager->persist($participation);
         }
-
-        $manager->persist($poll);
     }
 
     protected function loadHolidays(ObjectManager $manager)
     {
-        $poll = (new Poll)
-            ->setUrl('holidays')
-            ->setTitle('Vacances')
-            ->setHeadLines('Où souhaitez-vous partir ?')
-            ->setBottomLines('')
-            ->setAccessCode('kode');
+        $poll = $this->resetPoll($manager, 'holidays', 'Vacances', 'Où souhaitez-vous partir ?');
         $names = ['Jean', 'Lisa', 'Étienne', 'Martine', 'Lilou'];
         $participantsObj = [];
         foreach ($names as $name)
@@ -275,8 +257,24 @@ class LoadExamplePolls implements FixtureInterface
                 ->setChoice($choicesObj[$row['choice']]);
             $manager->persist($participation);
         }
+    }
 
+    protected function resetPoll(ObjectManager $manager, $url, $title, $headLines = '', $bottomLines = '')
+    {
+        $entity = $manager->getRepository('KyelaBundle:Poll')->findOneByUrl($url);
+        if ($entity) {
+            $manager->remove($entity);
+            $manager->flush();
+        }
+
+        $poll = (new Poll)
+            ->setUrl($url)
+            ->setTitle($title)
+            ->setHeadLines($headLines)
+            ->setBottomLines($bottomLines)
+            ->setAccessCode('kode');
         $manager->persist($poll);
+        return $poll;
     }
 
     /**
