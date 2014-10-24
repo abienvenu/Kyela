@@ -120,6 +120,8 @@ For further customisation, you have to edit the templates or the code. Because o
 
 CHANGELOG
 ---------
+* v1.4.2 :
+  - Fix : do not display "add comment" if there is no participant
 * v1.4.1 :
   - Added protection against dumb crawlers
   - Explained cookie policy

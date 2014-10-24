@@ -224,7 +224,7 @@ class PollController extends Controller
             ]
         ]);
 
-        if ($request->isMethod('PUT'))
+        if ($request->isMethod('PUT') && $this->poll)
         {
             $em = $this->getDoctrine()->getManager();
             $form->handleRequest($request);

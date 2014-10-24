@@ -94,7 +94,7 @@ class LoadExamplePolls implements FixtureInterface
             ['who' => 'Romain', 'when' => 'Date 2', 'choice' => 'Sucré'],
             ['who' => 'Margaux', 'when' => 'Date 2', 'choice' => 'Salé'],
         ];
-        $poll = $this->resetPoll($manager, 'picnic', 'Pique-nique',
+        $this->resetPoll($manager, 'picnic', 'Pique-nique',
             'Pour le pique-unique, merci d\'indiquer si vous apportez du salé, du sucré, ou des boissons.', '',
             $names, $events, $choices, $participations);
     }
@@ -131,7 +131,67 @@ class LoadExamplePolls implements FixtureInterface
             ['who' => 'Martine', 'when' => 'Vacances d\'été', 'choice' => 'Peu importe'],
             ['who' => 'Lilou', 'when' => 'Vacances d\'été', 'choice' => 'Les Canaries'],
         ];
-        $poll = $this->resetPoll($manager, 'holidays', 'Vacances', 'Où souhaitez-vous partir ?', '',
+        $this->resetPoll($manager, 'holidays', 'Vacances', 'Où souhaitez-vous partir ?', '',
+            $names, $events, $choices, $participations);
+    }
+
+    protected function loadVolley(ObjectManager $manager)
+    {
+        $names = ['Jean', 'Marilou', 'Mehdi', 'Élodie', 'Cécile', 'Vincent', 'Patricia', 'Cyril', 'Lucie'];
+        $events = [
+            ['name' => 'Entraînement', 'date' => new \DateTime('+10 year'), 'time' => new \DateTime('20:30')],
+            ['name' => 'Chanteloup 1 / Bourg-des-Comptes 1', 'place' => 'Chanteloup', 'date' => new \DateTime('+10 year + 7 days'), 'time' => new \DateTime('20:15')],
+            ['name' => 'Entraînement ', 'date' => new \DateTime('+10 year + 14 days'), 'time' => new \DateTime('20:30')],
+            ['name' => 'Bruz 2 / Chanteloup 1', 'place' => 'Bruz', 'date' => new \DateTime('+10 year + 14 days'), 'time' => new \DateTime('20:00')],
+        ];
+        $choices = [
+            ['name' => 'Oui', 'value' => 1, 'color' => 'green', 'priority' => 0, 'icon' => 'ok'],
+            ['name' => 'Non', 'value' => 0, 'color' => 'red', 'priority' => 1, 'icon' => 'remove'],
+            ['name' => 'Si nécessaire', 'value' => 0, 'color' => 'orange', 'priority' => 2, 'icon' => 'phone'],
+            ['name' => 'Arbitre', 'value' => 0, 'color' => 'gray', 'priority' => 3, 'icon' => 'bullhorn'],
+            ['name' => 'Gâteau!', 'value' => 1, 'color' => 'purple', 'priority' => 4, 'icon' => 'cutlery'],
+            ['name' => 'Chauffeur', 'value' => 1, 'color' => 'green', 'priority' => 5, 'icon' => 'road'],
+        ];
+        $participations = [
+            ['who' => 'Jean', 'when' => 'Entraînement', 'choice' => 'Oui'],
+            ['who' => 'Marilou', 'when' => 'Entraînement', 'choice' => 'Non'],
+            ['who' => 'Mehdi', 'when' => 'Entraînement', 'choice' => 'Oui'],
+            ['who' => 'Élodie', 'when' => 'Entraînement', 'choice' => 'Oui'],
+            ['who' => 'Cécile', 'when' => 'Entraînement', 'choice' => 'Oui'],
+            ['who' => 'Vincent', 'when' => 'Entraînement', 'choice' => 'Non'],
+            ['who' => 'Patricia', 'when' => 'Entraînement', 'choice' => 'Oui'],
+            ['who' => 'Cyril', 'when' => 'Entraînement', 'choice' => 'Oui'],
+            ['who' => 'Lucie', 'when' => 'Entraînement', 'choice' => 'Oui'],
+            ['who' => 'Jean', 'when' => 'Chanteloup 1 / Bourg-des-Comptes 1', 'choice' => 'Oui'],
+            ['who' => 'Marilou', 'when' => 'Chanteloup 1 / Bourg-des-Comptes 1', 'choice' => 'Arbitre'],
+            ['who' => 'Mehdi', 'when' => 'Chanteloup 1 / Bourg-des-Comptes 1', 'choice' => 'Non'],
+            ['who' => 'Élodie', 'when' => 'Chanteloup 1 / Bourg-des-Comptes 1', 'choice' => 'Gâteau!'],
+            ['who' => 'Cécile', 'when' => 'Chanteloup 1 / Bourg-des-Comptes 1', 'choice' => 'Oui'],
+            ['who' => 'Vincent', 'when' => 'Chanteloup 1 / Bourg-des-Comptes 1', 'choice' => 'Non'],
+            ['who' => 'Patricia', 'when' => 'Chanteloup 1 / Bourg-des-Comptes 1', 'choice' => 'Oui'],
+            ['who' => 'Cyril', 'when' => 'Chanteloup 1 / Bourg-des-Comptes 1', 'choice' => 'Oui'],
+            ['who' => 'Lucie', 'when' => 'Chanteloup 1 / Bourg-des-Comptes 1', 'choice' => 'Si nécessaire'],
+            ['who' => 'Jean', 'when' => 'Entraînement ', 'choice' => 'Oui'],
+            ['who' => 'Marilou', 'when' => 'Entraînement ', 'choice' => 'Oui'],
+            ['who' => 'Mehdi', 'when' => 'Entraînement ', 'choice' => 'Non'],
+            ['who' => 'Élodie', 'when' => 'Entraînement ', 'choice' => 'Non'],
+            ['who' => 'Cécile', 'when' => 'Entraînement ', 'choice' => 'Oui'],
+            ['who' => 'Vincent', 'when' => 'Entraînement ', 'choice' => 'Oui'],
+            ['who' => 'Cyril', 'when' => 'Entraînement ', 'choice' => 'Oui'],
+            ['who' => 'Lucie', 'when' => 'Entraînement ', 'choice' => 'Oui'],
+            ['who' => 'Jean', 'when' => 'Bruz 2 / Chanteloup 1', 'choice' => 'Oui'],
+            ['who' => 'Marilou', 'when' => 'Bruz 2 / Chanteloup 1', 'choice' => 'Oui'],
+            ['who' => 'Mehdi', 'when' => 'Bruz 2 / Chanteloup 1', 'choice' => 'Chauffeur'],
+            ['who' => 'Élodie', 'when' => 'Bruz 2 / Chanteloup 1', 'choice' => 'Oui'],
+            ['who' => 'Cécile', 'when' => 'Bruz 2 / Chanteloup 1', 'choice' => 'Non'],
+            ['who' => 'Vincent', 'when' => 'Bruz 2 / Chanteloup 1', 'choice' => 'Si nécessaire'],
+            ['who' => 'Patricia', 'when' => 'Bruz 2 / Chanteloup 1', 'choice' => 'Oui'],
+            ['who' => 'Cyril', 'when' => 'Bruz 2 / Chanteloup 1', 'choice' => 'Chauffeur'],
+        ];
+        $this->resetPoll($manager, 'volleyball', 'Volley', '<ul>
+<li><a href="http://umap.openstreetmap.fr/fr/map/volley-35_2960#11/47.9607/-1.6703">Carte des salles de volley</a></li>
+<li>Résultats et planning : <a href="http://www.ffvbbeach.org/ffvbapp/resu/vbspo_calendrier.php?saison=2014/2015&codent=PTBR35&poule=XSH">Chanteloup 1</a> -- <a href="http://www.ffvbbeach.org/ffvbapp/resu/vbspo_calendrier.php?saison=2014/2015&codent=PTBR35&poule=XSI">Chanteloup 2</a></li>
+</ul>', '',
             $names, $events, $choices, $participations);
     }
 
@@ -204,6 +264,7 @@ class LoadExamplePolls implements FixtureInterface
         $this->loadConcert($manager);
         $this->loadPicnic($manager);
         $this->loadHolidays($manager);
+        $this->loadVolley($manager);
         $manager->flush();
     }
 }

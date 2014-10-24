@@ -62,10 +62,12 @@
 {{ form_end(participant_form) }}
 
 <div class="text-center">
+    {% if poll.participants|length > 0 %}
     <a class="btn btn-primary btn-lg" role="button" href="{{ path('comment_new', {'pollUrl': poll.url}) }}">
         <span class="glyphicon glyphicon-comment"></span>
         {% trans %}add.a.comment{% endtrans %}
     </a>
+    {% endif %}
     <a class="btn btn-success btn-lg" role="button" href="{{ path('event_new', {'pollUrl': poll.url}) }}">
         <span class="glyphicon glyphicon-plus"></span>
         {% trans %}add.a.date{% endtrans %}
