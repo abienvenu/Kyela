@@ -33,54 +33,18 @@ class LoadExamplePolls implements FixtureInterface
 {
     protected function loadConcert(ObjectManager $manager)
     {
-        $poll = $this->resetPoll($manager, 'concert', 'Prochaines répétitions');
         $names = ['Aretha', 'Jimmy', 'Miles', 'John', 'Paul'];
-        $participantsObj = [];
-        foreach ($names as $name)
-        {
-            $participant = (new Participant)->setName($name)->setPoll($poll);
-            $manager->persist($participant);
-            $participantsObj[$name] = $participant;
-        }
-
         $events = [
             ['name' => 'Répétition', 'place' => 'Studio', 'date' => new \DateTime('+10 year'), 'time' => new \DateTime('15:00')],
             ['name' => 'Générale', 'place' => 'Olympia', 'date' => new \DateTime('+10 year +2 days'), 'time' => new \DateTime('20:30')],
             ['name' => 'Concert', 'place' => 'Olympia', 'date' => new \DateTime('+10 year +7 days'), 'time' => new \DateTime('20:00')],
             ['name' => 'Concert 2', 'place' => 'New-York', 'date' => new \DateTime('+10 year + 10 days'), 'time' => new \DateTime('20:30')],
         ];
-        $eventsObj = [];
-        foreach ($events as $event)
-        {
-            $eventObj = (new Event)
-                ->setName($event['name'])
-                ->setPlace($event['place'])
-                ->setDate($event['date'])
-                ->setTime($event['time'])
-                ->setPoll($poll);
-            $manager->persist($eventObj);
-            $eventsObj[$event['name']] = $eventObj;
-        }
-
         $choices = [
             ['name' => 'Oui', 'value' => 1, 'color' => 'green', 'priority' => 0, 'icon' => 'ok'],
             ['name' => 'Non', 'value' => 0, 'color' => 'red', 'priority' => 1, 'icon' => 'remove'],
             ['name' => 'Peut-être', 'value' => 0, 'color' => 'gray', 'priority' => 2, 'icon' => 'time'],
         ];
-        $choicesObj = [];
-        foreach ($choices as $choice)
-        {
-            $choiceObj = (new Choice)
-                ->setName($choice['name'])
-                ->setValue($choice['value'])
-                ->setColor($choice['color'])
-                ->setPriority($choice['priority'])
-                ->setIcon($choice['icon'])
-                ->setPoll($poll);
-            $manager->persist($choiceObj);
-            $choicesObj[$choice['name']] = $choiceObj;
-        }
-
         $participations = [
             ['who' => 'Aretha', 'when' => 'Répétition', 'choice' => 'Oui'],
             ['who' => 'Jimmy', 'when' => 'Répétition', 'choice' => 'Oui'],
@@ -102,66 +66,22 @@ class LoadExamplePolls implements FixtureInterface
             ['who' => 'John', 'when' => 'Concert 2', 'choice' => 'Oui'],
             ['who' => 'Paul', 'when' => 'Concert 2', 'choice' => 'Peut-être'],
         ];
-        foreach ($participations as $row)
-        {
-            $participation = (new Participation)
-                ->setParticipant($participantsObj[$row['who']])
-                ->setEvent($eventsObj[$row['when']])
-                ->setChoice($choicesObj[$row['choice']]);
-            $manager->persist($participation);
-        }
-
+        $this->resetPoll($manager, 'concert', 'Prochaines répétitions', '', '', $names, $events, $choices, $participations);
     }
 
     protected function loadPicnic(ObjectManager $manager)
     {
-        $poll = $this->resetPoll($manager, 'picnic', 'Pique-nique', 'Pour le pique-unique, merci d\'indiquer si vous apportez du salé, du sucré, ou des boissons.');
         $names = ['Élise', 'Jules', 'Marie', 'Romain', 'Margaux'];
-        $participantsObj = [];
-        foreach ($names as $name)
-        {
-            $participant = (new Participant)->setName($name)->setPoll($poll);
-            $manager->persist($participant);
-            $participantsObj[$name] = $participant;
-        }
-
         $events = [
             ['name' => 'Date 1', 'place' => 'Central Park', 'date' => new \DateTime('+10 year'), 'time' => new \DateTime('12:00')],
             ['name' => 'Date 2', 'place' => 'Central Park', 'date' => new \DateTime('+10 year +1 days'), 'time' => new \DateTime('12:00')],
         ];
-        $eventsObj = [];
-        foreach ($events as $event)
-        {
-            $eventObj = (new Event)
-                ->setName($event['name'])
-                ->setPlace($event['place'])
-                ->setDate($event['date'])
-                ->setTime($event['time'])
-                ->setPoll($poll);
-            $manager->persist($eventObj);
-            $eventsObj[$event['name']] = $eventObj;
-        }
-
         $choices = [
             ['name' => 'Sucré', 'value' => 1, 'color' => 'blue', 'priority' => 0, 'icon' => 'cutlery'],
             ['name' => 'Salé', 'value' => 1, 'color' => 'cyan', 'priority' => 1, 'icon' => 'cutlery'],
             ['name' => 'Boisson', 'value' => 1, 'color' => 'purple', 'priority' => 2, 'icon' => 'glass'],
             ['name' => 'Absent', 'value' => 0, 'color' => 'gray', 'priority' => 3, 'icon' => 'plane'],
         ];
-        $choicesObj = [];
-        foreach ($choices as $choice)
-        {
-            $choiceObj = (new Choice)
-                ->setName($choice['name'])
-                ->setValue($choice['value'])
-                ->setColor($choice['color'])
-                ->setPriority($choice['priority'])
-                ->setIcon($choice['icon'])
-                ->setPoll($poll);
-            $manager->persist($choiceObj);
-            $choicesObj[$choice['name']] = $choiceObj;
-        }
-
         $participations = [
             ['who' => 'Élise', 'when' => 'Date 1', 'choice' => 'Sucré'],
             ['who' => 'Jules', 'when' => 'Date 1', 'choice' => 'Salé'],
@@ -174,43 +94,19 @@ class LoadExamplePolls implements FixtureInterface
             ['who' => 'Romain', 'when' => 'Date 2', 'choice' => 'Sucré'],
             ['who' => 'Margaux', 'when' => 'Date 2', 'choice' => 'Salé'],
         ];
-        foreach ($participations as $row)
-        {
-            $participation = (new Participation)
-                ->setParticipant($participantsObj[$row['who']])
-                ->setEvent($eventsObj[$row['when']])
-                ->setChoice($choicesObj[$row['choice']]);
-            $manager->persist($participation);
-        }
+        $poll = $this->resetPoll($manager, 'picnic', 'Pique-nique',
+            'Pour le pique-unique, merci d\'indiquer si vous apportez du salé, du sucré, ou des boissons.', '',
+            $names, $events, $choices, $participations);
     }
 
     protected function loadHolidays(ObjectManager $manager)
     {
-        $poll = $this->resetPoll($manager, 'holidays', 'Vacances', 'Où souhaitez-vous partir ?');
         $names = ['Jean', 'Lisa', 'Étienne', 'Martine', 'Lilou'];
-        $participantsObj = [];
-        foreach ($names as $name)
-        {
-            $participant = (new Participant)->setName($name)->setPoll($poll);
-            $manager->persist($participant);
-            $participantsObj[$name] = $participant;
-        }
-
         $events = [
             ['name' => 'Vacances de février'],
             ['name' => 'Vacances de Pâques'],
             ['name' => 'Vacances d\'été'],
         ];
-        $eventsObj = [];
-        foreach ($events as $event)
-        {
-            $eventObj = (new Event)
-                ->setName($event['name'])
-                ->setPoll($poll);
-            $manager->persist($eventObj);
-            $eventsObj[$event['name']] = $eventObj;
-        }
-
         $choices = [
             ['name' => 'Les Alpes', 'value' => 1, 'color' => 'cyan', 'priority' => 0, 'icon' => 'tree-conifer'],
             ['name' => 'Les Pyrénées', 'value' => 1, 'color' => 'blue', 'priority' => 1, 'icon' => 'tree-conifer'],
@@ -218,20 +114,6 @@ class LoadExamplePolls implements FixtureInterface
             ['name' => 'Peu importe', 'value' => 1, 'color' => 'purple', 'priority' => 2, 'icon' => 'globe'],
             ['name' => 'Je ne pars pas', 'value' => 0, 'color' => 'gray', 'priority' => 3, 'icon' => 'home'],
         ];
-        $choicesObj = [];
-        foreach ($choices as $choice)
-        {
-            $choiceObj = (new Choice)
-                ->setName($choice['name'])
-                ->setValue($choice['value'])
-                ->setColor($choice['color'])
-                ->setPriority($choice['priority'])
-                ->setIcon($choice['icon'])
-                ->setPoll($poll);
-            $manager->persist($choiceObj);
-            $choicesObj[$choice['name']] = $choiceObj;
-        }
-
         $participations = [
             ['who' => 'Jean', 'when' => 'Vacances de février', 'choice' => 'Les Alpes'],
             ['who' => 'Lisa', 'when' => 'Vacances de février', 'choice' => 'Les Alpes'],
@@ -249,17 +131,11 @@ class LoadExamplePolls implements FixtureInterface
             ['who' => 'Martine', 'when' => 'Vacances d\'été', 'choice' => 'Peu importe'],
             ['who' => 'Lilou', 'when' => 'Vacances d\'été', 'choice' => 'Les Canaries'],
         ];
-        foreach ($participations as $row)
-        {
-            $participation = (new Participation)
-                ->setParticipant($participantsObj[$row['who']])
-                ->setEvent($eventsObj[$row['when']])
-                ->setChoice($choicesObj[$row['choice']]);
-            $manager->persist($participation);
-        }
+        $poll = $this->resetPoll($manager, 'holidays', 'Vacances', 'Où souhaitez-vous partir ?', '',
+            $names, $events, $choices, $participations);
     }
 
-    protected function resetPoll(ObjectManager $manager, $url, $title, $headLines = '', $bottomLines = '')
+    protected function resetPoll(ObjectManager $manager, $url, $title, $headLines, $bottomLines, $names, $events, $choices, $participations)
     {
         $entity = $manager->getRepository('KyelaBundle:Poll')->findOneByUrl($url);
         if ($entity) {
@@ -274,7 +150,50 @@ class LoadExamplePolls implements FixtureInterface
             ->setBottomLines($bottomLines)
             ->setAccessCode('kode');
         $manager->persist($poll);
-        return $poll;
+
+        $participantsObj = [];
+        foreach ($names as $name)
+        {
+            $participant = (new Participant)->setName($name)->setPoll($poll);
+            $manager->persist($participant);
+            $participantsObj[$name] = $participant;
+        }
+
+        $eventsObj = [];
+        foreach ($events as $event)
+        {
+            $eventObj = (new Event)
+                ->setName(isset($event['name']) ? $event['name'] : null)
+                ->setPlace(isset($event['place']) ? $event['place'] : null)
+                ->setDate(isset($event['date']) ? $event['date'] : null)
+                ->setTime(isset($event['time']) ? $event['time'] : null)
+                ->setPoll($poll);
+            $manager->persist($eventObj);
+            $eventsObj[$event['name']] = $eventObj;
+        }
+
+        $choicesObj = [];
+        foreach ($choices as $choice)
+        {
+            $choiceObj = (new Choice)
+                ->setName($choice['name'])
+                ->setValue($choice['value'])
+                ->setColor($choice['color'])
+                ->setPriority($choice['priority'])
+                ->setIcon($choice['icon'])
+                ->setPoll($poll);
+            $manager->persist($choiceObj);
+            $choicesObj[$choice['name']] = $choiceObj;
+        }
+
+        foreach ($participations as $row)
+        {
+            $participation = (new Participation)
+                ->setParticipant($participantsObj[$row['who']])
+                ->setEvent($eventsObj[$row['when']])
+                ->setChoice($choicesObj[$row['choice']]);
+            $manager->persist($participation);
+        }
     }
 
     /**
