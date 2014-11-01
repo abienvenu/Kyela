@@ -33,7 +33,8 @@ class CrawlerListener
         $controller = $event->getController();
         if ($controller[0] instanceof ParticipationController)
         {
-            if (stripos($request->headers->get('User-Agent'), 'crawler') !== false)
+            if (stripos($request->headers->get('User-Agent'), 'crawler') !== false ||
+                stripos($request->headers->get('User-Agent'), 'MJ12bot') !== false)
             {
                 throw new AccessDeniedHttpException("Crawler access is not allowed here");
             }
