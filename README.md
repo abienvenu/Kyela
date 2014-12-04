@@ -2,9 +2,9 @@ Kyela
 =====
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/abienvenu/Kyela/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/abienvenu/Kyela/?branch=master)
 [![Build Status](https://scrutinizer-ci.com/g/abienvenu/Kyela/badges/build.png?b=master)](https://scrutinizer-ci.com/g/abienvenu/Kyela/build-status/master)
-[![Latest Stable Version](https://poser.pugx.org/abienvenu/kyela/v/stable.svg)](https://packagist.org/packages/abienvenu/kyela)
-[![Latest Unstable Version](https://poser.pugx.org/abienvenu/kyela/v/unstable.svg)](https://packagist.org/packages/abienvenu/kyela)
-[![License](https://poser.pugx.org/abienvenu/kyela/license.svg)](https://packagist.org/packages/abienvenu/kyela)
+[![Code Climate](https://codeclimate.com/github/abienvenu/Kyela/badges/gpa.svg)](https://codeclimate.com/github/abienvenu/Kyela)
+[![Latest Stable Version](https://img.shields.io/packagist/v/abienvenu/kyela.svg)](https://packagist.org/packages/abienvenu/kyela)
+[![License](http://img.shields.io/badge/license-AGPL%203.0-red.svg)](https://packagist.org/packages/abienvenu/kyela)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/bca46a72-4438-47e7-b629-4b9926e802a6/mini.png)](https://insight.sensiolabs.com/projects/bca46a72-4438-47e7-b629-4b9926e802a6)
 
 Participation polls for group events
