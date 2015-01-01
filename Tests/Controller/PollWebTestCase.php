@@ -81,7 +81,7 @@ class PollWebTestCase extends WebTestCase
      *
      * @param Crawler $crawler
      * @param string $filter CSS filter
-     * @param number $count number of expected occurences
+     * @param integer $count number of expected occurences
      *
      * @return Crawler
      */
@@ -95,8 +95,8 @@ class PollWebTestCase extends WebTestCase
     /**
      * Creates a poll
      *
-     * @param string $name
      *
+     * @param string $title
      * @return Crawler
      */
     public static function createPollEntry($title)
