@@ -210,6 +210,13 @@ class LoadExamplePolls implements FixtureInterface
             $names, $events, $choices, $participations);
     }
 
+    /**
+     * @param string $url
+     * @param string $title
+     * @param string $headLines
+     * @param string $bottomLines
+     * @param string[] $names
+     */
     protected function resetPoll(ObjectManager $manager, $url, $title, $headLines, $bottomLines, $names, $events, $choices, $participations)
     {
         $entity = $manager->getRepository('KyelaBundle:Poll')->findOneByUrl($url);

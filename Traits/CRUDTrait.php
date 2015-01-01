@@ -40,8 +40,16 @@ trait CRUDTrait
     abstract public function getDoctrine();
     abstract public function redirect($url, $status = 302);
     abstract public function createNotFoundException($message = 'Not Found', \Exception $previous = null);
+
+    /**
+     * @param string $id
+     */
     abstract public function get($id);
-    abstract public function createForm($type, $data = null, array $options = array());
+    /**
+ * @param AbstractType $type
+ * @param Entity $data
+ */
+abstract public function createForm($type, $data = null, array $options = array());
     abstract public function createFormBuilder($data = null, array $options = array());
 
     /**
