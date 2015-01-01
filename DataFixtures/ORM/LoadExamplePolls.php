@@ -66,7 +66,11 @@ class LoadExamplePolls implements FixtureInterface
             ['who' => 'John', 'when' => 'Concert 2', 'choice' => 'Oui'],
             ['who' => 'Paul', 'when' => 'Concert 2', 'choice' => 'Peut-être'],
         ];
-        $this->resetPoll($manager, 'concert', 'Prochaines répétitions', '', '', $names, $events, $choices, $participations);
+        $this->resetPoll($manager, 'concert', 'Prochaines répétitions',
+            "Ceci est un sondage d'exemple pour l'organisation d'un concert.
+            N'hésitez pas à l'essayer, mais les données seront automatiquement réinitialisées chaque matin.
+            Pour créer votre propre sondage, retournez sur la page d'accueil en cliquant sur \"Kyélà\" en haut à gauche.",
+            '', $names, $events, $choices, $participations);
     }
 
     protected function loadPicnic(ObjectManager $manager)
@@ -95,8 +99,10 @@ class LoadExamplePolls implements FixtureInterface
             ['who' => 'Margaux', 'when' => 'Date 2', 'choice' => 'Salé'],
         ];
         $this->resetPoll($manager, 'picnic', 'Pique-nique',
-            'Pour le pique-unique, merci d\'indiquer si vous apportez du salé, du sucré, ou des boissons.', '',
-            $names, $events, $choices, $participations);
+            "Ceci est un sondage d'exemple pour l'organisation d'un pique-nique.
+            N'hésitez pas à l'essayer, mais les données seront automatiquement réinitialisées chaque matin.
+            Pour créer votre propre sondage, retournez sur la page d'accueil en cliquant sur \"Kyélà\" en haut à gauche.",
+            '', $names, $events, $choices, $participations);
     }
 
     protected function loadHolidays(ObjectManager $manager)
@@ -131,7 +137,11 @@ class LoadExamplePolls implements FixtureInterface
             ['who' => 'Martine', 'when' => 'Vacances d\'été', 'choice' => 'Peu importe'],
             ['who' => 'Lilou', 'when' => 'Vacances d\'été', 'choice' => 'Les Canaries'],
         ];
-        $this->resetPoll($manager, 'holidays', 'Vacances', 'Où souhaitez-vous partir ?', '',
+        $this->resetPoll($manager, 'holidays', 'Vacances',
+            "Ceci est un sondage d'exemple pour l'organisation de vacances entre amis ou en famille.
+            N'hésitez pas à l'essayer, mais les données seront automatiquement réinitialisées chaque matin.
+            Pour créer votre propre sondage, retournez sur la page d'accueil en cliquant sur \"Kyélà\" en haut à gauche.",
+            'Où souhaitez-vous partir ?',
             $names, $events, $choices, $participations);
     }
 
@@ -188,10 +198,15 @@ class LoadExamplePolls implements FixtureInterface
             ['who' => 'Patricia', 'when' => 'Bruz 2 / Chanteloup 1', 'choice' => 'Oui'],
             ['who' => 'Cyril', 'when' => 'Bruz 2 / Chanteloup 1', 'choice' => 'Chauffeur'],
         ];
-        $this->resetPoll($manager, 'volleyball', 'Volley', '<ul>
-<li><a href="http://umap.openstreetmap.fr/fr/map/volley-35_2960#11/47.9607/-1.6703">Carte des salles de volley</a></li>
-<li>Résultats et planning : <a href="http://www.ffvbbeach.org/ffvbapp/resu/vbspo_calendrier.php?saison=2014/2015&codent=PTBR35&poule=XSH">Chanteloup 1</a> -- <a href="http://www.ffvbbeach.org/ffvbapp/resu/vbspo_calendrier.php?saison=2014/2015&codent=PTBR35&poule=XSI">Chanteloup 2</a></li>
-</ul>', '',
+        $this->resetPoll($manager, 'volleyball', 'Volley', "
+            Ceci est un sondage d'exemple pour l'organisation de matchs de volley.
+            N'hésitez pas à l'essayer, mais les données seront automatiquement réinitialisées chaque matin.
+            Pour créer votre propre sondage, retournez sur la page d'accueil en cliquant sur \"Kyélà\" en haut à gauche.
+<ul>
+<li><a href='http://umap.openstreetmap.fr/fr/map/volley-35_2960#11/47.9607/-1.6703'>Carte des salles de volley</a></li>
+<li>Résultats et planning : <a href='http://www.ffvbbeach.org/ffvbapp/resu/vbspo_calendrier.php?saison=2014/2015&codent=PTBR35&poule=XSH'>Chanteloup 1</a> --
+<a href='http://www.ffvbbeach.org/ffvbapp/resu/vbspo_calendrier.php?saison=2014/2015&codent=PTBR35&poule=XSI'>Chanteloup 2</a></li>
+</ul>", '',
             $names, $events, $choices, $participations);
     }
 
