@@ -46,10 +46,10 @@ trait CRUDTrait
      */
     abstract public function get($id);
     /**
- * @param AbstractType $type
- * @param Entity $data
- */
-abstract public function createForm($type, $data = null, array $options = array());
+     * @param AbstractType $type
+     * @param Entity $data
+     */
+    abstract public function createForm($type, $data = null, array $options = array());
     abstract public function createFormBuilder($data = null, array $options = array());
 
     /**
@@ -74,6 +74,8 @@ abstract public function createForm($type, $data = null, array $options = array(
      * @param AbstractType $formType
      * @param Entity $entity
      * @param Request $request
+     * @param null $successMessage
+     * @return array
      */
     protected function doNewAction(AbstractType $formType, Entity $entity, Request $request, $successMessage = null)
     {
