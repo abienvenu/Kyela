@@ -17,7 +17,7 @@ is.there.a.premium.service:
     q: Are there premium functionnalities on kyela.net ?
     a: No, all functionnalities are available for everybody.
 are.there.ads:
-    q: Is there advertisements on kyela.net ?
+    q: Is there advertisement on kyela.net ?
     a: No.
 about.cookies:
     q: Does kyela.net uses cookies ?
@@ -30,10 +30,10 @@ can.i.contribute:
     a: Sure! If you are a Symfony developer, go to GitHub (linked in the footer), and get involved in the project. If you are a graphist, create a logo, a favicon, or themes for Kyélà. As a mere user, report problems; a detailed description of a reproductible bug makes the fix really easy.
 can.i.contribute.no.problem:
     q: I am not a developer, nor a graphist, I have no issue, can I still help ?
-    a: Yes, spread the work about kyela.net.
+    a: Yes, spread the word about kyela.net.
 can.icontribute.money:
     q: Can I give money to kyela.net ?
-    a: Not yet. This option will be available if kyela.net becomes popular, and I need a more powerful server.
+    a: Not yet. This option will be available if kyela.net becomes popular, and if I need a more powerful server to run it.
 what.about.doodle:
     q: Did Kyélà stole the idea from Doodle (tm) ?
     a: No. The tools are similar, but the base idea has nothing special. Other similar tools existed even before Doodle (tm).
@@ -42,7 +42,7 @@ what.about.alternatives:
     a: Framadate and STUdS have similar functionnalities, and are free and OpenSource, like Kyélà.
 about.spam:
     q: How can I remove my personal data from kyela.net ?
-    a: kyela.net does not ask for any email or subscription. If you have you real name, or other personal information on a poll, just edit or remove the information yourself.
+    a: kyela.net does not ask for any email or subscription. If you have submited your real name, or other personal information on a poll, just edit or remove the information yourself.
 about.third.parties:
     q: Are collected information sent to third parties ?
     a: No, except to the French police, on legal request only.
