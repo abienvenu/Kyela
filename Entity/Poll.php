@@ -63,14 +63,14 @@ class Poll extends Entity
     /**
      * @var string
      *
-     * @ORM\Column(name="headLines", type="string", length=32000)
+     * @ORM\Column(name="headLines", type="text", nullable=true)
      */
     private $headLines;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="bottomLines", type="string", length=32000)
+     * @ORM\Column(name="bottomLines", type="text", nullable=true)
      */
     private $bottomLines;
 
