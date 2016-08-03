@@ -9,7 +9,7 @@
             </a>
             [<i>{{ comment.datetime|localizeddate('short', 'none', app.request.locale, null, "d MMM") }}</i>]
             <b>{{ comment.author }}:</b>
-            {{ comment.content }}
+            {{ comment.content | nl2br }}
         </p>
     {% endfor %}
     </div>
