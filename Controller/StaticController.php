@@ -50,7 +50,7 @@ class StaticController extends Controller
     protected function loadTranslations($domain, $locale)
     {
         $r = new \ReflectionClass($this);
-        $dirName = dirname($r->getFilename());
+        $dirName = dirname($r->getFileName());
         $fullFileName = "$dirName/../Resources/translations/$domain.$locale.yml";
         return Yaml::parse(file_get_contents($fullFileName));
     }
