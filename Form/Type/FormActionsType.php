@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright 2014 Arnaud Bienvenu
+ * Copyright 2014-2016 Arnaud Bienvenu
  *
  * This file is part of Kyela.
 
