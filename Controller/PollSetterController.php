@@ -55,7 +55,7 @@ abstract class PollSetterController extends Controller
 		}
 	}
 
-	public function unsetPoll(Request $request)
+	protected function unsetPoll(Request $request)
 	{
 		$this->poll = null;
 		$request->getSession()->remove('pollUrl');
