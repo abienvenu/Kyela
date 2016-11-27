@@ -109,7 +109,7 @@ class StaticController extends PollSetterController
      */
     public function contactAction(Request $request)
     {
-        $form = $this->createForm(new ContactType());
+        $form = $this->createForm(ContactType::class);
         $form->add('actions', 'form_actions', [
             'buttons' => [
                 'send' => ['type' => 'submit', 'options' => ['label' => 'send']],

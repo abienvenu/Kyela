@@ -52,7 +52,7 @@ class PollType extends AbstractType
     /**
      * @return string
      */
-    public function getName()
+    public function getBlockPrefix()
     {
         return 'abienvenu_kyelabundle_poll';
     }

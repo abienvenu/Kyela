@@ -23,8 +23,10 @@ namespace Abienvenu\KyelaBundle\Controller;
 
 use Abienvenu\KyelaBundle\Entity\Entity;
 use Abienvenu\KyelaBundle\Entity\Poll;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 abstract class CRUDController extends PollSetterController
 {
@@ -47,7 +49,7 @@ abstract class CRUDController extends PollSetterController
 	 * @param mixed $parameters
 	 * @param Boolean $absolute
 	 */
-	public function generateUrl($route, $parameters = [], $absolute = false)
+	public function generateUrl($route, $parameters = [], $absolute = UrlGeneratorInterface::ABSOLUTE_PATH)
 	{
 		if (!isset($parameters['pollUrl']) && $this->poll)
 		{
@@ -241,7 +243,7 @@ abstract class CRUDController extends PollSetterController
 		return $this->createFormBuilder()
 		            ->setAction($this->generateUrl($this->deleteRoute, ['id' => $id]))
 		            ->setMethod('DELETE')
-		            ->add('submit', 'submit', ['label' => 'delete', 'attr' => ['type' => 'danger', 'onclick' => "return confirm('{$t->trans("are.you.sure.to.delete")}');"]])
+		            ->add('submit', SubmitType::class, ['label' => 'delete', 'attr' => ['type' => 'danger', 'onclick' => "return confirm('{$t->trans("are.you.sure.to.delete")}');"]])
 		            ->getForm();
 	}
 }

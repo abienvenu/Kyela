@@ -85,7 +85,7 @@ class PollController extends CRUDController
         $em = $this->getDoctrine()->getManager();
         $hasPastEvents = count($em->getRepository('KyelaBundle:Event')->getFutureOrPastEvents($this->poll, false));
 
-        $participant_form = $this->createForm(new ParticipantType(), new Participant(), [
+        $participant_form = $this->createForm(ParticipantType::class, new Participant(), [
             'action' => $this->generateUrl('participant_new'),
             'method' => 'POST'
         ]);
@@ -209,7 +209,7 @@ class PollController extends CRUDController
      */
     public function lockAction(Request $request)
     {
-        $form = $this->createForm(new LockPollType(), $this->poll, array(
+        $form = $this->createForm(LockPollType::class, $this->poll, array(
             'method' => 'PUT',
         ));
 
@@ -255,7 +255,7 @@ class PollController extends CRUDController
     public function unlockAction(Request $request)
     {
         $poll = (new Poll)->setTitle("dummy")->setUrl("dummy");
-        $form = $this->createForm(new LockPollType(), $poll, array(
+        $form = $this->createForm(LockPollType::class, $poll, array(
             'method' => 'PUT',
         ));
         $form->add('actions', 'form_actions', [

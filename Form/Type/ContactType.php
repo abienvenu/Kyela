@@ -38,7 +38,7 @@ class ContactType extends AbstractType
             ->add('message', TextareaType::class);
     }
 
-    public function getName()
+    public function getBlockPrefix()
     {
         return 'contact';
     }
