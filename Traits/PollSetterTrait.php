@@ -1,5 +1,5 @@
 <?php
-/**
+/*
  * Copyright 2014 Arnaud Bienvenu
  *
  * This file is part of Kyela.
@@ -30,8 +30,6 @@ trait PollSetterTrait
 
     /**
      * Set poll from Url or session
-     *
-     * @param Request $request
      */
     public function setPollFromRequest(Request $request)
     {

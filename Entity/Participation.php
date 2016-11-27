@@ -72,10 +72,10 @@ class Participation
     /**
      * Set participant
      *
-     * @param \Abienvenu\KyelaBundle\Entity\Participant $participant
+     * @param Participant $participant
      * @return Participation
      */
-    public function setParticipant(\Abienvenu\KyelaBundle\Entity\Participant $participant = null)
+    public function setParticipant(Participant $participant = null)
     {
         $this->participant = $participant;
 
@@ -85,7 +85,7 @@ class Participation
     /**
      * Get participant
      *
-     * @return \Abienvenu\KyelaBundle\Entity\Participant
+     * @return Participant
      */
     public function getParticipant()
     {
@@ -95,10 +95,10 @@ class Participation
     /**
      * Set event
      *
-     * @param \Abienvenu\KyelaBundle\Entity\Event $event
+     * @param Event $event
      * @return Participation
      */
-    public function setEvent(\Abienvenu\KyelaBundle\Entity\Event $event = null)
+    public function setEvent(Event $event = null)
     {
         $this->event = $event;
 
@@ -108,7 +108,7 @@ class Participation
     /**
      * Get event
      *
-     * @return \Abienvenu\KyelaBundle\Entity\Event
+     * @return Event
      */
     public function getEvent()
     {
@@ -118,10 +118,10 @@ class Participation
     /**
      * Set choice
      *
-     * @param \Abienvenu\KyelaBundle\Entity\Choice $choice
+     * @param Choice $choice
      * @return Participation
      */
-    public function setChoice(\Abienvenu\KyelaBundle\Entity\Choice $choice = null)
+    public function setChoice(Choice $choice = null)
     {
         $this->choice = $choice;
 
@@ -131,7 +131,7 @@ class Participation
     /**
      * Get choice
      *
-     * @return \Abienvenu\KyelaBundle\Entity\Choice
+     * @return Choice
      */
     public function getChoice()
     {

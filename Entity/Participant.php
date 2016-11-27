@@ -24,7 +24,6 @@ namespace Abienvenu\KyelaBundle\Entity;
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
-use Abienvenu\KyelaBundle\Entity\Entity;
 
 /**
  * @ORM\Entity
@@ -104,7 +103,7 @@ class Participant extends Entity
      * @param \Abienvenu\KyelaBundle\Entity\Participation $participations
      * @return Participant
      */
-    public function addParticipation(\Abienvenu\KyelaBundle\Entity\Participation $participations)
+    public function addParticipation(Participation $participations)
     {
         $this->participations[] = $participations;
 
@@ -114,9 +113,9 @@ class Participant extends Entity
     /**
      * Remove participations
      *
-     * @param \Abienvenu\KyelaBundle\Entity\Participation $participations
+     * @param Participation $participations
      */
-    public function removeParticipation(\Abienvenu\KyelaBundle\Entity\Participation $participations)
+    public function removeParticipation(Participation $participations)
     {
         $this->participations->removeElement($participations);
     }
@@ -134,10 +133,10 @@ class Participant extends Entity
     /**
      * Set poll
      *
-     * @param \Abienvenu\KyelaBundle\Entity\Poll $poll
+     * @param Poll $poll
      * @return Participant
      */
-    public function setPoll(\Abienvenu\KyelaBundle\Entity\Poll $poll = null)
+    public function setPoll(Poll $poll = null)
     {
         $this->poll = $poll;
 
@@ -147,7 +146,7 @@ class Participant extends Entity
     /**
      * Get poll
      *
-     * @return \Abienvenu\KyelaBundle\Entity\Poll
+     * @return Poll
      */
     public function getPoll()
     {

@@ -1,5 +1,5 @@
 <?php
-/**
+/*
  * Copyright 2014 Arnaud Bienvenu
  *
  * This file is part of Kyela.
@@ -25,7 +25,6 @@ use Abienvenu\KyelaBundle\Entity\Entity;
 use Abienvenu\KyelaBundle\Entity\Poll;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\AbstractType;
-use Abienvenu\KyelaBundle\Traits\PollSetterTrait;
 
 trait CRUDTrait
 {

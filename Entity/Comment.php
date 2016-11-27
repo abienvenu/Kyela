@@ -150,10 +150,10 @@ class Comment extends Entity
     /**
      * Set poll
      *
-     * @param \Abienvenu\KyelaBundle\Entity\Poll $poll
+     * @param Poll $poll
      * @return Comment
      */
-    public function setPoll(\Abienvenu\KyelaBundle\Entity\Poll $poll = null)
+    public function setPoll(Poll $poll = null)
     {
         $this->poll = $poll;
 
@@ -163,7 +163,7 @@ class Comment extends Entity
     /**
      * Get poll
      *
-     * @return \Abienvenu\KyelaBundle\Entity\Poll
+     * @return Poll
      */
     public function getPoll()
     {

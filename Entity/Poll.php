@@ -21,10 +21,10 @@
 
 namespace Abienvenu\KyelaBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
-use Abienvenu\KyelaBundle\Entity\Entity;
 
 /**
  * Poll
@@ -161,19 +161,19 @@ class Poll extends Entity
      */
     public function __construct()
     {
-        $this->participants = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->events = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->choices = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->comments = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->participants = new ArrayCollection();
+        $this->events = new ArrayCollection();
+        $this->choices = new ArrayCollection();
+        $this->comments = new ArrayCollection();
     }
 
     /**
      * Add participants
      *
-     * @param \Abienvenu\KyelaBundle\Entity\Participant $participants
+     * @param Participant $participants
      * @return Poll
      */
-    public function addParticipant(\Abienvenu\KyelaBundle\Entity\Participant $participants)
+    public function addParticipant(Participant $participants)
     {
         $this->participants[] = $participants;
 
@@ -183,9 +183,9 @@ class Poll extends Entity
     /**
      * Remove participants
      *
-     * @param \Abienvenu\KyelaBundle\Entity\Participant $participants
+     * @param Participant $participants
      */
-    public function removeParticipant(\Abienvenu\KyelaBundle\Entity\Participant $participants)
+    public function removeParticipant(Participant $participants)
     {
         $this->participants->removeElement($participants);
     }
@@ -203,10 +203,10 @@ class Poll extends Entity
     /**
      * Add events
      *
-     * @param \Abienvenu\KyelaBundle\Entity\Event $events
+     * @param Event $events
      * @return Poll
      */
-    public function addEvent(\Abienvenu\KyelaBundle\Entity\Event $events)
+    public function addEvent(Event $events)
     {
         $this->events[] = $events;
 
@@ -216,9 +216,9 @@ class Poll extends Entity
     /**
      * Remove events
      *
-     * @param \Abienvenu\KyelaBundle\Entity\Event $events
+     * @param Event $events
      */
-    public function removeEvent(\Abienvenu\KyelaBundle\Entity\Event $events)
+    public function removeEvent(Event $events)
     {
         $this->events->removeElement($events);
     }
@@ -236,10 +236,10 @@ class Poll extends Entity
     /**
      * Add choices
      *
-     * @param \Abienvenu\KyelaBundle\Entity\Choice $choices
+     * @param Choice $choices
      * @return Poll
      */
-    public function addChoice(\Abienvenu\KyelaBundle\Entity\Choice $choices)
+    public function addChoice(Choice $choices)
     {
         $this->choices[] = $choices;
 
@@ -249,9 +249,9 @@ class Poll extends Entity
     /**
      * Remove choices
      *
-     * @param \Abienvenu\KyelaBundle\Entity\Choice $choices
+     * @param Choice $choices
      */
-    public function removeChoice(\Abienvenu\KyelaBundle\Entity\Choice $choices)
+    public function removeChoice(Choice $choices)
     {
         $this->choices->removeElement($choices);
     }
@@ -338,10 +338,10 @@ class Poll extends Entity
     /**
      * Add comments
      *
-     * @param \Abienvenu\KyelaBundle\Entity\Comment $comments
+     * @param Comment $comments
      * @return Poll
      */
-    public function addComment(\Abienvenu\KyelaBundle\Entity\Comment $comments)
+    public function addComment(Comment $comments)
     {
         $this->comments[] = $comments;
 
@@ -351,9 +351,9 @@ class Poll extends Entity
     /**
      * Remove comments
      *
-     * @param \Abienvenu\KyelaBundle\Entity\Comment $comments
+     * @param Comment $comments
      */
-    public function removeComment(\Abienvenu\KyelaBundle\Entity\Comment $comments)
+    public function removeComment(Comment $comments)
     {
         $this->comments->removeElement($comments);
     }
