@@ -22,6 +22,9 @@
 namespace Abienvenu\KyelaBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 
 class ContactType extends AbstractType
@@ -29,10 +32,10 @@ class ContactType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name', 'text', ['attr' => ['autofocus' => 'autofocus']])
-            ->add('email', 'email')
-            ->add('subject', 'text')
-            ->add('message', 'textarea');
+            ->add('name', TextType::class, ['attr' => ['autofocus' => 'autofocus']])
+            ->add('email', EmailType::class)
+            ->add('subject', TextType::class)
+            ->add('message', TextareaType::class);
     }
 
     public function getName()

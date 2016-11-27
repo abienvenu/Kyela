@@ -22,8 +22,10 @@
 namespace Abienvenu\KyelaBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class CommentType extends AbstractType
 {
@@ -41,14 +43,11 @@ class CommentType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('author', 'choice', ['choices' => $this->authors, 'attr' => ['autofocus' => 'autofocus']])
-            ->add('content', 'textarea', ['attr' => ['placeholder' => 'comment.placeholder']]);
+            ->add('author', ChoiceType::class, ['choices' => $this->authors, 'attr' => ['autofocus' => 'autofocus']])
+            ->add('content', TextareaType::class, ['attr' => ['placeholder' => 'comment.placeholder']]);
     }
 
-    /**
-     * @param OptionsResolverInterface $resolver
-     */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
             'data_class' => 'Abienvenu\KyelaBundle\Entity\Comment'

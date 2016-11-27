@@ -23,8 +23,8 @@ namespace Abienvenu\KyelaBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-use Abienvenu\KyelaBundle\Form\Type\IconType;
+use \Symfony\Component\Form\Extension\Core\Type\ChoiceType as BaseChoiceType;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class ChoiceType extends AbstractType
 {
@@ -37,15 +37,12 @@ class ChoiceType extends AbstractType
         $builder
             ->add('name', null, ['attr' => ['autofocus' => 'autofocus', 'placeholder' => "choice.name.placeholder"]])
             ->add('value', null, ['attr' => ['placeholder' => 'choice.name.value']])
-            ->add('color', 'choice', ['choices' => ['green' => 'green', 'orange' => 'orange', 'red' => 'red', 'blue' => 'blue', 'cyan' => 'cyan', 'purple' => 'purple', 'gray' => 'gray']])
-            ->add('icon', new IconType)
+            ->add('color', BaseChoiceType::class, ['choices' => ['green' => 'green', 'orange' => 'orange', 'red' => 'red', 'blue' => 'blue', 'cyan' => 'cyan', 'purple' => 'purple', 'gray' => 'gray']])
+            ->add('icon', IconType::class)
         ;
     }
 
-    /**
-     * @param OptionsResolverInterface $resolver
-     */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
             'data_class' => 'Abienvenu\KyelaBundle\Entity\Choice'

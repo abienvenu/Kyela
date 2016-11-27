@@ -21,13 +21,15 @@
 
 namespace Abienvenu\KyelaBundle\Controller;
 
+use Abienvenu\KyelaBundle\Entity\Poll;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 abstract class PollSetterController extends Controller
 {
-	protected $poll = null;
+	/** @var Poll $poll */
+	protected $poll;
 
 	/**
 	 * Set poll from Url or session

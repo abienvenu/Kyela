@@ -28,6 +28,11 @@ use Symfony\Component\Form\AbstractType;
 
 abstract class CRUDController extends PollSetterController
 {
+	// Member variables that must be defined in the custom controller
+	protected $entityName;
+	protected $cancelRoute;
+	protected $successRoute;
+
 	// Methods to be implemented in the custom controller
 	abstract public function newAction(Request $request);
 	abstract public function editAction(Request $request, $id);

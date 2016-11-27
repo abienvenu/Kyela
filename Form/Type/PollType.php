@@ -22,8 +22,9 @@
 namespace Abienvenu\KyelaBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class PollType extends AbstractType
 {
@@ -36,15 +37,12 @@ class PollType extends AbstractType
         $builder
             ->add('url')
             ->add('title', null, ['attr' => ['autofocus' => 'autofocus']])
-            ->add('headLines', 'textarea', ['data' => '', 'required' => false, 'attr' => ['rows' => 7, 'placeholder' => 'poll.headlines.placeholder']])
-            ->add('bottomLines', 'textarea', ['data' => '', 'required' => false, 'attr' => ['rows' => 7, 'placeholder' => 'poll.bottomlines.placeholder']])
+            ->add('headLines', TextareaType::class, ['data' => '', 'required' => false, 'attr' => ['rows' => 7, 'placeholder' => 'poll.headlines.placeholder']])
+            ->add('bottomLines', TextareaType::class, ['data' => '', 'required' => false, 'attr' => ['rows' => 7, 'placeholder' => 'poll.bottomlines.placeholder']])
         ;
     }
 
-    /**
-     * @param OptionsResolverInterface $resolver
-     */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
             'data_class' => 'Abienvenu\KyelaBundle\Entity\Poll'
