@@ -50,7 +50,7 @@ class EventController extends CRUDController
      */
     public function newAction(Request $request)
     {
-        return $this->doNewAction(new EventType(), new Event(), $request);
+        return $this->doNewAction(EventType::class, new Event(), $request);
     }
 
     /**
@@ -62,7 +62,7 @@ class EventController extends CRUDController
      */
     public function editAction(Request $request, $id)
     {
-        return $this->doEditAction(new EventType(), $id, $request);
+        return $this->doEditAction(EventType::class, $id, $request);
     }
 
     /**

@@ -68,7 +68,7 @@ class ChoiceController extends CRUDController
         $choice = new Choice();
         // By default, this new choice will be added at the end
         $choice->setPriority(count($this->poll->getChoices()));
-        return $this->doNewAction(new ChoiceType(), $choice, $request);
+        return $this->doNewAction(ChoiceType::class, $choice, $request);
     }
 
     /**
@@ -80,7 +80,7 @@ class ChoiceController extends CRUDController
      */
     public function editAction(Request $request, $id)
     {
-        return $this->doEditAction(new ChoiceType(), $id, $request);
+        return $this->doEditAction(ChoiceType::class, $id, $request);
     }
 
     /**

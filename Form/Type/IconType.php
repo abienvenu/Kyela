@@ -22,6 +22,7 @@
 namespace Abienvenu\KyelaBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType as BaseChoiceType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class IconType extends AbstractType
@@ -48,6 +49,7 @@ class IconType extends AbstractType
 
         $resolver->setDefaults([
             'choices' => $choices,
+            'choices_as_values' => true,
             'expanded' => true,
             'required' => false,
         ]);
@@ -55,7 +57,7 @@ class IconType extends AbstractType
 
     public function getParent()
     {
-        return 'choice';
+        return BaseChoiceType::class;
     }
 
     /**

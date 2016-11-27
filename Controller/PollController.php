@@ -22,6 +22,7 @@
 namespace Abienvenu\KyelaBundle\Controller;
 
 use Abienvenu\KyelaBundle\Form\Type\FormActionsType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -71,7 +72,7 @@ class PollController extends CRUDController
         $baseUrl = $this->generateUrl('poll_show', ['pollUrl' => $poll->getUrl()], true);
         $successMessage = $this->get('translator')->trans('poll.created %url%', ['%url%' => $baseUrl]);
 
-        return $this->doNewAction(new NewPollType(), $poll, $request, $successMessage);
+        return $this->doNewAction(NewPollType::class, $poll, $request, $successMessage);
     }
 
     /**
@@ -180,7 +181,7 @@ class PollController extends CRUDController
             return $this->redirect($this->generateUrl('poll_unlock', ['pollUrl' => $this->poll->getUrl()]));
         }
         $oldUrl = $this->poll->getUrl();
-        $response = $this->doEditAction(new PollType(), $this->poll->getId(), $request);
+        $response = $this->doEditAction(PollType::class, $this->poll->getId(), $request);
         if ($request->isMethod('PUT') && $oldUrl != $this->poll->getUrl())
         {
             $baseUrl = $this->generateUrl('poll_show', ['pollUrl' => $this->poll->getUrl()], true);
@@ -261,8 +262,8 @@ class PollController extends CRUDController
         ));
         $form->add('actions', FormActionsType::class, [
             'buttons' => [
-                'save' => ['type' => 'submit', 'options' => ['label' => 'save']],
-                'cancel' => ['type' => 'submit', 'options' => ['label' => 'cancel', 'attr' => ['type' => 'default', 'novalidate' => true]]],
+                'save' => ['type' => SubmitType::class, 'options' => ['label' => 'save']],
+                'cancel' => ['type' => SubmitType::class, 'options' => ['label' => 'cancel', 'attr' => ['type' => 'default', 'novalidate' => true]]],
             ]
         ]);
 

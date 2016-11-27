@@ -62,7 +62,7 @@ abstract class CRUDController extends PollSetterController
 	/**
 	 * Create a form to create a new entity, and create it when the form is submited
 	 */
-	protected function doNewAction(AbstractType $formType, Entity $entity, Request $request, $successMessage = null)
+	protected function doNewAction($formType, Entity $entity, Request $request, $successMessage = null)
 	{
 		$form = $this->doCreateCreateForm($formType, $entity, $request->get('_route'));
 		if ($request->isMethod('POST'))
@@ -104,11 +104,11 @@ abstract class CRUDController extends PollSetterController
 	/**
 	 * Create a form to edit an entity, and update it when the form is submited
 	 *
-	 * @param AbstractType $formType
+	 * @param string $formType
 	 * @param int $id The entity id
 	 * @param Request $request
 	 */
-	protected function doEditAction(AbstractType $formType, $id, Request $request)
+	protected function doEditAction($formType, $id, Request $request)
 	{
 		$em = $this->getDoctrine()->getManager();
 
@@ -180,13 +180,13 @@ abstract class CRUDController extends PollSetterController
 	/**
 	 * Creates a form to create an entity
 	 *
-	 * @param AbstractType $formType The form builder
+	 * @param string $formType The form builder
 	 * @param Entity $entity The new entity
 	 * @param string $action The name of the route to the action
 	 *
 	 * @return \Symfony\Component\Form\Form The form
 	 */
-	protected function doCreateCreateForm(AbstractType $formType, Entity $entity, $action)
+	protected function doCreateCreateForm($formType, Entity $entity, $action)
 	{
 		$form = $this->createForm($formType, $entity, array(
 			'action' => $this->generateUrl($action),
@@ -195,12 +195,12 @@ abstract class CRUDController extends PollSetterController
 
 		$options = [
 			'buttons' => [
-				'save' => ['type' => 'submit', 'options' => ['label' => 'create']],
+				'save' => ['type' => SubmitType::class, 'options' => ['label' => 'create']],
 			]
 		];
 		if (!($entity instanceof Poll))
 		{
-			$options['buttons']['cancel'] = ['type' => 'submit', 'options' => ['label' => 'cancel', 'attr' => ['type' => 'default', 'novalidate' => true]]];
+			$options['buttons']['cancel'] = ['type' => SubmitType::class, 'options' => ['label' => 'cancel', 'attr' => ['type' => 'default', 'novalidate' => true]]];
 		}
 		$form->add('actions', FormActionsType::class, $options);
 		return $form;
@@ -209,13 +209,13 @@ abstract class CRUDController extends PollSetterController
 	/**
 	 * Creates a form to edit an entity
 	 *
-	 * @param AbstractType $formType The form builder
+	 * @param string $formType The form builder
 	 * @param Entity $entity The entity to edit
 	 * @param string $action The name of the route to the action
 	 *
 	 * @return \Symfony\Component\Form\Form The form
 	 */
-	protected function doCreateEditForm(AbstractType $formType, Entity $entity, $action)
+	protected function doCreateEditForm($formType, Entity $entity, $action)
 	{
 		$form = $this->createForm($formType, $entity, array(
 			'action' => $this->generateUrl($action, ['id' => $entity->getId()]),

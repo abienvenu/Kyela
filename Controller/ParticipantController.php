@@ -50,7 +50,7 @@ class ParticipantController extends CRUDController
      */
     public function newAction(Request $request)
     {
-        return $this->doNewAction(new ParticipantType(), new Participant(), $request);
+        return $this->doNewAction(ParticipantType::class, new Participant(), $request);
     }
 
     /**
@@ -62,7 +62,7 @@ class ParticipantController extends CRUDController
      */
     public function editAction(Request $request, $id)
     {
-        return $this->doEditAction(new ParticipantType(), $id, $request);
+        return $this->doEditAction(ParticipantType::class, $id, $request);
     }
 
     /**
