@@ -23,6 +23,7 @@ namespace Abienvenu\KyelaBundle\Controller;
 
 use Abienvenu\KyelaBundle\Entity\Entity;
 use Abienvenu\KyelaBundle\Entity\Poll;
+use Abienvenu\KyelaBundle\Form\Type\FormActionsType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\AbstractType;
@@ -201,7 +202,7 @@ abstract class CRUDController extends PollSetterController
 		{
 			$options['buttons']['cancel'] = ['type' => 'submit', 'options' => ['label' => 'cancel', 'attr' => ['type' => 'default', 'novalidate' => true]]];
 		}
-		$form->add('actions', 'form_actions', $options);
+		$form->add('actions', FormActionsType::class, $options);
 		return $form;
 	}
 
@@ -221,7 +222,7 @@ abstract class CRUDController extends PollSetterController
 			'method' => 'PUT',
 		));
 
-		$form->add('actions', 'form_actions', [
+		$form->add('actions', FormActionsType::class, [
 			'buttons' => [
 				'save' => ['type' => 'submit', 'options' => ['label' => 'save']],
 				'cancel' => ['type' => 'submit', 'options' => ['label' => 'cancel', 'attr' => ['type' => 'default', 'novalidate' => true]]],

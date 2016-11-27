@@ -1,9 +1,4 @@
 services:
-    abienvenu.kyela.form.type.form_actions:
-        class: Abienvenu\KyelaBundle\Form\Type\FormActionsType
-        tags:
-            - { name: form.type, alias: form_actions }
-
     abienvenu.kyela.action_listener:
         class: Abienvenu\KyelaBundle\EventListener\PollUrlListener
         tags:

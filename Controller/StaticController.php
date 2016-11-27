@@ -21,6 +21,7 @@
 
 namespace Abienvenu\KyelaBundle\Controller;
 
+use Abienvenu\KyelaBundle\Form\Type\FormActionsType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -110,7 +111,7 @@ class StaticController extends PollSetterController
     public function contactAction(Request $request)
     {
         $form = $this->createForm(ContactType::class);
-        $form->add('actions', 'form_actions', [
+        $form->add('actions', FormActionsType::class, [
             'buttons' => [
                 'send' => ['type' => 'submit', 'options' => ['label' => 'send']],
             ]

@@ -21,6 +21,7 @@
 
 namespace Abienvenu\KyelaBundle\Controller;
 
+use Abienvenu\KyelaBundle\Form\Type\FormActionsType;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -213,7 +214,7 @@ class PollController extends CRUDController
             'method' => 'PUT',
         ));
 
-        $form->add('actions', 'form_actions', [
+        $form->add('actions', FormActionsType::class, [
             'buttons' => [
                 'save' => ['type' => 'submit', 'options' => ['label' => 'save']],
                 'cancel' => ['type' => 'submit', 'options' => ['label' => 'cancel', 'attr' => ['type' => 'default', 'novalidate' => true]]],
@@ -258,7 +259,7 @@ class PollController extends CRUDController
         $form = $this->createForm(LockPollType::class, $poll, array(
             'method' => 'PUT',
         ));
-        $form->add('actions', 'form_actions', [
+        $form->add('actions', FormActionsType::class, [
             'buttons' => [
                 'save' => ['type' => 'submit', 'options' => ['label' => 'save']],
                 'cancel' => ['type' => 'submit', 'options' => ['label' => 'cancel', 'attr' => ['type' => 'default', 'novalidate' => true]]],
