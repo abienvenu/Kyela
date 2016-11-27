@@ -31,9 +31,6 @@ class ChoiceRepository extends EntityRepository
 {
     /**
      * Get future events
-     *
-     * @param Poll $poll
-     * @return \Doctrine\Common\Collections\Collection
      */
     public function getOrderedChoices(Poll $poll)
     {

@@ -34,7 +34,7 @@ class EventRepository extends EntityRepository
      *
      * @param Poll $poll
      * @param Boolean $isFuture
-     * @return \Doctrine\Common\Collections\Collection
+     * @return Event[]
      */
     public function getFutureOrPastEvents(Poll $poll, $isFuture = true)
     {
