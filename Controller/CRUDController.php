@@ -32,6 +32,8 @@ abstract class CRUDController extends PollSetterController
 	protected $entityName;
 	protected $cancelRoute;
 	protected $successRoute;
+	protected $deleteRoute;
+	protected $deleteSuccessRoute;
 
 	// Methods to be implemented in the custom controller
 	abstract public function newAction(Request $request);
