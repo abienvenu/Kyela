@@ -1,6 +1,6 @@
 <?php
-/**
- * Copyright 2014 Arnaud Bienvenu
+/*
+ * Copyright 2014-2016 Arnaud Bienvenu
  *
  * This file is part of Kyela.
 
@@ -21,9 +21,9 @@
 
 namespace Abienvenu\KyelaBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
-use Abienvenu\KyelaBundle\Entity\Entity;
 
 /**
  * Choice
@@ -176,16 +176,16 @@ class Choice extends Entity
      */
     public function __construct()
     {
-        $this->participations = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->participations = new ArrayCollection();
     }
 
     /**
      * Add participations
      *
-     * @param \Abienvenu\KyelaBundle\Entity\Participation $participations
+     * @param Participation $participations
      * @return Choice
      */
-    public function addParticipation(\Abienvenu\KyelaBundle\Entity\Participation $participations)
+    public function addParticipation(Participation $participations)
     {
         $this->participations[] = $participations;
 
@@ -195,9 +195,9 @@ class Choice extends Entity
     /**
      * Remove participations
      *
-     * @param \Abienvenu\KyelaBundle\Entity\Participation $participations
+     * @param Participation $participations
      */
-    public function removeParticipation(\Abienvenu\KyelaBundle\Entity\Participation $participations)
+    public function removeParticipation(Participation $participations)
     {
         $this->participations->removeElement($participations);
     }
@@ -215,10 +215,10 @@ class Choice extends Entity
     /**
      * Set poll
      *
-     * @param \Abienvenu\KyelaBundle\Entity\Poll $poll
+     * @param Poll $poll
      * @return Choice
      */
-    public function setPoll(\Abienvenu\KyelaBundle\Entity\Poll $poll = null)
+    public function setPoll(Poll $poll = null)
     {
         $this->poll = $poll;
 
@@ -228,7 +228,7 @@ class Choice extends Entity
     /**
      * Get poll
      *
-     * @return \Abienvenu\KyelaBundle\Entity\Poll
+     * @return Poll
      */
     public function getPoll()
     {
