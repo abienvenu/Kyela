@@ -1,5 +1,5 @@
 <?php
-/**
+/*
  * Copyright 2014 Arnaud Bienvenu
  *
  * This file is part of Kyela.
