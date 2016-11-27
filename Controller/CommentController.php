@@ -22,23 +22,19 @@
 namespace Abienvenu\KyelaBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Abienvenu\KyelaBundle\Entity\Comment;
 use Abienvenu\KyelaBundle\Form\Type\CommentType;
-use Abienvenu\KyelaBundle\Traits\CRUDTrait;
 
 /**
  * Comment controller.
  *
  * @Route("/{pollUrl}/comment")
  */
-class CommentController extends Controller
+class CommentController extends CRUDController
 {
-    use CRUDTrait;
-
     protected $entityName = 'KyelaBundle:Comment';
     protected $cancelRoute = 'poll_show';
     protected $successRoute = 'poll_show';

@@ -21,6 +21,7 @@
 
 namespace Abienvenu\KyelaBundle\EventListener;
 
+use Abienvenu\KyelaBundle\Controller\PollSetterController;
 use Symfony\Component\HttpKernel\Event\FilterControllerEvent;
 
 class PollUrlListener
@@ -32,7 +33,7 @@ class PollUrlListener
             return;
         }
 
-        if (method_exists($controller[0], "setPollFromRequest")) {
+        if ($controller[0] instanceof PollSetterController) {
             $controller[0]->setPollFromRequest($event->getRequest());
         }
     }

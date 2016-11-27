@@ -22,23 +22,19 @@
 namespace Abienvenu\KyelaBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Abienvenu\KyelaBundle\Entity\Event;
 use Abienvenu\KyelaBundle\Form\Type\EventType;
-use Abienvenu\KyelaBundle\Traits\CRUDTrait;
 
 /**
  * Event controller.
  *
  * @Route("/{pollUrl}/event")
  */
-class EventController extends Controller
+class EventController extends CRUDController
 {
-    use CRUDTrait;
-
     protected $entityName = 'KyelaBundle:Event';
     protected $cancelRoute = 'poll_show';
     protected $successRoute = 'poll_show';

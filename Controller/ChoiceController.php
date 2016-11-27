@@ -23,23 +23,19 @@ namespace Abienvenu\KyelaBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Abienvenu\KyelaBundle\Entity\Choice;
 use Abienvenu\KyelaBundle\Form\Type\ChoiceType;
-use Abienvenu\KyelaBundle\Traits\CRUDTrait;
 
 /**
  * Choice controller.
  *
  * @Route("/{pollUrl}/choice")
  */
-class ChoiceController extends Controller
+class ChoiceController extends CRUDController
 {
-    use CRUDTrait;
-
     protected $entityName = 'KyelaBundle:Choice';
     protected $cancelRoute = 'choice';
     protected $successRoute = 'choice';

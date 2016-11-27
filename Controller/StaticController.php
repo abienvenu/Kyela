@@ -21,7 +21,6 @@
 
 namespace Abienvenu\KyelaBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -29,17 +28,14 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Yaml\Yaml;
 use Abienvenu\KyelaBundle\Form\Type\ContactType;
-use Abienvenu\KyelaBundle\Traits\PollSetterTrait;
 
 /**
  * Static content controller.
  *
  * @Route("/")
  */
-class StaticController extends Controller
+class StaticController extends PollSetterController
 {
-    use PollSetterTrait;
-
     /**
      * Load additionnal translations
      *

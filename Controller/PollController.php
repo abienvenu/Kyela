@@ -22,7 +22,6 @@
 namespace Abienvenu\KyelaBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -33,17 +32,14 @@ use Abienvenu\KyelaBundle\Form\Type\PollType;
 use Abienvenu\KyelaBundle\Form\Type\NewPollType;
 use Abienvenu\KyelaBundle\Form\Type\LockPollType;
 use Abienvenu\KyelaBundle\Form\Type\ParticipantType;
-use Abienvenu\KyelaBundle\Traits\CRUDTrait;
 
 /**
  * Poll controller.
  *
  * @Route("/")
  */
-class PollController extends Controller
+class PollController extends CRUDController
 {
-    use CRUDTrait;
-
     protected $entityName = 'KyelaBundle:Poll';
     protected $cancelRoute = 'poll_show';
     protected $successRoute = 'poll_show';
@@ -61,7 +57,7 @@ class PollController extends Controller
     {
         $poll = new Poll();
 
-           // Setup default (and hidden) values
+	    // Setup default (and hidden) values
         $poll->setUrl(uniqid());
         $poll->setHeadLines('');
         $poll->setBottomLines('');
@@ -177,7 +173,7 @@ class PollController extends Controller
      * @Method({"GET", "PUT"})
      * @Template()
      */
-    public function editAction(Request $request)
+    public function editAction(Request $request, $pollUrl)
     {
         if ($this->poll->getAccessCode()) {
             return $this->redirect($this->generateUrl('poll_unlock', ['pollUrl' => $this->poll->getUrl()]));
@@ -199,7 +195,7 @@ class PollController extends Controller
      * @Route("/{pollUrl}/", name="poll_delete")
      * @Method("DELETE")
      */
-    public function deleteAction(Request $request)
+    public function deleteAction(Request $request, $pollUrl)
     {
         return $this->doDeleteAction($request, $this->poll->getId());
     }
