@@ -35,7 +35,7 @@ Server Installation
 
 If you want to install and run Kyela on your own server :
 
-* Install Symfony 2.5
+* Install Symfony 2.8
 * Download the bundle :
 ```bash
 $ php composer.phar require "abienvenu/kyela":"dev-master"
