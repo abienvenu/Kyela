@@ -34,20 +34,25 @@ Basic Usage
 Server Installation
 -------------------
 
-You have two options to run Kyélà on your own server: Docker (the easy one), and native (more experienced admins)
+You have two options to run Kyélà on your own server: Docker (the easy one), and native (for more experienced admins)
 
 ### Docker
 
-The simplest way to get your very own Kyélà instance running for production, on even just for a demo on your laptop, is to use the Docker image.
+The simplest way to get your very own Kyélà instance running for production, or even just for a demo on your laptop, is to use the Docker image.
 
 * Install docker
-* Run the application :
+* Download and run the application :
 ```bash
 $ docker run -d --name kyela -p 8042:80 abienvenu/kyela
 ```
 * Point your browser to http://localhost:8042/
 
-To update the code to the latest Symfony and Kyélà version, run :
+After a reboot or a docker stop, you may want to start the application again:
+```bash
+$ docker start kyela
+```
+
+To update the code to the latest Symfony and Kyélà version, run:
 ```bash
 $ docker exec kyela composer update
 ```
@@ -59,16 +64,19 @@ $ docker volume create --name kyela-data
 $ docker run -d --name kyela -p 8042:80 -v kyela-data:/var/www/kyela/data abienvenu/kyela
 ```
 The named volume can be easily backed up (cf. https://docs.docker.com/engine/tutorials/dockervolumes/#/backup-restore-or-migrate-data-volumes)
-This technique enables you to pull newer Docker images of the kyela application, remove the old container, and instanciate a new one on the same data volume.
+This technique enables you to pull newer Docker images of the kyela application, remove the old container, and instanciate a new one using the same data volume.
 
 ### Native
 
+You can install Kélà like in the good old days. This is quiet a longer way though...
+
 * Install Symfony 2.8
+* Install Composer
 * Download the bundle :
 ```bash
-$ php composer.phar require "abienvenu/kyela":"dev-master"
+$ composer require "abienvenu/kyela":"dev-master"
 ```
-* Add the bundle in your AppKernel.php :
+* Add the bundle and its depedencies in your AppKernel.php :
 ```php
 // app/AppKernel.php
 
@@ -76,6 +84,7 @@ public function registerBundles()
 {
     $bundles = array(
         // ...
+        new Symfony\Bundle\AsseticBundle\AsseticBundle(),
         new Abienvenu\KyelaBundle\KyelaBundle(),
     );
 }
@@ -120,7 +129,7 @@ Fixtures are available to automatically load examples (concert and picnic).
 
 * Install DoctrineFixturesBundle :
 ```bash
-$ php composer.phar require "doctrine/doctrine-fixtures-bundle": "2.2.*"
+$ composer require "doctrine/doctrine-fixtures-bundle": "2.2.*"
 ```
 * Register the bundle :
 ```php
@@ -148,6 +157,9 @@ For further customisation, you have to edit the templates or the code. Because o
 
 CHANGELOG
 ---------
+* v1.5.3 :
+  - Better documentation
+  - Docker compatibility
 * v1.5.0 :
   - Code refactoring: replaced traits by controller inheritance
 * v1.4.2 :
