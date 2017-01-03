@@ -24,8 +24,9 @@ Features
 Basic Usage
 -----------
 
-* Point your browser to a website hosting the Kyela application, like http://kyela.net
+* Point your browser to a website hosting the Kyélà application, like http://kyela.net
 * Create a new poll
+* Bookmark the URL of the poll
 * Add participants and events
 * Update availabilities
 * Enjoy!
@@ -33,7 +34,34 @@ Basic Usage
 Server Installation
 -------------------
 
-If you want to install and run Kyela on your own server :
+You have two options to run Kyélà on your own server: Docker (the easy one), and native (more experienced admins)
+
+### Docker
+
+The simplest way to get your very own Kyélà instance running for production, on even just for a demo on your laptop, is to use the Docker image.
+
+* Install docker
+* Run the application :
+```bash
+$ docker run -d --name kyela -p 8042:80 abienvenu/kyela
+```
+* Point your browser to http://localhost:8042/
+
+To update the code to the latest Symfony and Kyélà version, run :
+```bash
+$ docker exec kyela composer update
+```
+
+NOTE: In this case, all the data lives inside the container, including polls created by your users. If you remove the container, the data is DELETED.
+If you want to keep the user data safe, you should create a named volume, and run the Kyélà application with this volume:
+```bash
+$ docker volume create --name kyela-data
+$ docker run -d --name kyela -p 8042:80 -v kyela-data:/var/www/kyela/data abienvenu/kyela
+```
+The named volume can be easily backed up (cf. https://docs.docker.com/engine/tutorials/dockervolumes/#/backup-restore-or-migrate-data-volumes)
+This technique enables you to pull newer Docker images of the kyela application, remove the old container, and instanciate a new one on the same data volume.
+
+### Native
 
 * Install Symfony 2.8
 * Download the bundle :
