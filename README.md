@@ -28,7 +28,7 @@ Basic Usage
 * Create a new poll
 * Bookmark the URL of the poll
 * Add participants and events
-* Update availabilities
+* Share the URL of the poll with your friends
 * Enjoy!
 
 Server Installation
@@ -38,7 +38,11 @@ You have two options to run Kyélà on your own server: Docker (the easy one), a
 
 ### Docker
 
-The simplest way to get your very own Kyélà instance running for production, or even just for a demo on your laptop, is to use the Docker image.
+The simplest way to get your very own Kyélà instance is to use the Docker image.
+
+#### Simple container
+
+This is the very simplest way to have Kyélà running, suitable for test or demo purpose:
 
 * Install docker
 * Download and run the application :
@@ -57,14 +61,26 @@ To update the code to the latest Symfony and Kyélà version, run:
 $ docker exec kyela composer update
 ```
 
-NOTE: In this case, all the data lives inside the container, including polls created by your users. If you remove the container, the data is DELETED.
-If you want to keep the user data safe, you should create a named volume, and run the Kyélà application with this volume:
+NOTE: In this case, all the data lives inside the container, including polls created by your users.
+Good point: if you move the container somewhere else, the data goes with it.
+However, if you remove the container, the data is DELETED.
+
+#### Container with a named volume
+
+Using a named volume is more suitable for production use.
+
 ```bash
 $ docker volume create --name kyela-data
-$ docker run -d --name kyela -p 8042:80 -v kyela-data:/var/www/kyela/data abienvenu/kyela
+$ docker run -d --name kyela -p 8042:80 -v kyela-data:/var/www/kyela/data --restart always abienvenu/kyela
 ```
 The named volume can be easily backed up (cf. https://docs.docker.com/engine/tutorials/dockervolumes/#/backup-restore-or-migrate-data-volumes)
-This technique enables you to pull newer Docker images of the kyela application, remove the old container, and instanciate a new one using the same data volume.
+This technique enables you to pull newer Docker images of the kyela application, remove the old container, and instanciate a new one using the same data volume :
+```bash
+$ docker pull kyela
+$ docker stop kyela
+$ docker rm kyela
+$ docker run -d --name kyela -p 8042:80 -v kyela-data:/var/www/kyela/data --restart always abienvenu/kyela
+```
 
 ### Native
 
@@ -117,10 +133,6 @@ Install the assets :
 ```bash
 $ app/console assets:install --symlink
 ```
-Add some rewritule to your apache configuration :
-
-    RewriteEngine On
-    RewriteRule ^/kyela/web/app_dev.php/fonts/(.*) /kyela/web/bundles/kyela/fonts/$1 [L]
 
 Loading examples
 ----------------
@@ -157,7 +169,7 @@ For further customisation, you have to edit the templates or the code. Because o
 
 CHANGELOG
 ---------
-* v1.5.3 :
+* v1.5.4 :
   - Better documentation
   - Docker compatibility
 * v1.5.0 :
