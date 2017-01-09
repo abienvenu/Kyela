@@ -34,7 +34,10 @@ Basic Usage
 Server Installation
 -------------------
 
-You have two options to run Kyélà on your own server: Docker (the easy one), and native (for more experienced admins)
+Maybe you want your own private Kyélà server firewalled somewhere to protect your super-secret meetings.
+Or Maybe you want to run a customized, cooler version, for your private team of even for the public.
+Anyway, your are free to do it in the frame of the AGPL license,
+and you have two options: Docker (the easy one), or native (for more experienced admins).
 
 ### Docker
 
@@ -51,7 +54,7 @@ $ docker run -d --name kyela -p 8042:80 abienvenu/kyela
 ```
 * Point your browser to http://localhost:8042/
 
-After a reboot or a docker stop, you may want to start the application again:
+After a reboot, you may want to start the application again:
 ```bash
 $ docker start kyela
 ```
@@ -73,8 +76,9 @@ Using a named volume is more suitable for production use.
 $ docker volume create --name kyela-data
 $ docker run -d --name kyela -p 8042:80 -v kyela-data:/var/www/kyela/data --restart always abienvenu/kyela
 ```
-The named volume can be easily backed up (cf. https://docs.docker.com/engine/tutorials/dockervolumes/#/backup-restore-or-migrate-data-volumes)
-This technique enables you to pull newer Docker images of the kyela application, remove the old container, and instanciate a new one using the same data volume :
+
+The named volume can be easily backed up (cf. https://docs.docker.com/engine/tutorials/dockervolumes/#/backup-restore-or-migrate-data-volumes).
+This technique enables you to pull newer Docker images of the kyela application, remove the old container, and instanciate a new one using the same data volume:
 ```bash
 $ docker pull kyela
 $ docker stop kyela
@@ -165,10 +169,14 @@ Customisation
 
 To edit or extend the FAQ or About page, you just have to add entries in Resources/translations/faq.en.yml (or about.en.yml).
 
-For further customisation, you have to edit the templates or the code. Because of the licence (GNU Affero GPL-3.0), you must publish the modified code as soon as your project is online.
+For further customisation, you have to edit the templates or the code.
+Because of the licence (GNU Affero GPL-3.0), you must publish the modified code as soon as your project is publicly online.
+If you made cool features, feel free to send pull request to the project: https://github.com/abienvenu/Kyela
 
 CHANGELOG
 ---------
+* v1.5.5 :
+  - Added limit for "Archives" to avoid memory outages
 * v1.5.4 :
   - Better documentation
   - Docker compatibility
@@ -211,7 +219,6 @@ CHANGELOG
 TODO
 ----
 * Timezones ?
-* Try to host Kyela on Amazon EC2
 * Sort participants alphabetically ?
 * Make a knpbundles readme
 * Code improvements (see Scrutinizer)
@@ -219,7 +226,7 @@ TODO
 BUGS
 ----
 
-* No known yet
+* No known yet, file a github issue if you find one https://github.com/abienvenu/Kyela/issues
 
 FUTURE (MAY BE) FEATURES
 ------------------------
@@ -238,4 +245,3 @@ FUTURE (MAY BE) FEATURES
 
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/bca46a72-4438-47e7-b629-4b9926e802a6/big.png)](https://insight.sensiolabs.com/projects/bca46a72-4438-47e7-b629-4b9926e802a6)
 [![knpbundles.com](http://knpbundles.com/abienvenu/Kyela/badge)](http://knpbundles.com/abienvenu/Kyela)
-

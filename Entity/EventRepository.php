@@ -44,10 +44,12 @@ class EventRepository extends EntityRepository
             FROM KyelaBundle:Event event
             WHERE event.poll = :poll
                 AND (event.date $sign :date OR event.date IS NULL)
-            ORDER BY event.date, event.time"
+            ORDER BY event.date DESC, event.time DESC"
         );
         $query->setParameter('poll', $poll->getId());
         $query->setParameter('date', new \DateTime("today"));
-        return $query->getResult();
+        // We need to put a reasonable limit here, to avoir memory outage
+        $query->setMaxResults(30);
+        return array_reverse($query->getResult());
     }
 }
