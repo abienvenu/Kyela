@@ -61,6 +61,7 @@ $ docker start kyela
 
 To update the code to the latest Symfony and Kyélà version, run:
 ```bash
+$ docker commit kyela # in case the update goes wrong
 $ docker exec kyela composer update
 ```
 
@@ -175,6 +176,8 @@ If you made cool features, feel free to send pull request to the project: https:
 
 CHANGELOG
 ---------
+* v1.5.6 :
+  - Bugfix for date comparison with Sqlite
 * v1.5.5 :
   - Added limit for "Archives" to avoid memory outages
 * v1.5.4 :

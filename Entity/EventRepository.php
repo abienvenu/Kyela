@@ -38,7 +38,7 @@ class EventRepository extends EntityRepository
      */
     public function getFutureOrPastEvents(Poll $poll, $isFuture = true)
     {
-        $sign = $isFuture ? ">=" : "<";
+        $sign = $isFuture ? ">" : "<=";
         $query = $this->getEntityManager()->createQuery(
             "SELECT event
             FROM KyelaBundle:Event event
@@ -47,7 +47,7 @@ class EventRepository extends EntityRepository
             ORDER BY event.date DESC, event.time DESC"
         );
         $query->setParameter('poll', $poll->getId());
-        $query->setParameter('date', new \DateTime("today"));
+        $query->setParameter('date', new \DateTime("yesterday"));
         // We need to put a reasonable limit here, to avoir memory outage
         $query->setMaxResults(30);
         return array_reverse($query->getResult());
