@@ -101,7 +101,7 @@ class PollWebTestCase extends WebTestCase
      */
     public static function createPollEntry($title)
     {
-        $baseUrl = '/kyela/';
+        $baseUrl = '/';
         $crawler = self::$client->request('GET', $baseUrl);
         return self::submitForm($crawler, 'create', 'newpoll', ['title' => $title]);
     }

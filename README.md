@@ -81,7 +81,7 @@ $ docker run -d --name kyela -p 8042:80 -v kyela-data:/var/www/kyela/data --rest
 The named volume can be easily backed up (cf. https://docs.docker.com/engine/tutorials/dockervolumes/#/backup-restore-or-migrate-data-volumes).
 This technique enables you to pull newer Docker images of the kyela application, remove the old container, and instanciate a new one using the same data volume:
 ```bash
-$ docker pull kyela
+$ docker pull abienvenu/kyela
 $ docker stop kyela
 $ docker rm kyela
 $ docker run -d --name kyela -p 8042:80 -v kyela-data:/var/www/kyela/data --restart always abienvenu/kyela
