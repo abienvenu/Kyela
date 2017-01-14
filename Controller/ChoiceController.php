@@ -107,6 +107,7 @@ class ChoiceController extends CRUDController
         $order = $request->request->get('choice');
         foreach ($order as $priority => $choiceId)
         {
+            /** @var Choice $choice */
             $choice = $repository->find($choiceId);
             $choice->setPriority($priority);
         }

@@ -176,6 +176,8 @@ If you made cool features, feel free to send pull request to the project: https:
 
 CHANGELOG
 ---------
+* 1.5.8 :
+  - Embedded Dockerfile with the application source code
 * v1.5.6 :
   - Bugfix for date comparison with Sqlite
 * v1.5.5 :
