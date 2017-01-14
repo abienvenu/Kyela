@@ -25,6 +25,7 @@ use Abienvenu\KyelaBundle\Entity\Entity;
 use Abienvenu\KyelaBundle\Entity\Poll;
 use Abienvenu\KyelaBundle\Form\Type\FormActionsType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\FormTypeInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
@@ -103,7 +104,7 @@ abstract class CRUDController extends PollSetterController
 	/**
 	 * Create a form to edit an entity, and update it when the form is submited
 	 *
-	 * @param string $formType
+	 * @param FormTypeInterface $formType
 	 * @param int $id The entity id
 	 * @param Request $request
 	 */
@@ -179,7 +180,7 @@ abstract class CRUDController extends PollSetterController
 	/**
 	 * Creates a form to create an entity
 	 *
-	 * @param string $formType The form builder
+	 * @param FormTypeInterface $formType The form builder
 	 * @param Entity $entity The new entity
 	 * @param string $action The name of the route to the action
 	 *
@@ -208,7 +209,7 @@ abstract class CRUDController extends PollSetterController
 	/**
 	 * Creates a form to edit an entity
 	 *
-	 * @param string $formType The form builder
+	 * @param FormTypeInterface $formType The form builder
 	 * @param Entity $entity The entity to edit
 	 * @param string $action The name of the route to the action
 	 *

@@ -176,6 +176,9 @@ If you made cool features, feel free to send pull request to the project: https:
 
 CHANGELOG
 ---------
+* 1.5.10 :
+  - Fixed the Head lines and Bottom lines that would be reset to blank as soon as you edit a poll
+  - Unit tests are now in Dockerfile, so we should not have any more broken Docker images
 * 1.5.8 :
   - Embedded Dockerfile with the application source code
 * v1.5.6 :
