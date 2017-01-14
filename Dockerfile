@@ -30,13 +30,14 @@ RUN composer require symfony/assetic-bundle doctrine/doctrine-fixtures-bundle tw
 	&& composer remove incenteev/composer-parameter-handler \
 	&& rm -rf src/AppBundle
 
-# Deploy assets, create database and load example data
+# Deploy assets, create database, load example data and run tests
 RUN app/console assets:install \
 	&& app/console assetic:dump \
 	&& mkdir data \
 	&& app/console doctrine:schema:create \
 	&& app/console doctrine:fixtures:load --append \
 	&& chown -R www-data.www-data data \
+	&& phpunit -c app \
 	&& chown -R www-data.www-data app/cache \
 	&& chown -R www-data.www-data app/logs
 
