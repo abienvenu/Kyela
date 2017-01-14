@@ -8,7 +8,7 @@ run:
 	docker run -p 8042:80 -v kyela-data:/var/www/kyela/data -d --name kyela abienvenu/kyela
 
 run-dev:
-	docker run -p 8042:80 -v kyela-data:/var/www/kyela/data -v /var/www/kyela/src/Abienvenu/KyelaBundle:/var/www/kyela/vendor/abienvenu/kyela -d --name kyela abienvenu/kyela
+	docker run -p 8042:80 -v kyela-data:/var/www/kyela/data -v /var/www/kyela/src/Abienvenu/KyelaBundle:/var/www/kyela/src/Abienvenu/KyelaBundle -d --name kyela abienvenu/kyela
 
 test:
 	docker exec kyela phpunit -c app
