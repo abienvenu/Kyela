@@ -1,0 +1,21 @@
+diff -ur kyela.src/composer.json kyela.dst/composer.json
+--- kyela.src/composer.json	2017-01-11 13:15:23.292945489 +0100
++++ kyela.dst/composer.json	2017-01-11 13:12:56.441845835 +0100
+@@ -50,9 +50,14 @@
+         "symfony-app-dir": "app",
+         "symfony-web-dir": "web",
+         "symfony-assets-install": "relative",
+-        "incenteev-parameters": {
+-            "file": "app/config/parameters.yml"
+-        },
++        "incenteev-parameters": [
++            {
++                "file": "app/config/parameters.yml"
++            },
++            {
++                "file": "vendor/abienvenu/kyela/Resources/config/parameters.yml"
++            }
++        ],
+         "branch-alias": null
+     }
+ }

@@ -1,0 +1,21 @@
+diff -ur app.src/AppKernel.php app.dst/AppKernel.php
+--- app.src/AppKernel.php	2017-01-11 12:09:18.425177124 +0100
++++ app.dst/AppKernel.php	2017-01-11 12:08:38.433970988 +0100
+@@ -15,7 +15,8 @@
+             new Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
+             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
+             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
+-            new AppBundle\AppBundle(),
++            new Symfony\Bundle\AsseticBundle\AsseticBundle(),
++            new Abienvenu\KyelaBundle\KyelaBundle(),
+         );
+ 
+         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {
+@@ -23,6 +24,7 @@
+             $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
+             $bundles[] = new Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
+             $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();
++            $bundles[] = new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle();
+         }
+ 
+         return $bundles;

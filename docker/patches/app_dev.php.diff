@@ -1,0 +1,12 @@
+diff -ur web.src/app_dev.php web.dst/app_dev.php
+--- web.src/app_dev.php	2017-01-11 13:29:20.088459421 +0100
++++ web.dst/app_dev.php	2017-01-11 13:29:13.824534116 +0100
+@@ -12,7 +12,7 @@
+ // Feel free to remove this, extend it, or make something more sophisticated.
+ if (isset($_SERVER['HTTP_CLIENT_IP'])
+     || isset($_SERVER['HTTP_X_FORWARDED_FOR'])
+-    || !(in_array(@$_SERVER['REMOTE_ADDR'], array('127.0.0.1', '::1')) || php_sapi_name() === 'cli-server')
++    || !(in_array(@$_SERVER['REMOTE_ADDR'], array('127.0.0.1', '172.17.0.1', '::1')) || php_sapi_name() === 'cli-server')
+ ) {
+     header('HTTP/1.0 403 Forbidden');
+     exit('You are not allowed to access this file. Check '.basename(__FILE__).' for more information.');

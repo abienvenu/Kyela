@@ -1,0 +1,48 @@
+diff -ur config.src/config.yml config.dst/config.yml
+--- config.src/config.yml	2017-01-11 13:26:02.382767230 +0100
++++ config.dst/config.yml	2017-01-11 13:25:51.162894681 +0100
+@@ -2,11 +2,12 @@
+     - { resource: parameters.yml }
+     - { resource: security.yml }
+     - { resource: services.yml }
++    - { resource: "@KyelaBundle/Resources/config/config.yml" }
+ 
+ # Put parameters here that don't need to change on each machine where the app is deployed
+ # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
+ parameters:
+-    locale: en
++    locale: fr
+ 
+ framework:
+     #esi:             ~
+@@ -38,7 +39,7 @@
+ # Doctrine Configuration
+ doctrine:
+     dbal:
+-        driver:   pdo_mysql
++        driver:   pdo_sqlite
+         host:     "%database_host%"
+         port:     "%database_port%"
+         dbname:   "%database_name%"
+@@ -50,7 +51,7 @@
+         #     e.g. database_path: "%kernel.root_dir%/data/data.db3"
+         #   2. Uncomment database_path in parameters.yml.dist
+         #   3. Uncomment next line:
+-        #     path:     "%database_path%"
++        path:     "%database_path%"
+ 
+     orm:
+         auto_generate_proxy_classes: "%kernel.debug%"
+@@ -64,3 +65,12 @@
+     username:  "%mailer_user%"
+     password:  "%mailer_password%"
+     spool:     { type: memory }
++
++# Assetic Configuration
++assetic:
++    debug:          "%kernel.debug%"
++    use_controller: false
++    bundles:        [ KyelaBundle ]
++    filters:
++        cssrewrite: ~
++
