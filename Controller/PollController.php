@@ -34,6 +34,7 @@ use Abienvenu\KyelaBundle\Form\Type\PollType;
 use Abienvenu\KyelaBundle\Form\Type\NewPollType;
 use Abienvenu\KyelaBundle\Form\Type\LockPollType;
 use Abienvenu\KyelaBundle\Form\Type\ParticipantType;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 /**
  * Poll controller.
@@ -69,7 +70,7 @@ class PollController extends CRUDController
         $poll->addChoice((new Choice)->setName($t->trans('maybe'))->setValue(0)->setColor('orange')->setPriority(1)->setPoll($poll)->setIcon('time'));
         $poll->addChoice((new Choice)->setName($t->trans('no'))->setValue(0)->setColor('red')->setPriority(2)->setPoll($poll)->setIcon('remove'));
 
-        $baseUrl = $this->generateUrl('poll_show', ['pollUrl' => $poll->getUrl()], true);
+        $baseUrl = $this->generateUrl('poll_show', ['pollUrl' => $poll->getUrl()], UrlGeneratorInterface::ABSOLUTE_URL);
         $successMessage = $this->get('translator')->trans('poll.created %url%', ['%url%' => $baseUrl]);
 
         return $this->doNewAction(NewPollType::class, $poll, $request, $successMessage);
@@ -184,7 +185,7 @@ class PollController extends CRUDController
         $response = $this->doEditAction(PollType::class, $this->poll->getId(), $request);
         if ($request->isMethod('PUT') && $oldUrl != $this->poll->getUrl())
         {
-            $baseUrl = $this->generateUrl('poll_show', ['pollUrl' => $this->poll->getUrl()], true);
+            $baseUrl = $this->generateUrl('poll_show', ['pollUrl' => $this->poll->getUrl()], UrlGeneratorInterface::ABSOLUTE_URL);
             $flashMessage = $this->get('translator')->trans('poll.modified %url%', ['%url%' => $baseUrl]);
             $request->getSession()->getFlashBag()->add('success', $flashMessage);
         }
