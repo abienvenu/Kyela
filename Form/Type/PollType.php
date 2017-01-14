@@ -37,8 +37,8 @@ class PollType extends AbstractType
         $builder
             ->add('url')
             ->add('title', null, ['attr' => ['autofocus' => 'autofocus']])
-            ->add('headLines', TextareaType::class, ['data' => '', 'required' => false, 'attr' => ['rows' => 7, 'placeholder' => 'poll.headlines.placeholder']])
-            ->add('bottomLines', TextareaType::class, ['data' => '', 'required' => false, 'attr' => ['rows' => 7, 'placeholder' => 'poll.bottomlines.placeholder']])
+            ->add('headLines', TextareaType::class, ['required' => false, 'attr' => ['rows' => 7, 'placeholder' => 'poll.headlines.placeholder']])
+            ->add('bottomLines', TextareaType::class, ['required' => false, 'attr' => ['rows' => 7, 'placeholder' => 'poll.bottomlines.placeholder']])
         ;
     }
 
