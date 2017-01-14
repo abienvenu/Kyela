@@ -1,6 +1,6 @@
 <?php
-/**
- * Copyright 2014 Arnaud Bienvenu
+/*
+ * Copyright 2014-2017 Arnaud Bienvenu
  *
  * This file is part of Kyela.
 
@@ -28,7 +28,7 @@ use Symfony\Component\Translation\TranslatorInterface;
 
 class PollWebTestCase extends WebTestCase
 {
-	/** @var Client */
+    /** @var Client */
     protected static $client;
     /** @var TranslatorInterface */
     protected static $translator;
@@ -107,6 +107,10 @@ class PollWebTestCase extends WebTestCase
     {
         $route = self::$client->getContainer()->get('router')->generate('poll_new');
         $crawler = self::$client->request('GET', $route);
+        if (!$crawler)
+        {
+            throw new \Exception("Could not create crawler");
+        }
         return self::submitForm($crawler, 'create', 'newpoll', ['title' => $title]);
     }
 
