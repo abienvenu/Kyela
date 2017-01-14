@@ -21,12 +21,16 @@
 
 namespace Abienvenu\KyelaBundle\Tests\Controller;
 
+use Symfony\Bundle\FrameworkBundle\Client;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\DomCrawler\Crawler;
+use Symfony\Component\Translation\TranslatorInterface;
 
 class PollWebTestCase extends WebTestCase
 {
+	/** @var Client */
     protected static $client;
+    /** @var TranslatorInterface */
     protected static $translator;
 
     /**
@@ -101,8 +105,8 @@ class PollWebTestCase extends WebTestCase
      */
     public static function createPollEntry($title)
     {
-        $baseUrl = '/';
-        $crawler = self::$client->request('GET', $baseUrl);
+        $route = self::$client->getContainer()->get('router')->generate('poll_new');
+        $crawler = self::$client->request('GET', $route);
         return self::submitForm($crawler, 'create', 'newpoll', ['title' => $title]);
     }
 
