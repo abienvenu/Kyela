@@ -27,6 +27,7 @@ RUN composer require symfony/assetic-bundle doctrine/doctrine-fixtures-bundle tw
 	&& patch -p1 -i src/Abienvenu/KyelaBundle/docker/patches/app_dev.php.diff web/app_dev.php \
 	&& patch -p1 -i src/Abienvenu/KyelaBundle/docker/patches/composer.json.diff composer.json \
 	&& cp src/Abienvenu/KyelaBundle/docker/patches/routing.yml app/config/routing.yml \
+	&& cp src/Abienvenu/KyelaBundle/docker/patches/phpunit.xml app/ \
 	&& composer remove incenteev/composer-parameter-handler \
 	&& rm -rf src/AppBundle
 
