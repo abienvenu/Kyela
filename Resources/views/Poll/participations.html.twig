@@ -29,12 +29,13 @@
             </td>
             {% for event in events %}
                 {% set accessKey = event.id ~ '-' ~ participant.id %}
+                {% set participation = attribute(participations, accessKey) is defined ? attribute(participations, accessKey) : null %}
                 <td>
                     <div class="btn-group">
-                        <button type="button" class="btn btn-sm dropdown-toggle choice-{{ attribute(participations, accessKey) is defined ? attribute(participations, accessKey).choice.color : "none" }}" data-toggle="dropdown">
-                            {% if attribute(participations, accessKey) is defined %}
-                                <span class="glyphicon glyphicon-{{ attribute(participations, accessKey).choice.icon }}"></span>
-                                {{ attribute(participations, accessKey).choice.name }}
+                        <button type="button" class="btn btn-sm dropdown-toggle choice-{{ participation ? participation.choice.color : "none" }}" data-toggle="dropdown">
+                            {% if participation %}
+                                <span class="glyphicon glyphicon-{{ participation.choice.icon }}"></span>
+                                {{ participation.choice.name }}
                             {% else %}
                                 -
                             {% endif %}
@@ -44,21 +45,21 @@
                             {%  for choice in choices %}
                                 <li>
                                     {% set parameters = {'event': event.id, 'participant': participant.id, 'choice': choice.id} %}
-                                    {% if attribute(participations, accessKey) is defined %}
-                                        {% set postUrl = path('participation_edit', parameters|merge({'id': attribute(participations, accessKey).id})) %}
+                                    {% if participation %}
+                                        {% set participationUrl = path('participation_edit', parameters|merge({'id': participation.id})) %}
                                     {% else %}
-                                        {% set postUrl = path('participation_new', parameters) %}
+                                        {% set participationUrl = path('participation_new', parameters) %}
                                     {% endif %}
-                                    <button type="button" class="btn btn-sm choice-{{ choice.color }} participation" data-url="{{ postUrl }}">
+                                    <button type="button" class="btn btn-sm choice-{{ choice.color }} participation" data-url="{{ participationUrl }}">
                                         <span class="glyphicon glyphicon-{{ choice.icon }}"></span>
                                         {{ choice.name }}
                                     </button>
                                 </li>
                             {% endfor %}
-                            {% if attribute(participations, accessKey) is defined %}
+                            {% if participation %}
                             <li>
-                                {% set postUrl = path('participation_delete', {'id': attribute(participations, accessKey).id}) %}
-                                <button type="button" class="btn btn-sm participation" data-url="{{ postUrl }}">
+                                {% set participationUrl = path('participation_delete', {'id': participation.id}) %}
+                                <button type="button" class="btn btn-sm participation" data-url="{{ participationUrl }}">
                                     <span class="glyphicon glyphicon-trash"></span>
                                 </button>
                             </li>
