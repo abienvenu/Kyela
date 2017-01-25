@@ -49,18 +49,20 @@ class ParticipationController extends Controller
 
         // If participation exists, editAction should have been called, not newAction
         // But just in case, we look for an existing participation
-        $entity = $em->getRepository('KyelaBundle:Participation')->findOneBy(['participant' => $participant, 'event' => $event]);
-        if (!$entity)
+        $participationObj = $em->getRepository('KyelaBundle:Participation')->findOneBy(['participant' => $participant, 'event' => $event]);
+        if (!$participationObj)
         {
-            $entity = new Participation();
+            $participationObj = new Participation();
         }
-        $entity->setEvent($eventObj);
-        $entity->setParticipant($participantObj);
-        $entity->setChoice($choiceObj);
+        $participationObj->setEvent($eventObj);
+        $participationObj->setParticipant($participantObj);
+        $participationObj->setChoice($choiceObj);
 
-        $em->persist($entity);
+        $em->persist($participationObj);
         $em->flush();
-        return new JsonResponse();
+	    return $this->render(
+		    'KyelaBundle:Poll:_participation_cell.html.twig',
+		    ['participation' => $participationObj, 'choices' => $eventObj->getPoll()->getChoices(), 'event' => $eventObj, 'participant' => $participantObj]);
     }
 
     /**
@@ -72,20 +74,22 @@ class ParticipationController extends Controller
     public function editAction($id, $event, $participant, $choice)
     {
         $em = $this->getDoctrine()->getManager();
-        $entity = $em->getRepository('KyelaBundle:Participation')->find($id);
-        if (!$entity) {
+        $participationObj = $em->getRepository('KyelaBundle:Participation')->find($id);
+        if (!$participationObj) {
             throw $this->createNotFoundException('Unable to find Participation entity.');
         }
 
         $eventObj = $em->getRepository('KyelaBundle:Event')->find($event);
-        $entity->setEvent($eventObj);
+        $participationObj->setEvent($eventObj);
         $participantObj = $em->getRepository('KyelaBundle:Participant')->find($participant);
-        $entity->setParticipant($participantObj);
+        $participationObj->setParticipant($participantObj);
         $choiceObj = $em->getRepository('KyelaBundle:Choice')->find($choice);
-        $entity->setChoice($choiceObj);
-        $em->persist($entity);
+        $participationObj->setChoice($choiceObj);
+        $em->persist($participationObj);
         $em->flush();
-	    return new JsonResponse();
+	    return $this->render(
+	    	'KyelaBundle:Poll:_participation_cell.html.twig',
+		    ['participation' => $participationObj, 'choices' => $eventObj->getPoll()->getChoices(), 'event' => $eventObj, 'participant' => $participantObj]);
     }
 
     /**
@@ -97,12 +101,18 @@ class ParticipationController extends Controller
     public function deleteAction($id)
     {
         $em = $this->getDoctrine()->getManager();
-        $entity = $em->getRepository('KyelaBundle:Participation')->find($id);
-        if (!$entity) {
+        $participationObj = $em->getRepository('KyelaBundle:Participation')->find($id);
+        if (!$participationObj) {
             throw $this->createNotFoundException('Unable to find Participation entity.');
         }
-        $em->remove($entity);
+        $em->remove($participationObj);
         $em->flush();
-	    return new JsonResponse();
+	    return $this->render(
+		    'KyelaBundle:Poll:_participation_cell.html.twig',
+		    [
+		    	'participation' => null,
+		        'choices' => $participationObj->getEvent()->getPoll()->getChoices(),
+			    'event' => $participationObj->getEvent(),
+			    'participant' => $participationObj->getParticipant()]);
     }
 }
