@@ -1,0 +1,44 @@
+{% set accessKey = event.id ~ '-' ~ participant.id %}
+{% set participation = attribute(participations, accessKey) is defined ? attribute(participations, accessKey) : null %}
+<div class="btn-group">
+	<button type="button" class="btn btn-sm dropdown-toggle choice-{{ participation ? participation.choice.color : "none" }}" data-toggle="dropdown">
+		{% if participation %}
+			<span class="glyphicon glyphicon-{{ participation.choice.icon }}"></span>
+			{{ participation.choice.name }}
+		{% else %}
+			-
+		{% endif %}
+		<span class="caret"></span>
+	</button>
+	{% image '@KyelaBundle/Resources/public/images/ajax-loader.gif' %}
+	<img src="{{ asset_url }}" alt="Loader" class="ajaxloader" />
+	{% endimage %}
+	<ul class="dropdown-menu" role="menu">
+		{%  for choice in choices %}
+			<li>
+				{% set parameters = {'event': event.id, 'participant': participant.id, 'choice': choice.id} %}
+				{% if participation %}
+					{% set participationUrl = path('participation_edit', parameters|merge({'id': participation.id})) %}
+				{% else %}
+					{% set participationUrl = path('participation_new', parameters) %}
+				{% endif %}
+				<button type="button" class="btn btn-sm choice-{{ choice.color }} participation"
+				        data-url="{{ participationUrl }}"
+				        data-oldcolor="{{ participation ? participation.choice.color : "none" }}"
+				        data-newcolor="{{ choice.color }}">
+					<span class="glyphicon glyphicon-{{ choice.icon }}"></span>
+					{{ choice.name }}
+				</button>
+			</li>
+		{% endfor %}
+		<li {% if not participation %} style="display: none"{% endif %}>
+			{% set participationUrl = participation ? path('participation_delete', {'id': participation.id}) : null %}
+			<button type="button" class="btn btn-sm participation"
+			        data-url="{{ participationUrl }}"
+			        data-oldcolor="{{ participation ? participation.choice.color : "none" }}"
+			        data-newcolor="{{ "none" }}">
+				<span class="glyphicon glyphicon-trash"></span>
+			</button>
+		</li>
+	</ul>
+</div>

@@ -14,7 +14,15 @@ Kyela = {
 	onParticipationUpdateResponse: function(srcElt, dstElt)
 	{
 		dstElt.children("img.ajaxloader").hide();
-		dstElt.children("button").html(srcElt.html() + '<span class="caret"></span>');
+		if (srcElt.data("newcolor") == "none") {
+			dstElt.children("button").html(' - ');
+			dstElt.children("ul").children("li").last().hide();
+		}
+		else {
+			dstElt.children("button").html(srcElt.html());
+			dstElt.children("ul").children("li").last().show();
+		}
+		dstElt.children("button").append('<span class="caret"></span>');
 		dstElt.children("button").removeClass("choice-" + srcElt.data("oldcolor"));
 		dstElt.children("button").addClass("choice-" + srcElt.data("newcolor"));
 		dstElt.children("button").show();
