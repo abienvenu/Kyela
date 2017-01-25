@@ -25,6 +25,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Abienvenu\KyelaBundle\Entity\Participation;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 /**
  * Participation controller.
@@ -59,6 +60,7 @@ class ParticipationController extends Controller
 
         $em->persist($entity);
         $em->flush();
+        return new JsonResponse(['color' => $choiceObj->getColor()]);
     }
 
     /**
@@ -83,6 +85,7 @@ class ParticipationController extends Controller
         $entity->setChoice($choiceObj);
         $em->persist($entity);
         $em->flush();
+	    return new JsonResponse(['color' => $choiceObj->getColor()]);
     }
 
     /**
@@ -100,5 +103,6 @@ class ParticipationController extends Controller
         }
         $em->remove($entity);
         $em->flush();
+	    return new JsonResponse();
     }
 }

@@ -2,12 +2,16 @@ Kyela = {
 	init: function()
 	{
 		$("button.participation").click(function (event) {
-			$.get($(this).data("url"), null, Kyela.onParticipationUpdateResponse);
+			$(this).parent().parent().parent().children("button").hide();
+			$(this).parent().parent().parent().children("img.ajaxloader").show();
+			$.get($(this).data("url"), null, Kyela.onParticipationUpdateResponse($(this).parent().parent().parent()));
 		});
 	},
-	onParticipationUpdateResponse: function()
+	onParticipationUpdateResponse: function(elt)
 	{
-		console.log("Done.");
+		elt.children("img.ajaxloader").hide();
+		elt.children("button").show();
+		console.log("Done");
 	}
 }
 

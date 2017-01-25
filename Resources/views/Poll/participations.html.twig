@@ -41,6 +41,9 @@
                             {% endif %}
                             <span class="caret"></span>
                         </button>
+	                    {% image '@KyelaBundle/Resources/public/images/ajax-loader.gif' %}
+                            <img src="{{ asset_url }}" alt="Loader" class="ajaxloader" />
+	                    {% endimage %}
                         <ul class="dropdown-menu" role="menu">
                             {%  for choice in choices %}
                                 <li>

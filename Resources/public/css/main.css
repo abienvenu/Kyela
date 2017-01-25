@@ -6,6 +6,10 @@ button.participation {
 	margin: 2px;
 }
 
+img.ajaxloader {
+	display: none;
+}
+
 #wrap {
   min-height: 100%;
   height: auto;
