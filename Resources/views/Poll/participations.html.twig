@@ -29,6 +29,8 @@
             </td>
             {% for event in events %}
                 <td>
+	                {% set accessKey = event.id ~ '-' ~ participant.id %}
+	                {% set participation = attribute(participations, accessKey) is defined ? attribute(participations, accessKey) : null %}
                     {% include("KyelaBundle:Poll:_participation_cell.html.twig") %}
                 </td>
             {% endfor %}
