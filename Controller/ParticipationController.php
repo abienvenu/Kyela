@@ -60,7 +60,7 @@ class ParticipationController extends Controller
 
         $em->persist($entity);
         $em->flush();
-        return new JsonResponse(['color' => $choiceObj->getColor()]);
+        return new JsonResponse();
     }
 
     /**
@@ -85,7 +85,7 @@ class ParticipationController extends Controller
         $entity->setChoice($choiceObj);
         $em->persist($entity);
         $em->flush();
-	    return new JsonResponse(['color' => $choiceObj->getColor()]);
+	    return new JsonResponse();
     }
 
     /**

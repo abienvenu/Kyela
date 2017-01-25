@@ -53,7 +53,10 @@
                                     {% else %}
                                         {% set participationUrl = path('participation_new', parameters) %}
                                     {% endif %}
-                                    <button type="button" class="btn btn-sm choice-{{ choice.color }} participation" data-url="{{ participationUrl }}">
+                                    <button type="button" class="btn btn-sm choice-{{ choice.color }} participation"
+                                            data-url="{{ participationUrl }}"
+                                            data-oldcolor="{{ participation ? participation.choice.color : "none" }}"
+                                            data-newcolor="{{ choice.color }}">
                                         <span class="glyphicon glyphicon-{{ choice.icon }}"></span>
                                         {{ choice.name }}
                                     </button>

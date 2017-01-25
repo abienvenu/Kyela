@@ -2,17 +2,22 @@ Kyela = {
 	init: function()
 	{
 		$("button.participation").click(function (event) {
-			var elt = $(this).parent().parent().parent();
-			elt.children("button").hide();
-			elt.children("img.ajaxloader").show();
-			$.get($(this).data("url"), null, function(data) { Kyela.onParticipationUpdateResponse(data, elt) });
+			var srcElt = $(this);
+			var dstElt = $(this).parent().parent().parent();
+			dstElt.children("button").hide();
+			dstElt.children("img.ajaxloader").show();
+			$.get($(this).data("url"), null, function(data) {
+				Kyela.onParticipationUpdateResponse(srcElt, dstElt)
+			});
 		});
 	},
-	onParticipationUpdateResponse: function(data, elt)
+	onParticipationUpdateResponse: function(srcElt, dstElt)
 	{
-		elt.children("img.ajaxloader").hide();
-		elt.children("button").show();
-		console.log("Done, got:" + data.color);
+		dstElt.children("img.ajaxloader").hide();
+		dstElt.children("button").html(srcElt.html() + '<span class="caret"></span>');
+		dstElt.children("button").removeClass("choice-" + srcElt.data("oldcolor"));
+		dstElt.children("button").addClass("choice-" + srcElt.data("newcolor"));
+		dstElt.children("button").show();
 	}
 }
 
