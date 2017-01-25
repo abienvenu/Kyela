@@ -45,22 +45,22 @@
                                 <li>
                                     {% set parameters = {'pollUrl': poll.url, 'event': event.id, 'participant': participant.id, 'choice': choice.id} %}
                                     {% if attribute(participations, accessKey) is defined %}
-                                    <a href="{{ path('participation_edit', parameters|merge({'id': attribute(participations, accessKey).id})) }}">
+                                        {% set postUrl = path('participation_edit', parameters|merge({'id': attribute(participations, accessKey).id})) %}
                                     {% else %}
-                                    <a href="{{ path('participation_new', parameters) }}">
+                                        {% set postUrl = path('participation_new', parameters) %}
                                     {% endif %}
-                                        <button type="button" class="btn btn-sm choice-{{ choice.color }}">
-                                            <span class="glyphicon glyphicon-{{ choice.icon }}"></span>
-                                            {{ choice.name }}
-                                        </button>
-                                    </a>
+                                    <button type="button" class="btn btn-sm choice-{{ choice.color }} participation" data-url="{{ postUrl }}">
+                                        <span class="glyphicon glyphicon-{{ choice.icon }}"></span>
+                                        {{ choice.name }}
+                                    </button>
                                 </li>
                             {% endfor %}
                             {% if attribute(participations, accessKey) is defined %}
                             <li>
-                                <a href="{{ path('participation_delete', {'pollUrl': poll.url, 'id': attribute(participations, accessKey).id}) }}">
+                                {% set postUrl = path('participation_delete', {'pollUrl': poll.url, 'id': attribute(participations, accessKey).id}) %}
+                                <button type="button" class="btn btn-sm participation" data-url="{{ postUrl }}">
                                     <span class="glyphicon glyphicon-trash"></span>
-                                </a>
+                                </button>
                             </li>
                             {% endif %}
                         </ul>
