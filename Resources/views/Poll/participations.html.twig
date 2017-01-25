@@ -43,7 +43,7 @@
                         <ul class="dropdown-menu" role="menu">
                             {%  for choice in choices %}
                                 <li>
-                                    {% set parameters = {'pollUrl': poll.url, 'event': event.id, 'participant': participant.id, 'choice': choice.id} %}
+                                    {% set parameters = {'event': event.id, 'participant': participant.id, 'choice': choice.id} %}
                                     {% if attribute(participations, accessKey) is defined %}
                                         {% set postUrl = path('participation_edit', parameters|merge({'id': attribute(participations, accessKey).id})) %}
                                     {% else %}
@@ -57,7 +57,7 @@
                             {% endfor %}
                             {% if attribute(participations, accessKey) is defined %}
                             <li>
-                                {% set postUrl = path('participation_delete', {'pollUrl': poll.url, 'id': attribute(participations, accessKey).id}) %}
+                                {% set postUrl = path('participation_delete', {'id': attribute(participations, accessKey).id}) %}
                                 <button type="button" class="btn btn-sm participation" data-url="{{ postUrl }}">
                                     <span class="glyphicon glyphicon-trash"></span>
                                 </button>
