@@ -1,4 +1,3 @@
-diff -ur config.src/parameters.yml config.dst/parameters.yml
 --- config.src/parameters.yml	2017-01-11 13:20:59.154026631 +0100
 +++ config.dst/parameters.yml	2017-01-11 13:19:24.522942165 +0100
 @@ -2,11 +2,12 @@
