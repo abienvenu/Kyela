@@ -18,6 +18,7 @@ Kyela = {
 		participationCell.html(data);
 		var score = participationCell.find("div").data("score");
 		participationCell.closest("tbody").next("tfoot").find("th").eq(participationCell.index()).html(score);
+		$("div.list-group").find("span.badge").eq(participationCell.index()-1).html(score);
 		participationCell.find("button.participation").click(Kyela.onParticipationClick);
 	}
 }
