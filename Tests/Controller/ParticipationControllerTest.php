@@ -46,22 +46,22 @@ class ParticipationControllerTest extends PollWebTestCase
         self::checkElement($crawler, $filter, 1);
 
         // Choose "yes"
-	    $button = $crawler->selectButton(self::$translator->trans('yes'));
-	    $url = $button->extract(['data-url'])[0];
-	    self::$client->request('GET', $url);
-	    self::$client->back();
-	    $crawler = self::$client->reload();
+        $button = $crawler->selectButton(self::$translator->trans('yes'));
+        $url = $button->extract(['data-url'])[0];
+        self::$client->request('GET', $url);
+        self::$client->back();
+        $crawler = self::$client->reload();
 
         // Check "yes is selected
         $filter = 'button:contains("' . self::$translator->trans('yes') . '")';
         self::checkElement($crawler, $filter, 2);
 
         // Choose "no"
-	    $button = $crawler->selectButton(self::$translator->trans('no'));
-	    $url = $button->extract(['data-url'])[0];
-	    self::$client->request('GET', $url);
-	    self::$client->back();
-	    $crawler = self::$client->reload();
+        $button = $crawler->selectButton(self::$translator->trans('no'));
+        $url = $button->extract(['data-url'])[0];
+        self::$client->request('GET', $url);
+        self::$client->back();
+        $crawler = self::$client->reload();
 
         // Check "yes" is not selected anymore
         $filter = 'button:contains("' . self::$translator->trans('yes') . '")';

@@ -59,9 +59,9 @@ class ParticipationController extends Controller
 
         $em->persist($participation);
         $em->flush();
-	    return $this->render(
-		    'KyelaBundle:Poll:_participation_cell.html.twig',
-		    ['participation' => $participation, 'choices' => $event->getPoll()->getChoices(), 'event' => $event, 'participant' => $participant]);
+        return $this->render(
+            'KyelaBundle:Poll:_participation_cell.html.twig',
+            ['participation' => $participation, 'choices' => $event->getPoll()->getChoices(), 'event' => $event, 'participant' => $participant]);
     }
 
     /**
@@ -76,15 +76,15 @@ class ParticipationController extends Controller
 
         $participation->setChoice($newChoice);
         $em->flush();
-	    return $this->render(
-	    	'KyelaBundle:Poll:_participation_cell.html.twig',
-		    [
-			    'participation' => $participation,
-			    'choices' => $newChoice->getPoll()->getChoices(),
-			    'event' => $participation->getEvent(),
-			    'participant' => $participation->getParticipant()
-	        ]
-	    );
+        return $this->render(
+            'KyelaBundle:Poll:_participation_cell.html.twig',
+            [
+                'participation' => $participation,
+                'choices' => $newChoice->getPoll()->getChoices(),
+                'event' => $participation->getEvent(),
+                'participant' => $participation->getParticipant()
+            ]
+        );
     }
 
     /**
@@ -98,14 +98,14 @@ class ParticipationController extends Controller
         $em = $this->getDoctrine()->getManager();
         $em->remove($participation);
         $em->flush();
-	    return $this->render(
-		    'KyelaBundle:Poll:_participation_cell.html.twig',
-		    [
-		    	'participation' => null,
-		        'choices' => $participation->getEvent()->getPoll()->getChoices(),
-			    'event' => $participation->getEvent(),
-			    'participant' => $participation->getParticipant()
-		    ]
-	    );
+        return $this->render(
+            'KyelaBundle:Poll:_participation_cell.html.twig',
+            [
+                'participation' => null,
+                'choices' => $participation->getEvent()->getPoll()->getChoices(),
+                'event' => $participation->getEvent(),
+                'participant' => $participation->getParticipant()
+            ]
+        );
     }
 }

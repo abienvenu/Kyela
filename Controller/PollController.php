@@ -60,7 +60,7 @@ class PollController extends CRUDController
     {
         $poll = new Poll();
 
-	    // Setup default (and hidden) values
+        // Setup default (and hidden) values
         $poll->setUrl(uniqid());
         $poll->setHeadLines('');
         $poll->setBottomLines('');
