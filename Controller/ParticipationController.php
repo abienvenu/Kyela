@@ -21,6 +21,9 @@
 
 namespace Abienvenu\KyelaBundle\Controller;
 
+use Abienvenu\KyelaBundle\Entity\Choice;
+use Abienvenu\KyelaBundle\Entity\Event;
+use Abienvenu\KyelaBundle\Entity\Participant;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -39,29 +42,26 @@ class ParticipationController extends Controller
      * @Route("/new/{event}/{participant}/{choice}", name="participation_new")
      * @Method("GET")
      */
-    public function newAction($event, $participant, $choice)
+    public function newAction(Event $event, Participant $participant, Choice $choice)
     {
         $em = $this->getDoctrine()->getManager();
-        $eventObj = $em->getRepository('KyelaBundle:Event')->find($event);
-        $participantObj = $em->getRepository('KyelaBundle:Participant')->find($participant);
-        $choiceObj = $em->getRepository('KyelaBundle:Choice')->find($choice);
 
         // If participation exists, editAction should have been called, not newAction
         // But just in case, we look for an existing participation
-        $participationObj = $em->getRepository('KyelaBundle:Participation')->findOneBy(['participant' => $participant, 'event' => $event]);
-        if (!$participationObj)
+        $participation = $em->getRepository('KyelaBundle:Participation')->findOneBy(['participant' => $participant->getId(), 'event' => $event->getId()]);
+        if (!$participation)
         {
-            $participationObj = new Participation();
+            $participation = new Participation();
         }
-        $participationObj->setEvent($eventObj);
-        $participationObj->setParticipant($participantObj);
-        $participationObj->setChoice($choiceObj);
+        $participation->setEvent($event);
+        $participation->setParticipant($participant);
+        $participation->setChoice($choice);
 
-        $em->persist($participationObj);
+        $em->persist($participation);
         $em->flush();
 	    return $this->render(
 		    'KyelaBundle:Poll:_participation_cell.html.twig',
-		    ['participation' => $participationObj, 'choices' => $eventObj->getPoll()->getChoices(), 'event' => $eventObj, 'participant' => $participantObj]);
+		    ['participation' => $participation, 'choices' => $event->getPoll()->getChoices(), 'event' => $event, 'participant' => $participant]);
     }
 
     /**
