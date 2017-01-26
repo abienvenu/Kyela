@@ -21,7 +21,7 @@ WORKDIR "/var/www/kyela"
 COPY . src/Abienvenu/KyelaBundle
 RUN composer require symfony/assetic-bundle doctrine/doctrine-fixtures-bundle twig/extensions \
 	&& cp src/Abienvenu/KyelaBundle/Resources/config/parameters.yml.dist src/Abienvenu/KyelaBundle/Resources/config/parameters.yml \
-	&& patch -p1 -i src/Abienvenu/KyelaBundle/docker/patches/config.yml.diff app/config/config.yml \
+	&& cp src/Abienvenu/KyelaBundle/docker/patches/config.yml app/config/config.yml \
 	&& patch -p1 -i src/Abienvenu/KyelaBundle/docker/patches/parameters.yml.diff app/config/parameters.yml \
 	&& patch -p1 -i src/Abienvenu/KyelaBundle/docker/patches/AppKernel.php.diff app/AppKernel.php \
 	&& patch -p1 -i src/Abienvenu/KyelaBundle/docker/patches/app_dev.php.diff web/app_dev.php \
