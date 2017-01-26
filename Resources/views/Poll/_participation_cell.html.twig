@@ -1,4 +1,4 @@
-<div class="btn-group">
+<div class="btn-group" data-score="{{ event.participationsScore }}">
 	<button type="button" class="btn btn-sm dropdown-toggle choice-{{ participation ? participation.choice.color : "none" }}" data-toggle="dropdown">
 		{% if participation %}
 			<span class="glyphicon glyphicon-{{ participation.choice.icon }}"></span>
@@ -14,11 +14,16 @@
 	<ul class="dropdown-menu" role="menu">
 		{%  for choice in choices %}
 			<li>
-				{% set parameters = {'event': event.id, 'participant': participant.id, 'choice': choice.id} %}
 				{% if participation %}
-					{% set participationUrl = path('participation_edit', parameters|merge({'id': participation.id})) %}
+					{% set participationUrl = path(
+						'participation_edit',
+						{'participation': participation.id, 'newChoice': choice.id})
+					%}
 				{% else %}
-					{% set participationUrl = path('participation_new', parameters) %}
+					{% set participationUrl = path(
+						'participation_new',
+						{'event': event.id, 'participant': participant.id, 'choice': choice.id}
+					) %}
 				{% endif %}
 				<button type="button" class="btn btn-sm choice-{{ choice.color }} participation" data-url="{{ participationUrl }}">
 					<span class="glyphicon glyphicon-{{ choice.icon }}"></span>
@@ -27,7 +32,7 @@
 			</li>
 		{% endfor %}
 		<li {% if not participation %} style="display: none"{% endif %}>
-			{% set participationUrl = participation ? path('participation_delete', {'id': participation.id}) : null %}
+			{% set participationUrl = participation ? path('participation_delete', {'participation': participation.id}) : null %}
 			<button type="button" class="btn btn-sm participation" data-url="{{ participationUrl }}">
 				<span class="glyphicon glyphicon-trash"></span>
 			</button>

@@ -67,51 +67,45 @@ class ParticipationController extends Controller
     /**
      * Edits a Participation on the fly
      *
-     * @Route("/{id}/edit/{event}/{participant}/{choice}", name="participation_edit")
+     * @Route("/edit/{participation}/{newChoice}", name="participation_edit")
      * @Method("GET")
      */
-    public function editAction($id, $event, $participant, $choice)
+    public function editAction(Participation $participation, Choice $newChoice)
     {
         $em = $this->getDoctrine()->getManager();
-        $participationObj = $em->getRepository('KyelaBundle:Participation')->find($id);
-        if (!$participationObj) {
-            throw $this->createNotFoundException('Unable to find Participation entity.');
-        }
 
-        $eventObj = $em->getRepository('KyelaBundle:Event')->find($event);
-        $participationObj->setEvent($eventObj);
-        $participantObj = $em->getRepository('KyelaBundle:Participant')->find($participant);
-        $participationObj->setParticipant($participantObj);
-        $choiceObj = $em->getRepository('KyelaBundle:Choice')->find($choice);
-        $participationObj->setChoice($choiceObj);
-        $em->persist($participationObj);
+        $participation->setChoice($newChoice);
         $em->flush();
 	    return $this->render(
 	    	'KyelaBundle:Poll:_participation_cell.html.twig',
-		    ['participation' => $participationObj, 'choices' => $eventObj->getPoll()->getChoices(), 'event' => $eventObj, 'participant' => $participantObj]);
+		    [
+			    'participation' => $participation,
+			    'choices' => $newChoice->getPoll()->getChoices(),
+			    'event' => $participation->getEvent(),
+			    'participant' => $participation->getParticipant()
+	        ]
+	    );
     }
 
     /**
      * Removes a Participation on the fly
      *
-     * @Route("/{id}/delete", name="participation_delete")
+     * @Route("/delete/{participation}", name="participation_delete")
      * @Method("GET")
      */
-    public function deleteAction($id)
+    public function deleteAction(Participation $participation)
     {
         $em = $this->getDoctrine()->getManager();
-        $participationObj = $em->getRepository('KyelaBundle:Participation')->find($id);
-        if (!$participationObj) {
-            throw $this->createNotFoundException('Unable to find Participation entity.');
-        }
-        $em->remove($participationObj);
+        $em->remove($participation);
         $em->flush();
 	    return $this->render(
 		    'KyelaBundle:Poll:_participation_cell.html.twig',
 		    [
 		    	'participation' => null,
-		        'choices' => $participationObj->getEvent()->getPoll()->getChoices(),
-			    'event' => $participationObj->getEvent(),
-			    'participant' => $participationObj->getParticipant()]);
+		        'choices' => $participation->getEvent()->getPoll()->getChoices(),
+			    'event' => $participation->getEvent(),
+			    'participant' => $participation->getParticipant()
+		    ]
+	    );
     }
 }
