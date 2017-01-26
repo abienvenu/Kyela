@@ -35,7 +35,7 @@ class EventControllerTest extends PollWebTestCase
         $name = uniqid('Test Event ');
         $crawler = self::clickLink($crawler, 'add.a.date');
         $crawler = self::submitForm($crawler, 'create', 'event',
-            ['name' => $name, 'place' => 'Nowhere', 'date' => '04-09-2034', 'time' => '20:30']);
+            ['name' => $name, 'place' => 'Nowhere', 'date' => date('d-m-Y', strtotime("tomorrow")), 'time' => '20:30']);
 
         // Check data in the show view
         $filter = 'div.list-group-item:contains("' . $name . '")';

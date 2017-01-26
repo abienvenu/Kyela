@@ -39,7 +39,7 @@ class ParticipationControllerTest extends PollWebTestCase
         $event = uniqid('Test Event ');
         $crawler = self::clickLink($crawler, 'add.a.date');
         $crawler = self::submitForm($crawler, 'create', 'event',
-            ['name' => $event, 'place' => 'Nowhere', 'date' => '04-09-2034', 'time' => '20:30']);
+            ['name' => $event, 'place' => 'Nowhere', 'date' => date('d-m-Y', strtotime("tomorrow")), 'time' => '20:30']);
 
         // Check "yes" is not selected
         $filter = 'button:contains("' . self::$translator->trans('yes') . '")';

@@ -176,6 +176,8 @@ If you made cool features, feel free to send pull request to the project: https:
 
 CHANGELOG
 ---------
+* 1.6.0 :
+  - Participations are now set using AJAX, without reloading the whole poll page
 * 1.5.10 :
   - Fixed the Head lines and Bottom lines that would be reset to blank as soon as you edit a poll
   - Unit tests are now in Dockerfile, so we should not have any more broken Docker images
