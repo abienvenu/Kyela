@@ -20,10 +20,7 @@
 				{% else %}
 					{% set participationUrl = path('participation_new', parameters) %}
 				{% endif %}
-				<button type="button" class="btn btn-sm choice-{{ choice.color }} participation"
-				        data-url="{{ participationUrl }}"
-				        data-oldcolor="{{ participation ? participation.choice.color : "none" }}"
-				        data-newcolor="{{ choice.color }}">
+				<button type="button" class="btn btn-sm choice-{{ choice.color }} participation" data-url="{{ participationUrl }}">
 					<span class="glyphicon glyphicon-{{ choice.icon }}"></span>
 					{{ choice.name }}
 				</button>
@@ -31,10 +28,7 @@
 		{% endfor %}
 		<li {% if not participation %} style="display: none"{% endif %}>
 			{% set participationUrl = participation ? path('participation_delete', {'id': participation.id}) : null %}
-			<button type="button" class="btn btn-sm participation"
-			        data-url="{{ participationUrl }}"
-			        data-oldcolor="{{ participation ? participation.choice.color : "none" }}"
-			        data-newcolor="{{ "none" }}">
+			<button type="button" class="btn btn-sm participation" data-url="{{ participationUrl }}">
 				<span class="glyphicon glyphicon-trash"></span>
 			</button>
 		</li>
