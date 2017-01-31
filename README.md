@@ -89,7 +89,7 @@ $ docker run -d --name kyela -p 8042:80 -v kyela-data:/var/www/kyela/data --rest
 
 ### Native
 
-You can install Kélà like in the good old days. This is quiet a longer way though...
+You can install Kyélà like in the good old days. This is quiet a longer way though...
 
 * Install Symfony 2.8
 * Install Composer

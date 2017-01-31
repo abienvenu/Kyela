@@ -30,6 +30,8 @@ framework:
         handler_id:  ~
     fragments:       ~
     http_method_override: true
+    assets:
+        version: 1.6.0
 
 # Twig Configuration
 twig:
