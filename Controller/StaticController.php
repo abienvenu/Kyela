@@ -124,7 +124,7 @@ class StaticController extends PollSetterController
                 $message = \Swift_Message::newInstance()
                     ->setSubject($form->get('subject')->getData())
                     ->setFrom($form->get('email')->getData())
-                    ->setTo($this->container->getParameter('kyela_contact_email'))
+                    ->setTo($this->container->hasParameter('contact.email') ? $this->container->getParameter('contact.email') : 'nobody@mailinator.com')
                     ->setBody(
                         $this->renderView(
                             'KyelaBundle:Mail:contact.html.twig',

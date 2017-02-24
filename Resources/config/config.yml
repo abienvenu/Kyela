@@ -1,5 +1,4 @@
 imports:
-    - { resource: "parameters.yml" }
     - { resource: "services.yml" }
 
 framework:
@@ -9,3 +8,5 @@ twig:
     form:
         resources:
             - 'KyelaBundle:Form:fields.html.twig'
+    globals:
+        app_version: '%app_version%'
