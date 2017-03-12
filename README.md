@@ -255,7 +255,6 @@ FUTURE (MAY BE) FEATURES
 * Aggregate/Anonymous mode, for events with lots of participants: the grid only displays total numbers, you can add yourself, then you get a personal link to modify/delete your participation
 * Integration with personal agendas (Google, Yahoo...)
 * Make a logo, a decent favicon
-* AJAX calls to avoid page reload when updating participation
 * Integrate to Travis-CI
 
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/bca46a72-4438-47e7-b629-4b9926e802a6/big.png)](https://insight.sensiolabs.com/projects/bca46a72-4438-47e7-b629-4b9926e802a6)
