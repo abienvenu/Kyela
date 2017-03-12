@@ -37,6 +37,8 @@
 
         {% stylesheets
             'components/jquery-ui/themes/ui-lightness/jquery-ui.min.css'
+            'components/bootstrap/css/bootstrap.min.css'
+            'components/bootstrap/css/bootstrap-theme.min.css'
             'bundles/kyela/css/*'
             filter='cssrewrite' %}
             <link rel="stylesheet" href="{{ asset_url }}" />
@@ -51,6 +53,7 @@
         {% javascripts
             'components/jquery/jquery.min.js'
             'components/jquery-ui/jquery-ui.min.js'
+            'components/bootstrap/js/bootstrap.min.js'
             '@KyelaBundle/Resources/public/js/*' %}
             <script type="text/javascript" src="{{ asset_url }}"></script>
         {% endjavascripts %}

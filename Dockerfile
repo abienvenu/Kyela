@@ -20,7 +20,8 @@ WORKDIR "/var/www/kyela"
 # Install Kyélà
 COPY . src/Abienvenu/KyelaBundle
 RUN patch -p1 -i src/Abienvenu/KyelaBundle/docker/patches/composer.json.diff composer.json \
-	&& composer require symfony/assetic-bundle doctrine/doctrine-fixtures-bundle twig/extensions components/jquery components/jqueryui robloach/component-installer \
+	&& composer require symfony/assetic-bundle doctrine/doctrine-fixtures-bundle twig/extensions robloach/component-installer \
+		"components/jquery ^3.1" "components/jqueryui ^1.12" "components/bootstrap ^3.3" \
 	&& cp src/Abienvenu/KyelaBundle/docker/patches/config.yml app/config/config.yml \
 	&& cp src/Abienvenu/KyelaBundle/docker/patches/parameters.yml app/config/parameters.yml \
 	&& patch -p1 -i src/Abienvenu/KyelaBundle/docker/patches/AppKernel.php.diff app/AppKernel.php \
