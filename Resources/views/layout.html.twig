@@ -35,8 +35,10 @@
             <meta name="robots" content="noindex, nofollow">
         {% endblock %}
 
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
-        {% stylesheets 'bundles/kyela/css/*' filter='cssrewrite' %}
+        {% stylesheets
+            'components/jquery-ui/themes/ui-lightness/jquery-ui.min.css'
+            'bundles/kyela/css/*'
+            filter='cssrewrite' %}
             <link rel="stylesheet" href="{{ asset_url }}" />
         {% endstylesheets %}
         <style>
@@ -45,9 +47,11 @@
                 padding-bottom: 20px;
             }
         </style>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-        {% javascripts '@KyelaBundle/Resources/public/js/*' %}
+
+        {% javascripts
+            'components/jquery/jquery.min.js'
+            'components/jquery-ui/jquery-ui.min.js'
+            '@KyelaBundle/Resources/public/js/*' %}
             <script type="text/javascript" src="{{ asset_url }}"></script>
         {% endjavascripts %}
     </head>
