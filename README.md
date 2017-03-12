@@ -72,7 +72,7 @@ However, if you remove the container, the data is DELETED.
 #### Container with a named volume
 
 Using a named volume is more suitable for production use.
-You should also set the SYMFONY__CONTACT__EMAIL environment variable, so your instance users can contact you through the contact form.
+You should also set the CONTACT_EMAIL environment variable, so your instance users can contact you through the contact form.
 
 ```bash
 $ docker volume create --name kyela-data
