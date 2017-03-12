@@ -11,4 +11,4 @@ parameters:
     mailer_password: null
     secret: ea1a820d86d611769f193ffc2bea917ea2396043
     locale: fr
-    app_version: 1.6.1
+    app_version: 1.6.2
