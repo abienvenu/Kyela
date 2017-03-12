@@ -21,7 +21,7 @@ Kyela = {
 		$("div.list-group").find("span.badge").eq(participationCell.index()-1).html(score);
 		participationCell.find("button.participation").click(Kyela.onParticipationClick);
 	}
-}
+};
 
 $(document).ready(function () {
 	Kyela.init();

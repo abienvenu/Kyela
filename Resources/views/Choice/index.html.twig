@@ -80,14 +80,14 @@
             // C'est le code vraiment utile, en fait
             update: function(event, ui){
               // Construit un tableau des ids des stories
-              serial = $(this).sortable('serialize');
+              var serial = $(this).sortable('serialize');
 
               // Appelle une action en ajax
               $.post('{{ path('choice_order', {'pollUrl': poll.url})|e('js') }}', serial,
                 function(response) {
                   if (response.code != 100) {
                       alert('Failed to save order')
-                  };
+                  }
                 }
               );
             }

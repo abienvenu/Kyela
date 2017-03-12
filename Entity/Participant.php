@@ -59,6 +59,9 @@ class Participant extends Entity
         $this->participations = new ArrayCollection();
     }
 
+	/**
+	 * @return string
+	 */
     public function __toString()
     {
         return $this->name;
