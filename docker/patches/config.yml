@@ -28,7 +28,7 @@ framework:
     fragments:       ~
     http_method_override: true
     assets:
-        version: '%app_version%'
+        version: '%kyela_version%'
 
 # Twig Configuration
 twig:

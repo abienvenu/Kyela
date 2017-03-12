@@ -96,11 +96,11 @@ You can install Kyélà like in the good old days. This is quiet a longer way th
 * Install Composer
 * In your Symfony folder, edit composer.json and add in the "config" section:
 ```
-"component-dir": "web/components"
+        "component-dir": "web/components"
 ```
 * Download and install the Kyélà bundle :
 ```bash
-$ composer require "abienvenu/kyela":"dev-master"
+$ composer require "abienvenu/kyela dev-master"
 ```
 * Add the bundle and its depedencies in your AppKernel.php :
 ```php
@@ -130,18 +130,12 @@ kyela:
 ```YAML
 assetic:
     bundles:        [ 'KyelaBundle' ]
+    filters:
+        cssrewrite: ~
 ```
-* In the Resources/config of the KyelaBundle directory, copy parameters.yml.dist to parameters.yml, and customize it
 * Dump the assets :
 ```bash
 $ app/console assetic:dump
-```
-* Install fonts :
-
-Bootstrap glyphicons needs fonts, which cannot be handled properly by assetic.
-Install the assets :
-```bash
-$ app/console assets:install --symlink
 ```
 
 Loading examples
@@ -151,7 +145,7 @@ Fixtures are available to automatically load examples (concert and picnic).
 
 * Install DoctrineFixturesBundle :
 ```bash
-$ composer require "doctrine/doctrine-fixtures-bundle": "2.2.*"
+$ composer require "doctrine/doctrine-fixtures-bundle ^2.2"
 ```
 * Register the bundle :
 ```php
@@ -167,6 +161,7 @@ public function registerBundles()
 ```
 * Load the fixtures :
 ```bash
+$ php app/console doctrine:schema:create
 $ php app/console doctrine:fixtures:load --append
 ```
 
@@ -181,6 +176,8 @@ If you made cool features, feel free to send pull request to the project: https:
 
 CHANGELOG
 ---------
+* 1.6.2 :
+  - Bootstrap and Jquery are no longer included in the source code, but fetched via composer
 * 1.6.1 :
   - The email contact is now configurable via an environment variable
   - Fix for empty event names
