@@ -5,7 +5,7 @@ kyela.or.kyela:
     q: Shall we write "Kyela" or "Kyélà" ?
     a: The official name is "Kyela" (without any accent) to improve accessibility. In many countries, French accents are not easy to type on a keyboard. But the accents are a nice decoration, that you can add here or there to give some "French touch".
 difference.kyela.net:
-    q: What différence betwwen Kyélà and kyela.net ?
+    q: What différence between Kyélà and kyela.net ?
     a: Kyélà is a software application that anobody can install on their own server. Kyela.net is an instance of this application, accessible for anybody through a web browser.
 is.it.free:
     q: Is kyela.net free ?
