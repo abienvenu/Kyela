@@ -94,7 +94,7 @@ You can install Kyélà like in the good old days. This is quiet a longer way th
 
 * Install Symfony 2.8
 * Install Composer
-* In your Symfony folder, edit composer.json and add in the "config" section:
+* In the folder where you installed Symfony, edit composer.json and add in the "config" section:
 ```
         "component-dir": "web/components"
 ```
