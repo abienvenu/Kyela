@@ -121,7 +121,7 @@ kyela:
     resource: "@KyelaBundle/Resources/config/routing.yml"
     prefix: /kyela
 ```
-* Include the config from your app/config.config.yml :
+* Include the config from your app/config/config.yml :
 ```YAML
     imports:
 	- { resource: "@KyelaBundle/Resources/config/config.yml" }
