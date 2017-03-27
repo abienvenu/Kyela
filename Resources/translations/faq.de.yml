@@ -1,0 +1,29 @@
+what.is.kyela:
+    q: Was ist Kyela?
+    a: Es ist eine Web Applikation um Treffen zwischen Menschen und Umfragen mit Auswahl-Optionen zu erleichtern.
+doodle.difference:
+    q: Was unterscheidet Kyélà von Doodle (tm)?
+    a: Die Auswahl in Kyélà ist vollständig anpassbar (Text, Farbe unfd Sybole). Es ist komplett gratis (Kein "Premium"). Es ist anonym. Es gibt keine Abos. Keine Werbung. Zudem ist es  Open-Source. So kann jeder Kyélà auf seinem eigene Server installieren.
+    q: Welche möglichen Auswahloptionen gibt es für die Teilnehmer?
+    a: Drei sind vordefiniert (Ja/Vielleicht/Nein). Aber man kann diese verändern und durch Klick auf "Auswahl bearbeiten" erweitern.
+recurrent.events:
+    q: Wie handhabt man mehrere oder wiederkehrende Events?
+    a: Dafür reicht eine einzige Umfrage. Trägt man alle verfügbaren Daten ein, werden abgelaufene Daten automatisch in der laufenden Umfrage ausgeblendet, und sind danach im Archiv einsehbar. Es ist einfacher und eleganter nur eine Umfrage zu managen und sie über Jahre hinweg zu verwenden.
+short.url:
+    q: Der Link meiner Umfrag ist zu lang. Kann ich einen bekommen der einfacher zu merken ist?
+    a: Ja. Bearbeite einfach deine Umfrage und ändere den Link. Gib acht, dass der Link nicht zu einfach ist, damit uneingeladene Gäste nicht an deiner Umfrage teilnehmen können. 
+how.secure:
+    q: Wie ist meine Umfrage geschützt? 
+    a: Nur Leute die den Link haben, können an deiner Umfrage teilnehmen. Es gibt kein Inhaltsverzeichnis und keine Suchfunktion. Schicke den Link nur an die Leute, die Du einladen möchtest.
+what.permissions:
+    q: Wie funktionieren die Zugriffsberechtigungen?
+    a: Es gibt keine. Jeder darf alles in der Umfrage machen. Das macht Umfragen deutlich einfacher für alle.
+about.vandalism:
+    q: Kann jemand meine Umfrage verwüsten?
+    a: Leute die an deinem Meeting oder Event interesse haben und sich beteilgen möchten, werden das nicht tun. Falls nicht, findet ihr warscheinlich nicht zusammen.
+registration:
+    q: Muss ich einen Account anlegen oder mich registrieren?
+    a: Nein, das ist nicht notwendig.
+examples:
+    q: Für welche Gelegenheiten ist Kyela nützlich?
+    a: Bei gemeinsamen Essen, zur Zusammenarbeit, für Theaterproben, im Sportverein,... Für jede Gelegenheit, bei der man ein gemeinsames Datum finden möchte, dass für die meisten Menschen passt. Genauso wenn man in einer Umfrage Optionen abwägt, oder über einen Vorschlag abstimmen möchte.
