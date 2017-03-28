@@ -177,6 +177,8 @@ If you made cool features, feel free to send pull request to the project: https:
 
 CHANGELOG
 ---------
+* 1.6.3 :
+  - Added German translation (thanks to NoodleBB)
 * 1.6.2 :
   - Bootstrap and Jquery are no longer included in the source code, but fetched via composer
 * 1.6.1 :
