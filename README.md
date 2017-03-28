@@ -121,6 +121,7 @@ kyela:
     resource: "@KyelaBundle/Resources/config/routing.yml"
     prefix: /kyela
 ```
+* Configure your database parameters in app/config/parameters.yml
 * Include the config from your app/config/config.yml :
 ```YAML
     imports:
