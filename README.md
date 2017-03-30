@@ -94,7 +94,7 @@ You can install Kyélà like in the good old days. This is quiet a longer way th
 
 * Install Symfony 2.8
 * Install Composer
-* In your Symfony folder, edit composer.json and add in the "config" section:
+* In the folder where you installed Symfony, edit composer.json and add in the "config" section:
 ```
         "component-dir": "web/components"
 ```
@@ -121,7 +121,8 @@ kyela:
     resource: "@KyelaBundle/Resources/config/routing.yml"
     prefix: /kyela
 ```
-* Include the config from your app/config.config.yml :
+* Configure your database parameters in app/config/parameters.yml
+* Include the config from your app/config/config.yml :
 ```YAML
     imports:
 	- { resource: "@KyelaBundle/Resources/config/config.yml" }
@@ -176,6 +177,8 @@ If you made cool features, feel free to send pull request to the project: https:
 
 CHANGELOG
 ---------
+* 1.6.3 :
+  - Added German translation (thanks to NoodleBB)
 * 1.6.2 :
   - Bootstrap and Jquery are no longer included in the source code, but fetched via composer
 * 1.6.1 :
