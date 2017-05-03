@@ -125,7 +125,7 @@ kyela:
 * Include the config from your app/config/config.yml :
 ```YAML
     imports:
-	- { resource: "@KyelaBundle/Resources/config/config.yml" }
+        - { resource: "@KyelaBundle/Resources/config/config.yml" }
 ```
 * Add Kyela to the bundles handled by assetic in app/config/config.yml :
 ```YAML
