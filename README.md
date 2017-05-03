@@ -139,10 +139,10 @@ assetic:
 $ app/console assetic:dump
 ```
 
-Loading examples
-----------------
+#### Loading examples
 
 Fixtures are available to automatically load examples (concert and picnic).
+They are pre-loaded in the Docker image, but if you made a native install, you need to load them manually:
 
 * Install DoctrineFixturesBundle :
 ```bash
@@ -173,7 +173,7 @@ To edit or extend the FAQ or About page, you just have to add entries in Resourc
 
 For further customisation, you have to edit the templates or the code.
 Because of the licence (GNU Affero GPL-3.0), you must publish the modified code as soon as your project is publicly online.
-If you made cool features, feel free to send pull request to the project: https://github.com/abienvenu/Kyela
+See below how to develop and contribute to the Kyélà project.
 
 Developing
 ----------
@@ -183,7 +183,7 @@ You need not install anything but Docker, and mount the code into a running cont
 
 * Download the code at https://github.com/abienvenu/Kyela/archive/master.zip
 * Unzip it
-* Launch the kyela docker image, with the code mounted:
+* Launch the kyela docker image, mounting the directory of the unzipped code:
 ```bash
 $ docker run -p 8042:80 -v /where/you/unzipped/the/code/Kyela-master:/var/www/kyela/src/Abienvenu/KyelaBundle -d --name kyela-dev abienvenu/kyela
 ```
@@ -196,11 +196,10 @@ Here is how to get a copy of it:
 $ docker cp kyela-dev:/var/www/kyela/vendor Kyela-master/vendor
 ```
 
-
 Contributing
 ------------
 
-Did you make useful features for Kyélà ? Please share with us! All you need is Github account. Then:
+Please share with us any cool feature or improvement you made! All you need is Github account. Then:
 
 * Fork the Kyélà project https://github.com/abienvenu/kyela (see https://help.github.com/articles/fork-a-repo/)
 * Clone your fork of the Kyélà project: ```git clone https://github.com/YOUR-USERNAME/Kyela```
