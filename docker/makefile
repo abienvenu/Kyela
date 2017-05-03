@@ -11,7 +11,10 @@ run:
 	docker run -p 8042:80 -v kyela-data:/var/www/kyela/data -d --name kyela -e CONTACT_EMAIL=nobody@mailinator.com abienvenu/kyela
 
 run-dev:
-	docker run -p 8042:80 -v kyela-data:/var/www/kyela/data -v /var/www/kyela/src/Abienvenu/KyelaBundle:/var/www/kyela/src/Abienvenu/KyelaBundle -d --name kyela abienvenu/kyela
+	docker run -p 8042:80 -v kyela-data:/var/www/kyela/data -v $(shell pwd)/..:/var/www/kyela/src/Abienvenu/KyelaBundle -d --name kyela abienvenu/kyela
+
+get-vendor:
+	docker cp kyela:/var/www/kyela/vendor ../vendor
 
 test:
 	docker exec kyela phpunit -c app

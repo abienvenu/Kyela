@@ -175,8 +175,51 @@ For further customisation, you have to edit the templates or the code.
 Because of the licence (GNU Affero GPL-3.0), you must publish the modified code as soon as your project is publicly online.
 If you made cool features, feel free to send pull request to the project: https://github.com/abienvenu/Kyela
 
+Developing
+----------
+
+Would you like to tweak Kyélà, trying your very own features ?
+You need not install anything but Docker, and mount the code into a running container. Here is how:
+
+* Download the code at https://github.com/abienvenu/Kyela/archive/master.zip
+* Unzip it
+* Launch the kyela docker image, with the code mounted:
+```bash
+$ docker run -p 8042:80 -v /where/you/unzipped/the/code/Kyela-master:/var/www/kyela/src/Abienvenu/KyelaBundle -d --name kyela-dev abienvenu/kyela
+```
+* Point your web browser to http://localhost:8042/app_dev.php
+* Use your favorite editor to modify the files into the Kyela-master directory, and see the results in your browser
+
+If you use an advanced PHP editor like PHPStorm, you may want to give it access to the vendor directory so it can parse the librairies.
+Here is how to get a copy of it:
+```bash
+$ docker cp kyela-dev:/var/www/kyela/vendor Kyela-master/vendor
+```
+
+
+Contributing
+------------
+
+Did you make useful features for Kyélà ? Please share with us! All you need is Github account. Then:
+
+* Fork the Kyélà project https://github.com/abienvenu/kyela (see https://help.github.com/articles/fork-a-repo/)
+* Clone your fork of the Kyélà project: ```git clone https://github.com/YOUR-USERNAME/Kyela```
+* Like in the previous "Developing" section, launch the kyela docker image, with the code mounted:
+```bash
+$ docker run -p 8042:80 -v /where/you/cloned/the/code/Kyela:/var/www/kyela/src/Abienvenu/KyelaBundle -d --name kyela-git abienvenu/kyela
+```
+* Point your web browser to http://localhost:8042/app_dev.php
+* Use your favorite editor to modify the code
+* Test your code: ```docker exec kyela-git phpunit -c app```
+* Make a pull request: https://help.github.com/articles/creating-a-pull-request/
+
+Your contribution will be reviewed, and probably merged into the main project.
+
 CHANGELOG
 ---------
+* 1.6.4 :
+  - Added documentation about developing and contributing
+  - ...
 * 1.6.3 :
   - Added German translation (thanks to NoodleBB)
 * 1.6.2 :
