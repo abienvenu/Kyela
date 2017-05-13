@@ -1,3 +1,5 @@
+# These are a few helpers to help run and develop Kyélà
+
 build:
 	docker build -t abienvenu/kyela ..
 
