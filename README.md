@@ -1,6 +1,6 @@
 Kyela
 =====
-[![Docker image](https://images.microbadger.com/badges/image/abienvenu/kyela.svg)](https://microbadger.com/images/abienvenu/kyela "Get your own image badge on microbadger.com")
+[![Docker image](https://images.microbadger.com/badges/image/abienvenu/kyela.svg)](https://microbadger.com/images/abienvenu/kyela "Docker")
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/abienvenu/Kyela/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/abienvenu/Kyela/?branch=master)
 [![Build Status](https://scrutinizer-ci.com/g/abienvenu/Kyela/badges/build.png?b=master)](https://scrutinizer-ci.com/g/abienvenu/Kyela/build-status/master)
 [![Code Climate](https://codeclimate.com/github/abienvenu/Kyela/badges/gpa.svg)](https://codeclimate.com/github/abienvenu/Kyela)
