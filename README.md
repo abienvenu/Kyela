@@ -219,7 +219,7 @@ CHANGELOG
 ---------
 * 1.6.4 :
   - Added documentation about developing and contributing
-  - ...
+  - Fix for favicon.ico
 * 1.6.3 :
   - Added German translation (thanks to NoodleBB)
 * 1.6.2 :
