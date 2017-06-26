@@ -23,6 +23,51 @@ Kyela = {
 	}
 };
 
+// Thanks to http://www.miximum.fr/creer-une-liste-triable-avec-symfony-et-jquery-ui.html
+$(function() {
+    $("table tbody.sortable").sortable({
+        // limitons les déplacements sur l'axe des ordonnées, ce sera plus propre
+        axis: 'y',
+
+        // Il faut cliquer sur cet élément pour pouvoir initier le drag'n'drop
+        handle: 'td',
+
+        // Créons un joli trou stylé lors des déplacements
+        placeholder: 'ui-state-highlight',
+        forcePlaceholderSize: true,
+
+        // Cette fonction permet à notre ligne de conserver son formatage lors du déplacement
+        // Pas vraiment utile, mais plus agréable à l'œil
+        helper: function(e, tr)
+        {
+          var $originals = tr.children();
+          var $helper = tr.clone();
+          $helper.children().each(function(index)
+          {
+            // Set helper cell sizes to match the original sizes
+            $(this).width($originals.eq(index).width())
+          });
+          return $helper;
+        },
+
+        // La fonction appelée quand un élément change de position
+        // C'est le code vraiment utile, en fait
+        update: function(event, ui){
+          // Construit un tableau des ids des stories
+          var serial = $(this).sortable('serialize');
+
+          // Appelle une action en ajax
+          $.post($(this).data("sort-url"), serial,
+            function(response) {
+              if (response.code != 100) {
+                  alert('Failed to save order')
+              }
+            }
+          );
+        }
+    });
+});
+
 $(document).ready(function () {
 	Kyela.init();
 });

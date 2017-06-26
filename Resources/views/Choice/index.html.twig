@@ -18,7 +18,7 @@
                 <th>{% trans %}action{% endtrans %}</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody class="sortable" data-sort-url="{{ path('choice_order', {'pollUrl': poll.url}) }}">
         {% for choice in choices %}
             <tr id="choice_{{ choice.id }}">
                 <td><span class="glyphicon glyphicon-move pull-left"></span>{{ choice.name }}</td>
@@ -47,52 +47,5 @@
         {% trans %}back{% endtrans %}
     </a>
 </p>
-
-<script>
-    // Thanks to http://www.miximum.fr/creer-une-liste-triable-avec-symfony-et-jquery-ui.html
-    $(function() {
-        $("table tbody").sortable({
-            // limitons les déplacements sur l'axe des ordonnées, ce sera plus propre
-            axis: 'y',
-
-            // Il faut cliquer sur cet élément pour pouvoir initier le drag'n'drop
-            handle: 'td',
-
-            // Créons un joli trou stylé lors des déplacements
-            placeholder: 'ui-state-highlight',
-            forcePlaceholderSize: true,
-
-            // Cette fonction permet à notre ligne de conserver son formatage lors du déplacement
-            // Pas vraiment utile, mais plus agréable à l'œil
-            helper: function(e, tr)
-            {
-              var $originals = tr.children();
-              var $helper = tr.clone();
-              $helper.children().each(function(index)
-              {
-                // Set helper cell sizes to match the original sizes
-                $(this).width($originals.eq(index).width())
-              });
-              return $helper;
-            },
-
-            // La fonction appelée quand un élément change de position
-            // C'est le code vraiment utile, en fait
-            update: function(event, ui){
-              // Construit un tableau des ids des stories
-              var serial = $(this).sortable('serialize');
-
-              // Appelle une action en ajax
-              $.post('{{ path('choice_order', {'pollUrl': poll.url})|e('js') }}', serial,
-                function(response) {
-                  if (response.code != 100) {
-                      alert('Failed to save order')
-                  }
-                }
-              );
-            }
-        });
-    });
-</script>
 
 {% endblock %}
