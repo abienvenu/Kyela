@@ -21,6 +21,7 @@
 
 namespace Abienvenu\KyelaBundle\Controller;
 
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -74,5 +75,29 @@ class ParticipantController extends CRUDController
     public function deleteAction(Request $request, $id)
     {
         return $this->doDeleteAction($request, $id);
+    }
+
+    /**
+     * Reorder participant
+     *
+     * @Route("/order", name="participant_order")
+     * @Method("POST")
+     */
+    public function orderAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $repository = $em->getRepository("KyelaBundle:Participant");
+        $order = $request->request->get('participant');
+        foreach ($order as $priority => $participantId)
+        {
+            /** @var Participant $choice */
+            $participant = $repository->find($participantId);
+            $participant->setPriority($priority);
+        }
+        $em->flush();
+
+        $response = new JsonResponse();
+        $response->setData(array("code" => 100, "success" => true));
+        return $response;
     }
 }

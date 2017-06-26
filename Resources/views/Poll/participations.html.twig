@@ -18,9 +18,9 @@
             {% endfor %}
         </tr>
     </thead>
-    <tbody>
+    <tbody class="sortable" data-sort-url="{{ path('participant_order', {'pollUrl': poll.url}) }}">
         {% for participant in poll.participants %}
-        <tr>
+        <tr id="participant_{{ participant.id }}">
             <td data-cell-key="{{ participant.id }}">
                 <a class="btn btn-sm btn-info" role="button" href="{{ path('participant_edit', {'pollUrl': poll.url, 'id': participant.id}) }}">
                     <span class="glyphicon glyphicon-user"></span>
