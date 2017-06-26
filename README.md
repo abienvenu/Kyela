@@ -217,6 +217,8 @@ Your contribution will be reviewed, and probably merged into the main project.
 
 CHANGELOG
 ---------
+* 1.6.5 :
+  - Added the ability to sort participants via drag'n drop
 * 1.6.4 :
   - Added documentation about developing and contributing
   - Fix for favicon.ico
