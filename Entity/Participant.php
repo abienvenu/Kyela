@@ -45,6 +45,14 @@ class Participant extends Entity
     private $name;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="priority", type="integer")
+     */
+    private $priority = 0;
+
+
+    /**
      * @ORM\OneToMany(targetEntity="Participation", mappedBy="participant", cascade={"remove"})
      */
     private $participations;
@@ -59,9 +67,9 @@ class Participant extends Entity
         $this->participations = new ArrayCollection();
     }
 
-	/**
-	 * @return string
-	 */
+    /**
+     * @return string
+     */
     public function __toString()
     {
         return $this->name;
@@ -98,6 +106,22 @@ class Participant extends Entity
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPriority()
+    {
+        return $this->priority;
+    }
+
+    /**
+     * @param mixed $priority
+     */
+    public function setPriority($priority)
+    {
+        $this->priority = $priority;
     }
 
     /**
