@@ -21,7 +21,7 @@
         <tbody class="sortable" data-sort-url="{{ path('choice_order', {'pollUrl': poll.url}) }}">
         {% for choice in choices %}
             <tr id="choice_{{ choice.id }}">
-                <td><span class="glyphicon glyphicon-move pull-left"></span>{{ choice.name }}</td>
+                <td class="handle"><span class="glyphicon glyphicon-sort pull-left"></span>{{ choice.name }}</td>
                 <td>{{ choice.value }}</td>
                 <td><button type="button" class="btn choice-{{ choice.color }}">{{ choice.color|trans }}</button></td>
                 <td><span class="glyphicon glyphicon-{{ choice.icon }}"></span></td>

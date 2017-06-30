@@ -30,7 +30,7 @@ $(function() {
         axis: 'y',
 
         // Il faut cliquer sur cet élément pour pouvoir initier le drag'n'drop
-        handle: 'a.participant',
+        handle: '.handle',
 
         // Créons un joli trou stylé lors des déplacements
         placeholder: 'ui-state-highlight',
