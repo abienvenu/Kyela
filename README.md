@@ -217,6 +217,9 @@ Your contribution will be reviewed, and probably merged into the main project.
 
 CHANGELOG
 ---------
+* 1.6.7 :
+  - Fix for sortability that would prevent mobiles from scrolling the participant list
+  - Now you have to click on the participant name to move it up or down
 * 1.6.5 :
   - Added the ability to sort participants via drag'n drop
 * 1.6.4 :

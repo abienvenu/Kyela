@@ -22,7 +22,7 @@
         {% for participant in poll.participants %}
         <tr id="participant_{{ participant.id }}">
             <td data-cell-key="{{ participant.id }}">
-                <a class="btn btn-sm btn-info" role="button" href="{{ path('participant_edit', {'pollUrl': poll.url, 'id': participant.id}) }}">
+                <a class="btn btn-sm btn-info participant" role="button" href="{{ path('participant_edit', {'pollUrl': poll.url, 'id': participant.id}) }}">
                     <span class="glyphicon glyphicon-user"></span>
                     {{ participant.name }}
                 </a>
