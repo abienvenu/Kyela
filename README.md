@@ -26,10 +26,10 @@ Basic Usage
 -----------
 
 * Point your browser to a website hosting the Kyélà application, like http://kyela.net
-* Create a new poll
+* Pick a name and click "Create" to create a new poll
 * Bookmark the URL of the poll
 * Add participants and events
-* Share the URL of the poll with your friends
+* Share the URL of the poll with your friends via email or chat
 * Enjoy!
 
 Server Installation
@@ -37,14 +37,9 @@ Server Installation
 
 Maybe you want your own private Kyélà server firewalled somewhere to protect your super-secret meetings.
 Or Maybe you want to run a customized, cooler version, for your private team of even for the public.
-Anyway, your are free to do it in the frame of the AGPL license,
-and you have two options: Docker (the easy one), or native (for more experienced admins).
+Anyway, your are free to do it in the frame of the AGPL license.
 
-### Docker
-
-The simplest way to get your very own Kyélà instance is to use the Docker image.
-
-#### Simple container
+#### Simple Docker container
 
 This is the very simplest way to have Kyélà running, suitable for test or demo purpose:
 
@@ -70,7 +65,7 @@ NOTE: In this case, all the data lives inside the container, including polls cre
 Good point: if you move the container somewhere else, the data goes with it.
 However, if you remove the container, the data is DELETED.
 
-#### Container with a named volume
+#### Docker container with a named volume
 
 Using a named volume is more suitable for production use.
 You should also set the CONTACT_EMAIL environment variable, so your instance users can contact you through the contact form.
@@ -91,81 +86,7 @@ $ docker run -d --name kyela -p 8042:80 -v kyela-data:/var/www/kyela/data -e CON
 
 ### Native
 
-You can install Kyélà like in the good old days. This is quiet a longer way though...
-
-* Install Symfony 2.8
-* Install Composer
-* In the folder where you installed Symfony, edit composer.json and add in the "config" section:
-```
-        "component-dir": "web/components"
-```
-* Download and install the Kyélà bundle :
-```bash
-$ composer require "abienvenu/kyela dev-master"
-```
-* Add the bundle and its depedencies in your AppKernel.php :
-```php
-// app/AppKernel.php
-
-public function registerBundles()
-{
-    $bundles = array(
-        // ...
-        new Symfony\Bundle\AsseticBundle\AsseticBundle(),
-        new Abienvenu\KyelaBundle\KyelaBundle(),
-    );
-}
-```
-* Include the route from your app/config/routing.yml :
-```YAML
-kyela:
-    resource: "@KyelaBundle/Resources/config/routing.yml"
-    prefix: /kyela
-```
-* Configure your database parameters in app/config/parameters.yml
-* Include the config from your app/config/config.yml :
-```YAML
-    imports:
-        - { resource: "@KyelaBundle/Resources/config/config.yml" }
-```
-* Add Kyela to the bundles handled by assetic in app/config/config.yml :
-```YAML
-assetic:
-    bundles:        [ 'KyelaBundle' ]
-    filters:
-        cssrewrite: ~
-```
-* Dump the assets :
-```bash
-$ app/console assetic:dump
-```
-
-#### Loading examples
-
-Fixtures are available to automatically load examples (concert and picnic).
-They are pre-loaded in the Docker image, but if you made a native install, you need to load them manually:
-
-* Install DoctrineFixturesBundle :
-```bash
-$ composer require "doctrine/doctrine-fixtures-bundle ^2.2"
-```
-* Register the bundle :
-```php
-// app/AppKernel.php
-
-public function registerBundles()
-{
-    $bundles = array(
-        // ...
-        new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
-    );
-}
-```
-* Load the fixtures :
-```bash
-$ php app/console doctrine:schema:create
-$ php app/console doctrine:fixtures:load --append
-```
+Native installation is deprecated, but you can still [try it here](NATIVE_INSTALL.md).
 
 Customisation
 -------------
@@ -290,11 +211,6 @@ TODO
 * Make a knpbundles readme
 * Code improvements (see Scrutinizer)
 
-BUGS
-----
-
-* No known yet, file a github issue if you find one https://github.com/abienvenu/Kyela/issues
-
 FUTURE (MAY BE) FEATURES
 ------------------------
 
@@ -307,7 +223,6 @@ FUTURE (MAY BE) FEATURES
 * Aggregate/Anonymous mode, for events with lots of participants: the grid only displays total numbers, you can add yourself, then you get a personal link to modify/delete your participation
 * Integration with personal agendas (Google, Yahoo...)
 * Make a logo, a decent favicon
-* Integrate to Travis-CI
 
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/bca46a72-4438-47e7-b629-4b9926e802a6/big.png)](https://insight.sensiolabs.com/projects/bca46a72-4438-47e7-b629-4b9926e802a6)
 [![knpbundles.com](http://knpbundles.com/abienvenu/Kyela/badge)](http://knpbundles.com/abienvenu/Kyela)
