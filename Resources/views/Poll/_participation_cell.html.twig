@@ -12,8 +12,8 @@
 	<img src="{{ asset_url }}" alt="Loader" class="ajaxloader" />
 	{% endimage %}
 	<ul class="dropdown-menu" role="menu">
-		{%  for choice in choices %}
-			<li>
+		{% for choice in choices %}
+			<li class="text-center">
 				{% if participation %}
 					{% set participationUrl = path(
 						'participation_edit',
@@ -31,7 +31,7 @@
 				</button>
 			</li>
 		{% endfor %}
-		<li {% if not participation %} style="display: none"{% endif %}>
+		<li {% if not participation %} style="display: none"{% endif %} class="text-center">
 			{% set participationUrl = participation ? path('participation_delete', {'participation': participation.id}) : null %}
 			<button type="button" class="btn btn-sm participation" data-url="{{ participationUrl }}">
 				<span class="glyphicon glyphicon-trash"></span>
