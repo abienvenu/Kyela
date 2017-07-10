@@ -57,6 +57,8 @@ table.table-condensed>tbody>tr>td { padding: 2px; }
   color:red;
 }
 
+#participation_confirmation { text-align: center; }
+
 .choice-green { background: #5cb85c; color: #ffffff; }
 .choice-green:hover,.choice-green:focus { background-color:#419641; color: #ffffff; }
 .choice-orange { background: #f0ad4e; color: #ffffff; }

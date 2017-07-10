@@ -117,3 +117,7 @@ choice.name.placeholder: "Entrez le nom de l'option : Oui, Non, Peut-être..."
 choice.name.value: Chiffre entier, utilisé pour calculer le nombre total de participants - souvent 0 ou 1.
 access.demo: Accéder à la démo
 crawler.action.denied: Nous avons détecté que votre navigateur est un robot. Il n'est pas autorisé à effectuer cette action.
+participation.confirmation: Voulez-vous renseigner la participation de
+button.yesalways: Oui, toujours
+button.yesonce: Oui, mais juste pour cette fois
+button.no: Non, je me suis trompé(e)

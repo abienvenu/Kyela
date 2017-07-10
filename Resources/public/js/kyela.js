@@ -1,10 +1,33 @@
 Kyela = {
 	init: function()
 	{
+	    $("#participation_confirmation").dialog({autoOpen: false, modal: true});
 		$("button.participation").click(Kyela.onParticipationClick);
+		$("button.participation_confirmation").click(Kyela.onParticipationConfirmationClick);
 	},
 	onParticipationClick: function ()
 	{
+	    // Update managed participants, ask confirmation for any new one
+	    var participantName = $(this).closest("tr").data("name");
+
+	    if (!localStorage.getItem("managed_participants"))
+        {
+            localStorage.setItem("managed_participants", JSON.stringify([participantName]));
+        }
+        else
+        {
+            var managedParticipants = JSON.parse(localStorage.getItem("managed_participants"));
+            if (managedParticipants.indexOf(participantName) === -1 &&
+                managedParticipants.indexOf("*") === -1)
+            {
+                $("#participation_confirmation").data("opener", this);
+                $("#participation_confirmation_name").html(participantName);
+                $("#participation_confirmation").dialog("open");
+                return;
+            }
+        }
+
+        // Update participation
 		var participationCell = $(this).closest("td");
 		participationCell.find("img.ajaxloader").show();
 		participationCell.find("button").hide();
@@ -13,6 +36,26 @@ Kyela = {
 		});
 
 	},
+    onParticipationConfirmationClick: function(data, buttonClicked)
+    {
+        var answer = $(this).data("answer");
+        var opener = $("#participation_confirmation").data("opener");
+        if (answer === "always")
+        {
+            var participantName = $(opener).closest("tr").data("name");
+            var managedParticipants = JSON.parse(localStorage.getItem("managed_participants"));
+            managedParticipants.push(participantName);
+            localStorage.setItem("managed_participants", JSON.stringify(managedParticipants));
+        }
+        if (answer === "always" || answer === "once")
+        {
+            var participationCell = $(opener).closest("td");
+            $.get($(opener).data("url"), null, function(data) {
+                Kyela.onParticipationUpdateResponse(data, participationCell);
+            });
+        }
+        $("#participation_confirmation").dialog("close");
+    },
 	onParticipationUpdateResponse: function(data, participationCell)
 	{
 		participationCell.html(data);

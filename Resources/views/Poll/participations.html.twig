@@ -20,7 +20,7 @@
     </thead>
     <tbody class="sortable" data-sort-url="{{ path('participant_order', {'pollUrl': poll.url}) }}">
         {% for participant in poll.participants %}
-        <tr id="participant_{{ participant.id }}">
+        <tr id="participant_{{ participant.id }}" data-name="{{ participant.name }}">
             <td data-cell-key="{{ participant.id }}">
                 <a class="btn btn-sm btn-info handle" role="button" href="{{ path('participant_edit', {'pollUrl': poll.url, 'id': participant.id}) }}">
                     <span class="glyphicon glyphicon-user"></span>
@@ -48,3 +48,22 @@
         </tr>
     </tfoot>
 </table>
+
+<div class="dialog" id="participation_confirmation">
+    <div class="alert alert-danger" role="alert">
+        {% trans %}participation.confirmation{% endtrans %} <u id="participation_confirmation_name"></u> ?
+    </div>
+    <button class="btn btn-success btn-lg participation_confirmation" data-answer="always" role="button">
+        <span class="glyphicon glyphicon-ok"></span>
+        {% trans %}button.yesalways{% endtrans %}
+    </button>
+    <button class="btn btn-warning btn-lg participation_confirmation" data-answer="once" role="button">
+        <span class="glyphicon glyphicon-ok"></span>
+        {% trans %}button.yesonce{% endtrans %}
+    </button>
+    <button class="btn btn-danger btn-lg participation_confirmation" data-answer="no" role="button">
+        <span class="glyphicon glyphicon-remove"></span>
+        {% trans %}button.no{% endtrans %}
+    </button>
+</div>
+
