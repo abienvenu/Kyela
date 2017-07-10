@@ -94,6 +94,7 @@ class Poll extends Entity
 
     /**
      * @ORM\OneToMany(targetEntity="Choice", mappedBy="poll", cascade={"remove", "persist"})
+     * @ORM\OrderBy({"priority" = "ASC"})
      */
     private $choices;
 
