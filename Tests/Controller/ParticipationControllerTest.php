@@ -42,8 +42,8 @@ class ParticipationControllerTest extends PollWebTestCase
             ['name' => $event, 'place' => 'Nowhere', 'date' => date('d-m-Y', strtotime("tomorrow")), 'time' => '20:30']);
 
         // Check "yes" is not selected
-        $filter = 'button:contains("' . self::$translator->trans('yes') . '")';
-        self::checkElement($crawler, $filter, 1);
+        $filter = 'button.dropdown-toggle:contains("' . self::$translator->trans('yes') . '")';
+        self::checkElement($crawler, $filter, 0);
 
         // Choose "yes"
         $button = $crawler->selectButton(self::$translator->trans('yes'));
@@ -53,8 +53,8 @@ class ParticipationControllerTest extends PollWebTestCase
         $crawler = self::$client->reload();
 
         // Check "yes is selected
-        $filter = 'button:contains("' . self::$translator->trans('yes') . '")';
-        self::checkElement($crawler, $filter, 2);
+        $filter = 'button.dropdown-toggle:contains("' . self::$translator->trans('yes') . '")';
+        self::checkElement($crawler, $filter, 1);
 
         // Choose "no"
         $button = $crawler->selectButton(self::$translator->trans('no'));
@@ -64,12 +64,12 @@ class ParticipationControllerTest extends PollWebTestCase
         $crawler = self::$client->reload();
 
         // Check "yes" is not selected anymore
-        $filter = 'button:contains("' . self::$translator->trans('yes') . '")';
-        self::checkElement($crawler, $filter, 1);
+        $filter = 'button.dropdown-toggle:contains("' . self::$translator->trans('yes') . '")';
+        self::checkElement($crawler, $filter, 0);
 
         // Check "no" is selected
-        $filter = 'button:contains("' . self::$translator->trans('no') . '")';
-        self::checkElement($crawler, $filter, 2);
+        $filter = 'button.dropdown-toggle:contains("' . self::$translator->trans('no') . '")';
+        self::checkElement($crawler, $filter, 1);
 
         // Delete the poll
         self::deletePollEntry($crawler);
