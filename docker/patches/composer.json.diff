@@ -1,6 +1,15 @@
---- kyela.src/composer.json	2017-03-12 11:10:48.735201785 +0000
-+++ kyela.dst/composer.json	2017-03-12 11:12:05.025812256 +0000
-@@ -46,6 +46,7 @@
+--- composer.json.orig	2017-07-11 08:55:07.000000000 +0200
++++ composer.json	2017-07-11 08:57:00.962187189 +0200
+@@ -4,7 +4,7 @@
+     "type": "project",
+     "autoload": {
+         "psr-4": {
+-            "AppBundle\\": "src/AppBundle"
++            "Abienvenu\\": "src/Abienvenu"
+         },
+         "classmap": [
+             "app/AppKernel.php",
+@@ -49,6 +49,7 @@
      },
      "config": {
          "bin-dir": "bin",
