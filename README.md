@@ -138,6 +138,8 @@ Your contribution will be reviewed, and probably merged into the main project.
 
 CHANGELOG
 ---------
+* 1.6.8 :
+  - Event name is now optional (yes, there are use cases)
 * 1.6.7 :
   - Added confirmation popup if you act for another participant
 * 1.6.6 :
