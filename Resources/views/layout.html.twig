@@ -1,4 +1,4 @@
-{#  Copyright 2014 Arnaud Bienvenu
+{#  Copyright 2017 Arnaud Bienvenu
 
     This file is part of Kyela.
 
@@ -15,50 +15,9 @@
     You should have received a copy of the GNU Affero General Public License
     along with Kyela.  If not, see <http://www.gnu.org/licenses/>.
 
-#}<!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Kyélà - {{ poll is defined and poll and poll.title ? poll.title : 'bottom.line'|trans }}</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="{% trans %}meta.description{% endtrans %}">
-        <meta name="copyright" content="Arnaud Bienvenu, France">
-        <meta name="application-name" content="Kyela">
-        {% image '@KyelaBundle/Resources/public/kyela.png' %}
-            <link rel="icon" type="image/png" href="{{ asset_url }}" />
-        {% endimage %}
-        {% block robots %}
-            <meta name="robots" content="noindex, nofollow">
-        {% endblock %}
-
-        {% stylesheets
-            'components/jquery-ui/themes/ui-lightness/jquery-ui.min.css'
-            'components/bootstrap/css/bootstrap.min.css'
-            'components/bootstrap/css/bootstrap-theme.min.css'
-            'bundles/kyela/css/*'
-            filter='cssrewrite' %}
-            <link rel="stylesheet" href="{{ asset_url }}" />
-        {% endstylesheets %}
-        <style>
-            body {
-                padding-top: 50px;
-                padding-bottom: 20px;
-            }
-        </style>
-
-        {% javascripts
-            'components/jquery/jquery.min.js'
-            'components/jquery-ui/jquery-ui.min.js'
-            'components/bootstrap/js/bootstrap.min.js'
-            '@KyelaBundle/Resources/public/js/*' %}
-            <script type="text/javascript" src="{{ asset_url }}"></script>
-        {% endjavascripts %}
-    </head>
-    <body>
+#}
+{% extends "KyelaBundle::base.html.twig" %}
+{% block rawbody %}
     <div id="wrap">
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -120,5 +79,4 @@
             {% endimage %}
         </p>
     </div>
-    </body>
-</html>
+{% endblock %}

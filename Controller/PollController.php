@@ -101,6 +101,18 @@ class PollController extends CRUDController
     }
 
     /**
+     * Show a simplified poll to be used in iframe
+     *
+     * @Route("/{pollUrl}/frame", name="poll_showframe")
+     * @Method("GET")
+     * @Template()
+     */
+    public function frameAction()
+    {
+        return ['poll' => $this->poll];
+    }
+
+    /**
      * Shows the poll with past events only
      *
      * @Route("/{pollUrl}/archive", name="poll_archive")
