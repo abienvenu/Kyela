@@ -125,34 +125,6 @@ class PollController extends CRUDController
     }
 
     /**
-     * Displays interactive participation table
-     *
-     * @Method("GET")
-     * @Template()
-     */
-    public function participationsAction($isFuture)
-    {
-        $em = $this->getDoctrine()->getManager();
-        $events = $em->getRepository('KyelaBundle:Event')->getFutureOrPastEvents($this->poll, $isFuture);
-        $choices = $em->getRepository("KyelaBundle:Choice")->getOrderedChoices($this->poll);
-        $participationsArray = [];
-        foreach ($events as $event)
-        {
-            foreach ($event->getParticipations() as $participation)
-            {
-                $accessKey = "{$event->getId()}-{$participation->getParticipant()->getId()}";
-                $participationsArray[$accessKey] = $participation;
-            }
-        }
-        return [
-            'poll' => $this->poll,
-            'choices' => $choices,
-            'events' => $events,
-            'participations' => $participationsArray,
-        ];
-    }
-
-    /**
      * Displays a form to edit an existing Poll entity.
      *
      * @Route("/{pollUrl}/edit", name="poll_edit")

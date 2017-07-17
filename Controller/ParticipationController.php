@@ -24,9 +24,11 @@ namespace Abienvenu\KyelaBundle\Controller;
 use Abienvenu\KyelaBundle\Entity\Choice;
 use Abienvenu\KyelaBundle\Entity\Event;
 use Abienvenu\KyelaBundle\Entity\Participant;
+use Abienvenu\KyelaBundle\Entity\Poll;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Abienvenu\KyelaBundle\Entity\Participation;
 
 /**
@@ -36,6 +38,34 @@ use Abienvenu\KyelaBundle\Entity\Participation;
  */
 class ParticipationController extends Controller
 {
+    /**
+     * Displays interactive participation table
+     *
+     * @Method("GET")
+     * @Template()
+     */
+    public function showAction(Poll $poll, $isFuture)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $events = $em->getRepository('KyelaBundle:Event')->getFutureOrPastEvents($poll, $isFuture);
+        $choices = $em->getRepository("KyelaBundle:Choice")->getOrderedChoices($poll);
+        $participationsArray = [];
+        foreach ($events as $event)
+        {
+            foreach ($event->getParticipations() as $participation)
+            {
+                $accessKey = "{$event->getId()}-{$participation->getParticipant()->getId()}";
+                $participationsArray[$accessKey] = $participation;
+            }
+        }
+        return [
+            'poll' => $poll,
+            'choices' => $choices,
+            'events' => $events,
+            'participations' => $participationsArray,
+        ];
+    }
+
     /**
      * Creates a new Participation on the fly.
      *

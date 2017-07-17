@@ -34,7 +34,7 @@
 </div>
 {% endif %}
 
-{{ render(controller('KyelaBundle:Poll:participations', {'isFuture': true})) }}
+{{ render(controller('KyelaBundle:Participation:show', {'poll': poll, 'isFuture': true})) }}
 
 {% if poll.bottomlines %}
 <div class="panel panel-default">
