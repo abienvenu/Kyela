@@ -139,6 +139,7 @@ Your contribution will be reviewed, and probably merged into the main project.
 CHANGELOG
 ---------
 * 1.6.8 :
+  - Added /frame for easy integration from remote websites
   - Event name is now optional (yes, there are use cases)
 * 1.6.7 :
   - Added confirmation popup if you act for another participant
@@ -223,7 +224,6 @@ FUTURE (MAY BE) FEATURES
 * For a Poll, customize "Total" color cell at certain thresholds
 * Notification subscriptions
 * Syndication
-* Easy integration from remote websites
 * Aggregate/Anonymous mode, for events with lots of participants: the grid only displays total numbers, you can add yourself, then you get a personal link to modify/delete your participation
 * Integration with personal agendas (Google, Yahoo...)
 * Make a logo, a decent favicon

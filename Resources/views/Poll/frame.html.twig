@@ -19,5 +19,7 @@
 {% extends "KyelaBundle::base.html.twig" %}
 
 {% block rawbody %}
+<body style="padding: 0 0 0 0;">
     {{ render(controller('KyelaBundle:Poll:participations', {'isFuture': true})) }}
+</body>
 {% endblock %}

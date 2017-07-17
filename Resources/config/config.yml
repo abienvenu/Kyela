@@ -2,7 +2,7 @@ imports:
     - { resource: "services.yml" }
 
 parameters:
-    kyela_version: 1.6.7
+    kyela_version: 1.6.8
 
 framework:
     translator: { fallback: en }
