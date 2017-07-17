@@ -42,6 +42,19 @@ class CommentController extends CRUDController
     protected $deleteSuccessRoute = 'poll_show';
 
     /**
+     * Displays latest comments
+     *
+     * @Method("GET")
+     * @Template()
+     */
+    public function showAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $comments = $em->getRepository('KyelaBundle:Comment')->getLatestComments($this->poll);
+        return ['poll' => $this->poll, 'comments' => $comments];
+    }
+
+    /**
      * Displays a form to create a new Comment entity.
      *
      * @Route("/new", name="comment_new")

@@ -24,7 +24,7 @@
 
 {% block body %}
 
-{{ render(controller('KyelaBundle:Poll:events', {'isFuture': true})) }}
+{{ render(controller('KyelaBundle:Event:show', {'isFuture': true})) }}
 
 {% if poll.headlines %}
 <div class="panel panel-default">
@@ -44,7 +44,7 @@
 </div>
 {% endif %}
 
-{{ render(controller('KyelaBundle:Poll:comments')) }}
+{{ render(controller('KyelaBundle:Comment:show')) }}
 
 {{ form_start(participant_form) }}
 <div class="row">

@@ -125,23 +125,7 @@ class PollController extends CRUDController
     }
 
     /**
-     * Displays poll events
-     *
-     * @Method("GET")
-     * @Template()
-     */
-    public function eventsAction($isFuture)
-    {
-        $em = $this->getDoctrine()->getManager();
-        $events = $em->getRepository('KyelaBundle:Event')->getFutureOrPastEvents($this->poll, $isFuture);
-        return [
-            'poll' => $this->poll,
-            'events' => $events,
-        ];
-    }
-
-    /**
-     * Displays interative participation table
+     * Displays interactive participation table
      *
      * @Method("GET")
      * @Template()
@@ -166,19 +150,6 @@ class PollController extends CRUDController
             'events' => $events,
             'participations' => $participationsArray,
         ];
-    }
-
-    /**
-     * Displays latest comments
-     *
-     * @Method("GET")
-     * @Template()
-     */
-    public function commentsAction()
-    {
-        $em = $this->getDoctrine()->getManager();
-        $comments = $em->getRepository('KyelaBundle:Comment')->getLatestComments($this->poll);
-        return ['poll' => $this->poll, 'comments' => $comments];
     }
 
     /**

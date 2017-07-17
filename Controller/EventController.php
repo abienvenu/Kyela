@@ -42,6 +42,22 @@ class EventController extends CRUDController
     protected $deleteSuccessRoute = 'poll_show';
 
     /**
+     * Displays poll events
+     *
+     * @Method("GET")
+     * @Template()
+     */
+    public function showAction($isFuture)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $events = $em->getRepository('KyelaBundle:Event')->getFutureOrPastEvents($this->poll, $isFuture);
+        return [
+            'poll' => $this->poll,
+            'events' => $events,
+        ];
+    }
+
+    /**
      * Displays a form to create a new Event entity.
      *
      * @Route("/new", name="event_new")
