@@ -21,8 +21,8 @@
     <tbody class="sortable" data-sort-url="{{ path('participant_order', {'pollUrl': poll.url}) }}">
         {% for participant in poll.participants %}
         <tr id="participant_{{ participant.id }}" data-name="{{ participant.name }}">
-            <td data-cell-key="{{ participant.id }}">
-                <a class="btn btn-sm btn-info handle" role="button" href="{{ path('participant_edit', {'pollUrl': poll.url, 'id': participant.id}) }}">
+            <td data-cell-key="{{ participant.id }}" style="text-align: left;" width="5%">
+                <a class="btn btn-default handle" href="{{ path('participant_edit', {'pollUrl': poll.url, 'id': participant.id}) }}">
                     <span class="glyphicon glyphicon-user"></span>
                     {{ participant.name }}
                 </a>
