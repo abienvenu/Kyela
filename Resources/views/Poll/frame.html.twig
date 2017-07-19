@@ -20,6 +20,7 @@
 
 {% block rawbody %}
 <body style="padding: 0 0 0 0;">
+    {{ render(controller('KyelaBundle:Event:show', {'isFuture': true})) }}
     {{ render(controller('KyelaBundle:Participation:show', {'poll': poll, 'isFuture': true})) }}
 </body>
 {% endblock %}
