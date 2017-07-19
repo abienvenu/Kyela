@@ -138,6 +138,9 @@ Your contribution will be reviewed, and probably merged into the main project.
 
 CHANGELOG
 ---------
+* 1.6.9 :
+  - Graphical tweaks
+  - Added the "tips" section
 * 1.6.8 :
   - Added /frame for easy integration from remote websites
   - Event name is now optional (yes, there are use cases)

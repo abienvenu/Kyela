@@ -10,6 +10,11 @@ kyela_faq:
     defaults:
         _controller: KyelaBundle:Static:faq
 
+kyela_tips:
+    path: /tips
+    defaults:
+        _controller: KyelaBundle:Static:tips
+
 kyela_about:
     path: /about
     defaults:

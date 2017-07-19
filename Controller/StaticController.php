@@ -75,6 +75,17 @@ class StaticController extends PollSetterController
     }
 
     /**
+     * Displays the Tips page
+     *
+     * @Method("GET")
+     * @Template()
+     */
+    public function tipsAction(Request $request)
+    {
+        return ["poll" => $this->poll, "tips" => $this->loadTranslations("tips", $request->getLocale())];
+    }
+
+    /**
      * Displays the Thanks page
      *
      * @Method("GET")

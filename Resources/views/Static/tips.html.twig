@@ -1,0 +1,21 @@
+{% extends "KyelaBundle::layout.html.twig" %}
+
+{% block robots %}
+    <meta name="robots" content="index, follow">
+{% endblock %}
+
+{% block body -%}
+    <div class="jumbotron">
+        <div class="container">
+            <h1>{% trans %}tips.full{% endtrans %}</h1>
+        </div>
+    </div>
+
+    <div class="container">
+        {% for question_answer in tips %}
+            <h3>{{ question_answer.q }}</h3>
+            <p>{{ question_answer.a }}</p>
+        {% endfor %}
+        <hr />
+    </div>
+{% endblock %}

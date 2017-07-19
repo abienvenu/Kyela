@@ -53,6 +53,8 @@ color: Color
 action: Action
 faq: FAQ
 faq.full: Frequently Asked Questions
+tips: Tips
+tips.full: Useful tips and tricks
 about: About
 about.kyela: About Kyela
 examples: Examples
