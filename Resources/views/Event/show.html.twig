@@ -18,6 +18,9 @@
             -
         {% endif %}
         {{ event.place }}
+        {% if event.subtitle %}
+            <small class="subtitle">({{ event.subtitle }})</small>
+        {% endif %}
         {% if (event.date or event.time or event.place) and event.name %}
             &nbsp;:
         {% endif %}

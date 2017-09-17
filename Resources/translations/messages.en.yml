@@ -80,6 +80,7 @@ Title: Title
 Place: Place
 Date: Date
 Time: Time
+Subtitle: Subtitle
 Subject: Subject
 Email: Email
 Message: Message
@@ -113,6 +114,7 @@ poll.title.placeholder: Enter a title for your new poll
 comment.placeholder: After selecting the author, please type in your comment
 date.name.placeholder: Enter the name of the event, or a question (optional)
 date.place.placeholder: Enter the place of the event (optional)
+date.subtitle.placeholder: Comment (will appear as a subtitle in each column header)
 poll.headlines.placeholder: You can type in a text that will be displayed above the poll. HTML tags are allowed.
 poll.bottomlines.placeholder: You can type in a text that will be displayed below the poll. HTML tags are allowed.
 choice.name.placeholder: "Enter the name of the option: Yes, No, Maybe..."

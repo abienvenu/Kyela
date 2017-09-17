@@ -70,6 +70,13 @@ class Event extends Entity
     private $time;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="subtitle", type="string", length=255, nullable=true)
+     */
+    private $subtitle;
+
+    /**
      * @ORM\OneToMany(targetEntity="Participation", mappedBy="event", cascade={"remove"})
      */
     private $participations;
@@ -259,5 +266,23 @@ class Event extends Entity
     public function getTime()
     {
         return $this->time;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSubtitle()
+    {
+        return $this->subtitle;
+    }
+
+    /**
+     * @param string $subtitle
+     * @return Event
+     */
+    public function setSubtitle($subtitle)
+    {
+        $this->subtitle = $subtitle;
+        return $this;
     }
 }

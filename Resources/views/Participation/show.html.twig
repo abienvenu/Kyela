@@ -14,6 +14,9 @@
                     {% else %}
                         {{ event.name }}
                     {% endif %}
+                    {% if event.subtitle %}
+                        <br /><small class="subtitle">{{ event.subtitle }}</small>
+                    {% endif %}
                 </th>
             {% endfor %}
         </tr>

@@ -138,6 +138,8 @@ Your contribution will be reviewed, and probably merged into the main project.
 
 CHANGELOG
 ---------
+* 1.6.10 :
+  - Added "subtitle" for events
 * 1.6.9 :
   - Graphical tweaks
   - Added the "tips" section
