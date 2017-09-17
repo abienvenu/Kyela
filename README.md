@@ -140,6 +140,7 @@ CHANGELOG
 ---------
 * 1.6.10 :
   - Added "subtitle" for events
+  - Added a link below choices to add another option
 * 1.6.9 :
   - Graphical tweaks
   - Added the "tips" section
