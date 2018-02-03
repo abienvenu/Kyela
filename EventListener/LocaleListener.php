@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright 2014-2016 Arnaud Bienvenu
+ * Copyright 2014-2018 Arnaud Bienvenu
  *
  * This file is part of Kyela.
 
@@ -42,7 +42,8 @@ class LocaleListener implements EventSubscriberInterface
         }
 
         // try to see if the locale has been set as a _locale routing parameter
-        if ($locale = $request->attributes->get('_locale')) {
+        $locale = $request->attributes->get('_locale');
+        if ($locale) {
             $request->getSession()->set('_locale', $locale);
         } else {
             // if no explicit locale has been set on this request, use one from the session
@@ -52,9 +53,9 @@ class LocaleListener implements EventSubscriberInterface
 
     public static function getSubscribedEvents()
     {
-        return array(
+        return [
             // must be registered before the default Locale listener
-            KernelEvents::REQUEST => array(array('onKernelRequest', 17)),
-        );
+            KernelEvents::REQUEST => [['onKernelRequest', 17]],
+        ];
     }
 }

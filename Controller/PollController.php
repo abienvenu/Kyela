@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright 2014-2016 Arnaud Bienvenu
+ * Copyright 2014-2018 Arnaud Bienvenu
  *
  * This file is part of Kyela.
 
@@ -167,9 +167,9 @@ class PollController extends CRUDController
      */
     public function lockAction(Request $request)
     {
-        $form = $this->createForm(LockPollType::class, $this->poll, array(
+        $form = $this->createForm(LockPollType::class, $this->poll, [
             'method' => 'PUT',
-        ));
+        ]);
 
         $form->add('actions', FormActionsType::class, [
             'buttons' => [
@@ -213,9 +213,9 @@ class PollController extends CRUDController
     public function unlockAction(Request $request)
     {
         $poll = (new Poll)->setTitle("dummy")->setUrl("dummy");
-        $form = $this->createForm(LockPollType::class, $poll, array(
+        $form = $this->createForm(LockPollType::class, $poll, [
             'method' => 'PUT',
-        ));
+        ]);
         $form->add('actions', FormActionsType::class, [
             'buttons' => [
                 'save' => ['type' => SubmitType::class, 'options' => ['label' => 'save']],

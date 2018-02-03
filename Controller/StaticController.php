@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright 2014-2016 Arnaud Bienvenu
+ * Copyright 2014-2018 Arnaud Bienvenu
  *
  * This file is part of Kyela.
 
@@ -139,12 +139,12 @@ class StaticController extends PollSetterController
                     ->setBody(
                         $this->renderView(
                             'KyelaBundle:Mail:contact.html.twig',
-                            array(
+                            [
                                 'ip' => $request->getClientIp(),
                                 'name' => $form->get('name')->getData(),
                                 'subject' => $form->get('subject')->getData(),
                                 'message' => $form->get('message')->getData()
-                            )
+                            ]
                         )
                     );
 
@@ -154,9 +154,9 @@ class StaticController extends PollSetterController
                 return $this->redirect($this->generateUrl('poll_new'));
             }
         }
-        return array(
+        return [
             'poll' => $this->poll,
             'form' => $form->createView()
-        );
+        ];
     }
 }

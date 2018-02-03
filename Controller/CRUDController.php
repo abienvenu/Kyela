@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright 2016 Arnaud Bienvenu
+ * Copyright 2016-2018 Arnaud Bienvenu
  *
  * This file is part of Kyela.
 
@@ -104,7 +104,7 @@ abstract class CRUDController extends PollSetterController
 	/**
 	 * Create a form to edit an entity, and update it when the form is submited
 	 *
-	 * @param FormTypeInterface $formType
+	 * @param string $formType
 	 * @param int $id The entity id
 	 * @param Request $request
 	 */
@@ -112,6 +112,7 @@ abstract class CRUDController extends PollSetterController
 	{
 		$em = $this->getDoctrine()->getManager();
 
+		/** @var Entity $entity */
 		$entity = $em->getRepository($this->entityName)->find($id);
 
 		if (!$entity) {
@@ -138,12 +139,12 @@ abstract class CRUDController extends PollSetterController
 			}
 		}
 
-		return array(
+		return [
 			'poll'        => $this->poll,
 			'entity'      => $entity,
 			'edit_form'   => $editForm->createView(),
 			'delete_form' => $deleteForm->createView(),
-		);
+		];
 	}
 
 	/**
@@ -188,10 +189,10 @@ abstract class CRUDController extends PollSetterController
 	 */
 	protected function doCreateCreateForm($formType, Entity $entity, $action)
 	{
-		$form = $this->createForm($formType, $entity, array(
+		$form = $this->createForm($formType, $entity, [
 			'action' => $this->generateUrl($action),
 			'method' => 'POST',
-		));
+		]);
 
 		$options = [
 			'buttons' => [
@@ -209,7 +210,7 @@ abstract class CRUDController extends PollSetterController
 	/**
 	 * Creates a form to edit an entity
 	 *
-	 * @param FormTypeInterface $formType The form builder
+	 * @param string $formType The form builder
 	 * @param Entity $entity The entity to edit
 	 * @param string $action The name of the route to the action
 	 *
@@ -217,10 +218,10 @@ abstract class CRUDController extends PollSetterController
 	 */
 	protected function doCreateEditForm($formType, Entity $entity, $action)
 	{
-		$form = $this->createForm($formType, $entity, array(
+		$form = $this->createForm($formType, $entity, [
 			'action' => $this->generateUrl($action, ['id' => $entity->getId()]),
 			'method' => 'PUT',
-		));
+		]);
 
 		$form->add('actions', FormActionsType::class, [
 			'buttons' => [

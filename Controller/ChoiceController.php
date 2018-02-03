@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright 2014-2016 Arnaud Bienvenu
+ * Copyright 2014-2018 Arnaud Bienvenu
  *
  * This file is part of Kyela.
 
@@ -114,7 +114,7 @@ class ChoiceController extends CRUDController
         $em->flush();
 
         $response = new JsonResponse();
-        $response->setData(array("code" => 100, "success" => true));
+        $response->setData(["code" => 100, "success" => true]);
         return $response;
     }
 }
