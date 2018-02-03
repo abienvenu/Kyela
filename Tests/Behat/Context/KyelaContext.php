@@ -26,8 +26,9 @@ use Behat\Behat\Context\Environment\InitializedContextEnvironment;
 use Behat\Behat\Hook\Scope\BeforeScenarioScope;
 use Behat\Mink\Driver\Selenium2Driver;
 use Behat\MinkExtension\Context\MinkContext;
+use Behatch\Context\BaseContext;
 
-class KyelaContext implements Context
+class KyelaContext extends BaseContext
 {
 	/** @var MinkContext $minkContext */
 	protected $minkContext;
@@ -54,4 +55,19 @@ class KyelaContext implements Context
 	{
 		$this->minkContext->getSession()->wait(2000, "!$('.ajaxloader').is(':visible')");
 	}
+
+    /**
+     * @Then the :colIndex column of the footer should contain :text
+     */
+	public function theColumnOfTheFooterInTheTableShouldContain($colIndex, $text)
+    {
+        $row = $this->minkContext->getSession()->getPage()->findAll('css', ".table tfoot tr th");
+        if (!isset($row[$colIndex - 1]))
+        {
+            throw new \Exception("The col $colIndex was not found in the footer");
+        }
+        $actual = $row[$colIndex - 1]->getText();
+
+        $this->assertContains($text, $actual);
+    }
 }

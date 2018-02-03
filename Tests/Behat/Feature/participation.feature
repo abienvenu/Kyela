@@ -20,6 +20,7 @@ Feature: Setup and update participations
     And I press "Yes"
     And I wait for the participation to update
     Then I should see "Yes"
+    And the 2nd column of the footer should contain "1"
 
   @javascript
   Scenario: Modify participation
@@ -30,6 +31,7 @@ Feature: Setup and update participations
     And I press "Maybe"
     And I wait for the participation to update
     Then I should see "Maybe"
+    And the 2nd column of the footer should contain "0"
 
   @javascript
   Scenario: Delete participation
@@ -40,3 +42,4 @@ Feature: Setup and update participations
     And I press "trash"
     And I wait for the participation to update
     Then I should not see "Yes"
+    And the 2nd column of the footer should contain "0"
