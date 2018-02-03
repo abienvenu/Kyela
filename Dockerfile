@@ -11,7 +11,7 @@ RUN sed -i 's|DocumentRoot /var/www/html|DocumentRoot /var/www/kyela/web\nSetEnv
 
 # Install and configure Composer, PHPUnit and Symfony
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
-	&& curl -LsS https://phar.phpunit.de/phpunit-5.7.14.phar -o /usr/local/bin/phpunit && chmod a+x /usr/local/bin/phpunit \
+	&& curl -LsS https://phar.phpunit.de/phpunit-7.phar -o /usr/local/bin/phpunit && chmod a+x /usr/local/bin/phpunit \
 	&& curl -LsS https://symfony.com/installer -o /usr/local/bin/symfony && chmod a+x /usr/local/bin/symfony \
 	&& symfony --ansi new /var/www/kyela 2.8
 
