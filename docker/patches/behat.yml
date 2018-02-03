@@ -1,9 +1,10 @@
 default:
     extensions:
         Behat\MinkExtension:
-            base_url: "http://172.17.0.1/app_dev.php"
+            base_url: "http://172.17.0.1:8042/"
+            goutte:
             selenium2:
-                wd_host: "http://selenium:4444/wd/hub"
+                wd_host: "http://172.17.0.1:4444/wd/hub"
                 capabilities:
                     marionette: null
             browser_name: chrome
@@ -20,3 +21,7 @@ default:
                 - Behatch\Context\DebugContext:
                     screenshotDir: "/tmp/behat_screenshots"
                 - Behatch\Context\BrowserContext
+                - Abienvenu\KyelaBundle\Tests\Behat\Context\KyelaContext
+
+            paths:
+                - "%paths.base%/src/Abienvenu/KyelaBundle/Tests/Behat/Feature"

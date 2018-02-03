@@ -13,11 +13,15 @@ run:
 	docker run -p 8042:80 -v kyela-data:/var/www/kyela/data -d --name kyela-git -e CONTACT_EMAIL=nobody@mailinator.com abienvenu/kyela
 
 run-dev:
-	docker run -p 8042:80 -v kyela-data:/var/www/kyela/data -v $(shell pwd)/..:/var/www/kyela/src/Abienvenu/KyelaBundle -d --name kyela-git abienvenu/kyela
+	docker run -p 8042:80 -v kyela-data:/var/www/kyela/data -v $(shell pwd)/..:/var/www/kyela/src/Abienvenu/KyelaBundle -v /tmp/behat_screenshots:/tmp/behat_screenshots -d --name kyela-git abienvenu/kyela
 
 get-vendor:
 	docker cp kyela-git:/var/www/kyela/vendor ../vendor
 
 test:
 	docker exec kyela-git phpunit -c app
-	docker exec kyela-git bin/behat
+	docker exec kyela-git bin/behat --colors
+
+test-prep:
+	docker exec kyela-git sh -c "COMPOSER_ALLOW_SUPERUSER=1 composer require --dev behat/behat behat/symfony2-extension behatch/contexts behat/mink-goutte-driver behat/mink-selenium2-driver"
+	docker run -p 4444:4444 -d --name selenium selenium/standalone-chrome:3.8.1

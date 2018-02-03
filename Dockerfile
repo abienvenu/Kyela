@@ -29,7 +29,6 @@ RUN COMPOSER_ALLOW_SUPERUSER=1 composer remove incenteev/composer-parameter-hand
 	&& patch -p1 -i src/Abienvenu/KyelaBundle/docker/patches/composer.json.diff composer.json \
 	&& composer require symfony/assetic-bundle "doctrine/doctrine-fixtures-bundle ~2.2" twig/extensions robloach/component-installer \
 		"components/jquery ^3.1" "components/jqueryui ^1.12" "components/bootstrap ^3.3" \
-    && composer require --dev behat/behat behat/symfony2-extension behatch/contexts behat/mink-selenium2-driver \
 	&& sed -i "s/array('127.0.0.1', '::1')/array('127.0.0.1', '172.17.0.1', '::1')/" web/app_dev.php \
 	&& rm -rf src/AppBundle
 
@@ -42,6 +41,5 @@ RUN app/console assets:install \
 	&& chown -R www-data.www-data data \
 	&& app/console cache:clear --env=test \
 	&& phpunit -c app \
-	&& bin/behat \
 	&& chown -R www-data.www-data app/cache \
 	&& chown -R www-data.www-data app/logs

@@ -33,7 +33,7 @@
 		{% endfor %}
 		<li {% if not participation %} style="display: none"{% endif %} class="text-center">
 			{% set participationUrl = participation ? path('participation_delete', {'participation': participation.id}) : null %}
-			<button type="button" class="btn btn-sm participation" data-url="{{ participationUrl }}">
+			<button type="button" class="btn btn-sm participation" data-url="{{ participationUrl }}" title="trash">
 				<span class="glyphicon glyphicon-trash"></span>
 			</button>
 		</li>
