@@ -20,3 +20,4 @@ get-vendor:
 
 test:
 	docker exec kyela-git phpunit -c app
+	docker exec kyela-git bin/behat

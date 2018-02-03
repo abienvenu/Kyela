@@ -139,7 +139,7 @@ Your contribution will be reviewed, and probably merged into the main project.
 CHANGELOG
 ---------
 * 1.7.0 :
-  - Upgrade PHP 7.2 and Symfony 2.8.34
+  - Upgrade base components (PHP, Symfony, PHPUnit...)
 * 1.6.10 :
   - Added "subtitle" for events
   - Added a link below choices to add another option
