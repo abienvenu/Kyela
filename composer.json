@@ -18,7 +18,7 @@
         "twig/extensions": "~1.0",
         "symfony/assetic-bundle": "~2.3",
         "doctrine/doctrine-fixtures-bundle": "~2.2",
-        "robloach/component-installer": "*",
+        "robloach/component-installer": "~0.2",
         "components/jquery": "^3.1",
         "components/jqueryui": "^1.12",
         "components/bootstrap": "^3.3"
