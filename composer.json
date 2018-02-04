@@ -4,7 +4,7 @@
     "description": "Participation polls for group events",
     "keywords": ["Symfony", "Poll", "Event", "Participation", "Schedule"],
     "homepage": "http://kyela.net",
-    "license": "AGPL-3.0",
+    "license": "AGPL-3.0-or-later",
     "authors": [
         {
             "name": "Arnaud Bienvenu"
