@@ -21,7 +21,6 @@
 
 namespace Abienvenu\KyelaBundle\Controller;
 
-use Abienvenu\KyelaBundle\Form\Type\FormActionsType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;

@@ -52,9 +52,7 @@ class ChoiceType extends AbstractType
 
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults(array(
-            'data_class' => 'Abienvenu\KyelaBundle\Entity\Choice'
-        ));
+        $resolver->setDefaults(['data_class' => 'Abienvenu\KyelaBundle\Entity\Choice']);
     }
 
     /**

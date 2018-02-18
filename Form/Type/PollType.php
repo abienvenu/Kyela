@@ -44,9 +44,7 @@ class PollType extends AbstractType
 
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults(array(
-            'data_class' => 'Abienvenu\KyelaBundle\Entity\Poll'
-        ));
+        $resolver->setDefaults(['data_class' => 'Abienvenu\KyelaBundle\Entity\Poll']);
     }
 
     /**

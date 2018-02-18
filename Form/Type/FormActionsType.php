@@ -55,7 +55,7 @@ class FormActionsType extends AbstractType
             return;
         }
 
-        array_map(array($this, 'validateButton'), $form->all());
+        array_map([$this, 'validateButton'], $form->all());
     }
 
     protected function addButton(FormBuilderInterface $builder, $name, $config)
@@ -73,11 +73,11 @@ class FormActionsType extends AbstractType
 
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults(array(
-                'buttons'        => array(),
-                'options'        => array(),
+        $resolver->setDefaults([
+                'buttons'        => [],
+                'options'        => [],
                 'mapped'         => false,
-            ));
+            ]);
     }
 
     public function getBlockPrefix()

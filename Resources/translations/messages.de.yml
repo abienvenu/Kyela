@@ -94,7 +94,7 @@ mail.sent: Deine Email wurde versendet. Danke.
 success: Erledigt
 are.you.sure.to.delete: Bist Du sicher, dass Du die Umfrage endgültig löschen möchtest?
 deleted: Gelöscht
-poll.created %url%: Deine Umfrage wurde angelegt. Der Link für deine Teilnehmer lautet: <pre>%url%</pre> Du kannst den Link jederzeit ändern, wenn Du auf "Umfrage ändern" klickst. 
+poll.created %url%: Deine Umfrage wurde angelegt. Der Link für deine Teilnehmer lautet <pre>%url%</pre> Du kannst den Link jederzeit ändern, wenn Du auf "Umfrage ändern" klickst.
 poll.modified %url%: Deine Umfrage wurde geändert. Der neue Link für deine Teilnehmer lautet <pre>%url%</pre>
 archive.access: Zum Archiv
 past.events: Frühere Ereignisse

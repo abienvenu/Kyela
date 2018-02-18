@@ -102,7 +102,7 @@ $(function() {
           // Appelle une action en ajax
           $.post($(this).data("sort-url"), serial,
             function(response) {
-              if (response.code != 100) {
+              if (response.code !== 100) {
                   alert('Failed to save order')
               }
             }
