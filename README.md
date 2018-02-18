@@ -68,11 +68,10 @@ However, if you remove the container, the data is DELETED.
 #### Docker container with a named volume
 
 Using a named volume is more suitable for production use.
-You should also set the CONTACT_EMAIL environment variable, so your instance users can contact you through the contact form.
 
 ```bash
 $ docker volume create --name kyela-data
-$ docker run -d --name kyela -p 8042:80 -v kyela-data:/var/www/kyela/data -e CONTACT_EMAIL=you@yourbox.net --restart always abienvenu/kyela
+$ docker run -d --name kyela -p 8042:80 -v kyela-data:/var/www/kyela/data --restart always abienvenu/kyela
 ```
 
 The named volume can be easily backed up (cf. https://docs.docker.com/engine/tutorials/dockervolumes/#/backup-restore-or-migrate-data-volumes).
@@ -81,7 +80,7 @@ This technique enables you to pull newer Docker images of the kyela application,
 $ docker pull abienvenu/kyela
 $ docker stop kyela
 $ docker rm kyela
-$ docker run -d --name kyela -p 8042:80 -v kyela-data:/var/www/kyela/data -e CONTACT_EMAIL=you@yourbox.net --restart always abienvenu/kyela
+$ docker run -d --name kyela -p 8042:80 -v kyela-data:/var/www/kyela/data --restart always abienvenu/kyela
 ```
 
 ### Native
@@ -140,6 +139,8 @@ CHANGELOG
 ---------
 * 1.7.0 :
   - Upgrade base components (PHP, Symfony, PHPUnit...)
+  - Added first Behat tests
+  - Deleted the "Contact" page, because of spam hassle
 * 1.6.10 :
   - Added "subtitle" for events
   - Added a link below choices to add another option

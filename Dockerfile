@@ -7,7 +7,7 @@ RUN apt-get update \
 	&& apache2ctl graceful
 
 # Configure Apache
-RUN sed -i 's|DocumentRoot /var/www/html|DocumentRoot /var/www/kyela/web\nSetEnv SYMFONY__CONTACT__EMAIL ${CONTACT_EMAIL}|' /etc/apache2/sites-enabled/000-default.conf
+RUN sed -i 's|DocumentRoot /var/www/html|DocumentRoot /var/www/kyela/web|' /etc/apache2/sites-enabled/000-default.conf
 
 # Install and configure Composer, PHPUnit and Symfony
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
@@ -27,8 +27,8 @@ RUN COMPOSER_ALLOW_SUPERUSER=1 composer remove incenteev/composer-parameter-hand
 	&& cp src/Abienvenu/KyelaBundle/docker/patches/routing.yml app/config/routing.yml \
 	&& cp src/Abienvenu/KyelaBundle/docker/patches/behat.yml behat.yml \
 	&& patch -p1 -i src/Abienvenu/KyelaBundle/docker/patches/composer.json.diff composer.json \
-	&& composer require symfony/assetic-bundle "doctrine/doctrine-fixtures-bundle ~2.2" twig/extensions robloach/component-installer \
-		"components/jquery ^3.1" "components/jqueryui ^1.12" "components/bootstrap ^3.3" \
+	&& composer require symfony/assetic-bundle "doctrine/doctrine-fixtures-bundle ~2.2" twig/extensions \
+	    robloach/component-installer "components/jquery ^3.1" "components/jqueryui ^1.12" "components/bootstrap ^3.3" \
 	&& sed -i "s/array('127.0.0.1', '::1')/array('127.0.0.1', '172.17.0.1', '::1')/" web/app_dev.php \
 	&& rm -rf src/AppBundle
 

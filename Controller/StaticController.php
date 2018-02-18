@@ -28,7 +28,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Yaml\Yaml;
-use Abienvenu\KyelaBundle\Form\Type\ContactType;
 
 /**
  * Static content controller.
@@ -112,51 +111,5 @@ class StaticController extends PollSetterController
             $returnUrl = $this->generateUrl("poll_new");
         }
         return new RedirectResponse($returnUrl, 302);
-    }
-
-    /**
-     * Display the Contact form
-     *
-     * @Template()
-     */
-    public function contactAction(Request $request)
-    {
-        $form = $this->createForm(ContactType::class);
-        $form->add('actions', FormActionsType::class, [
-            'buttons' => [
-                'send' => ['type' => 'submit', 'options' => ['label' => 'send']],
-            ]
-        ]);
-
-        if ($request->isMethod('POST')) {
-            $form->handleRequest($request);
-
-            if ($form->isValid()) {
-                $message = \Swift_Message::newInstance()
-                    ->setSubject($form->get('subject')->getData())
-                    ->setFrom($form->get('email')->getData())
-                    ->setTo($this->container->hasParameter('contact.email') ? $this->container->getParameter('contact.email') : 'nobody@mailinator.com')
-                    ->setBody(
-                        $this->renderView(
-                            'KyelaBundle:Mail:contact.html.twig',
-                            [
-                                'ip' => $request->getClientIp(),
-                                'name' => $form->get('name')->getData(),
-                                'subject' => $form->get('subject')->getData(),
-                                'message' => $form->get('message')->getData()
-                            ]
-                        )
-                    );
-
-                $this->get('mailer')->send($message);
-                $flashMessage = $this->get('translator')->trans('mail.sent');
-                $request->getSession()->getFlashBag()->add('success', $flashMessage);
-                return $this->redirect($this->generateUrl('poll_new'));
-            }
-        }
-        return [
-            'poll' => $this->poll,
-            'form' => $form->createView()
-        ];
     }
 }

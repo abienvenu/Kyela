@@ -25,11 +25,6 @@ kyela_thanks:
     defaults:
         _controller: KyelaBundle:Static:thanks
 
-kyela_contact:
-    path: /contact
-    defaults:
-        _controller: KyelaBundle:Static:contact
-
 kyela_switch:
     path: /switch/{_locale}
     defaults:

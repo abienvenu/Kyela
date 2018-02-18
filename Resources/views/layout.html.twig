@@ -43,7 +43,6 @@
                     <li><a href="{{ path('kyela_tips') }}">{% trans %}tips{% endtrans %}</a></li>
                     <li><a href="{{ path('kyela_about') }}">{% trans %}about{% endtrans %}</a></li>
                     <li><a href="{{ path('kyela_thanks') }}">{% trans %}thanks{% endtrans %}</a></li>
-                    <li><a href="{{ path('kyela_contact') }}">{% trans %}contact{% endtrans %}</a></li>
                     {% set routeParams = app.request.get('_route_params') %}
                     {% for locale, language in {'en': 'English', 'fr': 'Français', 'de': 'Deutsch'} %}
                         {% if locale != app.request.locale %}
