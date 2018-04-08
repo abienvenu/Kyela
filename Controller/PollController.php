@@ -173,8 +173,8 @@ class PollController extends CRUDController
 
         $form->add('actions', FormActionsType::class, [
             'buttons' => [
-                'save' => ['type' => 'submit', 'options' => ['label' => 'save']],
-                'cancel' => ['type' => 'submit', 'options' => ['label' => 'cancel', 'attr' => ['type' => 'default', 'novalidate' => true]]],
+                'save' => ['type' => SubmitType::class, 'options' => ['label' => 'save']],
+                'cancel' => ['type' => SubmitType::class, 'options' => ['label' => 'cancel', 'attr' => ['type' => 'default', 'novalidate' => true]]],
             ]
         ]);
 

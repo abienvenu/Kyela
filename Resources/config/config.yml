@@ -2,14 +2,13 @@ imports:
     - { resource: "services.yml" }
 
 parameters:
-    kyela_version: 1.7.0
+    kyela_version: 1.7.1
 
 framework:
     translator: { fallback: en }
 
 twig:
-    form:
-        resources:
-            - 'KyelaBundle:Form:fields.html.twig'
+    form_themes:
+        - 'KyelaBundle:form:fields.html.twig'
     globals:
         kyela_version: '%kyela_version%'

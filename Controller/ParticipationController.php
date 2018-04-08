@@ -90,7 +90,7 @@ class ParticipationController extends Controller
         $em->persist($participation);
         $em->flush();
         return $this->render(
-            'KyelaBundle:Participation:_cell.html.twig',
+            'KyelaBundle:participation:_cell.html.twig',
             ['participation' => $participation, 'choices' => $event->getPoll()->getChoices(), 'event' => $event, 'participant' => $participant]);
     }
 
@@ -107,7 +107,7 @@ class ParticipationController extends Controller
         $participation->setChoice($newChoice);
         $em->flush();
         return $this->render(
-            'KyelaBundle:Participation:_cell.html.twig',
+            'KyelaBundle:participation:_cell.html.twig',
             [
                 'participation' => $participation,
                 'choices' => $newChoice->getPoll()->getChoices(),
@@ -129,7 +129,7 @@ class ParticipationController extends Controller
         $em->remove($participation);
         $em->flush();
         return $this->render(
-            'KyelaBundle:Participation:_cell.html.twig',
+            'KyelaBundle:participation:_cell.html.twig',
             [
                 'participation' => null,
                 'choices' => $participation->getEvent()->getPoll()->getChoices(),

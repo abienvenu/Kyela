@@ -13,7 +13,7 @@ RUN sed -i 's|DocumentRoot /var/www/html|DocumentRoot /var/www/kyela/web|' /etc/
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
 	&& curl -LsS https://phar.phpunit.de/phpunit-7.phar -o /usr/local/bin/phpunit && chmod a+x /usr/local/bin/phpunit \
 	&& curl -LsS https://symfony.com/installer -o /usr/local/bin/symfony && chmod a+x /usr/local/bin/symfony \
-	&& symfony --ansi new /var/www/kyela 2.8
+	&& symfony --ansi new /var/www/kyela 3.4
 
 WORKDIR "/var/www/kyela"
 
@@ -25,21 +25,24 @@ RUN COMPOSER_ALLOW_SUPERUSER=1 composer remove incenteev/composer-parameter-hand
 	&& cp src/Abienvenu/KyelaBundle/docker/patches/config.yml app/config/config.yml \
 	&& cp src/Abienvenu/KyelaBundle/docker/patches/parameters.yml app/config/parameters.yml \
 	&& cp src/Abienvenu/KyelaBundle/docker/patches/routing.yml app/config/routing.yml \
+	&& cp src/Abienvenu/KyelaBundle/docker/patches/services.yml app/config/services.yml \
 	&& cp src/Abienvenu/KyelaBundle/docker/patches/behat.yml behat.yml \
+	&& cp phpunit.xml.dist phpunit.xml \
+    && sed -i "s|<directory>tests</directory>|<directory>src/*/*Bundle/Tests</directory>|" phpunit.xml \
 	&& patch -p1 -i src/Abienvenu/KyelaBundle/docker/patches/composer.json.diff composer.json \
 	&& composer require symfony/assetic-bundle "doctrine/doctrine-fixtures-bundle ~2.2" twig/extensions \
 	    robloach/component-installer "components/jquery ^3.1" "components/jqueryui ^1.12" "components/bootstrap ^3.3" \
-	&& sed -i "s/array('127.0.0.1', '::1')/array('127.0.0.1', '172.17.0.1', '::1')/" web/app_dev.php \
-	&& rm -rf src/AppBundle
+	&& sed -i "s/'127.0.0.1', '::1'/'127.0.0.1', '172.17.0.1', '::1'/" web/app_dev.php \
+	&& rm -rf src/AppBundle tests/AppBundle
 
 # Deploy assets, create database, load example data and run tests
-RUN app/console assets:install \
-	&& app/console assetic:dump \
+RUN bin/console assets:install \
+	&& bin/console assetic:dump \
 	&& mkdir data \
-	&& app/console doctrine:schema:create \
-	&& app/console doctrine:fixtures:load --append \
+	&& bin/console doctrine:schema:create \
+	&& bin/console doctrine:fixtures:load --append \
 	&& chown -R www-data.www-data data \
-	&& app/console cache:clear --env=test \
-	&& phpunit -c app \
-	&& chown -R www-data.www-data app/cache \
-	&& chown -R www-data.www-data app/logs
+	&& bin/console cache:clear --env=test \
+	&& phpunit \
+	&& chown -R www-data.www-data var/cache \
+	&& chown -R www-data.www-data var/logs

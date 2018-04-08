@@ -137,6 +137,8 @@ Your contribution will be reviewed, and probably merged into the main project.
 
 CHANGELOG
 ---------
+* 1.7.1 :
+  - Upgrade from Symfony 2.8 to Symfony 3.4
 * 1.7.0 :
   - Upgrade base components (PHP, Symfony, PHPUnit...)
   - Added first Behat tests

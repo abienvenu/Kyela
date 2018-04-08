@@ -34,7 +34,7 @@
                 <td>
 	                {% set accessKey = event.id ~ '-' ~ participant.id %}
 	                {% set participation = attribute(participations, accessKey) is defined ? attribute(participations, accessKey) : null %}
-                    {% include("KyelaBundle:Participation:_cell.html.twig") %}
+                    {% include("KyelaBundle:participation:_cell.html.twig") %}
                 </td>
             {% endfor %}
         </tr>

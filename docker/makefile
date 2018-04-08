@@ -19,8 +19,8 @@ get-vendor:
 	docker cp kyela-git:/var/www/kyela/vendor ../vendor
 
 test:
-	docker exec kyela-git phpunit -c app
-	docker exec kyela-git bin/behat --colors
+	docker exec kyela-git phpunit
+	docker exec kyela-git vendor/bin/behat --colors
 
 test-prep:
 	docker exec kyela-git sh -c "COMPOSER_ALLOW_SUPERUSER=1 composer require --dev behat/behat behat/symfony2-extension behatch/contexts behat/mink-goutte-driver behat/mink-selenium2-driver"

@@ -1,5 +1,5 @@
---- composer.json.orig	2017-07-11 08:55:07.000000000 +0200
-+++ composer.json	2017-07-11 08:57:00.962187189 +0200
+--- app.src/composer.json	2018-04-08 17:48:16.000000000 +0200
++++ app.dst/composer.json	2018-04-08 17:53:04.406976875 +0200
 @@ -4,7 +4,7 @@
      "type": "project",
      "autoload": {
@@ -9,10 +9,10 @@
          },
          "classmap": [
              "app/AppKernel.php",
-@@ -49,6 +49,7 @@
+@@ -53,6 +53,7 @@
+         ]
      },
      "config": {
-         "bin-dir": "bin",
 +        "component-dir": "web/components",
          "sort-packages": true
      },
