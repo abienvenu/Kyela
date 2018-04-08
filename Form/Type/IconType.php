@@ -49,7 +49,6 @@ class IconType extends AbstractType
 
         $resolver->setDefaults([
             'choices' => $choices,
-            'choices_as_values' => true,
             'expanded' => true,
             'required' => false,
         ]);

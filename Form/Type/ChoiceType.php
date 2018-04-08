@@ -37,7 +37,7 @@ class ChoiceType extends AbstractType
         $builder
             ->add('name', null, ['attr' => ['autofocus' => 'autofocus', 'placeholder' => "choice.name.placeholder"]])
             ->add('value', null, ['attr' => ['placeholder' => 'choice.name.value']])
-            ->add('color', BaseChoiceType::class, ['choices_as_values' => true, 'choices' => [
+            ->add('color', BaseChoiceType::class, ['choices' => [
             	'green' => 'green',
 	            'orange' => 'orange',
 	            'red' => 'red',
