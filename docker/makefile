@@ -20,6 +20,7 @@ get-vendor:
 
 test:
 	docker exec kyela-git phpunit
+	docker start selenium
 	docker exec kyela-git vendor/bin/behat --colors
 
 test-prep:

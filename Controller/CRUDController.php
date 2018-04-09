@@ -50,7 +50,7 @@ abstract class CRUDController extends PollSetterController
 	 * @param mixed $parameters
 	 * @param Boolean $absolute
 	 */
-	public function generateUrl($route, $parameters = [], $absolute = UrlGeneratorInterface::ABSOLUTE_PATH)
+	public function generateUrlWithPoll($route, $parameters = [], $absolute = UrlGeneratorInterface::ABSOLUTE_PATH)
 	{
 		if (!isset($parameters['pollUrl']) && $this->poll)
 		{
@@ -79,7 +79,7 @@ abstract class CRUDController extends PollSetterController
 			}
 
 			if ($form->get('actions')->has('cancel') && $form->get('actions')->get('cancel')->isClicked()) {
-				return $this->redirect($this->generateUrl($this->cancelRoute));
+				return $this->redirect($this->generateUrlWithPoll($this->cancelRoute));
 			}
 
 			if ($form->isValid()) {
@@ -90,7 +90,7 @@ abstract class CRUDController extends PollSetterController
 				if ($successMessage) {
 					$request->getSession()->getFlashBag()->add('success', $successMessage);
 				}
-				return $this->redirect($this->generateUrl($this->successRoute));
+				return $this->redirect($this->generateUrlWithPoll($this->successRoute));
 			}
 		}
 
@@ -127,12 +127,12 @@ abstract class CRUDController extends PollSetterController
 
 			if ($editForm->get('actions')->get('cancel')->isClicked()) {
 				$em->refresh($entity);
-				return $this->redirect($this->generateUrl($this->cancelRoute));
+				return $this->redirect($this->generateUrlWithPoll($this->cancelRoute));
 			}
 
 			if ($editForm->isValid()) {
 				$em->flush();
-				return $this->redirect($this->generateUrl($this->successRoute));
+				return $this->redirect($this->generateUrlWithPoll($this->successRoute));
 			}
 			else {
 				$em->refresh($entity);
@@ -175,7 +175,7 @@ abstract class CRUDController extends PollSetterController
 			$flashMessage = $this->get('translator')->trans('deleted');
 			$request->getSession()->getFlashBag()->add('success', $flashMessage);
 		}
-		return $this->redirect($this->generateUrl($this->deleteSuccessRoute));
+		return $this->redirect($this->generateUrlWithPoll($this->deleteSuccessRoute));
 	}
 
 	/**
@@ -190,7 +190,7 @@ abstract class CRUDController extends PollSetterController
 	protected function doCreateCreateForm($formType, Entity $entity, $action)
 	{
 		$form = $this->createForm($formType, $entity, [
-			'action' => $this->generateUrl($action),
+			'action' => $this->generateUrlWithPoll($action),
 			'method' => 'POST',
 		]);
 
@@ -219,7 +219,7 @@ abstract class CRUDController extends PollSetterController
 	protected function doCreateEditForm($formType, Entity $entity, $action)
 	{
 		$form = $this->createForm($formType, $entity, [
-			'action' => $this->generateUrl($action, ['id' => $entity->getId()]),
+			'action' => $this->generateUrlWithPoll($action, ['id' => $entity->getId()]),
 			'method' => 'PUT',
 		]);
 
@@ -243,7 +243,7 @@ abstract class CRUDController extends PollSetterController
 	{
 		$t = $this->get('translator');
 		return $this->createFormBuilder()
-		            ->setAction($this->generateUrl($this->deleteRoute, ['id' => $id]))
+		            ->setAction($this->generateUrlWithPoll($this->deleteRoute, ['id' => $id]))
 		            ->setMethod('DELETE')
 		            ->add('submit', SubmitType::class, ['label' => 'delete', 'attr' => ['type' => 'danger', 'onclick' => "return confirm('{$t->trans("are.you.sure.to.delete")}');"]])
 		            ->getForm();

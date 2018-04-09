@@ -89,7 +89,7 @@ class PollController extends CRUDController
         $hasPastEvents = count($em->getRepository('KyelaBundle:Event')->getFutureOrPastEvents($this->poll, false));
 
         $participant_form = $this->createForm(ParticipantType::class, new Participant(), [
-            'action' => $this->generateUrl('participant_new'),
+            'action' => $this->generateUrlWithPoll('participant_new'),
             'method' => 'POST'
         ]);
 
