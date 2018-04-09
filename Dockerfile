@@ -26,6 +26,7 @@ RUN COMPOSER_ALLOW_SUPERUSER=1 composer remove incenteev/composer-parameter-hand
 	&& cp src/Abienvenu/KyelaBundle/docker/patches/parameters.yml app/config/parameters.yml \
 	&& cp src/Abienvenu/KyelaBundle/docker/patches/routing.yml app/config/routing.yml \
 	&& cp src/Abienvenu/KyelaBundle/docker/patches/services.yml app/config/services.yml \
+	&& cp src/Abienvenu/KyelaBundle/docker/patches/security.yml app/config/security.yml \
 	&& cp src/Abienvenu/KyelaBundle/docker/patches/behat.yml behat.yml \
 	&& cp phpunit.xml.dist phpunit.xml \
     && sed -i "s|<directory>tests</directory>|<directory>src/*/*Bundle/Tests</directory>|" phpunit.xml \
