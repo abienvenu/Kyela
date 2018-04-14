@@ -29,7 +29,7 @@ class LocaleListener implements EventSubscriberInterface
 {
     private $defaultLocale;
 
-    public function __construct($defaultLocale = 'en')
+    public function __construct($defaultLocale)
     {
         $this->defaultLocale = $defaultLocale;
     }
@@ -37,9 +37,6 @@ class LocaleListener implements EventSubscriberInterface
     public function onKernelRequest(GetResponseEvent $event)
     {
         $request = $event->getRequest();
-        if (!$request->hasPreviousSession()) {
-            return;
-        }
 
         // try to see if the locale has been set as a _locale routing parameter
         $locale = $request->attributes->get('_locale');

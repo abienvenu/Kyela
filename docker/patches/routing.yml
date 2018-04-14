@@ -1,4 +1,3 @@
 kyela:
     resource: "@KyelaBundle/Resources/config/routing.yml"
     prefix: /
-

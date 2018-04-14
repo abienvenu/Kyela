@@ -12,6 +12,7 @@ default:
             kernel:
                 env: test
                 debug: true
+                class: App\Kernel
         Behatch\Extension: ~
 
     suites:
@@ -24,4 +25,4 @@ default:
                 - Abienvenu\KyelaBundle\Tests\Behat\Context\KyelaContext
 
             paths:
-                - "%paths.base%/src/Abienvenu/KyelaBundle/Tests/Behat/Feature"
+                - "%paths.base%/src/Kyela/Tests/Behat/Feature"

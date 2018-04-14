@@ -2,10 +2,12 @@ imports:
     - { resource: "services.yml" }
 
 parameters:
-    kyela_version: 1.7.1
+    kyela_version: 1.7.2
 
 framework:
     translator: { fallback: en }
+    templating:
+        engines: ['twig']
 
 twig:
     form_themes:

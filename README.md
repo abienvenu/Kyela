@@ -46,7 +46,7 @@ This is the very simplest way to have Kyélà running, suitable for test or demo
 * Install docker
 * Download and run the application :
 ```bash
-$ docker run -d --name kyela -p 8042:80 abienvenu/kyela
+$ docker run -d --name kyela -p 8042:80 -e APP_ENV=prod -e APP_SECRET=IAmNotSecret abienvenu/kyela
 ```
 * Point your browser to http://localhost:8042/
 
@@ -71,7 +71,7 @@ Using a named volume is more suitable for production use.
 
 ```bash
 $ docker volume create --name kyela-data
-$ docker run -d --name kyela -p 8042:80 -v kyela-data:/var/www/kyela/data --restart always abienvenu/kyela
+$ docker run -d --name kyela -p 8042:80 -v kyela-data:/var/www/kyela/data --restart always  -e APP_ENV=prod -e APP_SECRET=IAmNotSecret abienvenu/kyela
 ```
 
 The named volume can be easily backed up (cf. https://docs.docker.com/engine/tutorials/dockervolumes/#/backup-restore-or-migrate-data-volumes).
@@ -80,7 +80,7 @@ This technique enables you to pull newer Docker images of the kyela application,
 $ docker pull abienvenu/kyela
 $ docker stop kyela
 $ docker rm kyela
-$ docker run -d --name kyela -p 8042:80 -v kyela-data:/var/www/kyela/data --restart always abienvenu/kyela
+$ docker run -d --name kyela -p 8042:80 -v kyela-data:/var/www/kyela/data --restart always  -e APP_ENV=prod -e APP_SECRET=IAmNotSecret abienvenu/kyela
 ```
 
 ### Native
@@ -106,9 +106,9 @@ You need not install anything but Docker, and mount the code into a running cont
 * Unzip it
 * Launch the kyela docker image, mounting the directory of the unzipped code:
 ```bash
-$ docker run -p 8042:80 -v /where/you/unzipped/the/code/Kyela-master:/var/www/kyela/src/Abienvenu/KyelaBundle -d --name kyela-dev abienvenu/kyela
+$ cd docker && make run-dev
 ```
-* Point your web browser to http://localhost:8042/app_dev.php
+* Point your web browser to http://localhost:8042/
 * Use your favorite editor to modify the files into the Kyela-master directory, and see the results in your browser
 
 If you use an advanced PHP editor like PHPStorm, you may want to give it access to the vendor directory so it can parse the librairies.
@@ -126,17 +126,19 @@ Please share with us any cool feature or improvement you made! All you need is G
 * Clone your fork of the Kyélà project: ```git clone https://github.com/YOUR-USERNAME/Kyela```
 * Like in the previous "Developing" section, launch the kyela docker image, with the code mounted:
 ```bash
-$ docker run -p 8042:80 -v /where/you/cloned/the/code/Kyela:/var/www/kyela/src/Abienvenu/KyelaBundle -d --name kyela-git abienvenu/kyela
+$ cd docker && make run-dev
 ```
-* Point your web browser to http://localhost:8042/app_dev.php
+* Point your web browser to http://localhost:8042/
 * Use your favorite editor to modify the code
-* Test your code: ```docker exec kyela-git phpunit -c app```
+* Test your code: ```cd docker && make test```
 * Make a pull request: https://help.github.com/articles/creating-a-pull-request/
 
 Your contribution will be reviewed, and probably merged into the main project.
 
 CHANGELOG
 ---------
+* 1.7.2 :
+  - Upgrade to Symfony Flex
 * 1.7.1 :
   - Upgrade from Symfony 2.8 to Symfony 3.4
 * 1.7.0 :
