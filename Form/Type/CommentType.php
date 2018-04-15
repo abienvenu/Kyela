@@ -29,27 +29,16 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class CommentType extends AbstractType
 {
-    protected $authors = [];
-
-    public function __construct(array $authors)
-    {
-        $this->authors = $authors;
-    }
-
-    /**
-     * @param FormBuilderInterface $builder
-     * @param array $options
-     */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('author', ChoiceType::class, ['choices' => $this->authors, 'attr' => ['autofocus' => 'autofocus']])
+            ->add('author', ChoiceType::class, ['choices' => $options['authors'], 'attr' => ['autofocus' => 'autofocus']])
             ->add('content', TextareaType::class, ['attr' => ['placeholder' => 'comment.placeholder']]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults(['data_class' => 'Abienvenu\KyelaBundle\Entity\Comment']);
+        $resolver->setDefaults(['data_class' => 'Abienvenu\KyelaBundle\Entity\Comment', 'authors' => []]);
     }
 
     /**

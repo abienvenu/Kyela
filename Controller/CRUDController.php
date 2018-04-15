@@ -62,9 +62,9 @@ abstract class CRUDController extends PollSetterController
 	/**
 	 * Create a form to create a new entity, and create it when the form is submited
 	 */
-	protected function doNewAction($formType, Entity $entity, Request $request, $successMessage = null)
+	protected function doNewAction($formType, Entity $entity, Request $request, $successMessage = null, $extra = [])
 	{
-		$form = $this->doCreateCreateForm($formType, $entity, $request->get('_route'));
+		$form = $this->doCreateCreateForm($formType, $entity, $request->get('_route'), $extra);
 		if ($request->isMethod('POST'))
 		{
 			$form->handleRequest($request);
@@ -108,7 +108,7 @@ abstract class CRUDController extends PollSetterController
 	 * @param int $id The entity id
 	 * @param Request $request
 	 */
-	protected function doEditAction($formType, $id, Request $request)
+	protected function doEditAction($formType, $id, Request $request, $extra = [])
 	{
 		$em = $this->getDoctrine()->getManager();
 
@@ -120,7 +120,7 @@ abstract class CRUDController extends PollSetterController
 		}
 
 		$deleteForm = $this->createDeleteForm($id);
-		$editForm = $this->doCreateEditForm($formType, $entity, $request->get('_route'));
+		$editForm = $this->doCreateEditForm($formType, $entity, $request->get('_route'), $extra);
 		if ($request->isMethod('PUT'))
 		{
 			$editForm->handleRequest($request);
@@ -187,12 +187,13 @@ abstract class CRUDController extends PollSetterController
 	 *
 	 * @return \Symfony\Component\Form\Form The form
 	 */
-	protected function doCreateCreateForm($formType, Entity $entity, $action)
+	protected function doCreateCreateForm($formType, Entity $entity, $action, $extra)
 	{
-		$form = $this->createForm($formType, $entity, [
+	    $options = $extra + [
 			'action' => $this->generateUrlWithPoll($action),
 			'method' => 'POST',
-		]);
+		];
+		$form = $this->createForm($formType, $entity, $options);
 
 		$options = [
 			'buttons' => [
@@ -216,12 +217,13 @@ abstract class CRUDController extends PollSetterController
 	 *
 	 * @return \Symfony\Component\Form\Form The form
 	 */
-	protected function doCreateEditForm($formType, Entity $entity, $action)
+	protected function doCreateEditForm($formType, Entity $entity, $action, $extra = [])
 	{
-		$form = $this->createForm($formType, $entity, [
+	    $options = $extra + [
 			'action' => $this->generateUrlWithPoll($action, ['id' => $entity->getId()]),
 			'method' => 'PUT',
-		]);
+		];
+		$form = $this->createForm($formType, $entity, $options);
 
 		$form->add('actions', FormActionsType::class, [
 			'buttons' => [

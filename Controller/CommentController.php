@@ -68,7 +68,7 @@ class CommentController extends CRUDController
         {
             $comment->setDatetime(new \DateTime());
         }
-        return $this->doNewAction(new CommentType($this->poll->getParticipantsAsArrayOfNames()), $comment, $request);
+        return $this->doNewAction(CommentType::class, $comment, $request, null, ['authors' => $this->poll->getParticipantsAsArrayOfNames()]);
     }
 
     /**
@@ -80,7 +80,7 @@ class CommentController extends CRUDController
      */
     public function editAction(Request $request, $id)
     {
-        return $this->doEditAction(new CommentType($this->poll->getParticipantsAsArrayOfNames()), $id, $request);
+        return $this->doEditAction(CommentType::class, $id, $request, ['authors' => $this->poll->getParticipantsAsArrayOfNames()]);
     }
 
     /**
