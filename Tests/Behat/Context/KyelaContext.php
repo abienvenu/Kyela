@@ -70,4 +70,14 @@ class KyelaContext extends BaseContext
 
         $this->assertContains($text, $actual);
     }
+
+    /**
+	 * @Then /^I press the (?P<index>\d+)(?:st|nd|rd|th) button containing a "(?P<icon>[^"]*)" icon$/
+	 */
+	public function iPressTheButtonContainingIcon($index, $glyphicon)
+	{
+		$page = $this->minkContext->getSession()->getPage();
+		$icons = $page->findAll('css', ".glyphicon-$glyphicon");
+		$icons[$index - 1]->getParent()->click();
+	}
 }
