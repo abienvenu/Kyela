@@ -21,8 +21,6 @@ RUN ln -s ../components public/components \
 	&& cp src/Kyela/docker/patches/routing.yml config/routes.yaml \
 	&& cp src/Kyela/docker/patches/services.yml config/services.yaml \
 	&& cp src/Kyela/docker/patches/doctrine.yaml config/packages/doctrine.yaml \
-	&& cp src/Kyela/docker/patches/behat.yml behat.yml \
-	&& cp src/Kyela/docker/patches/phpunit.xml phpunit.xml \
     && composer config repositories.kyela path /var/www/kyela/src/Kyela \
 	&& composer require twig translation annotations \
 	    orm form validator templating monolog asset assetic-bundle \

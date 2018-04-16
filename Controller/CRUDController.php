@@ -50,7 +50,7 @@ abstract class CRUDController extends PollSetterController
 	 * @param mixed $parameters
 	 * @param Boolean $absolute
 	 */
-	public function generateUrlWithPoll($route, $parameters = [], $absolute = UrlGeneratorInterface::ABSOLUTE_PATH)
+	protected function generateUrlWithPoll($route, $parameters = [], $absolute = UrlGeneratorInterface::ABSOLUTE_PATH)
 	{
 		if (!isset($parameters['pollUrl']) && $this->poll)
 		{
