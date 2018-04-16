@@ -16,16 +16,18 @@ WORKDIR "/var/www/kyela"
 # Install and configure Kyélà
 COPY . src/Kyela
 RUN ln -s ../components public/components \
-    && cp src/Kyela/Resources/public/favicon.ico public/favicon.ico \
-    && cp src/Kyela/docker/patches/kyela.conf /etc/apache2/sites-enabled/000-default.conf \
+	&& cp src/Kyela/Resources/public/favicon.ico public/favicon.ico \
+	&& cp src/Kyela/docker/patches/kyela.conf /etc/apache2/sites-enabled/000-default.conf \
 	&& cp src/Kyela/docker/patches/routing.yml config/routes.yaml \
 	&& cp src/Kyela/docker/patches/services.yml config/services.yaml \
 	&& cp src/Kyela/docker/patches/doctrine.yaml config/packages/doctrine.yaml \
-    && composer config repositories.kyela path /var/www/kyela/src/Kyela \
+	&& cp src/Kyela/behat.yml behat.yml \
+	&& cp src/Kyela/phpunit.xml phpunit.xml \
+	&& composer config repositories.kyela path /var/www/kyela/src/Kyela \
 	&& composer require twig translation annotations \
-	    orm form validator templating monolog asset assetic-bundle \
-	    profiler symfony/browser-kit symfony/css-selector \
-        abienvenu/kyela:@dev
+		orm form validator templating monolog asset assetic-bundle \
+		profiler symfony/browser-kit symfony/css-selector \
+		abienvenu/kyela:@dev
 
 # Deploy assets, create database, load example data and run tests
 RUN bin/console assetic:dump \
