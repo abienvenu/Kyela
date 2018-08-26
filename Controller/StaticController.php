@@ -30,7 +30,7 @@ use Symfony\Component\Yaml\Yaml;
 /**
  * Static content controller.
  *
- * @Route("/")
+ * @Route("/static")
  */
 class StaticController extends PollSetterController
 {
