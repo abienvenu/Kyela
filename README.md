@@ -137,6 +137,8 @@ Your contribution will be reviewed, and probably merged into the main project.
 
 CHANGELOG
 ---------
+* 1.7.3 :
+  - New colors and new framing options (see "Tips")
 * 1.7.2 :
   - Upgrade to Symfony Flex
 * 1.7.1 :
