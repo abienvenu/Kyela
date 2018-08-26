@@ -38,14 +38,17 @@ class ChoiceType extends AbstractType
             ->add('name', null, ['attr' => ['autofocus' => 'autofocus', 'placeholder' => "choice.name.placeholder"]])
             ->add('value', null, ['attr' => ['placeholder' => 'choice.name.value']])
             ->add('color', BaseChoiceType::class, ['choices' => [
-            	'green' => 'green',
-	            'orange' => 'orange',
-	            'red' => 'red',
-	            'blue' => 'blue',
-	            'cyan' => 'cyan',
-	            'purple' => 'purple',
-	            'gray' => 'gray',
-			]])
+                'red' => 'red',
+                'orange' => 'orange',
+                'yellow' => 'yellow',
+                'green' => 'green',
+                'cyan' => 'cyan',
+                'blue' => 'blue',
+                'purple' => 'purple',
+                'pink' => 'pink',
+                'brown' => 'brown',
+                'gray' => 'gray',
+            ]])
             ->add('icon', IconType::class)
         ;
     }
