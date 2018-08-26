@@ -52,7 +52,7 @@ class StaticController extends PollSetterController
     /**
      * Displays the FAQ
      *
-     * @Route("/faq", methods="GET")
+     * @Route("/faq", name="kyela_faq", methods="GET")
      * @Template()
      */
     public function faqAction(Request $request)
@@ -63,7 +63,7 @@ class StaticController extends PollSetterController
     /**
      * Displays the About page
      *
-     * @Route("/about", methods="GET")
+     * @Route("/about", name="kyela_about", methods="GET")
      * @Template()
      */
     public function aboutAction(Request $request)
@@ -74,7 +74,7 @@ class StaticController extends PollSetterController
     /**
      * Displays the Tips page
      *
-     * @Route("/tips", methods="GET")
+     * @Route("/tips", name="kyela_tips", methods="GET")
      * @Template()
      */
     public function tipsAction(Request $request)
@@ -85,7 +85,7 @@ class StaticController extends PollSetterController
     /**
      * Displays the Thanks page
      *
-     * @Route("/thanks", methods="GET")
+     * @Route("/thanks", name="kyela_thanks", methods="GET")
      * @Template()
      */
     public function thanksAction()
@@ -96,7 +96,7 @@ class StaticController extends PollSetterController
     /**
      * Switch locale
      *
-     * @Route("/switch/{_locale}", methods="GET")
+     * @Route("/switch/{_locale}", name="kyela_switch", methods="GET")
      */
     public function switchAction(Request $request)
     {
