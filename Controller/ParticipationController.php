@@ -26,7 +26,6 @@ use Abienvenu\KyelaBundle\Entity\Event;
 use Abienvenu\KyelaBundle\Entity\Participant;
 use Abienvenu\KyelaBundle\Entity\Poll;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Abienvenu\KyelaBundle\Entity\Participation;
@@ -41,7 +40,7 @@ class ParticipationController extends Controller
     /**
      * Displays interactive participation table
      *
-     * @Method("GET")
+     * @Route("", methods="GET")
      * @Template()
      */
     public function showAction(Poll $poll, $isFuture)
@@ -69,8 +68,7 @@ class ParticipationController extends Controller
     /**
      * Creates a new Participation on the fly.
      *
-     * @Route("/new/{event}/{participant}/{choice}", name="participation_new")
-     * @Method("GET")
+     * @Route("/new/{event}/{participant}/{choice}", name="participation_new", methods="GET")
      */
     public function newAction(Event $event, Participant $participant, Choice $choice)
     {
@@ -97,8 +95,7 @@ class ParticipationController extends Controller
     /**
      * Edits a Participation on the fly
      *
-     * @Route("/edit/{participation}/{newChoice}", name="participation_edit")
-     * @Method("GET")
+     * @Route("/edit/{participation}/{newChoice}", name="participation_edit", methods="GET")
      */
     public function editAction(Participation $participation, Choice $newChoice)
     {
@@ -120,8 +117,7 @@ class ParticipationController extends Controller
     /**
      * Removes a Participation on the fly
      *
-     * @Route("/delete/{participation}", name="participation_delete")
-     * @Method("GET")
+     * @Route("/delete/{participation}", name="participation_delete", methods="GET")
      */
     public function deleteAction(Participation $participation)
     {

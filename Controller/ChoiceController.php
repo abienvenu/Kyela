@@ -23,7 +23,6 @@ namespace Abienvenu\KyelaBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Abienvenu\KyelaBundle\Entity\Choice;
@@ -45,8 +44,7 @@ class ChoiceController extends CRUDController
     /**
      * Lists all Choice entities.
      *
-     * @Route("/", name="choice")
-     * @Method("GET")
+     * @Route("/", name="choice", methods="GET")
      * @Template()
      */
     public function indexAction()
@@ -59,8 +57,7 @@ class ChoiceController extends CRUDController
     /**
      * Displays a form to create a new Choice entity.
      *
-     * @Route("/new", name="choice_new")
-     * @Method({"GET", "POST"})
+     * @Route("/new", name="choice_new", methods={"GET", "POST"})
      * @Template()
      */
     public function newAction(Request $request)
@@ -74,8 +71,7 @@ class ChoiceController extends CRUDController
     /**
      * Displays a form to edit an existing Choice entity.
      *
-     * @Route("/{id}/edit", name="choice_edit")
-     * @Method({"GET", "PUT"})
+     * @Route("/{id}/edit", name="choice_edit", methods={"GET", "PUT"})
      * @Template()
      */
     public function editAction(Request $request, $id)
@@ -86,8 +82,7 @@ class ChoiceController extends CRUDController
     /**
      * Deletes a Choice entity.
      *
-     * @Route("/{id}", name="choice_delete")
-     * @Method("DELETE")
+     * @Route("/{id}", name="choice_delete", methods="DELETE")
      */
     public function deleteAction(Request $request, $id)
     {
@@ -97,8 +92,7 @@ class ChoiceController extends CRUDController
     /**
      * Reorder choices
      *
-     * @Route("/order", name="choice_order")
-     * @Method("POST")
+     * @Route("/order", name="choice_order", methods="POST")
      */
     public function orderAction(Request $request)
     {

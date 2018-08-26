@@ -2,7 +2,7 @@ FROM php:7-apache
 
 ARG COMPOSER_ALLOW_SUPERUSER=1
 
-RUN apt-get update && apt-get install -y unzip libicu-dev patch vim \
+RUN apt-get update && apt-get install -y unzip libicu-dev vim \
 	&& docker-php-ext-install intl \
 	&& a2enmod rewrite
 

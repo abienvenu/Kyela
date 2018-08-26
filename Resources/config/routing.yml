@@ -5,31 +5,6 @@ kyela_robots:
         _format: txt
         template: KyelaBundle:Static:robots.txt.twig
 
-kyela_faq:
-    path: /faq
-    defaults:
-        _controller: KyelaBundle:Static:faq
-
-kyela_tips:
-    path: /tips
-    defaults:
-        _controller: KyelaBundle:Static:tips
-
-kyela_about:
-    path: /about
-    defaults:
-        _controller: KyelaBundle:Static:about
-
-kyela_thanks:
-    path: /thanks
-    defaults:
-        _controller: KyelaBundle:Static:thanks
-
-kyela_switch:
-    path: /switch/{_locale}
-    defaults:
-        _controller: KyelaBundle:Static:switch
-
 kyela_application:
     resource: "@KyelaBundle/Controller"
     type: annotation

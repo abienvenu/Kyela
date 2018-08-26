@@ -21,7 +21,6 @@
 
 namespace Abienvenu\KyelaBundle\Controller;
 
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
@@ -53,7 +52,7 @@ class StaticController extends PollSetterController
     /**
      * Displays the FAQ
      *
-     * @Method("GET")
+     * @Route("/faq", methods="GET")
      * @Template()
      */
     public function faqAction(Request $request)
@@ -64,7 +63,7 @@ class StaticController extends PollSetterController
     /**
      * Displays the About page
      *
-     * @Method("GET")
+     * @Route("/about", methods="GET")
      * @Template()
      */
     public function aboutAction(Request $request)
@@ -75,7 +74,7 @@ class StaticController extends PollSetterController
     /**
      * Displays the Tips page
      *
-     * @Method("GET")
+     * @Route("/tips", methods="GET")
      * @Template()
      */
     public function tipsAction(Request $request)
@@ -86,7 +85,7 @@ class StaticController extends PollSetterController
     /**
      * Displays the Thanks page
      *
-     * @Method("GET")
+     * @Route("/thanks", methods="GET")
      * @Template()
      */
     public function thanksAction()
@@ -97,7 +96,7 @@ class StaticController extends PollSetterController
     /**
      * Switch locale
      *
-     * @Method("GET")
+     * @Route("/switch/{_locale}", methods="GET")
      */
     public function switchAction(Request $request)
     {

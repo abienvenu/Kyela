@@ -24,7 +24,6 @@ namespace Abienvenu\KyelaBundle\Controller;
 use Abienvenu\KyelaBundle\Form\Type\FormActionsType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Abienvenu\KyelaBundle\Entity\Poll;
@@ -52,8 +51,7 @@ class PollController extends CRUDController
     /**
      * Displays a form to create a new Poll entity.
      *
-     * @Route("/", name="poll_new")
-     * @Method({"GET", "POST"})
+     * @Route("", name="poll_new", methods={"GET", "POST"})
      * @Template()
      */
     public function newAction(Request $request)
@@ -79,8 +77,7 @@ class PollController extends CRUDController
     /**
      * Shows the poll
      *
-     * @Route("/{pollUrl}/", name="poll_show")
-     * @Method("GET")
+     * @Route("/{pollUrl}/", name="poll_show", methods="GET")
      * @Template()
      */
     public function showAction()
@@ -103,8 +100,7 @@ class PollController extends CRUDController
     /**
      * Show a simplified poll to be used in iframe
      *
-     * @Route("/{pollUrl}/frame", name="poll_showframe")
-     * @Method("GET")
+     * @Route("/{pollUrl}/frame", name="poll_showframe", methods="GET")
      * @Template()
      */
     public function frameAction()
@@ -115,8 +111,7 @@ class PollController extends CRUDController
     /**
      * Shows the poll with past events only
      *
-     * @Route("/{pollUrl}/archive", name="poll_archive")
-     * @Method("GET")
+     * @Route("/{pollUrl}/archive", name="poll_archive", methods="GET")
      * @Template()
      */
     public function archiveAction()
@@ -127,8 +122,7 @@ class PollController extends CRUDController
     /**
      * Displays a form to edit an existing Poll entity.
      *
-     * @Route("/{pollUrl}/edit", name="poll_edit")
-     * @Method({"GET", "PUT"})
+     * @Route("/{pollUrl}/edit", name="poll_edit", methods={"GET", "PUT"})
      * @Template()
      */
     public function editAction(Request $request, $pollUrl)
@@ -150,8 +144,7 @@ class PollController extends CRUDController
     /**
      * Deletes a Poll entity.
      *
-     * @Route("/{pollUrl}/", name="poll_delete")
-     * @Method("DELETE")
+     * @Route("/{pollUrl}/", name="poll_delete", methods="DELETE")
      */
     public function deleteAction(Request $request, $pollUrl)
     {
@@ -161,8 +154,7 @@ class PollController extends CRUDController
     /**
      * Display a form to setup a lock on the Poll
      *
-     * @Route("/{pollUrl}/lock", name="poll_lock")
-     * @Method({"GET", "PUT"})
+     * @Route("/{pollUrl}/lock", name="poll_lock", methods={"GET", "PUT"})
      * @Template()
      */
     public function lockAction(Request $request)
@@ -206,8 +198,7 @@ class PollController extends CRUDController
     /**
      * Display a form to unlock the Poll
      *
-     * @Route("/{pollUrl}/unlock", name="poll_unlock")
-     * @Method({"GET", "PUT"})
+     * @Route("/{pollUrl}/unlock", name="poll_unlock", methods={"GET", "PUT"})
      * @Template()
      */
     public function unlockAction(Request $request)

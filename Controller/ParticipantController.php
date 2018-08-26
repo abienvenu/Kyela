@@ -23,7 +23,6 @@ namespace Abienvenu\KyelaBundle\Controller;
 
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Abienvenu\KyelaBundle\Entity\Participant;
@@ -45,8 +44,7 @@ class ParticipantController extends CRUDController
     /**
      * Displays a form to create a new Participant entity.
      *
-     * @Route("/new", name="participant_new")
-     * @Method({"GET", "POST"})
+     * @Route("/new", name="participant_new", methods={"GET", "POST"})
      * @Template()
      */
     public function newAction(Request $request)
@@ -57,8 +55,7 @@ class ParticipantController extends CRUDController
     /**
      * Displays a form to edit an existing Participant entity.
      *
-     * @Route("/{id}/edit", name="participant_edit")
-     * @Method({"GET", "PUT"})
+     * @Route("/{id}/edit", name="participant_edit", methods={"GET", "PUT"})
      * @Template()
      */
     public function editAction(Request $request, $id)
@@ -69,8 +66,7 @@ class ParticipantController extends CRUDController
     /**
      * Deletes a Participant entity.
      *
-     * @Route("/{id}", name="participant_delete")
-     * @Method("DELETE")
+     * @Route("/{id}", name="participant_delete", methods="DELETE")
      */
     public function deleteAction(Request $request, $id)
     {
@@ -80,8 +76,7 @@ class ParticipantController extends CRUDController
     /**
      * Reorder participant
      *
-     * @Route("/order", name="participant_order")
-     * @Method("POST")
+     * @Route("/order", name="participant_order", methods="POST")
      */
     public function orderAction(Request $request)
     {

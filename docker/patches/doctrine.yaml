@@ -1,9 +1,6 @@
 doctrine:
     dbal:
         driver: 'pdo_sqlite'
-        charset: UTF8
-        host:     '127.0.0.1'
-        dbname:   'kyela'
         path:     '%kernel.project_dir%/data/kyela.db3'
     orm:
         auto_generate_proxy_classes: '%kernel.debug%'

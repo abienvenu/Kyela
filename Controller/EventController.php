@@ -22,7 +22,6 @@
 namespace Abienvenu\KyelaBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Abienvenu\KyelaBundle\Entity\Event;
@@ -44,7 +43,7 @@ class EventController extends CRUDController
     /**
      * Displays poll events
      *
-     * @Method("GET")
+     * @Route("", methods="GET")
      * @Template()
      */
     public function showAction($isFuture)
@@ -60,8 +59,7 @@ class EventController extends CRUDController
     /**
      * Displays a form to create a new Event entity.
      *
-     * @Route("/new", name="event_new")
-     * @Method({"GET", "POST"})
+     * @Route("/new", name="event_new", methods={"GET", "POST"})
      * @Template()
      */
     public function newAction(Request $request)
@@ -72,8 +70,7 @@ class EventController extends CRUDController
     /**
      * Displays a form to edit an existing Event entity.
      *
-     * @Route("/{id}/edit", name="event_edit")
-     * @Method({"GET", "PUT"})
+     * @Route("/{id}/edit", name="event_edit", methods={"GET", "PUT"})
      * @Template()
      */
     public function editAction(Request $request, $id)
@@ -84,8 +81,7 @@ class EventController extends CRUDController
     /**
      * Deletes a Event entity.
      *
-     * @Route("/{id}", name="event_delete")
-     * @Method("DELETE")
+     * @Route("/{id}", name="event_delete", methods="DELETE")
      */
     public function deleteAction(Request $request, $id)
     {

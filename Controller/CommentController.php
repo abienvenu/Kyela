@@ -22,7 +22,6 @@
 namespace Abienvenu\KyelaBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Abienvenu\KyelaBundle\Entity\Comment;
@@ -44,7 +43,7 @@ class CommentController extends CRUDController
     /**
      * Displays latest comments
      *
-     * @Method("GET")
+     * @Route("/", methods="GET")
      * @Template()
      */
     public function showAction()
@@ -57,8 +56,7 @@ class CommentController extends CRUDController
     /**
      * Displays a form to create a new Comment entity.
      *
-     * @Route("/new", name="comment_new")
-     * @Method({"GET", "POST"})
+     * @Route("/new", name="comment_new", methods={"GET", "POST"})
      * @Template()
      */
     public function newAction(Request $request)
@@ -74,8 +72,7 @@ class CommentController extends CRUDController
     /**
      * Displays a form to edit an existing Comment entity.
      *
-     * @Route("/{id}/edit", name="comment_edit")
-     * @Method({"GET", "PUT"})
+     * @Route("/{id}/edit", name="comment_edit", methods={"GET", "PUT"})
      * @Template()
      */
     public function editAction(Request $request, $id)
@@ -86,8 +83,7 @@ class CommentController extends CRUDController
     /**
      * Deletes a Comment entity.
      *
-     * @Route("/{id}", name="comment_delete")
-     * @Method("DELETE")
+     * @Route("/{id}", name="comment_delete", methods="DELETE")
      */
     public function deleteAction(Request $request, $id)
     {
