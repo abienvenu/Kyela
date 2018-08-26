@@ -23,7 +23,7 @@ namespace Abienvenu\KyelaBundle\Controller;
 
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Abienvenu\KyelaBundle\Entity\Participant;
 use Abienvenu\KyelaBundle\Form\Type\ParticipantType;

@@ -24,7 +24,7 @@ namespace Abienvenu\KyelaBundle\Controller;
 use Abienvenu\KyelaBundle\Form\Type\FormActionsType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Abienvenu\KyelaBundle\Entity\Poll;
 use Abienvenu\KyelaBundle\Entity\Choice;

@@ -26,7 +26,7 @@ use Abienvenu\KyelaBundle\Entity\Event;
 use Abienvenu\KyelaBundle\Entity\Participant;
 use Abienvenu\KyelaBundle\Entity\Poll;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Abienvenu\KyelaBundle\Entity\Participation;
 

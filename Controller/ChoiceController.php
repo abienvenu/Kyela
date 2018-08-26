@@ -23,7 +23,7 @@ namespace Abienvenu\KyelaBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Abienvenu\KyelaBundle\Entity\Choice;
 use Abienvenu\KyelaBundle\Form\Type\ChoiceType;
