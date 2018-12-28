@@ -4,7 +4,8 @@ ARG COMPOSER_ALLOW_SUPERUSER=1
 
 RUN apt-get update && apt-get install -y unzip libicu-dev vim \
 	&& docker-php-ext-install intl \
-	&& a2enmod rewrite
+	&& a2enmod rewrite \
+	&& echo "memory_limit = -1" > /usr/local/etc/php/conf.d/php-memory.ini
 
 # Install and configure Composer, PHPUnit and Symfony skeleton
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
