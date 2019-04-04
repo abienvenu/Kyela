@@ -23,8 +23,8 @@ about.cookies:
     q: Kyela.net utilise-t-il des cookies ?
     a: Pas de cookie tiers ni de cookie de suivi. Simplement un cookie session privé, pour mémoriser quelle langue vous avez choisi, et sur quel sondage vous êtes.
 how.is.it.funded:
-    q: Comment est-ce financé ?
-    a: Ça ne coûte pas grand chose.
+    q: Quel est le modèle économique de Kyélà ?
+    a: Il n'y en a pas. Ça coûte juste un peu de temps, et ça apporte le plaisir de faire quelquechose d'utile.
 can.i.contribute:
     q: Puis-je aider ?
     a: Oui! Si vous êtes développeur Symfony, allez sur le GitHub (lien en pied de page), et participez au projet. Si vous êtes graphiste, créez un logo, un favicon, ou des thèmes graphiques pour Kyélà. En tant que simple utilisateur, rapportez les éventuels problèmes que vous rencontrez; une description précise d'un bug reproductible simplifie énormément la résolution du problème.

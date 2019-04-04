@@ -29,7 +29,7 @@ class EventControllerTest extends PollWebTestCase
     public function testCompleteScenario()
     {
         // Create a poll to work with
-        $crawler = self::createPollEntry(uniqid('Test Poll '));
+        $crawler = self::createPollEntry();
 
         // Create an event
         $name = uniqid('Test Event ');

@@ -8,6 +8,7 @@
     <div class="jumbotron">
         <div class="container">
             <h1>{% trans %}thank.you{% endtrans %}</h1>
+            {% trans %}thank.you.details{% endtrans %}
         </div>
     </div>
 
@@ -35,6 +36,9 @@
         {% endimage %}
         {% image '@KyelaBundle/Resources/public/images/github.png' %}
             <a href="https://github.com/" target="_blank"><img src="{{ asset_url }}" alt="GitHub" /></a>
+        {% endimage %}
+        {% image '@KyelaBundle/Resources/public/images/docker.png' %}
+            <a href="https://docker.com/" target="_blank"><img src="{{ asset_url }}" alt="Docker" /></a>
         {% endimage %}
     </div>
 {% endblock %}

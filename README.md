@@ -137,6 +137,10 @@ Your contribution will be reviewed, and probably merged into the main project.
 
 CHANGELOG
 ---------
+* 1.7.5 :
+  - Better wording
+  - Poll creation from homepage simplified: no title required
+  - Symfony upgrade to 3.4.24
 * 1.7.4 :
   - Symfony upgrade to 3.4.20
 * 1.7.3 :

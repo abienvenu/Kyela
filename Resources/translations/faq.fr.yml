@@ -24,7 +24,7 @@ about.vandalism:
     a: Si des personnes veulent se rencontrer, c'est qu'elles souhaitent collaborer. Sinon, il vaut mieux qu'elles ne se rencontrent pas!
 registration:
     q: Est-il possible de créer un compte, de s'enregistrer ?
-    a: Non, ce n'est pas utile.
+    a: Non. Ça n'apporterait rien de plus, et ça alourdirait la gestion.
 examples:
-    q: À quelles occasions Kyélà peut-il servir ?
-    a: L'organisation de repas, d'assemblées associatives, de rencontres sportives ou musicales, d'ateliers divers... Pour toutes ces occasions, les organisateurs veulent trouver la date qui convient à un maximum de personnes, et savoir combien de personnes viendront. Kélà peut aussi servir à faire des sondages d'opinion, en proposant non pas des dates, mais des questions.
+    q: Pour quelles occasions peut-on utiliser Kyélà ?
+    a: L'organisation de repas, d'assemblées associatives, de rencontres sportives ou musicales, d'ateliers divers... Pour toutes ces occasions, les organisateurs veulent trouver la date qui convient à un maximum de personnes, et savoir combien de personnes viendront. Kyélà peut aussi servir à faire des sondages d'opinion, en proposant non pas des dates, mais des questions.

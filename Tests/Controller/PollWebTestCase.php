@@ -99,11 +99,9 @@ class PollWebTestCase extends WebTestCase
     /**
      * Creates a poll
      *
-     *
-     * @param string $title
      * @return Crawler
      */
-    public static function createPollEntry($title)
+    public static function createPollEntry()
     {
         $route = self::$client->getContainer()->get('router')->generate('poll_new');
         $crawler = self::$client->request('GET', $route);
@@ -111,7 +109,7 @@ class PollWebTestCase extends WebTestCase
         {
             throw new \Exception("Could not create crawler");
         }
-        return self::submitForm($crawler, 'create', 'newpoll', ['title' => $title]);
+        return self::submitForm($crawler, 'create', 'newpoll');
     }
 
     /**

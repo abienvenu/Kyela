@@ -27,7 +27,7 @@ class ChoiceControllerTest extends PollWebTestCase
     public function testCompleteScenario()
     {
         // Create a poll to work with
-        $crawler = self::createPollEntry(uniqid('Test Poll '));
+        $crawler = self::createPollEntry();
 
         // Go to options list
         $crawler = self::clickLink($crawler, 'edit.options');

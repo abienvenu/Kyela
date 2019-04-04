@@ -6,7 +6,6 @@ Feature: Add and delete comments
   Background:
     Given I am on the homepage
     When I follow "English"
-    And I fill in "Title" with "Test Poll"
     And I press "Create"
     And I fill in "Name" with "Test User"
     And I press "Add a participant"

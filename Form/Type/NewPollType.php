@@ -33,9 +33,6 @@ class NewPollType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder
-            ->add('title', null, ['attr' => ['autofocus' => 'autofocus', 'placeholder' => 'poll.title.placeholder']])
-        ;
     }
 
     public function configureOptions(OptionsResolver $resolver)

@@ -29,12 +29,12 @@ class PollControllerTest extends PollWebTestCase
     public function testCompleteScenario()
     {
         // Create entry
-        $title = uniqid('Test Poll ');
-        $crawler = self::createPollEntry($title);
+        $crawler = self::createPollEntry();
 
         // Check it was created
         $filter = 'h3.panel-title:contains("' . self::$translator->trans('success') . '")';
         $this->checkElement($crawler, $filter);
+        $title = self::$translator->trans('new.poll');
         $filter = 'a:contains("' . $title . '")';
         $this->checkElement($crawler, $filter);
 

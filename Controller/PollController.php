@@ -58,12 +58,13 @@ class PollController extends CRUDController
     {
         $poll = new Poll();
 
+        $t = $this->get('translator');
         // Setup default (and hidden) values
         $poll->setUrl(uniqid());
+        $poll->setTitle($t->trans('new.poll'));
         $poll->setHeadLines('');
         $poll->setBottomLines('');
         $poll->setAccessCode('');
-        $t = $this->get('translator');
         $poll->addChoice((new Choice)->setName($t->trans('yes'))->setValue(1)->setColor('green')->setPriority(0)->setPoll($poll)->setIcon('ok'));
         $poll->addChoice((new Choice)->setName($t->trans('maybe'))->setValue(0)->setColor('orange')->setPriority(1)->setPoll($poll)->setIcon('time'));
         $poll->addChoice((new Choice)->setName($t->trans('no'))->setValue(0)->setColor('red')->setPriority(2)->setPoll($poll)->setIcon('remove'));

@@ -29,7 +29,7 @@ class ParticipantControllerTest extends PollWebTestCase
     public function testCompleteScenario()
     {
         // Create a poll to work with
-        $crawler = self::createPollEntry(uniqid('Test Poll '));
+        $crawler = self::createPollEntry();
 
         // Create a participant
         $name = uniqid('Test Participant ');

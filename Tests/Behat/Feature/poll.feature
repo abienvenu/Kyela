@@ -6,7 +6,6 @@ Feature: Create and manage polls
   Background:
     Given I am on the homepage
     When I follow "English"
-    And I fill in "Title" with "Test Poll"
     And I press "Create"
 
   Scenario: Create a poll
