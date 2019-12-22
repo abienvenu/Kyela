@@ -42,9 +42,11 @@ class LocaleListener implements EventSubscriberInterface
         $locale = $request->attributes->get('_locale');
         if ($locale) {
             $request->getSession()->set('_locale', $locale);
-        } else {
+        } else if ($request->getSession()) {
             // if no explicit locale has been set on this request, use one from the session
             $request->setLocale($request->getSession()->get('_locale', $this->defaultLocale));
+        } else {
+            $request->setLocale($this->defaultLocale);
         }
     }
 

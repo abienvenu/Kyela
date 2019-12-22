@@ -1,6 +1,7 @@
 # These are a few helpers to help run and develop Kyélà
 
 build:
+	docker pull php:7-apache
 	docker build --no-cache -t abienvenu/kyela ..
 
 volume:
