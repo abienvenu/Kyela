@@ -1,0 +1,130 @@
+# Copyright 2014 Arnaud Bienvenu
+
+# This file is part of Kyela.
+
+# Kyela is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+
+# Kyela is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+
+# You should have received a copy of the GNU Affero General Public License
+# along with Kyela.  If not, see <http://www.gnu.org/licenses/>.
+
+meta.description: Kyela - Schedule meetings - Create polls, suggest events, tell availabilities, pick dates, for free
+bottom.line: Planning made easy
+main.title: Schedule a meeting
+main.subtitle: Kyela - free, anonymous, no subscription, no advertisement. Just OpenSource.
+poll: Poll
+choice: Choice
+participant: Participant
+total: Total
+event: Event
+comment: Comment
+comments: Comments
+add.a.poll: Add a poll
+add.a.participant: Add a participant
+add.a.date: Suggest a date
+add.a.comment: Add a comment
+edit.options: Edit the choices
+edit.poll: Edit the poll
+add.an.option: Add a choice
+new.poll: New poll
+new.poll.tooltip: A poll enable your friends to tell their availabilities for several dates (or their opinion for several questions). If you plan several events, name this poll afer the name of your association or friends group. Else, name it after the name of the event you plan.
+new.participant: New participant
+new.event: New event
+new.comment: New comment
+new.choice: New choice
+choice.list: List of choices
+cancel: Cancel
+create: Create
+save: Save
+delete: Delete
+lock: Setup an access code
+edit: Edit
+back: Back
+name: Name
+value: Value
+color: Color
+action: Action
+faq: FAQ
+faq.full: Frequently Asked Questions
+tips: Tips
+tips.full: Useful tips and tricks
+about: About
+about.kyela: About Kyela
+examples: Examples
+next.concert: Concert
+next.picnic: Picnic
+next.holidays: Holidays
+yes: Yes
+maybe: Maybe
+no: No
+red: Red
+orange: Orange
+yellow: Yellow
+green: Green
+cyan: Cyan
+blue: Blue
+purple: Purple
+pink: Pink
+brown: Brown
+gray: Gray
+Name: Name
+Value: Value
+Color: Color
+Priority: Priority
+Url: URL
+Title: Title
+Place: Place
+Date: Date
+Time: Time
+Subtitle: Subtitle
+Subject: Subject
+Email: Email
+Message: Message
+Access code: Access code
+Head lines: Head lines
+Bottom lines: Bottom lines
+Author: Author
+Content: Texte
+Icon: Icon
+send: Send
+thanks: Thanks
+thank.you: Thanks to you!
+thank.you.details: Kyela stands on the shoulders of many other projects
+mail.sent: Your email has been sent! Thanks!
+success: Success
+are.you.sure.to.delete: Are you sure you want to delete this?
+deleted: Deleted
+poll.created %url%: Your poll has been created. The URL to communicate to participants is <pre>%url%</pre> You can modify this URL clicking on "Edit the poll"
+poll.modified %url%: Your poll has been modified. The new URL to communicate to partipants is <pre>%url%</pre>
+archive.access: Access to archives
+past.events: Past events
+poll.locked %lock%: "Your poll has been locked with the following code: <pre>%lock%</pre>"
+unlock.failed: Wrong access code
+poll.unlocked: Your poll has been unlocked
+lock.explanation: If you setup an access code, it will be impossible to edit the title, URL, headlines or bottom of your poll, until one unlocks the poll using the same access code.
+lock.explanation2: It will still be possible for everyone to update availabilities, add events or particpants.
+unlock: Unlock
+unlock.explanation: Someone setup an access code. To edit the poll, you are required to enter this code.
+participant.name.placeholder: Enter the firstname or nickname of a participant
+poll.title.placeholder: Enter a title for your new poll
+comment.placeholder: After selecting the author, please type in your comment
+date.name.placeholder: Enter the name of the event, or a question (optional)
+date.place.placeholder: Enter the place of the event (optional)
+date.subtitle.placeholder: Comment (will appear as a subtitle in each column header)
+poll.headlines.placeholder: You can type in a text that will be displayed above the poll. HTML tags are allowed.
+poll.bottomlines.placeholder: You can type in a text that will be displayed below the poll. HTML tags are allowed.
+choice.name.placeholder: "Enter the name of the option: Yes, No, Maybe..."
+choice.name.value: Integer used to compute the total number of participants - often 0 or 1
+access.demo: Go to the demo
+crawler.action.denied: We detected your user-agent as a robot or crawler. You are not allowed to do this action.
+participation.confirmation: Will you fill participation for
+button.yesalways: Yes, always
+button.yesonce: Yes, just once
+button.no: No, I missclicked

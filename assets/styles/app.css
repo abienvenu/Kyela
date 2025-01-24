@@ -1,0 +1,64 @@
+/* Fixed-cell table, inspired by https://codepen.io/estelle/pen/MNwVxW */
+
+table {
+	border-collapse: collapse;
+	text-align: center;
+}
+
+tbody {
+	overflow: scroll;
+}
+
+td, th {
+	white-space: nowrap;
+}
+
+.table-container {
+	position: relative;
+	max-height: 60vh;
+	overflow: scroll;
+}
+
+/* Top line */
+thead th {
+	position: -webkit-sticky;
+	position: sticky;
+	top: -1px;
+	z-index: 2;
+}
+
+/* Left corner */
+thead th:first-child,
+tfoot th:first-child {
+	left: -1px;
+	z-index: 3;
+}
+
+/* Left column */
+tr > :first-child {
+	position: -webkit-sticky;
+	position: sticky;
+	left: -1px;
+}
+
+/* Choice colors */
+.choice-red { background-color: #d9534f; color: #ffffff; }
+.choice-red:hover,.choice-red:focus { background-color: #c12e2a; color: #ffffff; }
+.choice-orange { background-color: #f0ad4e; color: #ffffff; }
+.choice-orange:hover,.choice-orange:focus { background-color: #eb9316; color: #ffffff; }
+.choice-yellow { background-color: #f0f04e; color: #000000; }
+.choice-yellow:hover,.choice-yellow:focus { background-color: #e0e03e; color: #000000; }
+.choice-green { background-color: #5cb85c; color: #ffffff; }
+.choice-green:hover,.choice-green:focus { background-color: #419641; color: #ffffff; }
+.choice-blue { background-color: #428bca; color: #ffffff; }
+.choice-blue:hover,.choice-blue:focus { background-color: #2d6ca2; color: #ffffff; }
+.choice-cyan { background-color: #5bc0de; color: #ffffff; }
+.choice-cyan:hover,.choice-cyan:focus { background-color: #2aabd2; color: #ffffff; }
+.choice-purple { background-color: #a0a0ff; color: #ffffff; }
+.choice-purple:hover,.choice-purple:focus { background-color: #8080f0; color: #ffffff; }
+.choice-pink { background-color: #ffa0c0; color: #ffffff; }
+.choice-pink:hover,.choice-pink:focus { background-color: #ef90b0; color: #ffffff; }
+.choice-brown { background-color: #8b4513; color: #ffffff; }
+.choice-brown:hover,.choice-brown:focus { background-color: #7b3503; color: #ffffff; }
+.choice-gray { background-color: #b0b0b0; color: #ffffff; }
+.choice-gray:hover,.choice-gray:focus { background-color:#909090; color: #ffffff; }

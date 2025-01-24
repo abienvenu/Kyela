@@ -1,0 +1,121 @@
+# Copyright 2014 Arnaud Bienvenu
+
+# This file is part of Kyela.
+
+# Kyela is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+
+# Kyela is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+
+# You should have received a copy of the GNU Affero General Public License
+# along with Kyela.  If not, see <http://www.gnu.org/licenses/>.
+
+meta.description: Kyela - Plane Treffen - Erstelle Umfragen, schlage Events vor, sag wann es passt, wähle ein Termin, gratis
+bottom.line: Planung ganz einfach
+main.title: Plane ein Treffen
+main.subtitle: Kyela - Frei, anonym, kein Abo, keine Werbung. Einfach Open-Source.
+poll: Umfrage
+choice: Option
+participant: Teilnehmer
+total: Insgesamt
+event: Event
+comment: Kommentar
+comments: Kommentare
+add.a.poll: Umfrage hinzufügen
+add.a.participant: Teilnehmer hinzufügen
+add.a.date: Termin vorschlagen
+add.a.comment: Kommentar hinzufügen
+edit.options: Auswahl ändern
+edit.poll: Umfrage ändern
+add.an.option: Option hinzufügen
+new.poll: Neue Umfrage
+new.poll.tooltip: Mit einer Umfrage erfährst Du, wann deine Freunde Zeit haben und kannst viele andere Fragen klären. Wenn Du mehrere Ereignisse planst, benenne die Umfragen nach deiner Gruppe, Schulklasse oder dem Verein. Oder benenne sie nach der Veranstaltung die geplant ist.
+new.participant: Neuer Teilnehmer
+new.event: Neuer Termin
+new.comment: Neuer Kommentar
+new.choice: Neue Option
+choice.list: Auswahloptionen
+cancel: Abbrechen
+create: Erstellen
+save: Speichern
+delete: Löschen
+lock: Zugangscode
+edit: Ändern
+back: Zurück
+name: Name
+value: Wert
+color: Farbe
+action: Aktion
+faq: FAQ
+faq.full: Häufig gestellte Fragen
+about: Über
+about.kyela: Über Kyela
+examples: Beispiele
+next.concert: Konzert
+next.picnic: Picknick
+next.holidays: Urlaub
+yes: Ja
+maybe: Vielleicht
+no: Nein
+red: Rot
+orange: Orange
+yellow: Gelb
+green: Grün
+cyan: Türkis
+blue: Blau
+purple: Violett
+pink: Rosa
+brown: Braun
+gray: Grau
+Name: Name
+Value: Wert
+Color: Farbe
+Priority: Priorität
+Url: Link # Most people dont know the term URL. They just know "links". 
+Title: Titel
+Place: Ort
+Date: Datum
+Time: Zeit
+Subject: Betreff
+Email: Email
+Message: Nachricht
+Access code: Zugangscode
+Head lines: Kopfzeilen
+Bottom lines: Fußzeilen
+Author: Name
+Content: Text
+Icon: Symbol
+send: Senden
+thanks: Danke
+thank.you: Vielen Dank.
+mail.sent: Deine Email wurde versendet. Danke.
+success: Erledigt
+are.you.sure.to.delete: Bist Du sicher, dass Du die Umfrage endgültig löschen möchtest?
+deleted: Gelöscht
+poll.created %url%: Deine Umfrage wurde angelegt. Der Link für deine Teilnehmer lautet <pre>%url%</pre> Du kannst den Link jederzeit ändern, wenn Du auf "Umfrage ändern" klickst.
+poll.modified %url%: Deine Umfrage wurde geändert. Der neue Link für deine Teilnehmer lautet <pre>%url%</pre>
+archive.access: Zum Archiv
+past.events: Frühere Ereignisse
+poll.locked %lock%: "Deine Umfrage wurde mit dem folgenden Code <pre>%lock%</pre> gesichert." 
+unlock.failed: Falscher Zugangscode
+poll.unlocked: Deine Umfrage wurde entsperrt
+lock.explanation: Wenn Du einen Zugriffscode setzt, ist es nicht möglich Titel, Link, Kopfzeilen oder Fußzeilen der Umfrage zu ändern, bis wieder der gleiche Zugriffscode eingegeben wird.
+lock.explanation2: Es ist weiter für jeden möglich die Angaben zu ändern, neue Termine oder Teilnehmer hinzuzufügen.
+unlock: Entsperren
+unlock.explanation: Ein Zugriffscode wurde gesetzt. Zum Ändern der Umfrage muss der Code wieder eingegeben werden.
+participant.name.placeholder: Gib Vornamen, Rufnamen oder Spitznamen ein  
+poll.title.placeholder: Einen Titel für Deine Umfrage 
+comment.placeholder: Wähle deinen Namen aus, gib dann deinen Kommentar ein 
+date.name.placeholder: Ein Name oder eine Frage (Optional)
+date.place.placeholder: Der Ort (Optional)
+poll.headlines.placeholder: Schreibe einen Text der über der Umfrage angezeigt wird. HTML-Tags sind erlaubt.
+poll.bottomlines.placeholder: Schreibe einen Text der unter der Umfrage angezeigt wird. HTML-Tags sind erlaubt.
+choice.name.placeholder: "Name der Option: Ja, Nein, Vielleicht..."
+choice.name.value: Eine Zahl. Zum Errechnen der Teilnehmeranzahl. Meist 0 oder 1.
+access.demo: Zur Demo
+crawler.action.denied: Deinen User-Agent wurde als Bot oder Crawler identifiziert. Diese Aktion ist daher nicht erlaubt.
