@@ -15,7 +15,8 @@ build:
 
 .PHONY: start ## run the application in dev mode
 start:
-	docker run --name kyela2 -d -v ${PWD}:/app -p 12880:80 -p 12443:443 -p 12443:443/udp abienvenu/kyela2
+	docker run --name kyela2 --restart unless-stopped -d -v ${PWD}:/app -p 12880:80 -p 12443:443 -p 12443:443/udp abienvenu/kyela2
+	docker exec -it kyela2 composer install
 	@echo "Point your browser to http://localhost:12880/participation"
 
 .PHONY: start-prod ## run the application in prod mode
