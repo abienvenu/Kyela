@@ -15,6 +15,7 @@
         "symfony/asset-mapper": "7.2.*",
         "symfony/console": "7.2.*",
         "symfony/flex": "^2",
+        "symfony/form": "7.2.*",
         "symfony/framework-bundle": "7.2.*",
         "symfony/runtime": "7.2.*",
         "symfony/translation": "7.2.*",

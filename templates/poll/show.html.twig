@@ -1,0 +1,81 @@
+{% extends 'layout.html.twig' %}
+
+{% block body %}
+	{{ render(controller('App\\Controller\\EventController::show')) }}
+
+	<div class="table-container">
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th scope="col" class="table-secondary">Participant</th>
+					{% for i in 1..12 %}
+						<th scope="col" class="table-info">Col {{ i }}</th>
+					{% endfor %}
+				</tr>
+			</thead>
+			<tbody>
+				{% for i in 1..80 %}
+					<tr>
+						<th scope="row" class="bg-light">
+							<a class="btn btn-light border shadow">
+								<twig:ux:icon name="bi:person-fill" width="20" />
+								User {{ i }}
+							</a>
+						</th>
+						{% for j in 1..12 %}
+							<td>
+								<div>
+									<button class="btn border dropdown-toggle choice-blue shadow" type="button"
+										id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+										Cell content {{ i }},{{ j }}
+									</button>
+									<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+										<li>
+												<span class="dropdown-item">
+													<button type="button" class="btn choice-red">
+														<twig:ux:icon name="bi:x" width="25" />Coucou
+													</button>
+												</span>
+										</li>
+										<li>
+												<span class="dropdown-item">
+													<button type="button" class="btn choice-green">
+														<twig:ux:icon name="bi:check" width="25" />Another action
+													</button>
+												</span>
+										</li>
+										<li>
+												<span class="dropdown-item">
+													<button type="button" class="btn choice-gray">
+														<twig:ux:icon name="bi:question" width="25" />Something else here
+													</button>
+												</span>
+										</li>
+									</ul>
+								</div>
+							</td>
+						{% endfor %}
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+	<button type="button" class="btn btn-primary">Primary</button>
+	<button type="button" class="btn btn-secondary">Secondary</button>
+	<br />
+	<br />
+	<button type="button" class="btn btn-success">Success</button>
+	<button type="button" class="btn btn-danger">Danger</button>
+	<button type="button" class="btn btn-warning">Warning</button>
+	<button type="button" class="btn btn-info">Info</button>
+	<br />
+	<br />
+	<button type="button" class="btn btn-light">Light</button>
+	<button type="button" class="btn btn-dark">Dark</button>
+	<p>
+		The “trick” at play here is partially the position: sticky; usage, but moreso to me, how you have to handle
+		overlapping elements. A table cell that is sticky needs to have a background, because otherwise we’ll see
+		overlapping content. It also needs proper z-index handling so that when it sticks in place, it’ll be on top
+		of what it is supposed to be on top of. This feels like the trickiest part:
+	</p>
+{% endblock %}

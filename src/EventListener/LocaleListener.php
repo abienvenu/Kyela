@@ -1,5 +1,4 @@
 <?php
-
 namespace App\EventListener;
 
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
