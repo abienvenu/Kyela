@@ -1,10 +1,11 @@
 <?php
 namespace App\Controller;
 
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
-class PollController extends PollSetterController
+class PollController extends AbstractController
 {
     /**
      * Shows the poll
