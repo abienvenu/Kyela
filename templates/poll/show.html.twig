@@ -1,7 +1,7 @@
 {% extends 'layout.html.twig' %}
 
 {% block body %}
-	{{ render(controller('App\\Controller\\EventController::show')) }}
+	{{ render(controller('App\\Controller\\EventController::show', {'poll': poll})) }}
 
 	<div class="table-container">
 		<table class="table table-hover">
