@@ -1,36 +1,34 @@
-<ul class="list-group" data-bs-toggle="collapse" data-bs-target="#dateList" aria-expanded="true"
-	aria-controls="dateList">
-	<li class="list-group-item text-center">
-		<button type="button" class="btn btn-primary">
-			<twig:ux:icon name="bi:caret-down" width="20" />
-			{{ 'choice' | trans }}
-			<twig:ux:icon name="bi:caret-down" width="20" />
+<div class="container mt-4">
+	<div class="card shadow-lg p-4 position-relative">
+		<button class="btn btn-light position-absolute top-0 end-0 mt-2 me-2 toggle-button" data-bs-toggle="collapse"
+			data-bs-target="#dateList" aria-expanded="true">
+			<i class="bi bi-calendar3"></i>
 		</button>
-	</li>
-</ul>
-<ul class="list-group collapse hide" id="dateList">
-	{% for event in events %}
-		<li>
-			{% if event.date %}
-				{{ event.date|format_datetime('medium', 'none', locale: app.request.locale, pattern: "cccc d MMMM") }}
-			{% endif %}
-			{% if event.date and event.time %}
-				-
-			{% endif %}
-			{% if event.time %}
-				{{ event.time|format_datetime('medium', 'none', locale: app.request.locale, pattern: "H'h'mm") }}
-			{% endif %}
-			{% if (event.date or event.time) and event.place %}
-				-
-			{% endif %}
-			{{ event.place }}
-			{% if event.subtitle %}
-				<small class="subtitle">({{ event.subtitle }})</small>
-			{% endif %}
-			{% if (event.date or event.time or event.place) and event.name %}
-				&nbsp;:
-			{% endif %}
-			<strong>{{ event.name }}</strong>
-		</li>
-	{% endfor %}
-</ul>
+		<ul class="list collapse show" id="dateList">
+			{% for event in events %}
+				<li>
+					{% if event.date %}
+						{{ event.date|format_datetime('medium', 'none', locale: app.request.locale, pattern: "cccc d MMMM") }}
+					{% endif %}
+					{% if event.date and event.time %}
+						-
+					{% endif %}
+					{% if event.time %}
+						{{ event.time|format_datetime('medium', 'none', locale: app.request.locale, pattern: "H'h'mm") }}
+					{% endif %}
+					{% if (event.date or event.time) and event.place %}
+						-
+					{% endif %}
+					{{ event.place }}
+					{% if event.subtitle %}
+						<small class="subtitle">({{ event.subtitle }})</small>
+					{% endif %}
+					{% if (event.date or event.time or event.place) and event.name %}
+						&nbsp;:
+					{% endif %}
+					<strong>{{ event.name }}</strong>
+				</li>
+			{% endfor %}
+		</ul>
+	</div>
+</div>

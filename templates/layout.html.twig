@@ -2,5 +2,35 @@
 {% block rawbody %}
 	<body>
 		{% block body %}{% endblock %}
+		<script>
+			document.querySelectorAll('.toggle-button').forEach(button => {
+				button.addEventListener('click', () => {
+					const icon = button.querySelector('i');
+					const targetId = button.getAttribute('data-bs-target');
+					const targetElement = document.querySelector(targetId);
+
+					// Utiliser les événements Bootstrap pour ajuster les icônes après la transition
+					targetElement.addEventListener('hidden.bs.collapse', () => {
+						if (icon.classList.contains('bi-calendar3')) {
+							icon.classList.remove('bi-calendar3');
+							icon.classList.add('bi-calendar-minus');
+						} else if (icon.classList.contains('bi-info-square')) {
+							icon.classList.remove('bi-info-square');
+							icon.classList.add('bi-info-circle');
+						}
+					});
+
+					targetElement.addEventListener('shown.bs.collapse', () => {
+						if (icon.classList.contains('bi-calendar-minus')) {
+							icon.classList.remove('bi-calendar-minus');
+							icon.classList.add('bi-calendar3');
+						} else if (icon.classList.contains('bi-info-circle')) {
+							icon.classList.remove('bi-info-circle');
+							icon.classList.add('bi-info-square');
+						}
+					});
+				});
+			});
+		</script>
 	</body>
 {% endblock %}

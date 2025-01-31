@@ -3,6 +3,23 @@
 {% block body %}
 	{{ render(controller('App\\Controller\\EventController::show', {'poll': poll})) }}
 
+	{{ 'choice' | trans }}
+
+	{% if poll.headlines %}
+		<div class="container mt-4">
+			<div class="card shadow-lg p-4 position-relative">
+				<button class="btn btn-light position-absolute top-0 end-0 mt-2 me-2 toggle-button"
+					data-bs-toggle="collapse" data-bs-target="#headLines" aria-expanded="true">
+					<i class="bi bi-info-square"></i>
+				</button>
+
+				<div class="collapse show" id="headLines">
+					{{ poll.headlines|raw }}
+				</div>
+			</div>
+		</div>
+	{% endif %}
+
 	<div class="table-container">
 		<table class="table table-hover">
 			<thead>
