@@ -27,6 +27,14 @@ thead th {
 	z-index: 2;
 }
 
+/* Bottom line */
+tfoot th {
+	position: -webkit-sticky;
+	position: sticky;
+	bottom: -1px;
+	z-index: 2;
+}
+
 /* Left corner */
 thead th:first-child,
 tfoot th:first-child {
