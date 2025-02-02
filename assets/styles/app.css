@@ -49,6 +49,17 @@ tr > :first-child {
 	left: -1px;
 }
 
+/* Classe pour atténuer l'affichage (transparence/grisé) des lignes non sélectionnées */
+.dimmed {
+	opacity: 0.5;
+	transition: opacity 0.3s ease;
+}
+
+/* Classe pour mettre en relief la ligne sélectionnée */
+.selected {
+	opacity: 1;
+}
+
 /* Choice colors */
 .choice-red { background-color: #d9534f; color: #ffffff; }
 .choice-red:hover,.choice-red:focus { background-color: #c12e2a; color: #ffffff; }
