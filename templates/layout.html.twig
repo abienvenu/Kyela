@@ -4,37 +4,29 @@
 		{% block body %}{% endblock %}
 		<script>
 			document.querySelectorAll('.toggle-button').forEach(button => {
-				button.addEventListener('click', () => {
-					const icon = button.querySelector('i');
-					const targetId = button.getAttribute('data-bs-target');
-					const targetElement = document.querySelector(targetId);
+				const icon = button.querySelector('i');
+				const target = document.querySelector(button.dataset.bsTarget);
 
-					// Utiliser les événements Bootstrap pour ajuster les icônes après la transition
-					targetElement.addEventListener('hidden.bs.collapse', () => {
-						if (icon.classList.contains('bi-calendar3')) {
-							icon.classList.remove('bi-calendar3');
-							icon.classList.add('bi-calendar-minus');
-						} else if (icon.classList.contains('bi-info-square')) {
-							icon.classList.remove('bi-info-square');
-							icon.classList.add('bi-info-circle');
-						} else if (icon.classList.contains('bi-layout-text-sidebar-reverse')) {
-							icon.classList.remove('bi-layout-text-sidebar-reverse');
-							icon.classList.add('bi-arrow-bar-down');
-						}
-					});
+				// Mapping entre la classe "ouverte" et la classe "fermée"
+				const classes = {
+					'bi-calendar3': 'bi-calendar-minus',
+					'bi-info-square': 'bi-info-circle',
+					'bi-layout-text-sidebar-reverse': 'bi-arrow-bar-down'
+				};
 
-					targetElement.addEventListener('shown.bs.collapse', () => {
-						if (icon.classList.contains('bi-calendar-minus')) {
-							icon.classList.remove('bi-calendar-minus');
-							icon.classList.add('bi-calendar3');
-						} else if (icon.classList.contains('bi-info-circle')) {
-							icon.classList.remove('bi-info-circle');
-							icon.classList.add('bi-info-square');
-						} else if (icon.classList.contains('bi-arrow-bar-down')) {
-							icon.classList.remove('bi-arrow-bar-down');
-							icon.classList.add('bi-layout-text-sidebar-reverse');
-						}
-					});
+				// Fonction utilitaire pour remplacer une classe par une autre
+				const toggleClass = (from, to) => {
+					if (icon.classList.contains(from)) {
+						icon.classList.replace(from, to);
+					}
+				};
+
+				target.addEventListener('hidden.bs.collapse', () => {
+					Object.entries(classes).forEach(([open, closed]) => toggleClass(open, closed));
+				});
+
+				target.addEventListener('shown.bs.collapse', () => {
+					Object.entries(classes).forEach(([open, closed]) => toggleClass(closed, open));
 				});
 			});
 		</script>
