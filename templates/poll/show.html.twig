@@ -37,15 +37,20 @@
 		</div>
 	{% endif %}
 
-	{% if poll.participants|length > 0 %}
-		<button type="button" class="btn btn-primary">{{ 'add.a.comment' | trans }}</button>
-	{% endif %}
-	<button type="button" class="btn btn-success">{{ 'add.a.date' | trans }}</button>
-	<button type="button" class="btn btn-warning">{{ 'edit.options' | trans }}</button>
-	<button type="button" class="btn btn-danger">{{ 'edit.poll' | trans }}</button>
-	<button type="button" class="btn btn-secondary">{{ 'archive.access' | trans }}</button>
-	<br />
-	<button type="button" class="btn btn-info">Info</button>
-	<button type="button" class="btn btn-light">Light</button>
-	<button type="button" class="btn btn-dark">Dark</button>
+	<div class="container-fluid mt-4 mb-4">
+		<div class="shadow-lg p-4 position-relative">
+			{% if poll.participants|length > 0 %}
+				<button type="button" class="btn btn-primary">{{ 'add.a.comment' | trans }}</button>
+			{% endif %}
+			<button type="button" class="btn btn-success">{{ 'add.a.date' | trans }}</button>
+			<button type="button" class="btn btn-warning">{{ 'edit.options' | trans }}</button>
+			<button type="button" class="btn btn-danger">{{ 'edit.poll' | trans }}</button>
+			<button type="button" class="btn btn-secondary">{{ 'archive.access' | trans }}</button>
+			<br />
+			<button type="button" class="btn btn-info">Info</button>
+			<button type="button" class="btn btn-light">Light</button>
+			<button type="button" class="btn btn-dark">Dark</button>
+		</div>
+	</div>
+
 {% endblock %}

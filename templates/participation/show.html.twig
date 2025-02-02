@@ -1,53 +1,55 @@
-<div class="table-container">
-	<table class="table table-hover">
-		<thead>
-			<tr>
-				<th scope="col" class="table-secondary">{{ 'participant' | trans }}</th>
-				{% for event in events %}
-					<th scope="col" class="table-info">
-						{% if event.date or event.time %}
-							{% if event.date %}
-								{{ event.date|format_datetime(locale: app.request.locale, pattern: "ccc d/M") }}
-							{% endif %}
-							{% if event.time %}
-								{{ event.time|format_datetime(locale: app.request.locale, pattern: "H'h'mm") }}
-							{% endif %}
-						{% else %}
-							{{ event.name }}
-						{% endif %}
-						{% if event.subtitle %}
-							<br /><small class="subtitle">{{ event.subtitle }}</small>
-						{% endif %}
-					</th>
-				{% endfor %}
-			</tr>
-		</thead>
-		<tbody>
-			{% for participant in poll.participants %}
+<div class="card shadow-lg p-4 position-relative">
+	<div class="table-container">
+		<table class="table table-hover">
+			<thead>
 				<tr>
-					<th scope="row" class="bg-light">
-						<a class="btn btn-light border shadow">
-							<twig:ux:icon name="bi:person-fill" width="20" />
-							{{ participant.name }}
-						</a>
-					</th>
+					<th scope="col" class="table-secondary">{{ 'participant' | trans }}</th>
 					{% for event in events %}
-						<td>
-							{{ include("participation/_cell.html.twig") }}
-						</td>
+						<th scope="col" class="table-info">
+							{% if event.date or event.time %}
+								{% if event.date %}
+									{{ event.date|format_datetime(locale: app.request.locale, pattern: "ccc d/M") }}
+								{% endif %}
+								{% if event.time %}
+									{{ event.time|format_datetime(locale: app.request.locale, pattern: "H'h'mm") }}
+								{% endif %}
+							{% else %}
+								{{ event.name }}
+							{% endif %}
+							{% if event.subtitle %}
+								<br /><small class="subtitle">{{ event.subtitle }}</small>
+							{% endif %}
+						</th>
 					{% endfor %}
 				</tr>
-			{% endfor %}
-		</tbody>
-		<tfoot>
-			<tr>
-				<th>{{ 'total' | trans }}</th>
-				{% for event in events %}
-					<th>
-						{{ event.participationsscore }}
-					</th>
+			</thead>
+			<tbody>
+				{% for participant in poll.participants %}
+					<tr>
+						<th scope="row" class="bg-light">
+							<a class="btn btn-light border shadow">
+								<twig:ux:icon name="bi:person-fill" width="20" />
+								{{ participant.name }}
+							</a>
+						</th>
+						{% for event in events %}
+							<td>
+								{{ include("participation/_cell.html.twig") }}
+							</td>
+						{% endfor %}
+					</tr>
 				{% endfor %}
-			</tr>
-		</tfoot>
-	</table>
+			</tbody>
+			<tfoot>
+				<tr>
+					<th>{{ 'total' | trans }}</th>
+					{% for event in events %}
+						<th>
+							{{ event.participationsscore }}
+						</th>
+					{% endfor %}
+				</tr>
+			</tfoot>
+		</table>
+	</div>
 </div>
