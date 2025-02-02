@@ -141,6 +141,16 @@ class Event
         return $this;
     }
 
+	public function getParticipationsScore(): int
+	{
+        $score = 0;
+        foreach ($this->participations as $participation)
+        {
+            $score += $participation->getChoice()->getValue();
+        }
+        return $score;
+	}
+
     public function getPoll(): ?Poll
     {
         return $this->poll;
