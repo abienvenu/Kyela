@@ -1,0 +1,100 @@
+/* Choice colors */
+.choice-red {
+	background-color: #D9534F;
+	color: #FFFFFF;
+}
+
+.choice-red:hover, .choice-red:focus {
+	background-color: #C12E2A;
+	color: #FFFFFF;
+}
+
+.choice-orange {
+	background-color: #F0AD4E;
+	color: #FFFFFF;
+}
+
+.choice-orange:hover, .choice-orange:focus {
+	background-color: #EB9316;
+	color: #FFFFFF;
+}
+
+.choice-yellow {
+	background-color: #F0F04E;
+	color: #000000;
+}
+
+.choice-yellow:hover, .choice-yellow:focus {
+	background-color: #E0E03E;
+	color: #000000;
+}
+
+.choice-green {
+	background-color: #5CB85C;
+	color: #FFFFFF;
+}
+
+.choice-green:hover, .choice-green:focus {
+	background-color: #419641;
+	color: #FFFFFF;
+}
+
+.choice-blue {
+	background-color: #428BCA;
+	color: #FFFFFF;
+}
+
+.choice-blue:hover, .choice-blue:focus {
+	background-color: #2D6CA2;
+	color: #FFFFFF;
+}
+
+.choice-cyan {
+	background-color: #5BC0DE;
+	color: #FFFFFF;
+}
+
+.choice-cyan:hover, .choice-cyan:focus {
+	background-color: #2AABD2;
+	color: #FFFFFF;
+}
+
+.choice-purple {
+	background-color: #A0A0FF;
+	color: #FFFFFF;
+}
+
+.choice-purple:hover, .choice-purple:focus {
+	background-color: #8080F0;
+	color: #FFFFFF;
+}
+
+.choice-pink {
+	background-color: #FFA0C0;
+	color: #FFFFFF;
+}
+
+.choice-pink:hover, .choice-pink:focus {
+	background-color: #EF90B0;
+	color: #FFFFFF;
+}
+
+.choice-brown {
+	background-color: #8B4513;
+	color: #FFFFFF;
+}
+
+.choice-brown:hover, .choice-brown:focus {
+	background-color: #7B3503;
+	color: #FFFFFF;
+}
+
+.choice-gray {
+	background-color: #B0B0B0;
+	color: #FFFFFF;
+}
+
+.choice-gray:hover, .choice-gray:focus {
+	background-color: #909090;
+	color: #FFFFFF;
+}

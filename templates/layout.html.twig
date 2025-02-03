@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 {% block rawbody %}
-	<body>
-		<nav class="navbar navbar-expand-lg navbar-dark bg-dark py-1">
+	<body class="d-flex flex-column min-vh-100">
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark py-4 py-lg-1">
 			<div class="container-fluid">
 				<!-- Marque ou logo -->
 				<a class="navbar-brand mx-4" href="/">
@@ -14,29 +14,28 @@
 				</button>
 				<!-- Liens de navigation -->
 				<div class="collapse navbar-collapse" id="navbarNav">
-					<ul class="navbar-nav d-flex gap-3">
-						<li class="nav-item">
-							{% if poll is defined and poll and poll.title %}
-								<a class="nav-link"
-									href="{{ path('app_poll_show', {'url': poll.url}) }}">{{ poll.title }}</a>
-							{% endif %}
-						</li>
-						<li class="nav-item">
+					<!-- Fast links -->
+					<ul class="navbar-nav me-auto mt-4 mt-lg-0" id="menuFastLinks">
+					</ul>
+					<!-- Menu aligné à droite -->
+					<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+						<li class="nav-item fixed-links">
 							<a class="nav-link" href="#">{{ 'faq' | trans }}</a>
 						</li>
-						<li class="nav-item">
+						<li class="nav-item fixed-links">
 							<a class="nav-link" href="#">{{ 'tips' | trans }}</a>
 						</li>
-						<li class="nav-item">
+						<li class="nav-item fixed-links">
 							<a class="nav-link" href="#">{{ 'about' | trans }}</a>
 						</li>
-						<li class="nav-item">
+						<li class="nav-item fixed-links">
 							<a class="nav-link" href="#">{{ 'thanks' | trans }}</a>
 						</li>
 					</ul>
 				</div>
 			</div>
 		</nav>
+		<script src="{{ asset('js/menu.js') }}"></script>
 		{% block body %}{% endblock %}
 		<!-- Footer -->
 		<footer class="bg-dark py-2 mt-auto">
@@ -54,7 +53,5 @@
 				</small>
 			</div>
 		</footer>
-
-		<script src="{{ asset('js/app.js') }}" defer></script>
 	</body>
 {% endblock %}

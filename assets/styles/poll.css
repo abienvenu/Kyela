@@ -1,0 +1,61 @@
+/* Fixed-cell table, inspired by https://codepen.io/estelle/pen/MNwVxW */
+
+table {
+	border-collapse: collapse;
+	text-align: center;
+}
+
+tbody {
+	overflow: scroll;
+}
+
+td, th {
+	white-space: nowrap;
+}
+
+.table-container {
+	position: relative;
+	max-height: 60vh;
+	overflow: scroll;
+}
+
+/* Top line */
+thead th {
+	position: -webkit-sticky;
+	position: sticky;
+	top: -1px;
+	z-index: 2;
+}
+
+/* Bottom line */
+tfoot th {
+	position: -webkit-sticky;
+	position: sticky;
+	bottom: -1px;
+	z-index: 2;
+}
+
+/* Left corner */
+thead th:first-child,
+tfoot th:first-child {
+	left: -1px;
+	z-index: 3;
+}
+
+/* Left column */
+tr > :first-child {
+	position: -webkit-sticky;
+	position: sticky;
+	left: -1px;
+}
+
+/* Classe pour atténuer l'affichage (transparence/grisé) des lignes non sélectionnées */
+.dimmed {
+	opacity: 0.5;
+	transition: opacity 0.3s ease;
+}
+
+/* Classe pour mettre en relief la ligne sélectionnée */
+.selected {
+	opacity: 1;
+}

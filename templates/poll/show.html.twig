@@ -53,4 +53,10 @@
 		</div>
 	</div>
 
+	<script src="{{ asset('js/poll.js') }}"></script>
+	<script>
+		const pollUrl = '{{ poll.url }}';
+		const pollTitle = '{{ poll.title }}';
+		addFastLink(pollUrl, pollTitle);
+	</script>
 {% endblock %}

@@ -1,0 +1,25 @@
+/* Bouton de suppression (la croix) caché par défaut */
+.delete-button {
+	opacity: 0;
+	transition: opacity 0.2s ease;
+	pointer-events: none;
+	background: transparent;
+}
+
+/* Afficher la croix au survol (PC) */
+.nav-item:hover .delete-button {
+	opacity: 1;
+	pointer-events: auto;
+}
+
+/* Sur mobile, où le survol n'existe pas, la croix est toujours visible */
+@media (hover: none) {
+	.delete-button {
+		opacity: 1;
+		pointer-events: auto;
+	}
+}
+
+.navbar-nav .nav-link {
+	font-size: 1.25rem; /* Ajustez la taille selon vos besoins */
+}
