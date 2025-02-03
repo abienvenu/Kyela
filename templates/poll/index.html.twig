@@ -1,0 +1,66 @@
+{% extends 'layout.html.twig' %}
+
+{% block robots %}
+	<meta name="robots" content="index, nofollow">
+{% endblock %}
+
+{% block body %}
+	<main class="container my-4">
+		<div class="p-5 mb-4 bg-light rounded-3 text-center">
+			<img src="{{ asset('img/kyela_full.png') }}" alt="{{ 'main.title' | trans }}" class="img-fluid mb-3"
+				style="max-height: 200px;">
+		</div>
+
+		<!-- Bouton "Créer un nouveau sondage" -->
+		<div class="mb-5">
+			<h2>{{ 'new.poll' | trans }}</h2>
+			<p>{{ 'new.poll.tooltip' | trans }}</p>
+			== Bouton ==
+		</div>
+
+		<!-- Section des screenshots -->
+		<h2 class="text-center">{{ 'examples' | trans }}</h2>
+		<div class="row text-center">
+			<div class="col-md-4 mb-4">
+				<div class="card">
+					<h3>{{ 'next.concert' | trans }}</h3>
+					<a href="{{ path("app_poll_show", {'url': 'concert'}) }}">
+						<img src="{{ asset('img/concert.png') }}" alt="{{ 'next.concert' | trans }}"
+							style="opacity: 0.6;"
+							class="img-fluid rounded" />
+					</a>
+					<div class="caption">
+						<p><a href="{{ path("app_poll_show", {'url': 'concert'}) }}" class="btn btn-primary"
+								role="button">{{ 'access.demo' | trans }}</a></p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4 mb-4">
+				<div class="card">
+				<h3>{{ 'next.picnic' | trans }}</h3>
+				<a href="{{ path("app_poll_show", {'url': 'picnic'}) }}">
+					<img src="{{ asset('img/picnic.png') }}" alt="{{ 'next.picnic' | trans }}" style="opacity: 0.6;"
+						class="img-fluid rounded" />
+				</a>
+				<div class="caption">
+					<p><a href="{{ path("app_poll_show", {'url': 'picnic'}) }}" class="btn btn-primary"
+							role="button">{{ 'access.demo' | trans }}</a></p>
+				</div>
+				</div>
+			</div>
+			<div class="col-md-4 mb-4">
+				<div class="card">
+				<h3>{{ 'next.holidays' | trans }}</h3>
+				<a href="{{ path("app_poll_show", {'url': 'holidays'}) }}">
+					<img src="{{ asset('img/holidays.png') }}" alt="{{ 'next.picnic' | trans }}" style="opacity: 0.6;"
+						class="img-fluid rounded" />
+				</a>
+				<div class="caption">
+					<p><a href="{{ path("app_poll_show", {'url': 'holidays'}) }}" class="btn btn-primary"
+							role="button">{{ 'access.demo' | trans }}</a></p>
+				</div>
+				</div>
+			</div>
+		</div>
+	</main>
+{% endblock %}

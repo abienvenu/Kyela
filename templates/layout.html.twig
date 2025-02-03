@@ -1,7 +1,60 @@
 {% extends 'base.html.twig' %}
 {% block rawbody %}
 	<body>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark py-1">
+			<div class="container-fluid">
+				<!-- Marque ou logo -->
+				<a class="navbar-brand mx-4" href="/">
+					<img src="{{ asset('img/kyela_small.png') }}" alt="Kyélà">
+				</a>
+				<!-- Bouton pour le menu collapsible sur mobile -->
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+					aria-controls="navbarNav" aria-expanded="false" aria-label="Basculer la navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<!-- Liens de navigation -->
+				<div class="collapse navbar-collapse" id="navbarNav">
+					<ul class="navbar-nav d-flex gap-3">
+						<li class="nav-item">
+							{% if poll is defined and poll and poll.title %}
+								<a class="nav-link"
+									href="{{ path('app_poll_show', {'url': poll.url}) }}">{{ poll.title }}</a>
+							{% endif %}
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">{{ 'faq' | trans }}</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">{{ 'tips' | trans }}</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">{{ 'about' | trans }}</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">{{ 'thanks' | trans }}</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
 		{% block body %}{% endblock %}
+		<!-- Footer -->
+		<footer class="bg-dark py-2 mt-auto">
+			<div class="container text-center">
+				<small class="text-white-50">
+					<span class="mx-4">&copy; 2025 Arnaud Bienvenu</span>
+					<span class="mx-4">
+						<a href="https://github.com/abienvenu/Kyela" class="text-white-50" target="_blank">
+							{{ 'code.source' | trans }}
+						</a>
+					</span>
+					<a href="https://www.gnu.org/licenses/agpl-3.0.html" target="_blank" class="mx-4">
+						<img src="{{ asset('img/license-AGPL3.0-red.svg') }}" alt="Licence AGPL 3.0" />
+					</a>
+				</small>
+			</div>
+		</footer>
+
 		<script src="{{ asset('js/app.js') }}" defer></script>
 	</body>
 {% endblock %}

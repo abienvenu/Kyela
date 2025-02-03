@@ -10,6 +10,9 @@
 		{% block javascripts %}
 			{% block importmap %}{{ importmap('app') }}{% endblock %}
 		{% endblock %}
+        {% block robots %}
+            <meta name="robots" content="noindex, nofollow">
+        {% endblock %}
 		<style>
 			body {
 				font-size: 15px;

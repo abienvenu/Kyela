@@ -10,6 +10,15 @@ use Symfony\Component\Routing\Attribute\Route;
 class PollController extends AbstractController
 {
 	/**
+	 * Home page
+	 */
+	#[Route('/')]
+	public function index(): Response
+	{
+		return $this->render('poll/index.html.twig');
+	}
+
+	/**
 	 * Shows the poll
 	 */
 	#[Route('/{url:poll}/')]
