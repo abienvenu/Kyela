@@ -3,8 +3,8 @@ namespace App\Form\Type;
 
 use App\Entity\Choice;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType as BaseChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
-use \Symfony\Component\Form\Extension\Core\Type\ChoiceType as BaseChoiceType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class ChoiceType extends AbstractType

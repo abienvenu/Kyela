@@ -1,0 +1,5 @@
+{% extends 'layout.html.twig' %}
+
+{% block rawbody %}
+	{{ render(controller('App\\Controller\\ParticipationController::show', {'poll': poll})) }}
+{% endblock %}

@@ -1,7 +1,11 @@
 {% extends 'layout.html.twig' %}
 
 {% block body %}
-	{{ render(controller('App\\Controller\\EventController::show', {'poll': poll})) }}
+	<div class="container-fluid mt-4">
+		<div class="card shadow-lg p-4 position-relative">
+			{{ render(controller('App\\Controller\\EventController::show', {'poll': poll})) }}
+		</div>
+	</div>
 
 	{% if poll.headlines %}
 		<div class="container-fluid mt-4">
@@ -19,7 +23,9 @@
 	{% endif %}
 
 	<div class="container-fluid mt-4">
-		{{ render(controller('App\\Controller\\ParticipationController::show', {'poll': poll})) }}
+		<div class="card shadow-lg p-4 position-relative">
+			{{ render(controller('App\\Controller\\ParticipationController::show', {'poll': poll})) }}
+		</div>
 	</div>
 
 	{% if poll.bottomlines %}
@@ -38,19 +44,28 @@
 	{% endif %}
 
 	<div class="container-fluid mt-4 mb-4">
-		<div class="shadow-lg p-4 position-relative">
-			{% if poll.participants|length > 0 %}
-				<button type="button" class="btn btn-primary">{{ 'add.a.comment' | trans }}</button>
-			{% endif %}
-			<button type="button" class="btn btn-success">{{ 'add.a.date' | trans }}</button>
-			<button type="button" class="btn btn-warning">{{ 'edit.options' | trans }}</button>
-			<button type="button" class="btn btn-danger">{{ 'edit.poll' | trans }}</button>
-			<button type="button" class="btn btn-secondary">{{ 'archive.access' | trans }}</button>
-			<br />
-			<button type="button" class="btn btn-info">Info</button>
-			<button type="button" class="btn btn-light">Light</button>
-			<button type="button" class="btn btn-dark">Dark</button>
-		</div>
+		{% if poll.participants|length > 0 %}
+			<button type="button" class="btn btn-primary btn-gradient">
+				<i class="bi bi-chat-left-text me-2"></i>
+				{{ 'add.a.comment' | trans }}
+			</button>
+		{% endif %}
+		<button type="button" class="btn btn-success btn-gradient">
+			<i class="bi bi-calendar-plus me-2"></i>
+			{{ 'add.a.date' | trans }}
+		</button>
+		<button type="button" class="btn btn-warning btn-gradient">
+			<i class="bi bi-sliders me-2"></i>
+			{{ 'edit.options' | trans }}
+		</button>
+		<a role="button" class="btn btn-danger btn-gradient" href="{{ path('app_poll_edit', {url: poll.url}) }}">
+			<i class="bi bi-pencil-square me-2"></i>
+			{{ 'edit.poll' | trans }}
+		</a>
+		<button type="button" class="btn btn-secondary btn-gradient">
+			<i class="bi bi-archive me-2"></i>
+			{{ 'archive.access' | trans }}
+		</button>
 	</div>
 
 	<script src="{{ asset('js/poll.js') }}"></script>

@@ -36,6 +36,16 @@
 			</div>
 		</nav>
 		<script src="{{ asset('js/menu.js') }}"></script>
+
+		{% for label, messages in app.flashes %}
+			{% for message in messages %}
+				<div class="alert alert-{{ label }} alert-dismissible fade show" role="alert">
+					{{ message }}
+					<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+				</div>
+			{% endfor %}
+		{% endfor %}
+
 		{% block body %}{% endblock %}
 		<!-- Footer -->
 		<footer class="bg-dark py-2 mt-auto">
