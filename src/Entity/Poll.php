@@ -35,7 +35,7 @@ class Poll
     /**
      * @var Collection<int, Choice>
      */
-    #[ORM\OneToMany(targetEntity: Choice::class, mappedBy: 'poll', orphanRemoval: true)]
+    #[ORM\OneToMany(targetEntity: Choice::class, mappedBy: 'poll', orphanRemoval: true, cascade: ['persist', 'remove'])]
 	#[OrderBy(['priority' => 'ASC'])]
     private Collection $choices;
 

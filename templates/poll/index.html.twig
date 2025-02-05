@@ -13,14 +13,23 @@
 
 		<div class="mb-5">
 			<h2>Nouvelle version</h2>
-			<p>Kyélà se modernise! Un bug ? Merci de le signaler ici : <a href="https://github.com/abienvenu/Kyela/issues" target="_blank">https://github.com/abienvenu/Kyela/issues</a></p>
+			<p>Kyélà se modernise! Un bug ? Merci de le signaler ici :
+				<a href="https://github.com/abienvenu/Kyela/issues" target="_blank">
+					https://github.com/abienvenu/Kyela/issues
+				</a>
+			</p>
 		</div>
 
 		<!-- Bouton "Créer un nouveau sondage" -->
 		<div class="mb-5">
 			<h2>{{ 'new.poll' | trans }}</h2>
 			<p>{{ 'new.poll.tooltip' | trans }}</p>
-			== Bouton ==
+			<div class="text-center">
+				<a role="button" href="{{ path("app_poll_new") }}" class="btn btn-primary btn-lg btn-gradient">
+					<i class="bi bi-calendar-event"></i>
+					{{ 'add.a.poll' | trans }}
+				</a>
+			</div>
 		</div>
 
 		<!-- Section des screenshots -->
@@ -42,28 +51,29 @@
 			</div>
 			<div class="col-md-4 mb-4">
 				<div class="card">
-				<h3>{{ 'next.picnic' | trans }}</h3>
-				<a href="{{ path("app_poll_show", {'url': 'picnic'}) }}">
-					<img src="{{ asset('img/picnic.png') }}" alt="{{ 'next.picnic' | trans }}" style="opacity: 0.6;"
-						class="img-fluid rounded" />
-				</a>
-				<div class="caption">
-					<p><a href="{{ path("app_poll_show", {'url': 'picnic'}) }}" class="btn btn-primary"
-							role="button">{{ 'access.demo' | trans }}</a></p>
-				</div>
+					<h3>{{ 'next.picnic' | trans }}</h3>
+					<a href="{{ path("app_poll_show", {'url': 'picnic'}) }}">
+						<img src="{{ asset('img/picnic.png') }}" alt="{{ 'next.picnic' | trans }}" style="opacity: 0.6;"
+							class="img-fluid rounded" />
+					</a>
+					<div class="caption">
+						<p><a href="{{ path("app_poll_show", {'url': 'picnic'}) }}" class="btn btn-primary"
+								role="button">{{ 'access.demo' | trans }}</a></p>
+					</div>
 				</div>
 			</div>
 			<div class="col-md-4 mb-4">
 				<div class="card">
-				<h3>{{ 'next.holidays' | trans }}</h3>
-				<a href="{{ path("app_poll_show", {'url': 'holidays'}) }}">
-					<img src="{{ asset('img/holidays.png') }}" alt="{{ 'next.picnic' | trans }}" style="opacity: 0.6;"
-						class="img-fluid rounded" />
-				</a>
-				<div class="caption">
-					<p><a href="{{ path("app_poll_show", {'url': 'holidays'}) }}" class="btn btn-primary"
-							role="button">{{ 'access.demo' | trans }}</a></p>
-				</div>
+					<h3>{{ 'next.holidays' | trans }}</h3>
+					<a href="{{ path("app_poll_show", {'url': 'holidays'}) }}">
+						<img src="{{ asset('img/holidays.png') }}" alt="{{ 'next.picnic' | trans }}"
+							style="opacity: 0.6;"
+							class="img-fluid rounded" />
+					</a>
+					<div class="caption">
+						<p><a href="{{ path("app_poll_show", {'url': 'holidays'}) }}" class="btn btn-primary"
+								role="button">{{ 'access.demo' | trans }}</a></p>
+					</div>
 				</div>
 			</div>
 		</div>
