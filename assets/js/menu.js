@@ -25,12 +25,6 @@ function displayFastLinks() {
 	const fastLinks = JSON.parse(localStorage.getItem('fastlinks')) || [];
 	const container = document.getElementById('menuFastLinks');
 
-    // Supprimer les anciens <li> dynamiques (ceux qui n'ont pas la classe "fixed-links")
-    container.querySelectorAll('li:not(.fixed-links)').forEach(li => li.remove());
-
-    // Créer un fragment pour insérer les liens dynamiques
-    const fragment = document.createDocumentFragment();
-
 	// Parcourir la liste des sondages récents
 	fastLinks.forEach(poll => {
 		// Créer l'élément <li> avec la classe nav-item
@@ -51,28 +45,20 @@ function displayFastLinks() {
 		btnSupprimer.setAttribute('data-id', poll.url);
 		btnSupprimer.appendChild(i);
 
-		// Attacher un événement au clic pour supprimer l'poll
+		// Attacher un événement au clic pour supprimer le lien
 		btnSupprimer.addEventListener('click', function (e) {
 			e.preventDefault(); // Empêche la navigation si le bouton est cliqué à proximité du lien
 			delFastLink(poll.url);
 			displayFastLinks(); // Met à jour l'affichage après suppression
 		});
 
-		// Ajouter le lien et le bouton au conteneur de l'poll
+		// Ajouter le lien et le bouton au conteneur de le lien
 		li.appendChild(a);
 		li.appendChild(btnSupprimer);
 
-		// Ajouter l'poll dans le conteneur principal
-		fragment.appendChild(li);
+		// Ajouter le lien dans le conteneur principal
+		container.appendChild(li);
 	});
-
-    // Insérer les éléments dynamiques avant le premier élément fixe (class "fixed-links")
-    const premierFixe = container.querySelector('li.fixed-links');
-    if (premierFixe) {
-      container.insertBefore(fragment, premierFixe);
-    } else {
-      container.appendChild(fragment);
-    }
 }
 
 // Supprime un sondage de la liste des polls récents.
