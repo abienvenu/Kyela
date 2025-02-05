@@ -104,13 +104,26 @@ class PollController extends AbstractController
 	 * Displays a form to edit an existing Poll entity.
 	 */
 	#[Route('/{url:poll}/edit')]
-	public function edit(Poll $poll, Request $request, EntityManagerInterface $em): Response
-	{
+	public function edit(
+		Poll $poll,
+		Request $request,
+		EntityManagerInterface $em,
+		TranslatorInterface $translator
+	): Response {
 		$form = $this->createForm(PollType::class, $poll);
+		$oldUrl = $poll->getUrl();
 		$form->handleRequest($request);
 		if ($form->isSubmitted() && $form->isValid()) {
 			$em->flush();
-			$this->addFlash('success', 'Le sondage a été modifié avec succès.');
+
+			if ($oldUrl !== $poll->getUrl()) {
+				$url = $this->generateUrl(
+					'app_poll_show',
+					['url' => $poll->getUrl()],
+					UrlGeneratorInterface::ABSOLUTE_URL
+				);
+				$this->addFlash('success', $translator->trans('poll.modified %url%', ['%url%' => $url]));
+			}
 
 			return $this->redirectToRoute('app_poll_show', ['url' => $poll->getUrl()]);
 		}

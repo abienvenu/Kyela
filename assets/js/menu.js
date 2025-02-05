@@ -3,9 +3,22 @@ function addFastLink(pollUrl, pollTitle) {
 	// Récupérer le tableau existant ou initialiser un tableau vide
 	let fastLinks = JSON.parse(localStorage.getItem('fastlinks')) || [];
 
-	// Vérifier si le sondage est déjà dans la liste
-	const exists = fastLinks.some(poll => poll.url === pollUrl);
-	if (!exists) {
+	// Supprimer tous les fastLinks qui ont déjà le même pollTitle mais pas la même URL
+	fastLinks = fastLinks.filter(poll => poll.title !== pollTitle || poll.url === pollUrl);
+
+	// Chercher l'index du sondage qui a déjà cette url
+	const sameUrlIndex = fastLinks.findIndex(poll => poll.url === pollUrl);
+
+	// Chercher l'index du sondage qui a déjà ce titre
+	const sameTitleIndex = fastLinks.findIndex(poll => poll.title === pollTitle);
+
+	if (sameUrlIndex !== -1) {
+		// Le sondage existe avec cette URL, on met à jour son titre
+		fastLinks[sameUrlIndex].title = pollTitle;
+	} else if (sameTitleIndex !== -1) {
+		// Le sondage existe avec ce titre, on met à jour son URL
+		fastLinks[sameTitleIndex].url = pollUrl;
+	} else {
 		// Ajouter le sondage en fin de tableau
 		fastLinks.push({url: pollUrl, title: pollTitle});
 
@@ -24,6 +37,8 @@ function displayFastLinks() {
 	// Récupérer la liste des sondages récents depuis le localStorage
 	const fastLinks = JSON.parse(localStorage.getItem('fastlinks')) || [];
 	const container = document.getElementById('menuFastLinks');
+
+	container.innerHTML = '';
 
 	// Parcourir la liste des sondages récents
 	fastLinks.forEach(poll => {

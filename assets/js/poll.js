@@ -51,12 +51,14 @@ document.querySelectorAll('.participant').forEach(cell => {
 });
 
 // Bouton copier (à la création ou modification d'un sondage)
-document.getElementById('copyButton').addEventListener('click', function () {
-	const text = document.getElementById('sondageUrl').innerText;
-	navigator.clipboard.writeText(text)
-		.then(() => {
-			this.textContent = this.dataset.copiedText;
-			setTimeout(() => this.textContent = this.dataset.copyText, 2000);
-		})
-		.catch(err => console.error('Erreur lors de la copie :', err));
-});
+if (document.getElementById('copyButton')) {
+	document.getElementById('copyButton').addEventListener('click', function () {
+		const text = document.getElementById('sondageUrl').innerText;
+		navigator.clipboard.writeText(text)
+			.then(() => {
+				this.textContent = this.dataset.copiedText;
+				setTimeout(() => this.textContent = this.dataset.copyText, 2000);
+			})
+			.catch(err => console.error('Erreur lors de la copie :', err));
+	});
+}

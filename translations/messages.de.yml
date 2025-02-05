@@ -98,7 +98,7 @@ success: Erledigt
 are.you.sure.to.delete: Bist Du sicher, dass Du die Umfrage endgültig löschen möchtest?
 deleted: Gelöscht
 poll.created %url%: Deine Umfrage wurde angelegt. Der Link für deine Teilnehmer lautet <pre id="sondageUrl" class="p-2 bg-light border rounded">%url%</pre><button class="btn btn-outline-secondary" type="button" id="copyButton" data-copy-text="URL kopieren" data-copied-text="Kopiert !">URL kopieren</button><br /> Du kannst den Link jederzeit ändern, wenn Du auf "Umfrage ändern" klickst.
-poll.modified %url%: Deine Umfrage wurde geändert. Der neue Link für deine Teilnehmer lautet <pre>%url%</pre>
+poll.modified %url%: Deine Umfrage wurde geändert. Der neue Link für deine Teilnehmer lautet <pre id="sondageUrl" class="p-2 bg-light border rounded">%url%</pre><button class="btn btn-outline-secondary" type="button" id="copyButton" data-copy-text="URL kopieren" data-copied-text="Kopiert !">URL kopieren</button>
 archive.access: Zum Archiv
 past.events: Frühere Ereignisse
 poll.locked %lock%: "Deine Umfrage wurde mit dem folgenden Code <pre>%lock%</pre> gesichert." 
