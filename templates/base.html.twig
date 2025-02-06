@@ -10,9 +10,12 @@
 		{% block javascripts %}
 			{% block importmap %}{{ importmap('app') }}{% endblock %}
 		{% endblock %}
-        {% block robots %}
-            <meta name="robots" content="noindex, nofollow">
-        {% endblock %}
+		{% block robots %}
+			<meta name="robots" content="noindex, nofollow">
+		{% endblock %}
+		<link rel="icon" href="{{ asset('img/favicon.ico') }}" type="image/x-icon">
+		<link rel="icon" href="{{ asset('img/favicon.png') }}" type="image/png">
+		<link rel="apple-touch-icon" href="{{ asset('img/apple-touch-icon.png') }}">
 		<style>
 			body {
 				font-size: 15px;

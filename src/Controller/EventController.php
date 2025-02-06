@@ -11,17 +11,13 @@ use App\Entity\Event;
 
 class EventController extends AbstractController
 {
-	public function __construct(protected EntityManagerInterface $em)
-	{
-	}
-
 	/**
 	 * Displays poll events
 	 */
 	#[Route('/{url:poll}/event/show')]
-	public function show(Poll $poll): Response
+	public function show(Poll $poll, EntityManagerInterface $em): Response
 	{
-		$events = $this->em->getRepository(Event::class)->getFutureEvents($poll);
+		$events = $em->getRepository(Event::class)->getFutureEvents($poll);
 
 		return $this->render('event/show.html.twig', ['events' => $events]);
 	}
