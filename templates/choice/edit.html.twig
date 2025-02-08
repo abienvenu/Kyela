@@ -1,0 +1,95 @@
+{% extends 'layout.html.twig' %}
+
+{% block body %}
+	<style>
+		/* Rendre le label cliquable et afficher un curseur pointer */
+		.form-check-label {
+			cursor: pointer;
+			display: block;
+			padding: 8px;
+		}
+
+		/* Style pour l'icône sélectionnée */
+		.form-check-input:checked + .form-check-label {
+			background-color: #5cb85c;
+		}
+	</style>
+
+
+	<div class="container mt-4">
+		<div class="card shadow-lg bg-light p-4 position-relative mb-4 text-center">
+			<h1>{{ 'choice' | trans }} - {{ choice.name }}</h1>
+		</div>
+
+		<div class="card shadow-lg p-4 position-relative">
+			{{ form_start(form) }}
+			<div class="mb-3 row">
+				<label class="col-sm-2 col-form-label fw-bold text-end">
+					{{ form_label(form.name) }}
+					<span class="text-danger">*</span>
+				</label>
+				<div class="col-sm-10">
+					{{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+					{{ form_errors(form.name) }}
+				</div>
+			</div>
+
+			<div class="mb-3 row">
+				<label class="col-sm-2 col-form-label fw-bold text-end">
+					{{ form_label(form.value) }}
+				</label>
+				<div class="col-sm-10">
+					{{ form_widget(form.value, {'attr': {'class': 'form-control'}}) }}
+					{{ form_errors(form.value) }}
+				</div>
+			</div>
+
+			<div class="mb-3 row">
+				<label class="col-sm-2 col-form-label fw-bold text-end">
+					{{ form_label(form.color) }}
+				</label>
+				<div class="col-sm-10">
+					{{ form_widget(form.color, {'attr': {'class': 'form-select'}}) }}
+					{{ form_errors(form.color) }}
+				</div>
+			</div>
+
+			<div class="mb-3 row">
+				<label class="col-sm-2 col-form-label fw-bold text-end">
+					{{ form_label(form.icon) }}
+				</label>
+				<div class="col-sm-10">
+					<div class="d-flex flex-wrap gap-2">
+						{% for child in form.icon %}
+							<div class="form-check d-flex align-items-center bg-light p-2 rounded">
+								{# On masque le radio mais il reste fonctionnel #}
+								{{ form_widget(child, { 'attr': {'class': 'form-check-input d-none'} }) }}
+								{# Le label, cliquable, affiche l'icône en grand format #}
+								<label class="form-check-label mb-0" for="{{ child.vars.id }}">
+									<i class="bi bi-{{ child.vars.value }} fs-3"></i>
+								</label>
+							</div>
+						{% endfor %}
+
+						{{ form_errors(form.icon) }}
+					</div>
+				</div>
+
+				<div class="mb-3 row">
+					<div class="offset-sm-2 col-sm-10">
+						<button type="submit" class="btn btn-lg btn-danger btn-gradient">
+							<i class="bi bi-save me-2"></i>
+							{{ 'save' | trans }}
+						</button>
+						<a role="button" class="btn btn-lg btn-secondary btn-gradient m-2"
+							href="{{ path('app_choice_index', {url: choice.poll.url}) }}">
+							<i class="bi bi-skip-backward me-2"></i>
+							{{ 'back' | trans }}
+						</a>
+					</div>
+				</div>
+				{{ form_end(form) }}
+			</div>
+		</div>
+	</div>
+{% endblock %}

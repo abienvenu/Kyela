@@ -128,6 +128,6 @@ class PollController extends AbstractController
 			return $this->redirectToRoute('app_poll_show', ['url' => $poll->getUrl()]);
 		}
 
-		return $this->render('poll/edit.html.twig', ['pollForm' => $form->createView(), 'poll' => $poll]);
+		return $this->render('poll/edit.html.twig', ['form' => $form->createView(), 'poll' => $poll]);
 	}
 }

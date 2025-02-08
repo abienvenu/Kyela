@@ -2,8 +2,12 @@
 
 namespace App\Controller;
 
+use App\Entity\Choice;
 use App\Entity\Poll;
+use App\Form\Type\ChoiceType;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
@@ -17,4 +21,20 @@ class ChoiceController extends AbstractController
     {
 		return $this->render('choice/index.html.twig', ['poll' => $poll]);
     }
+
+	/**
+	 * Edits a choice
+	 */
+	#[Route('/{url:poll}/choice/{id:choice}/edit')]
+	public function edit(Choice $choice, Request $request, EntityManagerInterface $em): Response
+	{
+		$form = $this->createForm(ChoiceType::class, $choice);
+		$form->handleRequest($request);
+		if ($form->isSubmitted() && $form->isValid()) {
+			$em->flush();
+
+			return $this->redirectToRoute('app_choice_index', ['url' => $choice->getPoll()->getUrl()]);
+		}
+		return $this->render('choice/edit.html.twig', ['form' => $form, 'choice' => $choice]);
+	}
 }

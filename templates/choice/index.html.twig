@@ -1,7 +1,10 @@
 {% extends 'layout.html.twig' %}
 
 {% block body %}
-	<div class="container-fluid mt-4">
+	<div class="container mt-4">
+		<div class="card shadow-lg bg-light p-4 position-relative mb-4 text-center">
+			<h1>{{ 'edit.options' | trans }} - {{ poll.title }}</h1>
+		</div>
 		<div class="card shadow-lg p-4 position-relative">
 			<div class="table-container">
 				<table class="table table-hover table-bordered">
@@ -20,15 +23,31 @@
 								<td>{{ choice.name }}</td>
 								<td>{{ choice.value }}</td>
 								<td>
-									<button type="button" class="btn choice-{{ choice.color }}">{{ choice.color | trans }}</button>
+									<button type="button"
+										class="btn choice-{{ choice.color }}">{{ choice.color | trans }}</button>
 								</td>
-								<td><i class="bi bi-{{ choice.icon }}">{{ choice.icon }}</i></td>
-								<td>?</td>
+								<td><i class="bi bi-{{ choice.icon }} fs-2"></i></td>
+								<td>
+									<a class="btn btn-warning btn-gradient" role="button"
+										href="{{ path('app_choice_edit', {url: poll.url, id: choice.id}) }}">
+										{{ 'edit' | trans }}
+									</a>
+								</td>
 							</tr>
 						{% endfor %}
 					</tbody>
 				</table>
 			</div>
+			<div class="mb-3 row">
+				<div class="col-sm-10">
+					<a role="button" class="btn btn-lg btn-secondary btn-gradient m-2"
+						href="{{ path('app_poll_show', {url: poll.url}) }}">
+						<i class="bi bi-skip-backward me-2"></i>
+						{{ 'back' | trans }}
+					</a>
+				</div>
+			</div>
+
 		</div>
 	</div>
 {% endblock %}
