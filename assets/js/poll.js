@@ -1,3 +1,29 @@
+// Action quand on choisit une option
+document.querySelectorAll('.dropdown-item').forEach(item => {
+	item.addEventListener('click', function (event) {
+		event.preventDefault(); // Empêche le lien de changer de page
+
+		const participationUrl = this.getAttribute('data-url');
+
+		// Requête AJAX
+		fetch(participationUrl)
+			.then(response => response.json())
+			.then(data => {
+				if (data.success) {
+					// Trouver le bouton principal parent
+					const dropdownButton = this.closest('div').querySelector('.dropdown-toggle');
+
+					dropdownButton.innerHTML = `<i class="bi bi-${data.icon} me-2"></i> ${data.name}`;
+					dropdownButton.className = `btn border dropdown-toggle choice-${data.color} shadow`;
+					// Mettre à jour l'interface si nécessaire
+				} else {
+					alert('Erreur lors de la mise à jour de la participation.');
+				}
+			})
+			.catch(error => console.error('Erreur:', error));
+	});
+});
+
 // Switch des icônes en haut à droite quand on plie/déplie
 document.querySelectorAll('.toggle-button').forEach(button => {
 	const icon = button.querySelector('i');

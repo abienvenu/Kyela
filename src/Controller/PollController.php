@@ -6,7 +6,6 @@ use App\Entity\Choice;
 use App\Entity\Poll;
 use App\Form\Type\PollType;
 use Doctrine\ORM\EntityManagerInterface;
-use Doctrine\ORM\Mapping\Entity;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;

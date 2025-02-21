@@ -1,29 +1,35 @@
+{% set participation = participationsArray[event.id][participant.id] ?? null %}
 <div>
-	<button class="btn border dropdown-toggle choice-blue shadow" type="button"
-		id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-		Cell
+	<button class="btn border dropdown-toggle choice-{{ participation ? participation.choice.color : "none" }} shadow"
+		type="button"
+		data-bs-toggle="dropdown" aria-expanded="false">
+		{% if participation %}
+			<i class="bi bi-{{ participation.choice.icon }} me-2"></i>
+			{{ participation.choice.name }}
+		{% else %}
+			-
+		{% endif %}
 	</button>
-	<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-		<li>
-			<span class="dropdown-item">
-				<button type="button" class="btn choice-red">
-					<twig:ux:icon name="bi:x" width="25" />Coucou
-				</button>
-			</span>
-		</li>
-		<li>
-			<span class="dropdown-item">
-				<button type="button" class="btn choice-green">
-					<twig:ux:icon name="bi:check" width="25" />Another action
-				</button>
-			</span>
-		</li>
-		<li>
-			<span class="dropdown-item">
-				<button type="button" class="btn choice-gray">
-					<twig:ux:icon name="bi:question" width="25" />Something else here
-				</button>
-			</span>
-		</li>
+	<ul class="dropdown-menu">
+		{% for choice in poll.choices %}
+			<li>
+				{% if participation %}
+					{% set participationUrl = path(
+						'app_participation_edit',
+						{'participation': participation.id, 'choice': choice.id}) %}
+				{% else %}
+					{% set participationUrl = path(
+						'app_participation_new',
+						{'event': event.id, 'participant': participant.id, 'choice': choice.id}
+					) %}
+				{% endif %}
+				<span class="dropdown-item" data-url="{{ participationUrl }}">
+					<button type="button" class="btn choice-{{ choice.color }}">
+						<i class="bi bi-{{ choice.icon }} me-2"></i>
+						{{ choice.name }}
+					</button>
+				</span>
+			</li>
+		{% endfor %}
 	</ul>
 </div>
