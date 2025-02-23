@@ -13,9 +13,9 @@ use Symfony\Component\Routing\Attribute\Route;
 class ParticipantController extends AbstractController
 {
 	#[Route('/{url:poll}/participants')]
-	public function index(Poll $poll): Response
+	public function edit(Poll $poll): Response
 	{
-		return $this->render('participant/index.html.twig', ['poll' => $poll]);
+		return $this->render('participant/edit.html.twig', ['poll' => $poll]);
 	}
 
 	#[Route('/{url:poll}/participants/update', methods: ['POST'])]

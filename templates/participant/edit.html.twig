@@ -12,8 +12,8 @@
 					<thead>
 						<tr>
 							<th scope="col" class="table-secondary"></th> {# Poignée Drag & Drop #}
-							<th scope="col" class="table-secondary">Nom</th>
-							<th scope="col" class="table-secondary">Action</th>
+							<th scope="col" class="table-secondary">{{ 'name' | trans }}</th>
+							<th scope="col" class="table-secondary"></th>
 						</tr>
 					</thead>
 					<tbody id="participants-list">
@@ -27,7 +27,8 @@
 										value="{{ participant.name }}" class="form-control form-control-sm" required>
 								</td>
 								<td>
-									<button type="button" class="btn btn-danger btn-sm delete-participant">Supprimer
+									<button type="button" class="btn btn-secondary delete-participant">
+										<i class="bi bi-trash"></i>
 									</button>
 								</td>
 							</tr>
@@ -38,26 +39,43 @@
 				{# Champ caché pour stocker les IDs des participants supprimés #}
 				<input type="hidden" name="deleted_participants" id="deleted_participants">
 
+				<!-- Formulaire d'ajout -->
 				<div class="mb-3">
-					<label for="new-participants" class="form-label">Ajouter un ou plusieurs participants (séparés par
-						";")</label>
+					<label for="new-participants" class="form-label">
+						Ajouter un ou plusieurs participants (séparés par ";")
+					</label>
 					<input type="text" id="new-participants" class="form-control">
 					<button type="button" id="add-participants" class="btn btn-lg btn-success mt-2">Ajouter</button>
 				</div>
 
-				<div class="mb-3 row">
-					<div class="offset-sm-2 col-sm-10">
-						<button type="submit" class="btn btn-lg btn-danger btn-gradient m-2">
-							<i class="bi bi-save me-2"></i>
-							{{ 'save' | trans }}
-						</button>
-						<a role="button" class="btn btn-lg btn-secondary btn-gradient m-2"
-							href="{{ path('app_poll_show', {url: poll.url}) }}">
-							<i class="bi bi-skip-backward me-2"></i>
-							{{ 'back' | trans }}
-						</a>
+				<!-- Bloc d'export -->
+				<div class="mt-3">
+					<div class="card-header">
+						Liste des participants (pour export)
 					</div>
-				</div>
+					<div class="card-body p-2">
+						<p id="export-text" class="small text-wrap text-break mb-0"></p>
+					</div>
+					<div class="card-footer text-end">
+						<button type="button" class="btn btn-primary btn-sm" id="copy-btn">
+							<i class="bi bi-clipboard"></i> Exporter
+						</button>
+					</div>
+
+					<!-- Boutons -->
+					<div class="mb-3 row">
+						<div class="offset-sm-2 col-sm-10">
+							<button type="submit" class="btn btn-lg btn-danger btn-gradient m-2">
+								<i class="bi bi-save me-2"></i>
+								{{ 'save' | trans }}
+							</button>
+							<a role="button" class="btn btn-lg btn-secondary btn-gradient m-2"
+								href="{{ path('app_poll_show', {url: poll.url}) }}">
+								<i class="bi bi-skip-backward me-2"></i>
+								{{ 'back' | trans }}
+							</a>
+						</div>
+					</div>
 
 			</form>
 		</div>
@@ -68,7 +86,17 @@
 		document.addEventListener('DOMContentLoaded', function () {
 			let tbody = document.getElementById('participants-list');
 			let deletedIds = [];
-			let deletedInput = document.getElementById("deleted_participants");
+			let deletedInput = document.getElementById('deleted_participants');
+			let exportBloc = document.getElementById('export-text');
+
+			// Fonction de mise à jour de la liste export
+			function updateExportText() {
+				let names = [];
+				document.querySelectorAll('#participants-list input[type=\'text\']').forEach(function (input) {
+					names.push(input.value);
+				});
+				exportBloc.innerText = names.join(';');
+			}
 
 			// Activation du drag & drop
 			new Sortable(tbody, {
@@ -80,7 +108,7 @@
 			// Suppression d'un participant
 			document.querySelectorAll('.delete-participant').forEach(button => {
 				button.addEventListener('click', function () {
-					const row = this.closest("tr");
+					const row = this.closest('tr');
 					const id = row.dataset.id;
 					// Si l'élément a un ID, on le marque pour suppression
 					if (id) {
@@ -88,7 +116,15 @@
 						deletedInput.value = JSON.stringify(deletedIds);
 					}
 					row.remove();
+					updateExportText();
 				});
+			});
+
+			document.getElementById("new-participants").addEventListener("keydown", function(event) {
+				if (event.key === "Enter") {
+					event.preventDefault(); // Empêche la soumission du formulaire
+					 document.getElementById("add-participants").click(); // Simule un clic sur le bouton "Ajouter"
+				}
 			});
 
 			// Ajout de nouveaux participants
@@ -103,7 +139,7 @@
 						row.innerHTML = `
                     <td class="handle text-center"><i class="bi bi-list fs-4" style="cursor: grab;"></i></td>
                     <td><input type="text" name="new_participants[]" value="${name}" class="form-control form-control-sm" required></td>
-                    <td><button type="button" class="btn btn-danger btn-sm delete-participant">Supprimer</button></td>
+                    <td><button type="button" class="btn btn-secondary delete-participant"><i class="bi bi-trash"></i></button></td>
                 `;
 						tbody.appendChild(row);
 						row.querySelector('.delete-participant').addEventListener('click', function () {
@@ -111,7 +147,25 @@
 						});
 					}
 				});
+				updateExportText();
 			});
+
+			// Mise à jour lors de la modification d'un nom de participant
+			tbody.addEventListener('input', function (event) {
+				if (event.target.matches('input[type=\'text\']')) {
+					updateExportText();
+				}
+			});
+
+			// Bouton "Copier"
+			document.getElementById('copy-btn').addEventListener('click', function () {
+				navigator.clipboard.writeText(exportBloc.innerText)
+					.then(() => alert('Participants copiés !'))
+					.catch(err => alert('Erreur lors de la copie : ' + err));
+			});
+
+			// Initial update du bloc d'export
+			updateExportText();
 		});
 	</script>
 {% endblock %}

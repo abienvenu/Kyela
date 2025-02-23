@@ -32,7 +32,6 @@ archives: Archives
 dates: Dates
 add.a.poll: Créer un sondage
 add.a.participant: Ajouter un participant
-edit.options: Éditer les options
 add.an.option: Ajouter une option
 new.poll: Nouveau sondage
 new.poll.tooltip: Un sondage permet à vos amis d'indiquer leurs préférences entre plusieurs choix. Cliquez sur le bouton pour créer puis paramétrer votre sondage privé. Puis ajoutez des participants et proposez des dates.

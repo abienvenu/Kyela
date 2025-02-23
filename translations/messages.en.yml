@@ -32,7 +32,6 @@ archives: Archives
 dates: Dates
 add.a.poll: Add a poll
 add.a.participant: Add a participant
-edit.options: Edit the choices
 add.an.option: Add a choice
 new.poll: New poll
 new.poll.tooltip: A poll enable your friends to tell their availabilities for several dates (or their opinion for several questions). If you plan several events, name this poll afer the name of your association or friends group. Else, name it after the name of the event you plan.
