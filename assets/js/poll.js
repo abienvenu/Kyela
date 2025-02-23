@@ -14,7 +14,7 @@ document.querySelectorAll('.dropdown-item').forEach(item => {
 					const dropdownButton = this.closest('div').querySelector('.dropdown-toggle');
 					const deleteButton = this.closest('ul').querySelector('li:last-of-type');
 
-					if (data.icon) {
+					if (data.name) {
 						dropdownButton.innerHTML = `<i class="bi bi-${data.icon} me-2"></i> ${data.name}`;
 						dropdownButton.className = `btn border dropdown-toggle choice-${data.color} shadow`;
 						deleteButton.classList.remove('d-none');

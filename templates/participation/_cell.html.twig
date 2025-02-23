@@ -10,7 +10,7 @@
 			-
 		{% endif %}
 	</button>
-	<ul class="dropdown-menu">
+	<ul class="dropdown-menu overflow-auto" style="max-height: 400px;">
 		{% for choice in poll.choices %}
 			<li>
 				{% set participationUrl = path(
