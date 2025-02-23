@@ -12,9 +12,17 @@ document.querySelectorAll('.dropdown-item').forEach(item => {
 				if (data.success) {
 					// Trouver le bouton principal parent
 					const dropdownButton = this.closest('div').querySelector('.dropdown-toggle');
+					const deleteButton = this.closest('ul').querySelector('li:last-of-type');
 
-					dropdownButton.innerHTML = `<i class="bi bi-${data.icon} me-2"></i> ${data.name}`;
-					dropdownButton.className = `btn border dropdown-toggle choice-${data.color} shadow`;
+					if (data.icon) {
+						dropdownButton.innerHTML = `<i class="bi bi-${data.icon} me-2"></i> ${data.name}`;
+						dropdownButton.className = `btn border dropdown-toggle choice-${data.color} shadow`;
+						deleteButton.classList.remove('d-none');
+					} else {
+						dropdownButton.innerHTML = ' - ';
+						dropdownButton.className = `btn border dropdown-toggle shadow`;
+						deleteButton.classList.add('d-none');
+					}
 					// Mettre à jour l'interface si nécessaire
 				} else {
 					alert('Erreur lors de la mise à jour de la participation.');

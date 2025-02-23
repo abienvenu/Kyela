@@ -70,10 +70,15 @@ class ParticipationController extends AbstractController
 	/**
 	 * Removes a Participation on the fly
 	 */
-	#[Route('/participation/delete/{participation}')]
-	public function delete(Participation $participation, EntityManagerInterface $em): JsonResponse
+	#[Route('/participation/delete/{event}/{participant}')]
+	public function delete(Event $event, Participant $participant, EntityManagerInterface $em): JsonResponse
 	{
-		$em->remove($participation);
+		$participations = $em
+			->getRepository(Participation::class)
+			->findBy(['participant' => $participant->getId(), 'event' => $event->getId()]);
+		foreach ($participations as $participation) {
+			$em->remove($participation);
+		}
 		$em->flush();
 
 		return new JsonResponse(['success' => true]);

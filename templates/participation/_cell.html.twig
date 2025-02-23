@@ -25,5 +25,16 @@
 				</span>
 			</li>
 		{% endfor %}
+		<li {% if not participation %} class="d-none"{% endif %}>
+			{% set participationDeleteUrl = path(
+				'app_participation_delete',
+				{'event': event.id, 'participant': participant.id}
+			) %}
+			<span class="dropdown-item" data-url="{{ participationDeleteUrl }}">
+				<button type="button" class="btn">
+					<i class="bi bi-trash me-2"></i>
+				</button>
+			</span>
+		</li>
 	</ul>
 </div>
