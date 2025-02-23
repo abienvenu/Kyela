@@ -22,16 +22,17 @@ main.subtitle: Kyela - Frei, anonym, kein Abo, keine Werbung. Einfach Open-Sourc
 poll: Umfrage
 choice: Option
 participant: Teilnehmer
+participants: Teilnehmer
+options: Auswahl
+dates: Termine
 total: Insgesamt
 event: Event
 comment: Kommentar
 comments: Kommentare
+archives: Archiv
 add.a.poll: Umfrage hinzufügen
 add.a.participant: Teilnehmer hinzufügen
-add.a.date: Termin vorschlagen
-add.a.comment: Kommentar hinzufügen
 edit.options: Auswahl ändern
-edit.poll: Umfrage ändern
 add.an.option: Option hinzufügen
 new.poll: Neue Umfrage
 new.poll.tooltip: Mit einer Umfrage erfährst Du, wann deine Freunde Zeit haben und kannst viele andere Fragen klären. Wenn Du mehrere Ereignisse planst, benenne die Umfragen nach deiner Gruppe, Schulklasse oder dem Verein. Oder benenne sie nach der Veranstaltung die geplant ist.

@@ -22,16 +22,17 @@ main.subtitle: gratuit, anonyme, sans inscription, sans publicité
 poll: Sondage
 choice: Option
 participant: Participant
+participants: Participants
+options: Options
 total: Total
 event: Évènement
 comment: Commentaire
 comments: Commentaires
+archives: Archives
+dates: Dates
 add.a.poll: Créer un sondage
 add.a.participant: Ajouter un participant
-add.a.date: Proposer une date
-add.a.comment: Ajouter un commentaire
 edit.options: Éditer les options
-edit.poll: Modifier le sondage
 add.an.option: Ajouter une option
 new.poll: Nouveau sondage
 new.poll.tooltip: Un sondage permet à vos amis d'indiquer leurs préférences entre plusieurs choix. Cliquez sur le bouton pour créer puis paramétrer votre sondage privé. Puis ajoutez des participants et proposez des dates.

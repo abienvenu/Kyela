@@ -1,6 +1,35 @@
 {% extends 'layout.html.twig' %}
 
 {% block body %}
+	<div class="container-fluid mt-2">
+		<button type="button" class="btn btn-primary btn-gradient">
+			<i class="bi bi-person-fill me-2"></i>
+			{{ 'participants' | trans }}
+		</button>
+		<button type="button" class="btn btn-success btn-gradient">
+			<i class="bi bi-calendar-check me-2"></i>
+			{{ 'dates' | trans }}
+		</button>
+		<a role="button" class="btn btn-warning btn-gradient" href="{{ path('app_choice_index', {url: poll.url}) }}">
+			<i class="bi bi-sliders me-2"></i>
+			{{ 'options' | trans }}
+		</a>
+		<a role="button" class="btn btn-danger btn-gradient" href="{{ path('app_poll_edit', {url: poll.url}) }}">
+			<i class="bi bi-pencil-square me-2"></i>
+			{{ 'poll' | trans }}
+		</a>
+		{% if poll.participants|length > 0 %}
+			<button type="button" class="btn btn-info btn-gradient">
+				<i class="bi bi-chat-left-text me-2"></i>
+				{{ 'comments' | trans }}
+			</button>
+		{% endif %}
+		<button type="button" class="btn btn-secondary btn-gradient">
+			<i class="bi bi-archive me-2"></i>
+			{{ 'archives' | trans }}
+		</button>
+	</div>
+
 	<div class="container-fluid mt-4">
 		<div class="card shadow-lg p-4 position-relative">
 			{{ render(controller('App\\Controller\\EventController::show', {'poll': poll})) }}
@@ -42,31 +71,6 @@
 			</div>
 		</div>
 	{% endif %}
-
-	<div class="container-fluid mt-4 mb-4">
-		{% if poll.participants|length > 0 %}
-			<button type="button" class="btn btn-primary btn-gradient">
-				<i class="bi bi-chat-left-text me-2"></i>
-				{{ 'add.a.comment' | trans }}
-			</button>
-		{% endif %}
-		<button type="button" class="btn btn-success btn-gradient">
-			<i class="bi bi-calendar-plus me-2"></i>
-			{{ 'add.a.date' | trans }}
-		</button>
-		<a role="button" class="btn btn-warning btn-gradient" href="{{ path('app_choice_index', {url: poll.url}) }}">
-			<i class="bi bi-sliders me-2"></i>
-			{{ 'edit.options' | trans }}
-		</a>
-		<a role="button" class="btn btn-danger btn-gradient" href="{{ path('app_poll_edit', {url: poll.url}) }}">
-			<i class="bi bi-pencil-square me-2"></i>
-			{{ 'edit.poll' | trans }}
-		</a>
-		<button type="button" class="btn btn-secondary btn-gradient">
-			<i class="bi bi-archive me-2"></i>
-			{{ 'archive.access' | trans }}
-		</button>
-	</div>
 
 	<script src="{{ asset('js/poll.js') }}"></script>
 	<script>
