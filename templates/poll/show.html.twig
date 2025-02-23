@@ -2,10 +2,11 @@
 
 {% block body %}
 	<div class="container-fluid mt-2">
-		<button type="button" class="btn btn-primary btn-gradient">
+		<a role="button" class="btn btn-primary btn-gradient"
+			href="{{ path('app_participant_index', {url: poll.url}) }}">
 			<i class="bi bi-person-fill me-2"></i>
 			{{ 'participants' | trans }}
-		</button>
+		</a>
 		<button type="button" class="btn btn-success btn-gradient">
 			<i class="bi bi-calendar-check me-2"></i>
 			{{ 'dates' | trans }}
