@@ -13,16 +13,10 @@
 	<ul class="dropdown-menu">
 		{% for choice in poll.choices %}
 			<li>
-				{% if participation %}
-					{% set participationUrl = path(
-						'app_participation_edit',
-						{'participation': participation.id, 'choice': choice.id}) %}
-				{% else %}
-					{% set participationUrl = path(
-						'app_participation_new',
-						{'event': event.id, 'participant': participant.id, 'choice': choice.id}
-					) %}
-				{% endif %}
+				{% set participationUrl = path(
+					'app_participation_update',
+					{'event': event.id, 'participant': participant.id, 'choice': choice.id}
+				) %}
 				<span class="dropdown-item" data-url="{{ participationUrl }}">
 					<button type="button" class="btn choice-{{ choice.color }}">
 						<i class="bi bi-{{ choice.icon }} me-2"></i>
