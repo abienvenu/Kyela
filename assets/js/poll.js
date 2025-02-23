@@ -1,18 +1,17 @@
-// Action quand on choisit une option
-document.querySelectorAll('.dropdown-item').forEach(item => {
-	item.addEventListener('click', function (event) {
-		event.preventDefault(); // Empêche le lien de changer de page
+document.addEventListener('DOMContentLoaded', () => {
+	const confirmationDialog = new bootstrap.Modal(document.getElementById('participation_confirmation'));
+	let opener;
 
-		const participationUrl = this.getAttribute('data-url');
-
+	function updateParticipation() {
+		const participationUrl = opener.getAttribute('data-url');
 		// Requête AJAX
 		fetch(participationUrl)
 			.then(response => response.json())
 			.then(data => {
 				if (data.success) {
 					// Trouver le bouton principal parent
-					const dropdownButton = this.closest('div').querySelector('.dropdown-toggle');
-					const deleteButton = this.closest('ul').querySelector('li:last-of-type');
+					const dropdownButton = opener.closest('div').querySelector('.dropdown-toggle');
+					const deleteButton = opener.closest('ul').querySelector('li:last-of-type');
 
 					if (data.name) {
 						dropdownButton.innerHTML = `<i class="bi bi-${data.icon} me-2"></i> ${data.name}`;
@@ -23,12 +22,49 @@ document.querySelectorAll('.dropdown-item').forEach(item => {
 						dropdownButton.className = `btn border dropdown-toggle shadow`;
 						deleteButton.classList.add('d-none');
 					}
-					// Mettre à jour l'interface si nécessaire
 				} else {
 					alert('Erreur lors de la mise à jour de la participation.');
 				}
 			})
 			.catch(error => console.error('Erreur:', error));
+	}
+
+	// Action quand on choisit une option
+	document.querySelectorAll('.dropdown-item').forEach(item => {
+		item.addEventListener('click', function (event) {
+			event.preventDefault(); // Empêche le lien de changer de page
+			opener = this;
+
+			// Update managed participants, ask confirmation for any new one
+			const participantName = this.closest('tr').getAttribute('data-name');
+			if (!localStorage.getItem('managed_participants')) {
+				localStorage.setItem('managed_participants', JSON.stringify([participantName]));
+			} else {
+				let managedParticipants = JSON.parse(localStorage.getItem('managed_participants'));
+				if (managedParticipants.indexOf(participantName) === -1) {
+					document.getElementById('participation_confirmation_name').innerHTML = participantName;
+					confirmationDialog.show();
+					return;
+				}
+			}
+			updateParticipation();
+		});
+	});
+
+	document.getElementById('participation_confirmation').querySelectorAll('button').forEach(button => {
+		button.addEventListener('click', () => {
+			const answer = button.getAttribute('data-answer');
+			if (answer === 'always') {
+				const participantName = opener.closest('tr').getAttribute('data-name');
+				let managedParticipants = JSON.parse(localStorage.getItem('managed_participants'));
+				managedParticipants.push(participantName);
+				localStorage.setItem('managed_participants', JSON.stringify(managedParticipants));
+			}
+			if (answer === 'always' || answer === 'once') {
+				updateParticipation();
+			}
+			confirmationDialog.hide();
+		});
 	});
 });
 

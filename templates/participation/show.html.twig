@@ -24,7 +24,7 @@
 		</thead>
 		<tbody>
 			{% for participant in poll.participants %}
-				<tr>
+				<tr data-name="{{ participant.name }}">
 					<th scope="row" class="bg-light text-start">
 						<a class="btn btn-light border shadow participant">
 							<twig:ux:icon name="bi:person-fill" width="20" />
@@ -50,4 +50,31 @@
 			</tr>
 		</tfoot>
 	</table>
+</div>
+
+<div class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" id="participation_confirmation">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title text-center">
+					{{ 'participation.confirmation' | trans }}<br />
+					<i id="participation_confirmation_name"></i> ?
+				</h5>
+			</div>
+			<div class="modal-body text-center">
+				<button class="btn btn-success btn-gradient m-2" data-answer="always">
+					<i class="bi bi-check-all"></i>
+					{% trans %}button.yesalways{% endtrans %}
+				</button><br />
+				<button class="btn btn-warning btn-gradient m-2" data-answer="once">
+					<i class="bi bi-check"></i>
+					{% trans %}button.yesonce{% endtrans %}
+				</button><br />
+				<button class="btn btn-danger btn-gradient m-2" data-answer="no">
+					<i class="bi bi-x"></i>
+					{% trans %}button.no{% endtrans %}
+				</button>
+			</div>
+		</div>
+	</div>
 </div>
