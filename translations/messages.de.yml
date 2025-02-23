@@ -19,6 +19,8 @@ meta.description: Kyela - Plane Treffen - Erstelle Umfragen, schlage Events vor,
 bottom.line: Planung ganz einfach
 main.title: Plane ein Treffen
 main.subtitle: Kyela - Frei, anonym, kein Abo, keine Werbung. Einfach Open-Source.
+new.version: Neue Version
+new.version.explain: Kyélà modernisiert sich! Ein Fehler? Bitte melden Sie es
 poll: Umfrage
 choice: Option
 participant: Teilnehmer
@@ -33,6 +35,7 @@ archives: Archiv
 add.a.poll: Umfrage hinzufügen
 add.participants: Fügen Sie einen oder mehrere Teilnehmer hinzu (getrennt durch ";")
 participants.list: Teilnehmerliste (zum Exportieren)
+participants.copied: Teilnehmer Kopiert!
 add: Hinzufügen
 export: Export
 add.an.option: Option hinzufügen

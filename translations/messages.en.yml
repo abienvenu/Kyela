@@ -19,6 +19,8 @@ meta.description: Kyela - Schedule meetings - Create polls, suggest events, tell
 bottom.line: Planning made easy
 main.title: Schedule a meeting
 main.subtitle: Kyela - free, anonymous, no subscription, no advertisement. Just OpenSource.
+new.version: New version
+new.version.explain: Kyélà just had an upgrade! Any bug ? Please report
 poll: Poll
 choice: Choice
 participant: Participant
@@ -33,6 +35,7 @@ dates: Dates
 add.a.poll: Add a poll
 add.participants: Add participants (separated by ";")
 participants.list: List of participants (ready for export)
+participants.copied: Participants copied!
 add: Add
 export: Export
 add.an.option: Add a choice

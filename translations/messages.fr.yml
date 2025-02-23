@@ -19,6 +19,8 @@ meta.description: Kyela - Planifiez des réunions - Créer des sondages, propose
 bottom.line: Planifiez vos réunions
 main.title: "Kyélà - on se regroupe!"
 main.subtitle: gratuit, anonyme, sans inscription, sans publicité
+new.version: Nouvelle version
+new.version.explain: Kyélà se modernise! Un bug ? Merci de le signaler
 poll: Sondage
 choice: Option
 participant: Participant
@@ -33,6 +35,7 @@ dates: Dates
 add.a.poll: Créer un sondage
 add.participants: Ajouter un ou plusieurs participants (séparés par ";")
 participants.list: Liste des participants (pour export)
+participants.copied: Participants copiés!
 add: Ajouter
 export: Exporter
 add.an.option: Ajouter une option
