@@ -64,6 +64,7 @@ class ParticipationController extends AbstractController
 			'icon' => $choice->getIcon(),
 			'name' => $choice->getName(),
 			'color' => $choice->getColor(),
+			'score' => $event->getParticipationsScore(),
 		]);
 	}
 
@@ -81,6 +82,9 @@ class ParticipationController extends AbstractController
 		}
 		$em->flush();
 
-		return new JsonResponse(['success' => true]);
+		return new JsonResponse([
+			'success' => true,
+			'score' => $event->getParticipationsScore(),
+		]);
 	}
 }

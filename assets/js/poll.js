@@ -1,10 +1,11 @@
+// Scripts de mise à jour de la participations
 document.addEventListener('DOMContentLoaded', () => {
 	const confirmationDialog = new bootstrap.Modal(document.getElementById('participation_confirmation'));
 	let opener;
 
+	// Call AJAX et mise à jour de l'option affichée dans le tableau
 	function updateParticipation() {
 		const participationUrl = opener.getAttribute('data-url');
-		// Requête AJAX
 		fetch(participationUrl)
 			.then(response => response.json())
 			.then(data => {
@@ -22,6 +23,16 @@ document.addEventListener('DOMContentLoaded', () => {
 						dropdownButton.className = `btn border dropdown-toggle shadow`;
 						deleteButton.classList.add('d-none');
 					}
+
+					// Mise à jour des compteurs
+					const cell = opener.closest('td');
+					opener.closest('table')
+						.querySelector('tfoot')
+						.querySelector('tr').cells[cell.cellIndex].innerHTML = data.score;
+					document.getElementById('eventTable')
+						.querySelectorAll('tbody tr')[cell.cellIndex - 1].cells[0]
+						.querySelector('span').innerHTML = data.score;
+
 				} else {
 					alert('Erreur lors de la mise à jour de la participation.');
 				}

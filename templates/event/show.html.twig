@@ -1,30 +1,38 @@
 <button class="btn btn-light position-absolute top-0 end-0 mt-2 me-2 toggle-button" data-bs-toggle="collapse"
-	data-bs-target="#dateList" aria-expanded="true">
+	data-bs-target="#eventTable" aria-expanded="true">
 	<i class="bi bi-calendar3"></i>
 </button>
-<ul class="list collapse show" id="dateList">
-	{% for event in events %}
-		<li>
-			{% if event.date %}
-				{{ event.date|format_datetime(locale: app.request.locale, pattern: "cccc d MMMM") }}
-			{% endif %}
-			{% if event.date and event.time %}
-				-
-			{% endif %}
-			{% if event.time %}
-				{{ event.time|format_datetime(locale: app.request.locale, pattern: "H'h'mm") }}
-			{% endif %}
-			{% if (event.date or event.time) and event.place %}
-				-
-			{% endif %}
-			{{ event.place }}
-			{% if event.subtitle %}
-				<small class="subtitle">({{ event.subtitle }})</small>
-			{% endif %}
-			{% if (event.date or event.time or event.place) and event.name %}
-				&nbsp;:
-			{% endif %}
-			<strong>{{ event.name }}</strong>
-		</li>
-	{% endfor %}
-</ul>
+<div id="eventTable" class="collapse show">
+	<table class="table table-hover w-auto mx-auto">
+		<tbody>
+			{% for event in events %}
+				<tr>
+					<td>
+						<span class="badge bg-primary">{{ event.participationsScore }}</span>
+					</td>
+					<td class="text-start">
+						{% if event.date %}
+							{{ event.date|format_datetime(locale: app.request.locale, pattern: "cccc d MMMM") }}
+						{% endif %}
+					</td>
+					<td class="text-start">
+						{% if event.time %}
+							{{ event.time|format_datetime(locale: app.request.locale, pattern: "H'h'mm") }}
+						{% endif %}
+					</td>
+					<td class="text-start">
+						{{ event.place }}
+					</td>
+					<td class="text-start">
+						{% if event.subtitle %}
+							<small class="subtitle">{{ event.subtitle }}</small>
+						{% endif %}
+					</td>
+					<td class="text-start">
+						<strong>{{ event.name }}</strong>
+					</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+</div>

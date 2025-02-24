@@ -49,6 +49,11 @@ tr > :first-child {
 	left: -1px;
 }
 
+.subtitle {
+	font-weight: normal;
+	color: #808080;
+}
+
 /* Classe pour atténuer l'affichage (transparence/grisé) des lignes non sélectionnées */
 .dimmed {
 	opacity: 0.5;
