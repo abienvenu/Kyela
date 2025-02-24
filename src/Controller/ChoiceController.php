@@ -40,6 +40,26 @@ class ChoiceController extends AbstractController
 	}
 
 	/**
+	 * Add a choice
+	 */
+	#[Route('/{url:poll}/choice/new')]
+	public function new(Poll $poll, Request $request, EntityManagerInterface $em): Response
+	{
+		$choice = (new Choice())
+			->setPoll($poll)
+			->setPriority(count($poll->getChoices()));
+		$form = $this->createForm(ChoiceType::class, $choice);
+		$form->handleRequest($request);
+		if ($form->isSubmitted() && $form->isValid()) {
+			$em->persist($choice);
+			$em->flush();
+
+			return $this->redirectToRoute('app_choice_index', ['url' => $choice->getPoll()->getUrl()]);
+		}
+		return $this->render('choice/edit.html.twig', ['form' => $form, 'choice' => $choice]);
+	}
+
+	/**
 	 * Change order priority of choices
 	 */
 	#[Route('/{url:poll}/choice/reorder')]

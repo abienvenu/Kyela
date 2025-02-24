@@ -46,7 +46,7 @@
 					</label>
 					<input type="text" id="new-participants" class="form-control">
 					<button type="button" id="add-participants" class="btn btn-lg btn-success mt-2">
-						{{ 'add' | trans }}
+						<i class="bi bi-plus-lg me-2"></i>{{ 'add' | trans }}
 					</button>
 				</div>
 
@@ -68,15 +68,15 @@
 				<!-- Boutons bas du formulaire -->
 				<div class="mb-3 row">
 					<div class="offset-sm-2 col-sm-10">
-						<button type="submit" class="btn btn-lg btn-danger btn-gradient m-2">
-							<i class="bi bi-save me-2"></i>
-							{{ 'save' | trans }}
-						</button>
 						<a role="button" class="btn btn-lg btn-secondary btn-gradient m-2"
 							href="{{ path('app_poll_show', {url: poll.url}) }}">
 							<i class="bi bi-skip-backward me-2"></i>
 							{{ 'back' | trans }}
 						</a>
+						<button type="submit" class="btn btn-lg btn-danger btn-gradient m-2">
+							<i class="bi bi-save me-2"></i>
+							{{ 'save' | trans }}
+						</button>
 					</div>
 				</div>
 			</form>

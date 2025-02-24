@@ -37,6 +37,7 @@
 			<div class="mb-3 row">
 				<label class="col-sm-2 col-form-label fw-bold text-end">
 					{{ form_label(form.value) }}
+					<span class="text-danger">*</span>
 				</label>
 				<div class="col-sm-10">
 					{{ form_widget(form.value, {'attr': {'class': 'form-control'}}) }}
@@ -47,6 +48,7 @@
 			<div class="mb-3 row">
 				<label class="col-sm-2 col-form-label fw-bold text-end">
 					{{ form_label(form.color) }}
+					<span class="text-danger">*</span>
 				</label>
 				<div class="col-sm-10">
 					{{ form_widget(form.color, {'attr': {'class': 'form-select'}}) }}
@@ -57,6 +59,7 @@
 			<div class="mb-3 row">
 				<label class="col-sm-2 col-form-label fw-bold text-end">
 					{{ form_label(form.icon) }}
+					{{ form_errors(form.icon) }}
 				</label>
 				<div class="col-sm-10">
 					<div class="d-flex flex-wrap gap-2">

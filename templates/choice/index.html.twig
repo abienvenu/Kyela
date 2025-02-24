@@ -49,6 +49,10 @@
 						<i class="bi bi-skip-backward me-2"></i>
 						{{ 'back' | trans }}
 					</a>
+					<a role="button" class="btn btn-lg btn-success btn-gradient m-2"
+						href="{{ path('app_choice_new', {url: poll.url}) }}">
+						<i class="bi bi-plus-lg me-2"></i>{{ 'add' | trans }}
+					</a>
 				</div>
 			</div>
 		</div>
