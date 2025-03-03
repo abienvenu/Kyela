@@ -6,10 +6,13 @@ use App\Entity\Poll;
 use App\Form\Type\EventType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use App\Entity\Event;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class EventController extends AbstractController
 {
@@ -70,4 +73,24 @@ class EventController extends AbstractController
 		return $this->render('event/edit.html.twig', ['form' => $form, 'event' => $event]);
 	}
 
+	/**
+	 * Delete an event
+	 */
+	#[Route('/{url:poll}/event/delete/{id:event}')]
+	public function delete(
+		Poll $poll,
+		Event $event,
+		EntityManagerInterface $em,
+		TranslatorInterface $translator
+	): RedirectResponse {
+		if ($event->getPoll()->getId() === $poll->getId()) {
+			$em->remove($event);
+			$em->flush();
+			$this->addFlash('success', $translator->trans('deleted'));
+		}
+
+		$url = $this->generateUrl('app_event_list', ['url' => $poll->getUrl()], UrlGeneratorInterface::ABSOLUTE_URL);
+
+		return new RedirectResponse($url);
+	}
 }
