@@ -33,7 +33,7 @@ class Choice
     /**
      * @var Collection<int, Participation>
      */
-    #[ORM\OneToMany(targetEntity: Participation::class, mappedBy: 'choice')]
+    #[ORM\OneToMany(targetEntity: Participation::class, mappedBy: 'choice', cascade: ['persist', 'remove'])]
     private Collection $participations;
 
     #[ORM\ManyToOne(inversedBy: 'choices')]

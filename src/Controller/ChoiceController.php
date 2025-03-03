@@ -8,25 +8,28 @@ use App\Form\Type\ChoiceType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class ChoiceController extends AbstractController
 {
-    /**
-     * Lists all choices
-     */
+	/**
+	 * Lists all choices
+	 */
 	#[Route('/{url:poll}/choice')]
-    public function index(Poll $poll): Response
-    {
+	public function index(Poll $poll): Response
+	{
 		return $this->render('choice/index.html.twig', ['poll' => $poll]);
-    }
+	}
 
 	/**
 	 * Edits a choice
 	 */
-	#[Route('/{url:poll}/choice/{id:choice}/edit')]
+	#[Route('/{url:poll}/choice/edit/{id:choice}')]
 	public function edit(Poll $poll, Choice $choice, Request $request, EntityManagerInterface $em): Response
 	{
 		$form = $this->createForm(ChoiceType::class, $choice);
@@ -36,6 +39,7 @@ class ChoiceController extends AbstractController
 
 			return $this->redirectToRoute('app_choice_index', ['url' => $choice->getPoll()->getUrl()]);
 		}
+
 		return $this->render('choice/edit.html.twig', ['form' => $form, 'choice' => $choice]);
 	}
 
@@ -56,6 +60,7 @@ class ChoiceController extends AbstractController
 
 			return $this->redirectToRoute('app_choice_index', ['url' => $choice->getPoll()->getUrl()]);
 		}
+
 		return $this->render('choice/edit.html.twig', ['form' => $form, 'choice' => $choice]);
 	}
 
@@ -76,5 +81,26 @@ class ChoiceController extends AbstractController
 		$em->flush();
 
 		return new JsonResponse(['status' => 'success']);
+	}
+
+	/**
+	 * Delete a choice
+	 */
+	#[Route('/{url:poll}/choice/delete/{id:choice}')]
+	public function delete(
+		Poll $poll,
+		Choice $choice,
+		EntityManagerInterface $em,
+		TranslatorInterface $translator
+	): RedirectResponse {
+		if ($choice->getPoll()->getId() === $poll->getId()) {
+			$em->remove($choice);
+			$em->flush();
+			$this->addFlash('success', $translator->trans('deleted'));
+		}
+
+		$url = $this->generateUrl('app_choice_index', ['url' => $poll->getUrl()], UrlGeneratorInterface::ABSOLUTE_URL);
+
+		return new RedirectResponse($url);
 	}
 }

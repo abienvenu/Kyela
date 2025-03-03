@@ -34,7 +34,7 @@ class Event
     /**
      * @var Collection<int, Participation>
      */
-    #[ORM\OneToMany(targetEntity: Participation::class, mappedBy: 'event', orphanRemoval: true)]
+    #[ORM\OneToMany(targetEntity: Participation::class, mappedBy: 'event', cascade: ['persist', 'remove'])]
     private Collection $participations;
 
     #[ORM\ManyToOne(inversedBy: 'events')]
