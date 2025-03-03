@@ -46,6 +46,8 @@ new.event: New event
 new.comment: New comment
 new.choice: New choice
 choice.list: List of choices
+no.event: No event is scheduled yet
+no.participant: No participant
 cancel: Cancel
 create: Create
 save: Save

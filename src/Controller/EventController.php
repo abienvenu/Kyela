@@ -21,7 +21,7 @@ class EventController extends AbstractController
 	{
 		$events = $em->getRepository(Event::class)->getFutureEvents($poll);
 
-		return $this->render('event/show.html.twig', ['events' => $events]);
+		return $this->render('event/show.html.twig', ['poll' => $poll, 'events' => $events]);
 	}
 
 	/**

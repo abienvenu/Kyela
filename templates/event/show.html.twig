@@ -3,36 +3,46 @@
 	<i class="bi bi-calendar3"></i>
 </button>
 <div id="eventTable" class="collapse show">
-	<table class="table table-hover w-auto mx-auto">
-		<tbody>
-			{% for event in events %}
-				<tr>
-					<td>
-						<span class="badge bg-primary">{{ event.participationsScore }}</span>
-					</td>
-					<td class="text-start">
-						{% if event.date %}
-							{{ event.date|format_datetime(locale: app.request.locale, pattern: "cccc d MMMM") }}
-						{% endif %}
-					</td>
-					<td class="text-start">
-						{% if event.time %}
-							{{ event.time|format_datetime(locale: app.request.locale, pattern: "H'h'mm") }}
-						{% endif %}
-					</td>
-					<td class="text-start">
-						{{ event.place }}
-					</td>
-					<td class="text-start">
-						{% if event.subtitle %}
-							<small class="subtitle">{{ event.subtitle }}</small>
-						{% endif %}
-					</td>
-					<td class="text-start">
-						<strong>{{ event.name }}</strong>
-					</td>
-				</tr>
-			{% endfor %}
-		</tbody>
-	</table>
+	{% if events %}
+		<table class="table table-hover w-auto mx-auto">
+			<tbody>
+				{% for event in events %}
+					<tr>
+						<td>
+							<span class="badge bg-primary">{{ event.participationsScore }}</span>
+						</td>
+						<td class="text-start">
+							{% if event.date %}
+								{{ event.date|format_datetime(locale: app.request.locale, pattern: "cccc d MMMM") }}
+							{% endif %}
+						</td>
+						<td class="text-start">
+							{% if event.time %}
+								{{ event.time|format_datetime(locale: app.request.locale, pattern: "H'h'mm") }}
+							{% endif %}
+						</td>
+						<td class="text-start">
+							{{ event.place }}
+						</td>
+						<td class="text-start">
+							{% if event.subtitle %}
+								<small class="subtitle">{{ event.subtitle }}</small>
+							{% endif %}
+						</td>
+						<td class="text-start">
+							<strong>{{ event.name }}</strong>
+						</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	{% else %}
+		<div class="text-center">
+			{{ 'no.event' | trans }}
+			<a role="button" class="btn btn btn-success btn-gradient m-2"
+				href="{{ path('app_event_new', {url: poll.url}) }}">
+				<i class="bi bi-calendar-plus me-2"></i>{{ 'add' | trans }}
+			</a>
+		</div>
+	{% endif %}
 </div>

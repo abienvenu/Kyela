@@ -55,7 +55,18 @@
 
 	<div class="container-fluid mt-4">
 		<div class="card shadow-lg p-4 position-relative">
-			{{ render(controller('App\\Controller\\ParticipationController::show', {'poll': poll})) }}
+			{% if poll.participants | length %}
+				{{ render(controller('App\\Controller\\ParticipationController::show', {'poll': poll})) }}
+			{% else %}
+				<div class="text-center">
+					{{ 'no.participant' | trans }}
+					<a role="button" class="btn btn-primary btn-gradient"
+						href="{{ path('app_participant_edit', {url: poll.url}) }}">
+						<i class="bi bi-person-plus-fill me-2"></i>
+						{{ 'add' | trans }}
+					</a>
+				</div>
+			{% endif %}
 		</div>
 	</div>
 

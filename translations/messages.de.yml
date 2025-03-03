@@ -46,6 +46,8 @@ new.event: Neuer Termin
 new.comment: Neuer Kommentar
 new.choice: Neue Option
 choice.list: Auswahloptionen
+no.event: Zurzeit kein Termin geplant
+no.participant: Keine Teilnehmer
 cancel: Abbrechen
 create: Erstellen
 save: Speichern
