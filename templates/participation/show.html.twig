@@ -1,3 +1,8 @@
+<a role="button" class="btn btn-success btn-gradient position-absolute top-0 end-0 mt-2 me-2 z-3"
+	href="{{ path('app_event_new', {url: poll.url}) }}">
+	<i class="bi bi-calendar-plus"></i>
+</a>
+
 <div class="table-container">
 	<table class="table table-hover">
 		<thead>
@@ -65,11 +70,13 @@
 				<button class="btn btn-success btn-gradient m-2" data-answer="always">
 					<i class="bi bi-check-all"></i>
 					{% trans %}button.yesalways{% endtrans %}
-				</button><br />
+				</button>
+				<br />
 				<button class="btn btn-warning btn-gradient m-2" data-answer="once">
 					<i class="bi bi-check"></i>
 					{% trans %}button.yesonce{% endtrans %}
-				</button><br />
+				</button>
+				<br />
 				<button class="btn btn-danger btn-gradient m-2" data-answer="no">
 					<i class="bi bi-x"></i>
 					{% trans %}button.no{% endtrans %}
