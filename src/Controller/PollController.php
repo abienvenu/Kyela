@@ -129,4 +129,18 @@ class PollController extends AbstractController
 
 		return $this->render('poll/edit.html.twig', ['form' => $form->createView(), 'poll' => $poll]);
 	}
+
+	/**
+	 * Delete a poll
+	 */
+	#[Route('/{url:poll}/delete')]
+	public function delete(Poll $poll, EntityManagerInterface $em, TranslatorInterface $translator): RedirectResponse {
+		$em->remove($poll);
+		$em->flush();
+		$this->addFlash('success', $translator->trans('deleted'));
+
+		$url = $this->generateUrl('app_poll_index', [], UrlGeneratorInterface::ABSOLUTE_URL);
+
+		return new RedirectResponse($url);
+	}
 }
