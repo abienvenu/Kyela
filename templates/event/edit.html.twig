@@ -3,61 +3,76 @@
 {% block body %}
 	<div class="container mt-4">
 		<div class="card shadow-lg bg-light p-4 position-relative mb-4 text-center">
-			<h1>{{ 'poll' | trans }} - {{ poll.title }}</h1>
+			<h1>
+				{% if event.name %}
+					{{ 'event' | trans }} - {{ event.name }}
+				{% else %}
+					{{ 'new.event' | trans }}
+				{% endif %}
+			</h1>
 		</div>
 
 		<div class="card shadow-lg p-4 position-relative">
 			{{ form_start(form) }}
 			<div class="mb-3 row">
 				<label class="col-sm-2 col-form-label fw-bold text-end">
-					{{ form_label(form.url) }}
-					<span class="text-danger">*</span>
+					{{ form_label(form.name) }}
 				</label>
 				<div class="col-sm-10">
-					{{ form_widget(form.url, {'attr': {'class': 'form-control'}}) }}
-					{{ form_errors(form.url) }}
+					{{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+					{{ form_errors(form.name) }}
 				</div>
 			</div>
 
 			<div class="mb-3 row">
 				<label class="col-sm-2 col-form-label fw-bold text-end">
-					{{ form_label(form.title) }}
-					<span class="text-danger">*</span>
+					{{ form_label(form.place) }}
 				</label>
 				<div class="col-sm-10">
-					{{ form_widget(form.title, {'attr': {'class': 'form-control'}}) }}
-					{{ form_errors(form.title) }}
+					{{ form_widget(form.place, {'attr': {'class': 'form-control'}}) }}
+					{{ form_errors(form.place) }}
 				</div>
 			</div>
 
 			<div class="mb-3 row">
 				<label class="col-sm-2 col-form-label fw-bold text-end">
-					{{ form_label(form.headLines) }}
+					{{ form_label(form.subtitle) }}
 				</label>
 				<div class="col-sm-10">
-					{{ form_widget(form.headLines, {'attr': {'class': 'form-control'}}) }}
-					{{ form_errors(form.headLines) }}
+					{{ form_widget(form.subtitle, {'attr': {'class': 'form-control'}}) }}
+					{{ form_errors(form.subtitle) }}
 				</div>
 			</div>
 
 			<div class="mb-3 row">
 				<label class="col-sm-2 col-form-label fw-bold text-end">
-					{{ form_label(form.bottomLines) }}
+					{{ form_label(form.date) }}
 				</label>
 				<div class="col-sm-10">
-					{{ form_widget(form.bottomLines, {'attr': {'class': 'form-control'}}) }}
-					{{ form_errors(form.bottomLines) }}
+					{{ form_widget(form.date, {'attr': {'type': 'date', 'class': 'form-control'}}) }}
+					{{ form_errors(form.date) }}
 				</div>
 			</div>
+
+			<div class="mb-3 row">
+				<label class="col-sm-2 col-form-label fw-bold text-end">
+					{{ form_label(form.time) }}
+				</label>
+				<div class="col-sm-10">
+					{{ form_widget(form.time, {'attr': {'type': 'time', 'class': 'form-control'}}) }}
+					{{ form_errors(form.time) }}
+				</div>
+			</div>
+
 
 			<div class="mb-3 row">
 				<div class="offset-sm-2 col-sm-10">
 					<a role="button" class="btn btn-lg btn-secondary btn-gradient m-2"
-						href="{{ path('app_poll_show', {url: poll.url}) }}">
+						href="{{ path('app_event_list', {url: event.poll.url}) }}">
 						<i class="bi bi-skip-backward me-2"></i>
 						{{ 'back' | trans }}
 					</a>
-					<button type="submit" class="btn btn-lg btn-danger btn-gradient m-2">
+					<button type="submit" class="btn btn-lg btn-danger btn-gradient">
 						<i class="bi bi-save me-2"></i>
 						{{ 'save' | trans }}
 					</button>

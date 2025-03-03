@@ -1,0 +1,75 @@
+{% extends 'layout.html.twig' %}
+
+{% block body %}
+	<style>
+		table.table {
+			table-layout: fixed; /* Fixe la largeur des colonnes */
+			word-wrap: break-word;
+			width: 100%;
+		}
+
+		.table td, .table th {
+			white-space: normal !important; /* Permet le retour à la ligne */
+			overflow-wrap: break-word;
+		}
+	</style>
+	<div class="container-fluid mt-4">
+		<div class="card shadow-lg bg-light p-4 position-relative mb-4 text-center">
+			<h1>{{ 'dates' | trans }} - {{ poll.title }}</h1>
+		</div>
+		<div class="card shadow-lg p-4 position-relative">
+			<table class="table table-hover table-bordered">
+				<thead>
+					<tr>
+						<th scope="col" class="table-secondary">{{ 'name' | trans }}</th>
+						<th scope="col" class="table-secondary">{{ 'Place' | trans }}</th>
+						<th scope="col" class="table-secondary">{{ 'Date' | trans }}</th>
+						<th scope="col" class="table-secondary">{{ 'Time' | trans }}</th>
+						<th scope="col" class="table-secondary">{{ 'Subtitle' | trans }}</th>
+						<th scope="col" class="table-secondary">{{ 'action' | trans }}</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for event in events %}
+						<tr>
+							<td>{{ event.name }}</td>
+							<td>{{ event.place }}</td>
+							<td>
+								{% if event.date %}
+									{{ event.date|format_datetime(locale: app.request.locale, pattern: "cccc d MMMM") }}
+								{% endif %}
+							</td>
+							<td>
+								{% if event.time %}
+									{{ event.time|format_datetime(locale: app.request.locale, pattern: "H'h'mm") }}
+								{% endif %}
+							</td>
+							<td>
+								<small class="subtitle">{{ event.subtitle }}</small>
+							</td>
+							<td>
+								<a class="btn btn-warning btn-gradient" role="button"
+									href="{{ path('app_event_edit', {url: poll.url, id: event.id}) }}">
+									{{ 'edit' | trans }}
+								</a>
+							</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+			<div class="mb-3 row">
+				<div class="col-sm-10">
+					<a role="button" class="btn btn-lg btn-secondary btn-gradient m-2"
+						href="{{ path('app_poll_show', {url: poll.url}) }}">
+						<i class="bi bi-skip-backward me-2"></i>
+						{{ 'back' | trans }}
+					</a>
+					<a role="button" class="btn btn-lg btn-success btn-gradient m-2"
+						href="{{ path('app_event_new', {url: poll.url}) }}">
+						<i class="bi bi-calendar-plus me-2"></i>{{ 'add' | trans }}
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

@@ -107,7 +107,7 @@ mail.sent: Your email has been sent! Thanks!
 success: Success
 are.you.sure.to.delete: Are you sure you want to delete this?
 deleted: Deleted
-poll.created %url%: Your poll has been created. The URL to communicate to participants is <pre id="sondageUrl" class="p-2 bg-light border rounded">%url%</pre><button class="btn btn-outline-secondary" type="button" id="copyButton" data-copy-text="Copy URL" data-copied-text="Copied !">Copy URL</button><br /> You can modify this URL clicking on "Edit the poll".
+poll.created %url%: Your poll has been created. The URL to communicate to participants is <pre id="sondageUrl" class="p-2 bg-light border rounded">%url%</pre><button class="btn btn-outline-secondary" type="button" id="copyButton" data-copy-text="Copy URL" data-copied-text="Copied !">Copy URL</button><br /> You can modify this URL clicking on the "Poll" button.
 poll.modified %url%: Your poll has been modified. The new URL to communicate to partipants is <pre id="sondageUrl" class="p-2 bg-light border rounded">%url%</pre><button class="btn btn-outline-secondary" type="button" id="copyButton" data-copy-text="Copy URL" data-copied-text="Copied !">Copy URL</button>
 archive.access: Access to archives
 past.events: Past events
