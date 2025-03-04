@@ -61,14 +61,48 @@
 						<i class="bi bi-save me-2"></i>
 						{{ 'save' | trans }}
 					</button>
-					<a role="button" class="btn btn-lg btn-dark m-2 ms-auto"
-						href="{{ path('app_poll_delete', {url: poll.url}) }}">
-						<i class="bi bi-trash me-2"></i>
-						{{ 'delete' | trans }}
+					<a href="#" class="btn btn-danger" data-delete-url="{{ path('app_poll_delete', {'url': poll.url}) }}">
+						<i class="bi bi-trash me-2"></i>{{ 'delete'|trans }}
 					</a>
 				</div>
 			</div>
 			{{ form_end(form) }}
 		</div>
 	</div>
+
+	<!-- Modal de confirmation de suppression -->
+	<div class="modal fade" id="deleteConfirmationModal" tabindex="-1" aria-labelledby="deleteConfirmationModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="deleteConfirmationModalLabel">{{ 'confirm.deletion' | trans }}</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					{{ 'are.you.sure.to.delete' | trans }}
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ 'cancel'|trans }}</button>
+					<form id="deleteForm" method="post" action="" style="display: inline;">
+						<button type="submit" class="btn btn-danger">{{ 'delete'|trans }}</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script>
+	document.addEventListener('DOMContentLoaded', function() {
+		const deleteButtons = document.querySelectorAll('[data-delete-url]');
+		deleteButtons.forEach(button => {
+			button.addEventListener('click', function(e) {
+				e.preventDefault();
+				const deleteUrl = this.getAttribute('data-delete-url');
+				document.getElementById('deleteForm').action = deleteUrl;
+				const modal = new bootstrap.Modal(document.getElementById('deleteConfirmationModal'));
+				modal.show();
+			});
+		});
+	});
+	</script>
 {% endblock %}

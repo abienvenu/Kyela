@@ -133,14 +133,14 @@ class PollController extends AbstractController
 	/**
 	 * Delete a poll
 	 */
-	#[Route('/{url:poll}/delete')]
-	public function delete(Poll $poll, EntityManagerInterface $em, TranslatorInterface $translator): RedirectResponse {
+	#[Route('/{url:poll}/delete', methods: ['POST'])]
+	public function delete(Poll $poll, EntityManagerInterface $em, TranslatorInterface $translator): Response
+	{
 		$em->remove($poll);
 		$em->flush();
+
 		$this->addFlash('success', $translator->trans('deleted'));
 
-		$url = $this->generateUrl('app_poll_index', [], UrlGeneratorInterface::ABSOLUTE_URL);
-
-		return new RedirectResponse($url);
+		return $this->redirectToRoute('app_poll_index');
 	}
 }
