@@ -109,7 +109,7 @@ mail.sent: Votre message a été envoyé, merci!
 success: Succès
 are.you.sure.to.delete: Êtes-vous sûr(e) de vouloir supprimer cela ?
 deleted: Supprimé
-poll.created %url%: Votre sondage a été créé. L'adresse à communiquer aux participants est <pre id="sondageUrl" class="p-2 bg-light border rounded">%url%</pre><button class="btn btn-outline-secondary" type="button" id="copyButton" data-copy-text="Copier l'URL" data-copied-text="Copié !">Copier l'URL</button><br /> Vous pouvez personnaliser cette adresse en cliquant sur le bouton "Sondage".
+poll.created %url%: Votre sondage a été créé. L'adresse à communiquer aux participants est <pre id="sondageUrl" class="p-2 bg-light border rounded">%url%</pre><button class="btn btn-outline-secondary" type="button" id="copyButton" data-copy-text="Copier l'URL" data-copied-text="Copié !">Copier l'URL</button><br /> Vous pouvez personnaliser cette adresse dans le formulaire ci-dessous.
 poll.modified %url%: Votre sondage a été modifié. La nouvelle adresse à communiquer aux participants est <pre id="sondageUrl" class="p-2 bg-light border rounded">%url%</pre><button class="btn btn-outline-secondary" type="button" id="copyButton" data-copy-text="Copier l'URL" data-copied-text="Copié !">Copier l'URL</button>
 archive.access: Accéder aux archives
 past.events: Évènements passés

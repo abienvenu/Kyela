@@ -66,7 +66,7 @@ class PollController extends AbstractController
 		$em->persist($poll);
 		$em->flush();
 
-		$url = $this->generateUrl('app_poll_show', ['url' => $poll->getUrl()], UrlGeneratorInterface::ABSOLUTE_URL);
+		$url = $this->generateUrl('app_poll_edit', ['url' => $poll->getUrl()], UrlGeneratorInterface::ABSOLUTE_URL);
 		$this->addFlash('success', $translator->trans('poll.created %url%', ['%url%' => $url]));
 
 		return new RedirectResponse($url);
