@@ -41,21 +41,21 @@ class PollController extends AbstractController
 			->setName($translator->trans('yes'))
 			->setValue(1)
 			->setColor('green')
-			->setIcon('ok')
+			->setIcon('check')
 			->setPriority(0)
 			->setPoll($poll);
 		$maybe = (new Choice())
 			->setName($translator->trans('maybe'))
 			->setValue(0)
 			->setColor('orange')
-			->setIcon('time')
+			->setIcon('clock')
 			->setPriority(0)
 			->setPoll($poll);
 		$no = (new Choice())
 			->setName($translator->trans('no'))
 			->setValue(0)
 			->setColor('red')
-			->setIcon('remove')
+			->setIcon('x')
 			->setPriority(0)
 			->setPoll($poll);
 		$poll
