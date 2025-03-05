@@ -107,7 +107,8 @@ thank.you: Merci à vous!
 thank.you.details: "Kyélà repose sur d'autres projets :"
 mail.sent: Votre message a été envoyé, merci!
 success: Succès
-are.you.sure.to.delete: Êtes-vous sûr(e) de vouloir supprimer cela ?
+delete.confirmation: Confirmation de suppression
+delete.poll.confirmation: Êtes-vous sûr(e) de vouloir supprimer ce sondage ?
 deleted: Supprimé
 poll.created %url%: Votre sondage a été créé. L'adresse à communiquer aux participants est <pre id="sondageUrl" class="p-2 bg-light border rounded">%url%</pre><button class="btn btn-outline-secondary" type="button" id="copyButton" data-copy-text="Copier l'URL" data-copied-text="Copié !">Copier l'URL</button><br /> Vous pouvez personnaliser cette adresse dans le formulaire ci-dessous.
 poll.modified %url%: Votre sondage a été modifié. La nouvelle adresse à communiquer aux participants est <pre id="sondageUrl" class="p-2 bg-light border rounded">%url%</pre><button class="btn btn-outline-secondary" type="button" id="copyButton" data-copy-text="Copier l'URL" data-copied-text="Copié !">Copier l'URL</button>
