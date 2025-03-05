@@ -20,9 +20,9 @@ class PollController extends AbstractController
 	 * Home page
 	 */
 	#[Route('/')]
-	public function index(): Response
+	public function home(): Response
 	{
-		return $this->render('poll/index.html.twig');
+		return $this->render('poll/home.html.twig');
 	}
 
 	/**
@@ -141,6 +141,6 @@ class PollController extends AbstractController
 
 		$this->addFlash('success', $translator->trans('deleted'));
 
-		return $this->redirectToRoute('app_poll_index');
+		return $this->redirectToRoute('app_poll_home');
 	}
 }

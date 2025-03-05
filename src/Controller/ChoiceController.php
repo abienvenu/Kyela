@@ -21,9 +21,9 @@ class ChoiceController extends AbstractController
 	 * Lists all choices
 	 */
 	#[Route('/{url:poll}/choice')]
-	public function index(Poll $poll): Response
+	public function list(Poll $poll): Response
 	{
-		return $this->render('choice/index.html.twig', ['poll' => $poll]);
+		return $this->render('choice/list.html.twig', ['poll' => $poll]);
 	}
 
 	/**
@@ -37,7 +37,7 @@ class ChoiceController extends AbstractController
 		if ($form->isSubmitted() && $form->isValid() && $choice->getPoll()->getId() === $poll->getId()) {
 			$em->flush();
 
-			return $this->redirectToRoute('app_choice_index', ['url' => $choice->getPoll()->getUrl()]);
+			return $this->redirectToRoute('app_choice_list', ['url' => $choice->getPoll()->getUrl()]);
 		}
 
 		return $this->render('choice/edit.html.twig', ['form' => $form, 'choice' => $choice]);
@@ -58,7 +58,7 @@ class ChoiceController extends AbstractController
 			$em->persist($choice);
 			$em->flush();
 
-			return $this->redirectToRoute('app_choice_index', ['url' => $choice->getPoll()->getUrl()]);
+			return $this->redirectToRoute('app_choice_list', ['url' => $choice->getPoll()->getUrl()]);
 		}
 
 		return $this->render('choice/edit.html.twig', ['form' => $form, 'choice' => $choice]);
@@ -99,7 +99,7 @@ class ChoiceController extends AbstractController
 			$this->addFlash('success', $translator->trans('deleted'));
 		}
 
-		$url = $this->generateUrl('app_choice_index', ['url' => $poll->getUrl()], UrlGeneratorInterface::ABSOLUTE_URL);
+		$url = $this->generateUrl('app_choice_list', ['url' => $poll->getUrl()], UrlGeneratorInterface::ABSOLUTE_URL);
 
 		return new RedirectResponse($url);
 	}
