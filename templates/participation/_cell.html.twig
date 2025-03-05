@@ -1,8 +1,8 @@
 {% set participation = participationsArray[event.id][participant.id] ?? null %}
 <div>
-	<button class="btn border dropdown-toggle choice-{{ participation ? participation.choice.color : "none" }} shadow"
+	<button class="btn border {% if not isArchive %}dropdown-toggle{% endif %} choice-{{ participation ? participation.choice.color : "none" }} shadow"
 		type="button"
-		data-bs-toggle="dropdown" aria-expanded="false">
+		{% if not isArchive %}data-bs-toggle="dropdown"{% endif %} aria-expanded="false">
 		{% if participation %}
 			<i class="bi bi-{{ participation.choice.icon }} me-2"></i>
 			{{ participation.choice.name }}
@@ -10,6 +10,7 @@
 			-
 		{% endif %}
 	</button>
+	{% if not isArchive %}
 	<ul class="dropdown-menu overflow-auto" style="max-height: 400px;">
 		{% for choice in poll.choices %}
 			<li>
@@ -37,4 +38,5 @@
 			</span>
 		</li>
 	</ul>
+	{% endif %}
 </div>

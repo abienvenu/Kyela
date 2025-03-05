@@ -26,10 +26,10 @@
 				{{ 'comments' | trans }}
 			</button>
 		{% endif %}
-		<button type="button" class="btn btn-secondary btn-gradient">
+		<a role="button" class="btn btn-secondary btn-gradient" href="{{ path('app_poll_archive', {url: poll.url}) }}">
 			<i class="bi bi-archive me-2"></i>
 			{{ 'archives' | trans }}
-		</button>
+		</a>
 	</div>
 
 	<div class="container-fluid mt-4">

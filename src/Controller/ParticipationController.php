@@ -18,9 +18,11 @@ class ParticipationController extends AbstractController
 	/**
 	 * Displays all Participations of a poll
 	 */
-	public function show(Poll $poll, EntityManagerInterface $em): Response
+	public function show(Poll $poll, EntityManagerInterface $em, $isArchive = false): Response
 	{
-		$events = $em->getRepository(Event::class)->getFutureEvents($poll);
+		$events = $isArchive
+			? $em->getRepository(Event::class)->getPastEvents($poll)
+			: $em->getRepository(Event::class)->getFutureEvents($poll);
 		$participationsArray = [];
 		foreach ($events as $event) {
 			foreach ($event->getParticipations() as $participation) {
@@ -32,8 +34,17 @@ class ParticipationController extends AbstractController
 				'poll' => $poll,
 				'events' => $events,
 				'participationsArray' => $participationsArray,
+				'isArchive' => $isArchive,
 			]
 		);
+	}
+
+	/**
+	 * Displays all Participations of a past polls
+	 */
+	public function archive(Poll $poll, EntityManagerInterface $em): Response
+	{
+		return $this->show($poll, $em, true);
 	}
 
 	/**

@@ -100,6 +100,15 @@ class PollController extends AbstractController
 	}
 
 	/**
+	 * View past events
+	 */
+	#[Route('/{url:poll}/archive')]
+	public function archive(Poll $poll): Response
+	{
+		return $this->render('poll/archive.html.twig', ['poll' => $poll]);
+	}
+
+	/**
 	 * Displays a form to edit an existing Poll entity.
 	 */
 	#[Route('/{url:poll}/edit')]

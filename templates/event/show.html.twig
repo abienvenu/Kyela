@@ -14,7 +14,12 @@
 						</td>
 						<td class="text-start">
 							{% if event.date %}
-								{{ event.date|format_datetime(locale: app.request.locale, pattern: "cccc d MMMM") }}
+								{% if isArchive %}
+									{{ event.date|
+										format_datetime(locale: app.request.locale, pattern: "cccc d MMMM YYYY") }}
+								{% else %}
+									{{ event.date|format_datetime(locale: app.request.locale, pattern: "cccc d MMMM") }}
+								{% endif %}
 							{% endif %}
 						</td>
 						<td class="text-start">

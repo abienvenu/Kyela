@@ -24,7 +24,18 @@ class EventController extends AbstractController
 	{
 		$events = $em->getRepository(Event::class)->getFutureEvents($poll);
 
-		return $this->render('event/show.html.twig', ['poll' => $poll, 'events' => $events]);
+		return $this->render('event/show.html.twig', ['poll' => $poll, 'events' => $events, 'isArchive' => false]);
+	}
+
+	/**
+	 * Displays past events
+	 */
+	#[Route('/{url:poll}/event/archive')]
+	public function archive(Poll $poll, EntityManagerInterface $em): Response
+	{
+		$events = $em->getRepository(Event::class)->getPastEvents($poll);
+
+		return $this->render('event/show.html.twig', ['poll' => $poll, 'events' => $events, 'isArchive' => true]);
 	}
 
 	/**
