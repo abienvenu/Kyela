@@ -51,6 +51,7 @@ class EventController extends AbstractController
 
 			return $this->redirectToRoute('app_event_list', ['url' => $event->getPoll()->getUrl()]);
 		}
+
 		return $this->render('event/edit.html.twig', ['form' => $form, 'event' => $event]);
 	}
 
@@ -70,6 +71,7 @@ class EventController extends AbstractController
 
 			return $this->redirectToRoute('app_event_list', ['url' => $event->getPoll()->getUrl()]);
 		}
+
 		return $this->render('event/edit.html.twig', ['form' => $form, 'event' => $event]);
 	}
 

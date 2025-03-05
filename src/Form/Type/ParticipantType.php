@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Form\Type;
 
 use App\Entity\Participant;
@@ -9,13 +10,13 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class ParticipantType extends AbstractType
 {
-    public function buildForm(FormBuilderInterface $builder, array $options): void
-    {
-        $builder->add('name', TextType::class, ['attr' => ['placeholder' => 'participant.name.placeholder']]);
-    }
+	public function buildForm(FormBuilderInterface $builder, array $options): void
+	{
+		$builder->add('name', TextType::class, ['attr' => ['placeholder' => 'participant.name.placeholder']]);
+	}
 
-    public function configureOptions(OptionsResolver $resolver): void
-    {
-        $resolver->setDefaults(['data_class' => Participant::class]);
-    }
+	public function configureOptions(OptionsResolver $resolver): void
+	{
+		$resolver->setDefaults(['data_class' => Participant::class]);
+	}
 }
