@@ -1,10 +1,76 @@
 {% extends 'layout.html.twig' %}
 
-{% block body -%}
+{% block body %}
     <div class="container py-5">
         <div class="text-center mb-4">
-            <h1 class="display-4 fw-bold">{% trans %}thank.you{% endtrans %}</h1>
-			{% trans %}thank.you.details{% endtrans %}
+            <h1 class="display-4 fw-bold">{% trans %}thank_you.title{% endtrans %}</h1>
+            <p class="lead">{% trans %}thank_you.description{% endtrans %}</p>
         </div>
-	</div>
+
+        <div class="row justify-content-center">
+            <!-- Symfony -->
+            <div class="col-md-4 mb-4 text-center">
+                <div class="card shadow-sm">
+                    <img src="{{ asset('img/thanks/symfony.png') }}" class="card-img-top" alt="Symfony">
+                    <div class="card-body">
+                        <h5 class="card-title">{% trans %}thank_you.symfony{% endtrans %}</h5>
+                        <p class="card-text">{% trans %}thank_you.symfony_description{% endtrans %}</p>
+                        <a href="https://symfony.com" class="btn btn-primary" target="_blank">
+                            <i class="bi bi-box-arrow-up-right me-2"></i> {% trans %}thank_you.visit_site{% endtrans %}
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PHP -->
+            <div class="col-md-4 mb-4 text-center">
+                <div class="card shadow-sm">
+                    <img src="{{ asset('img/thanks/php.png') }}" class="card-img-top" alt="PHP">
+                    <div class="card-body">
+                        <h5 class="card-title">{% trans %}thank_you.php{% endtrans %}</h5>
+                        <p class="card-text">{% trans %}thank_you.php_description{% endtrans %}</p>
+                        <a href="https://www.php.net" class="btn btn-primary" target="_blank">
+                            <i class="bi bi-box-arrow-up-right me-2"></i> {% trans %}thank_you.visit_site{% endtrans %}
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Docker -->
+            <div class="col-md-4 mb-4 text-center">
+                <div class="card shadow-sm">
+                    <img src="{{ asset('img/thanks/docker.png') }}" class="card-img-top" alt="Docker">
+                    <div class="card-body">
+                        <h5 class="card-title">{% trans %}thank_you.docker{% endtrans %}</h5>
+                        <p class="card-text">{% trans %}thank_you.docker_description{% endtrans %}</p>
+                        <a href="https://www.docker.com" class="btn btn-primary" target="_blank">
+                            <i class="bi bi-box-arrow-up-right me-2"></i> {% trans %}thank_you.visit_site{% endtrans %}
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bootstrap -->
+            <div class="col-md-4 mb-4 text-center">
+                <div class="card shadow-sm">
+                    <img src="{{ asset('img/thanks/bootstrap.svg') }}" class="card-img-top" alt="Bootstrap">
+                    <div class="card-body">
+                        <h5 class="card-title">{% trans %}thank_you.bootstrap{% endtrans %}</h5>
+                        <p class="card-text">{% trans %}thank_you.bootstrap_description{% endtrans %}</p>
+                        <a href="https://getbootstrap.com" class="btn btn-primary" target="_blank">
+                            <i class="bi bi-box-arrow-up-right me-2"></i> {% trans %}thank_you.visit_site{% endtrans %}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-8 text-center">
+                <h3>{% trans %}thank_you.contributors_title{% endtrans %}</h3>
+                <p>{% trans %}thank_you.contributors_message{% endtrans %}</p>
+                <p>{% trans %}thank_you.developers_acknowledgment{% endtrans %}</p>
+            </div>
+        </div>
+    </div>
 {% endblock %}

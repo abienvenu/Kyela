@@ -111,3 +111,17 @@ choice.name.placeholder: "Name der Option: Ja, Nein, Vielleicht..."
 choice.name.value: Eine Zahl. Zum Errechnen der Teilnehmeranzahl. Meist 0 oder 1.
 access.demo: Zur Demo
 crawler.action.denied: Deinen User-Agent wurde als Bot oder Crawler identifiziert. Diese Aktion ist daher nicht erlaubt.
+thank_you.title: "Danke an die Open-Source-Projekte!"
+thank_you.description: "Dieses Projekt basiert auf leistungsstarken Technologien und Open-Source-Bibliotheken. Wir möchten den folgenden Projekten danken:"
+thank_you.symfony: "Symfony"
+thank_you.symfony_description: "Ein hochentwickeltes PHP-Framework für robuste und leistungsstarke Webanwendungen."
+thank_you.php: "PHP"
+thank_you.php_description: "Die Programmiersprache für dynamische Webseiten."
+thank_you.docker: "Docker"
+thank_you.docker_description: "Eine Plattform zur Entwicklung, Bereitstellung und Ausführung von Anwendungen in Containern."
+thank_you.bootstrap: "Bootstrap 5"
+thank_you.bootstrap_description: "Das beliebteste CSS-Framework für die Erstellung von reaktionsschnellen und modernen Webseiten."
+thank_you.visit_site: "Besuche die Website"
+thank_you.contributors_title: "Ein großes Dankeschön an die Mitwirkenden!"
+thank_you.contributors_message: "Dieses Projekt wäre ohne die unglaublichen Bemühungen der Open-Source-Community nicht möglich gewesen."
+thank_you.developers_acknowledgment: "Danke an alle Entwickler, die den Code frei und zugänglich für alle machen."

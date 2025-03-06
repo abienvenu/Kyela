@@ -121,3 +121,17 @@ button.yesalways: Oui, toujours
 button.yesonce: Oui, mais juste pour cette fois
 button.no: Non, je me suis trompé(e)
 code.source: Code source
+thank_you.title: "Merci aux projets Open Source !"
+thank_you.description: "Ce projet repose sur des technologies puissantes et des bibliothèques Open Source. Nous tenons à remercier les projets suivants :"
+thank_you.symfony: "Symfony"
+thank_you.symfony_description: "Un framework PHP de haut niveau pour des applications web robustes et performantes."
+thank_you.php: "PHP"
+thank_you.php_description: "Le langage de programmation généraliste qui permet de créer des sites web dynamiques."
+thank_you.docker: "Docker"
+thank_you.docker_description: "Une plateforme pour développer, livrer et exécuter des applications dans des conteneurs."
+thank_you.bootstrap: "Bootstrap 5"
+thank_you.bootstrap_description: "Le framework CSS le plus populaire pour créer des sites web réactifs et modernes."
+thank_you.visit_site: "Visiter le site"
+thank_you.contributors_title: "Un grand merci aux contributeurs !"
+thank_you.contributors_message: "Ce projet n'aurait pas été possible sans les efforts incroyables de la communauté Open Source."
+thank_you.developers_acknowledgment: "Merci à tous les développeurs qui rendent le code libre et accessible à tous."
