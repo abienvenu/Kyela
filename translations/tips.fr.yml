@@ -1,0 +1,19 @@
+how.to.modify.participant:
+    q: Comment modifier le nom d'un participant ?
+    a: En cliquant sur son nom.
+
+how.to.reorder.participants:
+    q: Comment modifier l'ordre des participants ?
+    a: En cliquant sur son nom, et en le faisant glisser tout en maintenant le bouton gauche de la souris enfoncé. Cette astuce ne fonctionne que sur ordinateur, pas sur tablette ou mobile.
+
+how.to.reorder.choices:
+    q: Comment modifier l'ordre des options présentées aux participants ?
+    a: En cliquant sur "Éditer les options", puis en cliquant sur la ligne d'un choix en maintenant le bouton gauche de la souris enfoncé, puis en faisant glisser la ligne. Cette astuce ne fonctionne que sur ordinateur, pas sur tablette ou mobile.
+
+how.to.put.links:
+    q: Comment mettre des liens dans l'en-tête ou le pied de page ?
+    a: "L'en-tête et le pied de page acceptent le marquage HTML; on peut donc utiliser toutes les possibilités du HTML : liens, couleurs, mise en forme..."
+
+how.to.integrate.frames:
+    q: Comment intégrer Kyélà dans un autre site ?
+    a: "Certaines parties de Kyélà sont intégrable dans un autre site via des iframes, en rajoutant \"/frame\", \"/events\" ou \"/participations\" à l'URL de votre sondage. Exemples : https://kyela.net/concert/frame https://kyela.net/concert/events https://kyela.net/concert/participations"

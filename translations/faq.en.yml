@@ -1,0 +1,30 @@
+what.is.kyela:
+    q: What is Kyela ?
+    a: It is a web application to facilitate people gatherings, and allows opinion polls.
+doodle.difference:
+    q: How Kyélà differs from Doodle (tm) ?
+    a: Kyélà choices are fully customisable (text, color and icons). It is entirely free (no "premium"), anonymous, without subscription, free of advertisement. In addition, it is OpenSource, so everybody can install Kyélà on their own server.
+how.many.options:
+    q: What are the possible choices proposed to each participant ?
+    a: Only three by default (yes/maybe/no), but this can be modified or extended clicking on "Edit the choices"
+recurrent.events:
+    q: How to deal with multiple/recurring events ?
+    a: One poll is enough. Suggest all possible dates. Old dates will automatically switch to (browseable) archives after the vent. It is handier to use one poll all year long, rather than dealing with multiple polls.
+short.url:
+    q: The URL of my poll is too long, can I have one easy to remember ?
+    a: Yes, just edit your poll, and modify the URL. Beware, if your URL is too easy to guess, some people could find your poll without being invited.
+how.secure:
+    q: How my poll is protected ?
+    a: Only people knowing the link can access to the poll. There is no index, and no search engine will reference the polls. Send the link only to people you want to invite.
+what.permissions:
+    q: How permissions do work, access restrictions  ?
+    a: There is none. Everybody can make everything on the poll. This way, it is much simpler for everybody.
+about.vandalism:
+    q: Will my poll be vandalized ?
+    a: If people are looking forward to meeting, this means they want to collaborate. If not, they would rather not get together.
+registration:
+    q: Can one create and account or register ?
+    a: No, this is not useful.
+examples:
+    q: On what occasions can Kyela be useful ?
+    a: Organizing meals, assemblies, rehearsals, sports meetings... For any of these occasions when the organizers want to find the date that suits most people, and to know how many people will be in. It could also by used to poll opinions, proposing questions instead of dates.
