@@ -1,29 +1,30 @@
 what.is.kyela:
-    q: Was ist Kyela?
-    a: Eine Web Applikation um Treffen und Umfragen mit verschiedenen Menschen zu vereinachen.
+    q: Was ist Kyélà?
+    a: Es ist eine Webanwendung, die das Organisieren von Treffen erleichtert und Meinungsumfragen ermöglicht.
 doodle.difference:
-    q: Was unterscheidet Kyélà von Doodle (tm)?
-    a: Die Auswahlsoptionen in Kyélà sind frei anpassbar (Text, Farbe unfd Sybole). Es ist komplett gratis (Kein "Premium"). Es ist anonym. Es gibt keine Abonements. Keine Werbung. Zudem ist es  Open-Source. Jeder Kyélà auf einem eigenen Server installieren.
-    q: Welche möglichen Auswahloptionen gibt es für die Teilnehmer?
-    a: Drei Punkte sind vordefiniert (Ja, Vielleicht, Nein). Diese kann man aber ändern und durch "Auswahl ändern" beliebig erweitern.
+    q: Was ist der Unterschied zu Doodle™?
+    a: In Kyélà-Umfragen sind die Antwortmöglichkeiten vollständig anpassbar (Text, Farbe und Symbole). Kyélà ist völlig kostenlos (kein „Premium“-Modell), anonym, erfordert keine Registrierung und enthält keine Werbung. Außerdem ist es Open Source, sodass jeder eine eigene Kopie von Kyélà auf seinem eigenen Server installieren kann.
+how.many.options:
+    q: Welche Auswahlmöglichkeiten haben die Teilnehmer?
+    a: Standardmäßig gibt es drei (Ja/Vielleicht/Nein), aber diese können durch Klicken auf „Optionen bearbeiten“ geändert oder erweitert werden.
 recurrent.events:
-    q: Wie handhabt man sich wiederholdene Events?
-    a: Es reicht eine einzige Umfrage. Trägt man alle verfügbaren Termine ein, werden abgelaufene Termine automatisch in der aktuellen Umfrage ausgeblendet. Diese sind danach im Archiv einsehbar. Es ist einfacher und eleganter nur eine Umfrage zu managen und sie über Jahre hinweg wieder zu verwenden.
+    q: Wie kann man mehrere oder wiederkehrende Veranstaltungen verwalten?
+    a: Eine einzige Umfrage reicht aus. Man muss nur die möglichen zukünftigen Termine vorschlagen. Vergangene Termine werden automatisch ins Archiv verschoben (und bleiben einsehbar), sobald das Ereignis vorbei ist. Es ist praktischer, dieselbe Umfrage das ganze Jahr über zu verwenden, anstatt mit mehreren Umfragen zu jonglieren.
 short.url:
-    q: Der Link meiner Umfrage ist zu lang. Bekomme ich einen der einfacher zu merken ist?
-    a: Ja, ganz einfach. Bearbeite deine Umfrage und ändere den Link. Gib acht, dass der Link nicht zu einfach ist, damit uneingeladene Gäste nicht an deiner Umfrage teilnehmen können. 
+    q: Die Webadresse meiner Umfrage ist zu lang. Kann ich eine kürzere, leichter zu merkende URL bekommen?
+    a: Ja, du kannst deine Umfrage bearbeiten und die URL ändern. Sei jedoch vorsichtig – wenn die URL zu einfach zu erraten ist, könnten unbefugte Personen deine Umfrage finden.
 how.secure:
-    q: Wie ist meine Umfrage geschützt? 
-    a: Nur Leute die den Link haben können an deiner Umfrage teilnehmen. Es gibt kein Inhaltsverzeichnis und keine Suchfunktion. Schicke den Link nur an die Leute, die Du  einladen möchtest.
+    q: Wie ist eine Umfrage geschützt?
+    a: Nur Personen mit dem Link können auf die Umfrage zugreifen. Es gibt kein Verzeichnis, und Suchmaschinen indexieren die Umfragen nicht. Teile den Link daher nur mit den relevanten Personen.
 what.permissions:
-    q: Wie vergibt man Zugriffsrechte?
-    a: Es gibt keine. Jeder darf alles in der Umfrage machen. Das gestaltet Umfragen für alle deutlich einfacher.
+    q: Wie funktionieren Berechtigungen und Zugriffsbeschränkungen?
+    a: Es gibt keine. Jeder kann alles in der Umfrage tun, was die Nutzung für alle erleichtert.
 about.vandalism:
-    q: Kann jemand meine Umfrage verwüsten?
-    a: Leute die an deinem Treffen oder Ereignis Interesse haben und sich beteilgen möchten, werden das sicher nicht tun. Falls nicht, findet ihr warscheinlich nicht zusammen.
+    q: Könnte meine Umfrage manipuliert oder beschädigt werden?
+    a: Wenn Menschen sich treffen wollen, bedeutet das, dass sie zusammenarbeiten möchten. Andernfalls sollten sie sich vielleicht gar nicht treffen!
 registration:
-    q: Muss ich einen Account anlegen oder mich registrieren?
-    a: Nein, das ist nicht notwendig.
+    q: Ist es möglich, ein Konto zu erstellen oder sich zu registrieren?
+    a: Nein. Das würde keinen zusätzlichen Nutzen bringen und die Verwaltung nur komplizierter machen.
 examples:
-    q: Zu welchen Gelegenheiten ist Kyela nützlich?
-    a: Für gemeinsame Essen, zur Zusammenarbeit, für Theaterproben, im Sportverein, zum Kino, ... Für jede Gelegenheit, bei der man ein gemeinsamen Termin finden möchte. Genauso wenn man in einer Umfrage die Optionen abwägt, oder über einen Vorschlag abstimmen möchte.
+    q: Für welche Anlässe kann man Kyélà verwenden?
+    a: Zur Organisation von gemeinsamen Essen, Vereinsversammlungen, Sport- oder Musiktreffen, Workshops... In diesen Fällen möchten die Organisatoren einen Termin finden, der für die meisten passt, und abschätzen, wie viele Teilnehmer kommen. Kyélà kann auch für Meinungsumfragen genutzt werden, indem statt Terminen Fragen gestellt werden.

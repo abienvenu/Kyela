@@ -1,20 +1,3 @@
-# Copyright 2014 Arnaud Bienvenu
-
-# This file is part of Kyela.
-
-# Kyela is free software: you can redistribute it and/or modify
-# it under the terms of the GNU Affero General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-
-# Kyela is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU Affero General Public License for more details.
-
-# You should have received a copy of the GNU Affero General Public License
-# along with Kyela.  If not, see <http://www.gnu.org/licenses/>.
-
 meta.description: Kyela - Planifiez des réunions - Créer des sondages, proposer des évènements, donnez les disponibilités, choisissez une date, gratuit
 bottom.line: Planifiez vos réunions
 main.title: "Kyélà - on se regroupe!"
@@ -40,7 +23,7 @@ add: Ajouter
 export: Exporter
 add.an.option: Ajouter une option
 new.poll: Nouveau sondage
-new.poll.tooltip: Un sondage permet à vos amis d'indiquer leurs préférences entre plusieurs choix. Cliquez sur le bouton pour créer puis paramétrer votre sondage privé. Puis ajoutez des participants et proposez des dates.
+new.poll.tooltip: Un sondage permet à vos amis d'indiquer leurs préférences entre plusieurs choix. Cliquez sur le bouton pour créer puis configurer votre sondage privé. Puis ajoutez des participants et proposez des dates.
 new.participant: Nouveau participant
 new.event: Nouvelle date
 new.comment: Ajouter un commentaire
@@ -117,7 +100,7 @@ past.events: Évènements passés
 poll.locked %lock%: "Votre sondage a été cadenassé avec le code suivant : <pre>%lock%</pre>"
 unlock.failed: Code d'accès incorrect
 poll.unlocked: Votre sondage a été débloqué
-lock.explanation: Si vous saississez un code d'accès, il sera impossible de modifier le titre, l'URL, l'en-tête ou le pied de page de votre sondage, jusqu'à ce que quelqu'un débloque le sondage en saissant à nouveau le code d'accès.
+lock.explanation: Si vous saisissez un code d'accès, il sera impossible de modifier le titre, l'URL, l'en-tête ou le pied de page de votre sondage, jusqu'à ce que quelqu'un débloque le sondage en saissant à nouveau le code d'accès.
 lock.explanation2: Il sera toujours possible pour tout le monde de mettre à jour les disponibilités, ajouter des évènements ou des participants.
 unlock: Débloquer
 unlock.explanation: Quelqu'un a mis un code d'accès. Pour éditer le sondage, vous devez d'abord saisir ce code.

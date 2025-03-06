@@ -1,3 +1,19 @@
 how.to.modify.participant:
-    q: Translation needed!
-    a: "Please submit your translation: https://github.com/abienvenu/Kyela/blob/master/Resources/translations/tips.de.yml"
+    q: Wie kann man die Namen der Teilnehmer ändern?
+    a: Klicken Sie auf die Schaltfläche „Teilnehmer“, ändern Sie die Namen und klicken Sie auf „Speichern“.
+
+how.to.reorder.participants:
+    q: Wie kann man die Reihenfolge der Teilnehmer ändern?
+    a: Klicken Sie auf die Schaltfläche „Teilnehmer“, klicken Sie auf die drei Linien links neben einem Namen und ziehen Sie ihn nach oben oder unten, während Sie die linke Maustaste gedrückt halten (oder mit dem Finger auf dem Handy). Klicken Sie dann auf die Schaltfläche „Speichern“.
+
+how.to.reorder.choices:
+    q: Wie kann man die Reihenfolge der den Teilnehmern präsentierten Optionen ändern?
+    a: Klicken Sie auf die Schaltfläche „Optionen“, klicken Sie auf die drei Linien links neben einer Option und ziehen Sie sie nach oben oder unten, während Sie die linke Maustaste gedrückt halten (oder mit dem Finger auf dem Handy).
+
+how.to.put.links:
+    q: Wie kann man Links in die Kopf- oder Fußzeile einfügen?
+    a: "Die Kopf- und Fußzeile unterstützen HTML-Markup, sodass alle HTML-Funktionen genutzt werden können: Links, Farben, Formatierungen..."
+
+how.to.integrate.frames:
+    q: Wie kann man Kyélà in eine andere Website einbinden?
+    a: "Einige Teile von Kyélà können über iframes in eine andere Website eingebunden werden, indem „/frame“ oder „/participations“ zur URL Ihrer Umfrage hinzugefügt wird. Beispiele: https://kyela.net/concert/frame https://kyela.net/concert/participations"

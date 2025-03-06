@@ -1,30 +1,30 @@
 what.is.kyela:
-    q: What is Kyela ?
-    a: It is a web application to facilitate people gatherings, and allows opinion polls.
+    q: What is Kyélà?
+    a: It is a web application that makes it easier to organize gatherings and conduct opinion polls.
 doodle.difference:
-    q: How Kyélà differs from Doodle (tm) ?
-    a: Kyélà choices are fully customisable (text, color and icons). It is entirely free (no "premium"), anonymous, without subscription, free of advertisement. In addition, it is OpenSource, so everybody can install Kyélà on their own server.
+    q: What is the difference from Doodle™?
+    a: In Kyélà polls, the possible answers are fully customizable (text, color, and icons). Kyélà is completely free (no "premium" version), anonymous, requires no registration, and has no ads. Plus, it's open source, meaning anyone can install a copy of Kyélà on their own server.
 how.many.options:
-    q: What are the possible choices proposed to each participant ?
-    a: Only three by default (yes/maybe/no), but this can be modified or extended clicking on "Edit the choices"
+    q: What choices are available to each participant?
+    a: Three by default (yes/maybe/no), but these choices can be modified or expanded by clicking "Edit options".
 recurrent.events:
-    q: How to deal with multiple/recurring events ?
-    a: One poll is enough. Suggest all possible dates. Old dates will automatically switch to (browseable) archives after the vent. It is handier to use one poll all year long, rather than dealing with multiple polls.
+    q: How can I manage multiple or recurring events?
+    a: A single poll is enough. You just need to propose the upcoming possible dates. Past dates are automatically archived (and remain accessible) once the event has passed. It is more convenient to use the same poll throughout the year rather than juggling multiple ones.
 short.url:
-    q: The URL of my poll is too long, can I have one easy to remember ?
-    a: Yes, just edit your poll, and modify the URL. Beware, if your URL is too easy to guess, some people could find your poll without being invited.
+    q: My poll's web address is too long. Can I get a shorter, easier-to-remember URL?
+    a: Yes, you can edit your poll and change the URL. Be careful—if your URL is too easy to guess, uninvited people might find your poll.
 how.secure:
-    q: How my poll is protected ?
-    a: Only people knowing the link can access to the poll. There is no index, and no search engine will reference the polls. Send the link only to people you want to invite.
+    q: How is a poll protected?
+    a: Only people with the link can access the poll. There is no index, and search engines do not reference the polls. Make sure to share the link only with the relevant people.
 what.permissions:
-    q: How permissions do work, access restrictions  ?
-    a: There is none. Everybody can make everything on the poll. This way, it is much simpler for everybody.
+    q: How do permissions and access restrictions work?
+    a: There are none. Everyone can do anything on the poll, making it easier for everyone.
 about.vandalism:
-    q: Will my poll be vandalized ?
-    a: If people are looking forward to meeting, this means they want to collaborate. If not, they would rather not get together.
+    q: Could my poll be vandalized?
+    a: If people want to meet, it means they want to collaborate. Otherwise, they probably shouldn't meet!
 registration:
-    q: Can one create and account or register ?
-    a: No, this is not useful.
+    q: Is it possible to create an account or register?
+    a: No. It wouldn’t add any benefits and would just make management more complicated.
 examples:
-    q: On what occasions can Kyela be useful ?
-    a: Organizing meals, assemblies, rehearsals, sports meetings... For any of these occasions when the organizers want to find the date that suits most people, and to know how many people will be in. It could also by used to poll opinions, proposing questions instead of dates.
+    q: What kinds of events can Kyélà be used for?
+    a: Organizing meals, association meetings, sports or music gatherings, workshops... In these cases, organizers want to find a date that works for the most people and estimate attendance. Kyélà can also be used for opinion polls by proposing questions instead of dates.

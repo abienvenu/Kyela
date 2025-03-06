@@ -1,15 +1,19 @@
 how.to.modify.participant:
-    q: How to edit the name of a participant?
-    a: Click on his/her name
+    q: How to modify participant names?
+    a: Click on the "Participants" button, edit the names, and click "Save".
 
 how.to.reorder.participants:
-    q: How to reorder the participants?
-    a: Click on a participant name, and drag it, while holding the left mouse button. This tip only work on computers, not tablets or mobile phones.
+    q: How to change the order of participants?
+    a: Click on the "Participants" button, click on the three lines to the left of a name, and drag it up or down while holding the left mouse button (or using your finger on mobile). Then click the "Save" button.
 
 how.to.reorder.choices:
-    q: How reorder the choices?
-    a: Click on "Edit the choices", click on a choice line and drag it. This tip only work on computers, not tablets or mobile phones.
+    q: How to change the order of options presented to participants?
+    a: Click on the "Options" button, click on the three lines to the left of an option, and drag it up or down while holding the left mouse button (or using your finger on mobile).
 
 how.to.put.links:
-    q: How to put links into the head or bottom lines?
-    a: Head lines and bottom lines are actually HTML markup. You can put links, colors, formatting...
+    q: How to insert links in the header or footer?
+    a: "The header and footer accept HTML markup, so all HTML features can be used: links, colors, formatting..."
+
+how.to.integrate.frames:
+    q: How to integrate Kyélà into another website?
+    a: "Some parts of Kyélà can be embedded in another website using iframes, by adding \"/frame\" or \"/participations\" to the URL of your poll. Examples: https://kyela.net/concert/frame https://kyela.net/concert/participations"
