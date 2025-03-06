@@ -132,6 +132,6 @@ thank_you.docker_description: "Une plateforme pour développer, livrer et exécu
 thank_you.bootstrap: "Bootstrap 5"
 thank_you.bootstrap_description: "Le framework CSS le plus populaire pour créer des sites web réactifs et modernes."
 thank_you.visit_site: "Visiter le site"
-thank_you.contributors_title: "Un grand merci aux contributeurs !"
+thank_you.contributors_title: "Un grand merci aux contributeurs&nbsp;!"
 thank_you.contributors_message: "Ce projet n'aurait pas été possible sans les efforts incroyables de la communauté Open Source."
 thank_you.developers_acknowledgment: "Merci à tous les développeurs qui rendent le code libre et accessible à tous."
