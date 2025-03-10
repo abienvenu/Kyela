@@ -60,4 +60,15 @@ class StaticController extends AbstractController
 	{
 		return $this->render('static/thanks.html.twig');
 	}
+
+	/**
+	 * Robots.txt
+	 */
+	#[Route('/robots.txt', priority: 10)]
+	public function robots(): Response
+	{
+		$content = $this->renderView('static/robots.txt.twig');
+
+		return new Response($content, 200, ['Content-Type' => 'text/plain']);
+	}
 }
