@@ -20,6 +20,7 @@ COPY public /app/public
 COPY config /app/config
 COPY templates /app/templates
 COPY assets /app/assets
+COPY translations /app/translations
 COPY src /app/src
 
 COPY importmap.php /app/importmap.php
