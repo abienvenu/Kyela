@@ -106,4 +106,14 @@ class Participant
 
 		return $this;
 	}
+
+	public function isSeparator(): bool
+	{
+		return preg_match('/^(==|--|@@).*\1$/', $this->name) === 1;
+	}
+
+	public function getSeparatorName(): string
+	{
+		return preg_replace('/^(==|--|@@)(.*)(==|--|@@)$/', '$2', $this->name);
+	}
 }

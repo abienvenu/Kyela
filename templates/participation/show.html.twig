@@ -30,17 +30,28 @@
 		<tbody>
 			{% for participant in poll.participants %}
 				<tr data-name="{{ participant.name }}">
-					<th scope="row" class="bg-light text-start">
-						<a class="btn btn-light border shadow participant">
-							<twig:ux:icon name="bi:person-fill" width="20" />
-							{{ participant.name }}
-						</a>
-					</th>
-					{% for event in events %}
-						<td>
-							{{ include("participation/_cell.html.twig") }}
+					{% if participant.isSeparator %}
+						<th scope="row" class="bg-light text-start">
+							<a class="btn btn-light border shadow participant" style="background-color: #d3d3d3;">
+								<i class="bi bi-layout-split"></i>
+								{{ participant.separatorName }}
+							</a>
+						</th>
+						<td colspan="{{ events|length }}">
 						</td>
-					{% endfor %}
+					{% else %}
+						<th scope="row" class="bg-light text-start">
+							<a class="btn btn-light border shadow participant">
+								<twig:ux:icon name="bi:person-fill" width="20" />
+								{{ participant.name }}
+							</a>
+						</th>
+						{% for event in events %}
+							<td>
+								{{ include("participation/_cell.html.twig") }}
+							</td>
+						{% endfor %}
+					{% endif %}
 				</tr>
 			{% endfor %}
 		</tbody>
