@@ -1,0 +1,27 @@
+<button class="btn btn-light position-absolute top-0 end-0 mt-2 me-2 toggle-button" data-bs-toggle="collapse"
+	data-bs-target="#commentTable" aria-expanded="true">
+	<i class="bi bi-chat-left-text"></i>
+</button>
+
+<div id="commentTable" class="collapse show">
+	<table class="table table-hover w-auto">
+		<tbody>
+			{% for comment in poll.comments %}
+				<tr>
+					<td class="text-start text-muted small">
+						{{ comment.datetime | format_datetime(
+							locale: app.request.locale,
+							timezone='Europe/Paris',
+							pattern: "d MMMM HH:mm") }}
+					</td>
+					<td class="text-start  fw-bold">
+						{{ comment.author }}
+					</td>
+					<td class="text-start">
+						<pre>{{ comment.content }}</pre>
+					</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+</div>

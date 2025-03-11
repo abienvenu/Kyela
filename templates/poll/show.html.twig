@@ -21,10 +21,10 @@
 			{{ 'poll' | trans }}
 		</a>
 		{% if poll.participants|length > 0 %}
-			<button type="button" class="btn btn-info btn-gradient">
+			<a role="button" class="btn btn-info btn-gradient" href="{{ path('app_comment_list', {url: poll.url}) }}">
 				<i class="bi bi-chat-left-text me-2"></i>
 				{{ 'comments' | trans }}
-			</button>
+			</a>
 		{% endif %}
 		<a role="button" class="btn btn-secondary btn-gradient" href="{{ path('app_poll_archive', {url: poll.url}) }}">
 			<i class="bi bi-archive me-2"></i>
@@ -81,6 +81,14 @@
 				<div class="collapse show" id="bottomLines">
 					{{ poll.bottomlines|raw }}
 				</div>
+			</div>
+		</div>
+	{% endif %}
+
+	{% if poll.comments %}
+		<div class="container-fluid mt-4">
+			<div class="card shadow-lg p-4 position-relative">
+				{{ render(controller('App\\Controller\\CommentController::show', {'poll': poll})) }}
 			</div>
 		</div>
 	{% endif %}

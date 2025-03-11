@@ -11,7 +11,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use App\Entity\Event;
-use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 class EventController extends AbstractController
@@ -102,8 +101,6 @@ class EventController extends AbstractController
 			$this->addFlash('success', $translator->trans('deleted'));
 		}
 
-		$url = $this->generateUrl('app_event_list', ['url' => $poll->getUrl()], UrlGeneratorInterface::ABSOLUTE_URL);
-
-		return new RedirectResponse($url);
+		return $this->redirectToRoute('app_event_list', ['url' => $poll->getUrl()]);
 	}
 }

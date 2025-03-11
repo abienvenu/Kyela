@@ -12,7 +12,6 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
-use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 class ChoiceController extends AbstractController
@@ -58,7 +57,7 @@ class ChoiceController extends AbstractController
 			$em->persist($choice);
 			$em->flush();
 
-			return $this->redirectToRoute('app_choice_list', ['url' => $choice->getPoll()->getUrl()]);
+			return $this->redirectToRoute('app_choice_list', ['url' => $poll->getUrl()]);
 		}
 
 		return $this->render('choice/edit.html.twig', ['form' => $form, 'choice' => $choice]);
@@ -99,8 +98,6 @@ class ChoiceController extends AbstractController
 			$this->addFlash('success', $translator->trans('deleted'));
 		}
 
-		$url = $this->generateUrl('app_choice_list', ['url' => $poll->getUrl()], UrlGeneratorInterface::ABSOLUTE_URL);
-
-		return new RedirectResponse($url);
+		return $this->redirectToRoute('app_choice_list', ['url' => $poll->getUrl()]);
 	}
 }

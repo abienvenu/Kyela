@@ -1,0 +1,59 @@
+{% extends 'layout.html.twig' %}
+
+{% block body %}
+	<div class="container mt-4">
+		<div class="card shadow-lg bg-light p-4 position-relative mb-4 text-center">
+			<h1>{{ 'comments' | trans }} - {{ poll.title }}</h1>
+		</div>
+		<div class="card shadow-lg p-4 position-relative">
+			<table class="table table-hover table-bordered">
+				<thead>
+					<tr>
+						<th scope="col" class="table-secondary">{{ 'Author' | trans }}</th>
+						<th scope="col" class="table-secondary">{{ 'Content' | trans }}</th>
+						<th scope="col" class="table-secondary">{{ 'Date' | trans }}</th>
+						<th scope="col" class="table-secondary"></th>
+					</tr>
+				</thead>
+				<tbody id="choices-list">
+					{% for comment in poll.comments %}
+						<tr data-id="{{ comment.id }}">
+							<td class="text-start">{{ comment.author }}</td>
+							<td class="text-start"><pre>{{ comment.content }}</pre></td>
+							<td>{{ comment.datetime | format_datetime(
+									locale: app.request.locale,
+									timezone='Europe/Paris',
+									pattern: "cccc d MMMM YYYY HH:mm") }}
+							</td>
+							<td>
+								<a class="btn btn-warning btn-gradient" role="button"
+									href="{{ path('app_comment_edit', {url: poll.url, id: comment.id}) }}">
+									<i class="bi bi-pencil-square me-2"></i>
+									{{ 'edit' | trans }}
+								</a>
+								<a class="btn btn-dark btn-gradient" role="button"
+									href="{{ path('app_comment_delete', {url: poll.url, id: comment.id}) }}">
+									<i class="bi bi-trash me-2"></i>
+									{{ 'delete' | trans }}
+								</a>
+							</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+		<div class="mb-3 row">
+			<div class="col-sm-10">
+				<a role="button" class="btn btn-lg btn-secondary btn-gradient m-2"
+					href="{{ path('app_poll_show', {url: poll.url}) }}">
+					<i class="bi bi-skip-backward me-2"></i>
+					{{ 'back' | trans }}
+				</a>
+				<a role="button" class="btn btn-lg btn-success btn-gradient m-2"
+					href="{{ path('app_comment_new', {url: poll.url}) }}">
+					<i class="bi bi-plus-lg me-2"></i>{{ 'add' | trans }}
+				</a>
+			</div>
+		</div>
+	</div>
+{% endblock %}
