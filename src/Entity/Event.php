@@ -151,6 +151,26 @@ class Event
 		return $score;
 	}
 
+	public function getParticipationsSubScore(string $group): int
+	{
+		$factors = [];
+		$factor = 0;
+		foreach ($this->getPoll()->getParticipants() as $participant)
+		{
+			if ($participant->isSeparator()) {
+				$factor = $participant->getSeparatorName() === $group ? 1 : 0;
+			}
+			$factors[$participant->getName()] = $factor;
+		}
+
+		$score = 0;
+		foreach ($this->participations as $participation) {
+			$score += $participation->getChoice()->getValue() * $factors[$participation->getParticipant()->getName()];
+		}
+
+		return $score;
+	}
+
 	public function getPoll(): ?Poll
 	{
 		return $this->poll;
