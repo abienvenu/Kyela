@@ -61,10 +61,17 @@
 		</tbody>
 		<tfoot>
 			<tr>
-				<th>{{ 'total' | trans }}</th>
+				<th scope="row" class="bg-light text-center">
+					<a class="btn btn-light border shadow participant" style="background-color: #d3d3d3;">
+						<i class="bi bi-calculator"></i>
+						{{ 'total' | trans }}
+					</a>
+				</th>
 				{% for event in events %}
 					<th>
+						<span class="badge bg-primary fs-5">
 						{{ event.participationsscore }}
+						</span>
 					</th>
 				{% endfor %}
 			</tr>

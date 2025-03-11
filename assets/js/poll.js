@@ -28,7 +28,8 @@ document.addEventListener('DOMContentLoaded', () => {
 					const cell = opener.closest('td');
 					opener.closest('table')
 						.querySelector('tfoot')
-						.querySelector('tr').cells[cell.cellIndex].innerHTML = data.score;
+						.querySelector('tr').cells[cell.cellIndex]
+						.querySelector('span').innerHTML = data.score;
 					document.getElementById('eventTable')
 						.querySelectorAll('tbody tr')[cell.cellIndex - 1].cells[0]
 						.querySelector('span').innerHTML = data.score;
