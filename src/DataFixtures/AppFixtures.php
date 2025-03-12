@@ -14,7 +14,7 @@ class AppFixtures extends Fixture
 {
 	protected function loadConcert(ObjectManager $manager): void
 	{
-		$names = ['Aretha', 'Jimmy', 'Miles', 'John', 'Paul'];
+		$names = ['-- Voix --', 'Aretha', 'Édith', 'Michael', '-- Guitare --', 'Jimi', 'Eric', 'Carlos'];
 		$events = [
 			[
 				'name' => 'Répétition',
@@ -47,25 +47,33 @@ class AppFixtures extends Fixture
 			['name' => 'Peut-être', 'value' => 0, 'color' => 'gray', 'priority' => 2, 'icon' => 'time'],
 		];
 		$participations = [
-			['who' => 'Aretha', 'when' => 'Répétition', 'choice' => 'Oui'],
-			['who' => 'Jimmy', 'when' => 'Répétition', 'choice' => 'Oui'],
-			['who' => 'Miles', 'when' => 'Répétition', 'choice' => 'Non'],
-			['who' => 'John', 'when' => 'Répétition', 'choice' => 'Oui'],
-			['who' => 'Paul', 'when' => 'Répétition', 'choice' => 'Oui'],
-			['who' => 'Aretha', 'when' => 'Générale', 'choice' => 'Peut-être'],
-			['who' => 'Jimmy', 'when' => 'Générale', 'choice' => 'Oui'],
-			['who' => 'Miles', 'when' => 'Générale', 'choice' => 'Oui'],
-			['who' => 'John', 'when' => 'Générale', 'choice' => 'Oui'],
-			['who' => 'Paul', 'when' => 'Générale', 'choice' => 'Oui'],
+			['who' => 'Aretha', 'when' => 'Répétition', 'choice' => 'Non'],
+			['who' => 'Édith', 'when' => 'Répétition', 'choice' => 'Oui'],
+			['who' => 'Michael', 'when' => 'Répétition', 'choice' => 'Non'],
+			['who' => 'Jimi', 'when' => 'Répétition', 'choice' => 'Oui'],
+			['who' => 'Eric', 'when' => 'Répétition', 'choice' => 'Oui'],
+			['who' => 'Carlos', 'when' => 'Répétition', 'choice' => 'Non'],
+
+			['who' => 'Aretha', 'when' => 'Générale', 'choice' => 'Oui'],
+			['who' => 'Édith', 'when' => 'Générale', 'choice' => 'Oui'],
+			['who' => 'Michael', 'when' => 'Générale', 'choice' => 'Non'],
+			['who' => 'Jimi', 'when' => 'Générale', 'choice' => 'Non'],
+			['who' => 'Eric', 'when' => 'Générale', 'choice' => 'Oui'],
+			['who' => 'Carlos', 'when' => 'Générale', 'choice' => 'Oui'],
+
 			['who' => 'Aretha', 'when' => 'Concert', 'choice' => 'Oui'],
-			['who' => 'Jimmy', 'when' => 'Concert', 'choice' => 'Oui'],
-			['who' => 'Miles', 'when' => 'Concert', 'choice' => 'Oui'],
-			['who' => 'John', 'when' => 'Concert', 'choice' => 'Oui'],
-			['who' => 'Paul', 'when' => 'Concert', 'choice' => 'Non'],
-			['who' => 'Aretha', 'when' => 'Concert 2', 'choice' => 'Non'],
-			['who' => 'Jimmy', 'when' => 'Concert 2', 'choice' => 'Non'],
-			['who' => 'John', 'when' => 'Concert 2', 'choice' => 'Oui'],
-			['who' => 'Paul', 'when' => 'Concert 2', 'choice' => 'Peut-être'],
+			['who' => 'Édith', 'when' => 'Concert', 'choice' => 'Oui'],
+			['who' => 'Michael', 'when' => 'Concert', 'choice' => 'Oui'],
+			['who' => 'Jimi', 'when' => 'Concert', 'choice' => 'Oui'],
+			['who' => 'Eric', 'when' => 'Concert', 'choice' => 'Oui'],
+			['who' => 'Carlos', 'when' => 'Concert', 'choice' => 'Oui'],
+
+			['who' => 'Aretha', 'when' => 'Concert 2', 'choice' => 'Oui'],
+			['who' => 'Édith', 'when' => 'Concert 2', 'choice' => 'Non'],
+			['who' => 'Michael', 'when' => 'Concert 2', 'choice' => 'Oui'],
+			['who' => 'Jimi', 'when' => 'Concert 2', 'choice' => 'Oui'],
+			['who' => 'Eric', 'when' => 'Concert 2', 'choice' => 'Oui'],
+			['who' => 'Carlos', 'when' => 'Concert 2', 'choice' => 'Oui'],
 		];
 		$this->resetPoll(
 			$manager,
