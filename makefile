@@ -36,6 +36,15 @@ down: stop
 enter:
 	docker exec -it kyela2 bash
 
+.PHONY: initdb ## create database
+initdb:
+	docker exec -it kyela2 bin/console doctrine:database:create
+	docker exec -it kyela2 bin/console doctrine:schema:update --force
+
+.PHONY: fixtures ## populate database with example data
+fixtures:
+	docker exec -it kyela2 bin/console doctrine:fixtures:load --append
+
 .PHONY: dbconnect ## get a database connection
 dbconnect:
 	docker exec -it kyela2 sh -c "apt-get update && apt-get install sqlite3 && sqlite3 var/data.db"
