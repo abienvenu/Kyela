@@ -21,7 +21,9 @@ start:
 
 .PHONY: start-prod ## run the application in prod mode
 start-prod:
-	docker run --name kyela2 --restart unless-stopped -d --env APP_ENV=prod -p 12880:80 abienvenu/kyela2
+	docker run --name kyela2 --restart unless-stopped -v kyela2-data:/app/var -d --env APP_ENV=prod -p 12880:80 abienvenu/kyela2
+	docker exec -it kyela2 bin/console cache:clear
+	docker exec -it kyela2 bin/console asset-map:compile
 	@echo "Point your browser to http://localhost:12880/participation"
 
 .PHONY: stop ## stop the application
@@ -31,6 +33,10 @@ stop:
 .PHONY: down ## stop and delete the application
 down: stop
 	@docker rm kyela2
+
+.PHONY: teardown ## stop and delete the application, remove the data volume
+teardown: down
+	@docker volume rm kyela2-data
 
 .PHONY: enter ## get a shell into the application container
 enter:
@@ -42,7 +48,7 @@ initdb:
 	docker exec -it kyela2 bin/console doctrine:schema:update --force
 
 .PHONY: fixtures ## populate database with example data
-fixtures:
+fixtures: initdb
 	docker exec -it kyela2 bin/console doctrine:fixtures:load --append
 
 .PHONY: iconsmig ## migrate from glyphicons to bootstrap icons
