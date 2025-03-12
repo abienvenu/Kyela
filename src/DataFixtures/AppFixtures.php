@@ -42,9 +42,9 @@ class AppFixtures extends Fixture
 			],
 		];
 		$choices = [
-			['name' => 'Oui', 'value' => 1, 'color' => 'green', 'priority' => 0, 'icon' => 'ok'],
-			['name' => 'Non', 'value' => 0, 'color' => 'red', 'priority' => 1, 'icon' => 'remove'],
-			['name' => 'Peut-être', 'value' => 0, 'color' => 'gray', 'priority' => 2, 'icon' => 'time'],
+			['name' => 'Oui', 'value' => 1, 'color' => 'green', 'priority' => 0, 'icon' => 'check'],
+			['name' => 'Non', 'value' => 0, 'color' => 'red', 'priority' => 1, 'icon' => 'x'],
+			['name' => 'Peut-être', 'value' => 0, 'color' => 'gray', 'priority' => 2, 'icon' => 'clock'],
 		];
 		$participations = [
 			['who' => 'Aretha', 'when' => 'Répétition', 'choice' => 'Non'],
@@ -108,10 +108,10 @@ class AppFixtures extends Fixture
 			],
 		];
 		$choices = [
-			['name' => 'Sucré', 'value' => 1, 'color' => 'blue', 'priority' => 0, 'icon' => 'cutlery'],
-			['name' => 'Salé', 'value' => 1, 'color' => 'cyan', 'priority' => 1, 'icon' => 'cutlery'],
-			['name' => 'Boisson', 'value' => 1, 'color' => 'purple', 'priority' => 2, 'icon' => 'glass'],
-			['name' => 'Absent', 'value' => 0, 'color' => 'gray', 'priority' => 3, 'icon' => 'plane'],
+			['name' => 'Sucré', 'value' => 1, 'color' => 'blue', 'priority' => 0, 'icon' => 'cake'],
+			['name' => 'Salé', 'value' => 1, 'color' => 'cyan', 'priority' => 1, 'icon' => 'cake'],
+			['name' => 'Boisson', 'value' => 1, 'color' => 'purple', 'priority' => 2, 'icon' => 'cup-straw'],
+			['name' => 'Absent', 'value' => 0, 'color' => 'gray', 'priority' => 3, 'icon' => 'airplane'],
 		];
 		$participations = [
 			['who' => 'Élise', 'when' => 'Date 1', 'choice' => 'Sucré'],
@@ -149,11 +149,11 @@ class AppFixtures extends Fixture
 			['name' => 'Vacances d\'été'],
 		];
 		$choices = [
-			['name' => 'Les Alpes', 'value' => 1, 'color' => 'cyan', 'priority' => 0, 'icon' => 'tree-conifer'],
-			['name' => 'Les Pyrénées', 'value' => 1, 'color' => 'blue', 'priority' => 1, 'icon' => 'tree-conifer'],
-			['name' => 'Les Canaries', 'value' => 1, 'color' => 'orange', 'priority' => 2, 'icon' => 'plane'],
+			['name' => 'Les Alpes', 'value' => 1, 'color' => 'cyan', 'priority' => 0, 'icon' => 'tree'],
+			['name' => 'Les Pyrénées', 'value' => 1, 'color' => 'blue', 'priority' => 1, 'icon' => 'tree'],
+			['name' => 'Les Canaries', 'value' => 1, 'color' => 'orange', 'priority' => 2, 'icon' => 'airplane'],
 			['name' => 'Peu importe', 'value' => 1, 'color' => 'purple', 'priority' => 2, 'icon' => 'globe'],
-			['name' => 'Je ne pars pas', 'value' => 0, 'color' => 'gray', 'priority' => 3, 'icon' => 'home'],
+			['name' => 'Je ne pars pas', 'value' => 0, 'color' => 'gray', 'priority' => 3, 'icon' => 'house'],
 		];
 		$participations = [
 			['who' => 'Jean', 'when' => 'Vacances de février', 'choice' => 'Les Alpes'],
