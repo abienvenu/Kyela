@@ -45,6 +45,11 @@ initdb:
 fixtures:
 	docker exec -it kyela2 bin/console doctrine:fixtures:load --append
 
+.PHONY: iconsmig ## migrate from glyphicons to bootstrap icons
+iconsmig:
+	docker cp icon_migration.sql kyela2:/tmp
+	docker exec -i kyela2 sh -c "apt-get update && apt-get install sqlite3 && cat /tmp/icon_migration.sql | sqlite3 var/data.db"
+
 .PHONY: dbconnect ## get a database connection
 dbconnect:
 	docker exec -it kyela2 sh -c "apt-get update && apt-get install sqlite3 && sqlite3 var/data.db"
