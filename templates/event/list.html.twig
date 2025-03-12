@@ -48,9 +48,15 @@
 								<small class="subtitle">{{ event.subtitle }}</small>
 							</td>
 							<td>
-								<a class="btn btn-warning btn-gradient" role="button"
+								<a class="btn btn-warning btn-gradient me-2" role="button"
 									href="{{ path('app_event_edit', {url: poll.url, id: event.id}) }}">
+									<i class="bi bi-pencil-square"></i>
 									{{ 'edit' | trans }}
+								</a>
+								<a class="btn btn-secondary btn-gradient" role="button"
+									href="{{ path('app_event_duplicate', {url: poll.url, id: event.id}) }}">
+									<i class="bi bi-copy"></i>
+									{{ 'duplicate' | trans }}
 								</a>
 							</td>
 						</tr>

@@ -37,6 +37,7 @@ save: Enregistrer
 delete: Supprimer
 lock: Mettre un code d'accès
 edit: Modifier
+duplicate: Dupliquer
 back: Retour
 name: Nom
 value: Valeur

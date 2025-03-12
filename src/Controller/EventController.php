@@ -86,6 +86,31 @@ class EventController extends AbstractController
 	}
 
 	/**
+	 * Duplicate an event
+	 */
+	#[Route('/{url:poll}/event/{id:event}/duplicate')]
+	public function duplicate(Poll $poll, Event $event, Request $request, EntityManagerInterface $em): Response
+	{
+		$newEvent = (new Event())
+			->setPoll($poll)
+			->setName($event->getName())
+			->setPlace($event->getPlace())
+			->setDate($event->getDate())
+			->setTime($event->getTime())
+			->setSubtitle($event->getSubtitle());
+		$form = $this->createForm(EventType::class, $newEvent);
+		$form->handleRequest($request);
+		if ($form->isSubmitted() && $form->isValid()) {
+			$em->persist($newEvent);
+			$em->flush();
+
+			return $this->redirectToRoute('app_event_list', ['url' => $event->getPoll()->getUrl()]);
+		}
+
+		return $this->render('event/edit.html.twig', ['form' => $form, 'event' => $event]);
+	}
+
+	/**
 	 * Delete an event
 	 */
 	#[Route('/{url:poll}/event/delete/{id:event}')]
