@@ -85,7 +85,7 @@
 		</div>
 	{% endif %}
 
-	{% if poll.comments %}
+	{% if poll.comments | length %}
 		<div class="container-fluid mt-4">
 			<div class="card shadow-lg p-4 position-relative">
 				{{ render(controller('App\\Controller\\CommentController::show', {'poll': poll})) }}
