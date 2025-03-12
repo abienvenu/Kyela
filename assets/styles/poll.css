@@ -65,6 +65,11 @@ tr > :first-child {
 	opacity: 1;
 }
 
+/* Désactivation des lignes non sélectionnées */
+td.disabled {
+	pointer-events: none;
+}
+
 /* Dégradé et effet de relief */
 .btn-gradient {
 	/* Dégradé */
