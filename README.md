@@ -44,7 +44,7 @@ $ cd Kyela && make build && make start-prod && make fixtures
 
 To update the code to the latest Kyélà version, run:
 ```bash
-$ cd Kyela && git pull && make build && make down && make start-prod
+$ cd Kyela && make upgrade
 ```
 
 Developing

@@ -26,6 +26,10 @@ start-prod:
 	docker exec -it kyela2 bin/console asset-map:compile
 	@echo "Point your browser to http://localhost:12880/participation"
 
+.PHONY: upgrade ## upgrade the application in prod mode to the latest versin
+upgrade:
+	git pull && make build && make down && make start-prod
+
 .PHONY: stop ## stop the application
 stop:
 	@docker stop kyela2
