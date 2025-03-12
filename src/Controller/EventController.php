@@ -48,21 +48,41 @@ class EventController extends AbstractController
 		return $this->render('event/list.html.twig', ['poll' => $poll, 'events' => $events]);
 	}
 
+	private function handleForm(
+		Event $event,
+		Request $request,
+		EntityManagerInterface $em,
+		bool $isNew = false
+	): Response {
+		$form = $this->createForm(EventType::class, $event);
+		$form->handleRequest($request);
+
+		if ($form->isSubmitted() && $form->isValid()) {
+			if ($isNew) {
+				$em->persist($event);
+			}
+			$em->flush();
+
+			return $this->redirectToRoute('app_event_list', ['url' => $event->getPoll()->getUrl()]);
+		}
+
+		return $this->render('event/edit.html.twig', [
+			'form' => $form,
+			'event' => $event,
+		]);
+	}
+
 	/**
 	 * Edit an event
 	 */
 	#[Route('/{url:poll}/event/{id:event}/edit')]
 	public function edit(Poll $poll, Event $event, Request $request, EntityManagerInterface $em): Response
 	{
-		$form = $this->createForm(EventType::class, $event);
-		$form->handleRequest($request);
-		if ($form->isSubmitted() && $form->isValid() && $event->getPoll()->getId() === $poll->getId()) {
-			$em->flush();
-
-			return $this->redirectToRoute('app_event_list', ['url' => $event->getPoll()->getUrl()]);
+		if ($event->getPoll()->getId() !== $poll->getId()) {
+			throw $this->createNotFoundException();
 		}
 
-		return $this->render('event/edit.html.twig', ['form' => $form, 'event' => $event]);
+		return $this->handleForm($event, $request, $em);
 	}
 
 	/**
@@ -71,23 +91,11 @@ class EventController extends AbstractController
 	#[Route('/{url:poll}/event/new')]
 	public function new(Poll $poll, Request $request, EntityManagerInterface $em): Response
 	{
-		$event = (new Event())
-			->setPoll($poll);
-		$form = $this->createForm(EventType::class, $event);
-		$form->handleRequest($request);
-		if ($form->isSubmitted() && $form->isValid()) {
-			$em->persist($event);
-			$em->flush();
+		$event = (new Event())->setPoll($poll);
 
-			return $this->redirectToRoute('app_event_list', ['url' => $event->getPoll()->getUrl()]);
-		}
-
-		return $this->render('event/edit.html.twig', ['form' => $form, 'event' => $event]);
+		return $this->handleForm($event, $request, $em, true);
 	}
 
-	/**
-	 * Duplicate an event
-	 */
 	#[Route('/{url:poll}/event/{id:event}/duplicate')]
 	public function duplicate(Poll $poll, Event $event, Request $request, EntityManagerInterface $em): Response
 	{
@@ -98,16 +106,8 @@ class EventController extends AbstractController
 			->setDate($event->getDate())
 			->setTime($event->getTime())
 			->setSubtitle($event->getSubtitle());
-		$form = $this->createForm(EventType::class, $newEvent);
-		$form->handleRequest($request);
-		if ($form->isSubmitted() && $form->isValid()) {
-			$em->persist($newEvent);
-			$em->flush();
 
-			return $this->redirectToRoute('app_event_list', ['url' => $event->getPoll()->getUrl()]);
-		}
-
-		return $this->render('event/edit.html.twig', ['form' => $form, 'event' => $event]);
+		return $this->handleForm($newEvent, $request, $em, true);
 	}
 
 	/**
