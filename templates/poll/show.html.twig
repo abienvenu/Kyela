@@ -1,36 +1,6 @@
 {% extends 'layout.html.twig' %}
 
 {% block body %}
-	<div class="container-fluid mt-2 text-center">
-		<a role="button" class="btn btn-primary btn-gradient"
-			href="{{ path('app_participant_edit', {url: poll.url}) }}">
-			<i class="bi bi-person-fill me-2"></i>
-			{{ 'participants' | trans }}
-		</a>
-		<a role="button" class="btn btn-success btn-gradient"
-			href="{{ path('app_event_list', {url: poll.url}) }}">
-			<i class="bi bi-calendar-check me-2"></i>
-			{{ 'events' | trans }}
-		</a>
-		<a role="button" class="btn btn-warning btn-gradient" href="{{ path('app_choice_list', {url: poll.url}) }}">
-			<i class="bi bi-sliders me-2"></i>
-			{{ 'options' | trans }}
-		</a>
-		<a role="button" class="btn btn-danger btn-gradient" href="{{ path('app_poll_edit', {url: poll.url}) }}">
-			<i class="bi bi-pencil-square me-2"></i>
-			{{ 'poll' | trans }}
-		</a>
-		{% if poll.participants|length > 0 %}
-			<a role="button" class="btn btn-info btn-gradient" href="{{ path('app_comment_list', {url: poll.url}) }}">
-				<i class="bi bi-chat-left-text me-2"></i>
-				{{ 'comments' | trans }}
-			</a>
-		{% endif %}
-		<a role="button" class="btn btn-secondary btn-gradient" href="{{ path('app_poll_archive', {url: poll.url}) }}">
-			<i class="bi bi-archive me-2"></i>
-			{{ 'archives' | trans }}
-		</a>
-	</div>
 
 	<div class="container-fluid mt-4">
 		<div class="card shadow-lg p-4 position-relative">

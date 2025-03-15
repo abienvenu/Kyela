@@ -22,8 +22,8 @@ function addFastLink(pollUrl, pollTitle) {
 		// Ajouter le sondage en fin de tableau
 		fastLinks.push({url: pollUrl, title: pollTitle});
 
-		// Limiter la liste à 6 sondages
-		if (fastLinks.length > 6) {
+		// Limiter la liste à 10 sondages
+		if (fastLinks.length > 10) {
 			fastLinks.shift(); // Supprime le premier élément
 		}
 	}
