@@ -7,6 +7,78 @@
 				<a class="navbar-brand mx-4" href="/">
 					<img src="{{ asset('img/kyela_small.png') }}" alt="Kyélà">
 				</a>
+
+				<ul class="navbar-nav">
+					<!-- Menu déroulant Liens rapides -->
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="liensRapidesDropdown" role="button"
+							data-bs-toggle="dropdown" aria-expanded="false">
+							{{ 'polls' | trans }}
+						</a>
+						<ul class="dropdown-menu bg-dark text-white" aria-labelledby="liensRapidesDropdown"
+							id="menuFastLinks">
+						</ul>
+					</li>
+				</ul>
+
+				{% if poll is defined %}
+					<!-- Menu déroulant Modifier -->
+					<ul class="navbar-nav">
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="modifierDropdown" role="button"
+								data-bs-toggle="dropdown" aria-expanded="false">
+								{{ 'edit' | trans }}
+							</a>
+							<ul class="dropdown-menu" aria-labelledby="modifierDropdown">
+								<li>
+									<a class="dropdown-item"
+										href="{{ path('app_participant_edit', {url: poll.url}) }}">
+										<i class="bi bi-person-fill me-2"></i>
+										{{ 'participants' | trans }}
+									</a>
+								</li>
+								<li>
+									<a class="dropdown-item"
+										href="{{ path('app_event_list', {url: poll.url}) }}">
+										<i class="bi bi-calendar-check me-2"></i>
+										{{ 'events' | trans }}
+									</a>
+								</li>
+								<li>
+									<a class="dropdown-item"
+										href="{{ path('app_choice_list', {url: poll.url}) }}">
+										<i class="bi bi-sliders me-2"></i>
+										{{ 'options' | trans }}
+									</a>
+								</li>
+								<li>
+									<a class="dropdown-item"
+										href="{{ path('app_poll_edit', {url: poll.url}) }}">
+										<i class="bi bi-pencil-square me-2"></i>
+										{{ 'poll' | trans }}
+									</a>
+								</li>
+								{% if poll.participants|length > 0 %}
+									<li>
+										<a class="dropdown-item"
+											href="{{ path('app_comment_list', {url: poll.url}) }}">
+											<i class="bi bi-chat-left-text me-2"></i>
+											{{ 'comments' | trans }}
+										</a>
+									</li>
+								{% endif %}
+								<li>
+									<a class="dropdown-item"
+										href="{{ path('app_poll_archive', {url: poll.url}) }}">
+										<i class="bi bi-archive me-2"></i>
+										{{ 'archives' | trans }}
+									</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				{% endif %}
+
 				<!-- Bouton pour le menu collapsible sur mobile -->
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
 					aria-controls="navbarNav" aria-expanded="false" aria-label="Basculer la navigation">
@@ -14,74 +86,6 @@
 				</button>
 				<!-- Liens de navigation -->
 				<div class="collapse navbar-collapse" id="navbarNav">
-					<ul class="navbar-nav">
-						<!-- Menu déroulant Liens rapides -->
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="liensRapidesDropdown" role="button"
-								data-bs-toggle="dropdown" aria-expanded="false">
-								{{ 'polls' | trans }}
-							</a>
-							<ul class="dropdown-menu bg-dark text-white" aria-labelledby="liensRapidesDropdown"
-								id="menuFastLinks">
-							</ul>
-						</li>
-
-						{% if poll is defined %}
-							<!-- Menu déroulant Modifier -->
-							<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle" href="#" id="modifierDropdown" role="button"
-									data-bs-toggle="dropdown" aria-expanded="false">
-									{{ 'edit' | trans }}
-								</a>
-								<ul class="dropdown-menu" aria-labelledby="modifierDropdown">
-									<li>
-										<a class="dropdown-item"
-											href="{{ path('app_participant_edit', {url: poll.url}) }}">
-											<i class="bi bi-person-fill me-2"></i>
-											{{ 'participants' | trans }}
-										</a>
-									</li>
-									<li>
-										<a class="dropdown-item"
-											href="{{ path('app_event_list', {url: poll.url}) }}">
-											<i class="bi bi-calendar-check me-2"></i>
-											{{ 'events' | trans }}
-										</a>
-									</li>
-									<li>
-										<a class="dropdown-item"
-											href="{{ path('app_choice_list', {url: poll.url}) }}">
-											<i class="bi bi-sliders me-2"></i>
-											{{ 'options' | trans }}
-										</a>
-									</li>
-									<li>
-										<a class="dropdown-item"
-											href="{{ path('app_poll_edit', {url: poll.url}) }}">
-											<i class="bi bi-pencil-square me-2"></i>
-											{{ 'poll' | trans }}
-										</a>
-									</li>
-									{% if poll.participants|length > 0 %}
-										<li>
-											<a class="dropdown-item"
-												href="{{ path('app_comment_list', {url: poll.url}) }}">
-												<i class="bi bi-chat-left-text me-2"></i>
-												{{ 'comments' | trans }}
-											</a>
-										</li>
-									{% endif %}
-									<li>
-										<a class="dropdown-item"
-											href="{{ path('app_poll_archive', {url: poll.url}) }}">
-											<i class="bi bi-archive me-2"></i>
-											{{ 'archives' | trans }}
-										</a>
-									</li>
-								</ul>
-							</li>
-						{% endif %}
-					</ul>
 					<!-- Menu aligné à droite, collapsé sur mobile -->
 					<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 						<li class="nav-item">
