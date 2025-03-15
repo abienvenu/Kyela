@@ -1,11 +1,16 @@
 {% extends 'base.html.twig' %}
 {% block rawbody %}
 	<body class="d-flex flex-column min-vh-100">
-		<nav class="navbar navbar-expand-lg navbar-dark bg-dark py-4 py-lg-1">
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark py-1">
 			<div class="container-fluid">
-				<!-- Marque ou logo -->
-				<a class="navbar-brand mx-4" href="/">
+				<!-- Marque ou logo pour PC -->
+				<a class="navbar-brand mx-4 d-none d-md-inline" href="/">
 					<img src="{{ asset('img/kyela_small.png') }}" alt="Kyélà">
+				</a>
+
+				<!-- Marque ou logo pour mobile -->
+				<a class="navbar-brand mx-4 d-inline d-md-none" href="/">
+					<img src="{{ asset('img/favicon.png') }}" alt="Kyélà">
 				</a>
 
 				<ul class="navbar-nav">
