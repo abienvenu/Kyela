@@ -39,6 +39,10 @@ lock: Setup an access code
 edit: Edit
 duplicate: Duplicate
 copy.of: Copy of
+event.created: Event added
+event.duplicated: Event duplicated
+event.modified: Modification saved
+event.deleted: Event deleted
 back: Back
 name: Name
 value: Value

@@ -52,6 +52,7 @@ class EventController extends AbstractController
 		Event $event,
 		Request $request,
 		EntityManagerInterface $em,
+		string $message,
 	): Response {
 		$form = $this->createForm(EventType::class, $event);
 		$form->handleRequest($request);
@@ -59,6 +60,7 @@ class EventController extends AbstractController
 		if ($form->isSubmitted() && $form->isValid()) {
 			$em->persist($event);
 			$em->flush();
+			$this->addFlash('success', $message);
 
 			return $this->redirectToRoute('app_event_list', ['url' => $event->getPoll()->getUrl()]);
 		}
@@ -73,24 +75,33 @@ class EventController extends AbstractController
 	 * Edit an event
 	 */
 	#[Route('/{url:poll}/event/{id:event}/edit')]
-	public function edit(Poll $poll, Event $event, Request $request, EntityManagerInterface $em): Response
-	{
+	public function edit(
+		Poll $poll,
+		Event $event,
+		Request $request,
+		EntityManagerInterface $em,
+		TranslatorInterface $translator
+	): Response {
 		if ($event->getPoll()->getId() !== $poll->getId()) {
 			throw $this->createNotFoundException();
 		}
 
-		return $this->handleForm($event, $request, $em);
+		return $this->handleForm($event, $request, $em, $translator->trans('event.modified'));
 	}
 
 	/**
 	 * Add an event
 	 */
 	#[Route('/{url:poll}/event/new')]
-	public function new(Poll $poll, Request $request, EntityManagerInterface $em): Response
-	{
+	public function new(
+		Poll $poll,
+		Request $request,
+		EntityManagerInterface $em,
+		TranslatorInterface $translator
+	): Response {
 		$event = (new Event())->setPoll($poll);
 
-		return $this->handleForm($event, $request, $em);
+		return $this->handleForm($event, $request, $em, $translator->trans('event.created'));
 	}
 
 	#[Route('/{url:poll}/event/{id:event}/duplicate')]
@@ -103,13 +114,13 @@ class EventController extends AbstractController
 	): Response {
 		$newEvent = (new Event())
 			->setPoll($poll)
-			->setName($translator->trans('copy.of') . ' ' . $event->getName())
+			->setName($translator->trans('copy.of').' '.$event->getName())
 			->setPlace($event->getPlace())
 			->setDate($event->getDate())
 			->setTime($event->getTime())
 			->setSubtitle($event->getSubtitle());
 
-		return $this->handleForm($newEvent, $request, $em);
+		return $this->handleForm($newEvent, $request, $em, $translator->trans('event.duplicated'));
 	}
 
 	/**
@@ -125,7 +136,7 @@ class EventController extends AbstractController
 		if ($event->getPoll()->getId() === $poll->getId()) {
 			$em->remove($event);
 			$em->flush();
-			$this->addFlash('success', $translator->trans('deleted'));
+			$this->addFlash('success', $translator->trans('event.deleted'));
 		}
 
 		return $this->redirectToRoute('app_event_list', ['url' => $poll->getUrl()]);

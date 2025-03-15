@@ -23,10 +23,9 @@
 					<thead>
 						<tr>
 							<th scope="col" class="table-secondary">{{ 'name' | trans }}</th>
-							<th scope="col" class="table-secondary">{{ 'Place' | trans }}</th>
+							<th scope="col" class="table-secondary d-none d-lg-table-cell">{{ 'Place' | trans }}</th>
 							<th scope="col" class="table-secondary">{{ 'Date' | trans }}</th>
-							<th scope="col" class="table-secondary">{{ 'Time' | trans }}</th>
-							<th scope="col" class="table-secondary">{{ 'Subtitle' | trans }}</th>
+							<th scope="col" class="table-secondary d-none d-xl-table-cell">{{ 'Subtitle' | trans }}</th>
 							<th scope="col" class="table-secondary">{{ 'action' | trans }}</th>
 						</tr>
 					</thead>
@@ -34,29 +33,29 @@
 						{% for event in events %}
 							<tr>
 								<td>{{ event.name }}</td>
-								<td>{{ event.place }}</td>
+								<td class="d-none d-lg-table-cell">{{ event.place }}</td>
 								<td>
 									{% if event.date %}
-										{{ event.date|format_datetime(locale: app.request.locale, pattern: "cccc d MMMM") }}
+										{{ event.date|format_datetime(locale: app.request.locale, pattern: "d MMMM") }}
 									{% endif %}
-								</td>
-								<td>
 									{% if event.time %}
 										{{ event.time|format_datetime(locale: app.request.locale, pattern: "H'h'mm") }}
 									{% endif %}
 								</td>
-								<td>
+								<td class="d-none d-xl-table-cell">
 									<small class="subtitle">{{ event.subtitle }}</small>
 								</td>
 								<td>
-									<a class="btn btn-sm btn-warning btn-gradient me-2" role="button"
-										href="{{ path('app_event_edit', {url: poll.url, id: event.id}) }}">
-										<i class="bi bi-pencil-square"></i>{{ 'edit' | trans }}
-									</a>
-									<a class="btn btn-sm btn-secondary btn-gradient" role="button"
-										href="{{ path('app_event_duplicate', {url: poll.url, id: event.id}) }}">
-										<i class="bi bi-copy"></i>{{ 'duplicate' | trans }}
-									</a>
+									<div class="btn-group" role="group">
+										<a class="btn btn-sm btn-warning btn-gradient" role="button"
+											href="{{ path('app_event_edit', {url: poll.url, id: event.id}) }}">
+											<i class="bi bi-pencil-square me-1"></i>{{ 'edit' | trans }}
+										</a>
+										<a class="btn btn-sm btn-secondary btn-gradient" role="button"
+											href="{{ path('app_event_duplicate', {url: poll.url, id: event.id}) }}">
+											<i class="bi bi-copy me-1"></i>{{ 'duplicate' | trans }}
+										</a>
+									</div>
 								</td>
 							</tr>
 						{% endfor %}

@@ -39,6 +39,10 @@ lock: Zugangscode
 edit: Ändern
 duplicate: Duplizieren
 copy.of: Kopie des
+event.created: Hinzugefügt am
+event.duplicated: Dupliziert am
+event.modified: Änderung gespeichert
+event.deleted: Gelöscht am
 back: Zurück
 name: Name
 value: Wert
