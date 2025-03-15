@@ -38,6 +38,7 @@ delete: Delete
 lock: Setup an access code
 edit: Edit
 duplicate: Duplicate
+copy.of: Copy of
 back: Back
 name: Name
 value: Value

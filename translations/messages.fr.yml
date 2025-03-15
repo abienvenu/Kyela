@@ -38,6 +38,7 @@ delete: Supprimer
 lock: Mettre un code d'accès
 edit: Modifier
 duplicate: Dupliquer
+copy.of: Copie de
 back: Retour
 name: Nom
 value: Valeur

@@ -52,15 +52,12 @@ class EventController extends AbstractController
 		Event $event,
 		Request $request,
 		EntityManagerInterface $em,
-		bool $isNew = false
 	): Response {
 		$form = $this->createForm(EventType::class, $event);
 		$form->handleRequest($request);
 
 		if ($form->isSubmitted() && $form->isValid()) {
-			if ($isNew) {
-				$em->persist($event);
-			}
+			$em->persist($event);
 			$em->flush();
 
 			return $this->redirectToRoute('app_event_list', ['url' => $event->getPoll()->getUrl()]);
@@ -93,21 +90,26 @@ class EventController extends AbstractController
 	{
 		$event = (new Event())->setPoll($poll);
 
-		return $this->handleForm($event, $request, $em, true);
+		return $this->handleForm($event, $request, $em);
 	}
 
 	#[Route('/{url:poll}/event/{id:event}/duplicate')]
-	public function duplicate(Poll $poll, Event $event, Request $request, EntityManagerInterface $em): Response
-	{
+	public function duplicate(
+		Poll $poll,
+		Event $event,
+		Request $request,
+		EntityManagerInterface $em,
+		TranslatorInterface $translator,
+	): Response {
 		$newEvent = (new Event())
 			->setPoll($poll)
-			->setName($event->getName())
+			->setName($translator->trans('copy.of') . ' ' . $event->getName())
 			->setPlace($event->getPlace())
 			->setDate($event->getDate())
 			->setTime($event->getTime())
 			->setSubtitle($event->getSubtitle());
 
-		return $this->handleForm($newEvent, $request, $em, true);
+		return $this->handleForm($newEvent, $request, $em);
 	}
 
 	/**
