@@ -19,8 +19,8 @@
 				</thead>
 				<tbody id="choices-list">
 					{% for choice in poll.choices %}
-						<tr data-id="{{ choice.id }}">
-							<td class="handle text-center">
+						<tr>
+							<td class="handle text-center" data-id="{{ choice.id }}">
 								<i class="bi bi-list" style="cursor: grab;"></i>
 							</td>
 							<td>{{ choice.name }}</td>
