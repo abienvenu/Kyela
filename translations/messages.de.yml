@@ -28,6 +28,8 @@ new.participant: Neuer Teilnehmer
 new.event: Neuer Ereignis
 new.comment: Neuer Kommentar
 new.choice: Neue Option
+choice.added: Die Option wurde hinzugefügt
+choice.modified: Die Option wurde geändert
 choice.list: Auswahloptionen
 no.event: Zurzeit kein Termin geplant
 no.participant: Keine Teilnehmer

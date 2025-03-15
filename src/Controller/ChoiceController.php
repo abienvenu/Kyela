@@ -29,12 +29,18 @@ class ChoiceController extends AbstractController
 	 * Edits a choice
 	 */
 	#[Route('/{url:poll}/choice/edit/{id:choice}')]
-	public function edit(Poll $poll, Choice $choice, Request $request, EntityManagerInterface $em): Response
-	{
+	public function edit(
+		Poll $poll,
+		Choice $choice,
+		Request $request,
+		EntityManagerInterface $em,
+		TranslatorInterface $translator
+	): Response {
 		$form = $this->createForm(ChoiceType::class, $choice);
 		$form->handleRequest($request);
 		if ($form->isSubmitted() && $form->isValid() && $choice->getPoll()->getId() === $poll->getId()) {
 			$em->flush();
+			$this->addFlash('success', $translator->trans('choice.modified'));
 
 			return $this->redirectToRoute('app_choice_list', ['url' => $choice->getPoll()->getUrl()]);
 		}
@@ -46,8 +52,12 @@ class ChoiceController extends AbstractController
 	 * Add a choice
 	 */
 	#[Route('/{url:poll}/choice/new')]
-	public function new(Poll $poll, Request $request, EntityManagerInterface $em): Response
-	{
+	public function new(
+		Poll $poll,
+		Request $request,
+		EntityManagerInterface $em,
+		TranslatorInterface $translator
+	): Response {
 		$choice = (new Choice())
 			->setPoll($poll)
 			->setPriority(count($poll->getChoices()));
@@ -56,6 +66,7 @@ class ChoiceController extends AbstractController
 		if ($form->isSubmitted() && $form->isValid()) {
 			$em->persist($choice);
 			$em->flush();
+			$this->addFlash('success', $translator->trans('choice.added'));
 
 			return $this->redirectToRoute('app_choice_list', ['url' => $poll->getUrl()]);
 		}

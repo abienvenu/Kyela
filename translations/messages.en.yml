@@ -29,6 +29,8 @@ new.participant: New participant
 new.event: New event
 new.comment: New comment
 new.choice: New choice
+choice.added: The option has been added
+choice.modified: The option has been modified
 choice.list: List of choices
 no.event: No event is scheduled yet
 no.participant: No participant
