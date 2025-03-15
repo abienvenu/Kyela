@@ -20,7 +20,7 @@ td, th {
 }
 
 /* Top line */
-thead th {
+table.sticky thead th {
 	position: -webkit-sticky;
 	position: sticky;
 	top: -1px;
@@ -28,7 +28,7 @@ thead th {
 }
 
 /* Bottom line */
-tfoot th {
+table.sticky tfoot th {
 	position: -webkit-sticky;
 	position: sticky;
 	bottom: -1px;
@@ -36,14 +36,14 @@ tfoot th {
 }
 
 /* Left corner */
-thead th:first-child,
-tfoot th:first-child {
+table.sticky thead th:first-child,
+table.sticky tfoot th:first-child {
 	left: -1px;
 	z-index: 3;
 }
 
 /* Left column */
-tr > :first-child {
+table.sticky tr > :first-child {
 	position: -webkit-sticky;
 	position: sticky;
 	left: -1px;
