@@ -9,9 +9,9 @@ choice: Option
 participant: Teilnehmer
 participants: Teilnehmer
 options: Auswahl
-dates: Termine
 total: Insgesamt
-event: Event
+event: Ereignis
+events: Ereignisse
 comment: Kommentar
 comments: Kommentare
 archives: Archiv
@@ -25,7 +25,7 @@ add.an.option: Option hinzufügen
 new.poll: Neue Umfrage
 new.poll.tooltip: Mit einer Umfrage erfährst Du, wann deine Freunde Zeit haben und kannst viele andere Fragen klären. Wenn Du mehrere Ereignisse planst, benenne die Umfragen nach deiner Gruppe, Schulklasse oder dem Verein. Oder benenne sie nach der Veranstaltung die geplant ist.
 new.participant: Neuer Teilnehmer
-new.event: Neuer Termin
+new.event: Neuer Ereignis
 new.comment: Neuer Kommentar
 new.choice: Neue Option
 choice.list: Auswahloptionen
@@ -103,7 +103,7 @@ poll.locked %lock%: "Deine Umfrage wurde mit dem folgenden Code <pre>%lock%</pre
 unlock.failed: Falscher Zugangscode
 poll.unlocked: Deine Umfrage wurde entsperrt
 lock.explanation: Wenn Du einen Zugriffscode setzt, ist es nicht möglich Titel, Link, Kopfzeilen oder Fußzeilen der Umfrage zu ändern, bis wieder der gleiche Zugriffscode eingegeben wird.
-lock.explanation2: Es ist weiter für jeden möglich die Angaben zu ändern, neue Termine oder Teilnehmer hinzuzufügen.
+lock.explanation2: Es ist weiter für jeden möglich die Angaben zu ändern, neue Ereignisse oder Teilnehmer hinzuzufügen.
 unlock: Entsperren
 unlock.explanation: Ein Zugriffscode wurde gesetzt. Zum Ändern der Umfrage muss der Code wieder eingegeben werden.
 participant.name.placeholder: Gib Vornamen, Rufnamen oder Spitznamen ein  

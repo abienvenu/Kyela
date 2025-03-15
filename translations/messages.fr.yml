@@ -11,10 +11,10 @@ participants: Participants
 options: Options
 total: Total
 event: Évènement
+events: Évènements
 comment: Commentaire
 comments: Commentaires
 archives: Archives
-dates: Dates
 add.a.poll: Créer un sondage
 add.participants: Ajouter un ou plusieurs participants (séparés par ";")
 participants.list: Liste des participants (pour export)

@@ -9,7 +9,7 @@ how.many.options:
     a: Three by default (yes/maybe/no), but these choices can be modified or expanded by clicking "Edit options".
 recurrent.events:
     q: How can I manage multiple or recurring events?
-    a: A single poll is enough. You just need to propose the upcoming possible dates. Past dates are automatically archived (and remain accessible) once the event has passed. It is more convenient to use the same poll throughout the year rather than juggling multiple ones.
+    a: A single poll is enough. You just need to propose the upcoming possible events. Past dates are automatically archived (and remain accessible) once the event has passed. It is more convenient to use the same poll throughout the year rather than juggling multiple ones.
 short.url:
     q: My poll's web address is too long. Can I get a shorter, easier-to-remember URL?
     a: Yes, you can edit your poll and change the URL. Be careful—if your URL is too easy to guess, uninvited people might find your poll.
