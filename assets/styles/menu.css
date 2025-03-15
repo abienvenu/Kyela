@@ -7,7 +7,7 @@
 }
 
 /* Afficher la croix au survol (PC) */
-.nav-item:hover .delete-button {
+.fastlink:hover .delete-button {
 	opacity: 1;
 	pointer-events: auto;
 }
@@ -22,4 +22,9 @@
 
 .navbar-nav .nav-link {
 	font-size: 1.2rem;
+}
+
+.dropdown-menu.bg-dark .dropdown-item:hover {
+	background-color: #343A40;
+	color: white;
 }

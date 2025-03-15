@@ -14,10 +14,34 @@
 				</button>
 				<!-- Liens de navigation -->
 				<div class="collapse navbar-collapse" id="navbarNav">
-					<!-- Fast links -->
-					<ul class="navbar-nav me-auto mt-4 mt-lg-0" id="menuFastLinks">
+					<ul class="navbar-nav">
+						<!-- Menu déroulant Liens rapides -->
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="liensRapidesDropdown" role="button"
+								data-bs-toggle="dropdown" aria-expanded="false">
+								{{ 'polls' | trans }}
+							</a>
+							<ul class="dropdown-menu bg-dark text-white" aria-labelledby="liensRapidesDropdown"
+								id="menuFastLinks">
+							</ul>
+						</li>
+
+						<!-- Menu déroulant Modifier -->
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="modifierDropdown" role="button"
+								data-bs-toggle="dropdown" aria-expanded="false">
+								Modifier
+							</a>
+							<ul class="dropdown-menu" aria-labelledby="modifierDropdown">
+								<li><a class="dropdown-item" href="#">Participants</a></li>
+								<li><a class="dropdown-item" href="#">Évènements</a></li>
+								<li><a class="dropdown-item" href="#">Options</a></li>
+								<li><a class="dropdown-item" href="#">Sondage</a></li>
+								<li><a class="dropdown-item" href="#">Commentaires</a></li>
+							</ul>
+						</li>
 					</ul>
-					<!-- Menu aligné à droite -->
+					<!-- Menu aligné à droite, collapsé sur mobile -->
 					<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 						<li class="nav-item">
 							<a class="nav-link" href="{{ path('app_static_faq') }}">{{ 'faq' | trans }}</a>

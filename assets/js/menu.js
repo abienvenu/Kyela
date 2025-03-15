@@ -44,12 +44,12 @@ function displayFastLinks() {
 	fastLinks.forEach(poll => {
 		// Créer l'élément <li> avec la classe nav-item
 		const li = document.createElement('li');
-		li.className = 'nav-item d-flex align-items-center mb-2'; // d-flex pour aligner le lien et le bouton
+		li.className = 'd-flex align-items-center justify-content-between px-3 fastlink';
 
-		// Créer le lien <a> avec la classe nav-link
+		// Créer le lien <a> avec la classe dropdown-item
 		const a = document.createElement('a');
 		a.href = `/${poll.url}`;
-		a.className = 'nav-link';
+		a.className = 'dropdown-item text-white';
 		a.textContent = poll.title;
 
 		// Créer le bouton pour supprimer ce sondage de la liste

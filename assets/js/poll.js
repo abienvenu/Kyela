@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	}
 
 	// Action quand on choisit une option
-	document.querySelectorAll('.dropdown-item').forEach(item => {
+	document.querySelectorAll('.participation .dropdown-item').forEach(item => {
 		item.addEventListener('click', function (event) {
 			event.preventDefault(); // Empêche le lien de changer de page
 			opener = this;
