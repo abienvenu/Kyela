@@ -40,14 +40,18 @@
 				<input type="hidden" name="deleted_participants" id="deleted_participants">
 
 				<!-- Formulaire d'ajout -->
-				<div class="mb-3">
-					<label for="new-participants" class="form-label">
-						{{ 'add.participants' | trans }}
-					</label>
-					<input type="text" id="new-participants" class="form-control">
-					<button type="button" id="add-participants" class="btn btn-lg btn-primary mt-2">
-						<i class="bi bi-person-plus-fill me-2"></i>{{ 'add' | trans }}
-					</button>
+				<div class="row mb-3 d-flex align-items-end">
+					<div class="col-md-9">
+						<label for="new-participants" class="form-label">
+							{{ 'add.participants' | trans }}
+						</label>
+						<input type="text" id="new-participants" class="form-control">
+					</div>
+					<div class="col-md-3">
+						<button type="button" id="add-participants" class="btn btn-lg btn-primary mt-2">
+							<i class="bi bi-person-plus-fill me-2"></i>{{ 'add' | trans }}
+						</button>
+					</div>
 				</div>
 
 				<!-- Bloc d'export -->
@@ -56,10 +60,13 @@
 						{{ 'participants.list' | trans }}
 					</div>
 					<div class="card-body p-0">
-						<p id="export-text" class="small text-wrap text-break p-1 m-0" style="background-color: #E8E8E8;"></p>
+						<p id="export-text" class="small text-wrap text-break p-1 m-0"
+							style="background-color: #E8E8E8;"></p>
 					</div>
 					<div class="card-footer p-0 text-end">
-						<button type="button" class="btn btn-primary btn-sm" id="copy-btn" data-copy-text="{{ 'export' | trans }}" data-copied-text="{{ 'participants.copied' | trans }}">
+						<button type="button" class="btn btn-primary btn-sm" id="copy-btn"
+							data-copy-text="{{ 'export' | trans }}"
+							data-copied-text="{{ 'participants.copied' | trans }}">
 							<i class="bi bi-clipboard"></i> <span>{{ 'export' | trans }}</span>
 						</button>
 					</div>
