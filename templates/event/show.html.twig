@@ -6,43 +6,43 @@
 <div id="eventTable" class="collapse show">
 	{% if events %}
 		<div class="table-container">
-		<table class="table table-hover w-auto mx-auto">
-			<tbody>
-				{% for event in events %}
-					<tr>
-						<td>
-							<span class="badge bg-primary">{{ event.participationsScore }}</span>
-						</td>
-						<td class="text-start">
-							{% if event.date %}
-								{% if isArchive %}
-									{{ event.date|
+			<table class="table table-hover w-auto mx-auto">
+				<tbody>
+					{% for event in events %}
+						<tr>
+							<td>
+								<span class="badge bg-primary">{{ event.participationsScore }}</span>
+							</td>
+							<td class="text-start">
+								{% if event.date %}
+									{% if isArchive %}
+										{{ event.date|
 										format_datetime(locale: app.request.locale, pattern: "cccc d MMMM YYYY") }}
-								{% else %}
-									{{ event.date|format_datetime(locale: app.request.locale, pattern: "cccc d MMMM") }}
+									{% else %}
+										{{ event.date|format_datetime(locale: app.request.locale, pattern: "cccc d MMMM") }}
+									{% endif %}
 								{% endif %}
-							{% endif %}
-						</td>
-						<td class="text-start">
-							{% if event.time %}
-								{{ event.time|format_datetime(locale: app.request.locale, pattern: "H'h'mm") }}
-							{% endif %}
-						</td>
-						<td class="text-start">
-							{{ event.place }}
-						</td>
-						<td class="text-start">
-							{% if event.subtitle %}
-								<small class="subtitle">{{ event.subtitle }}</small>
-							{% endif %}
-						</td>
-						<td class="text-start">
-							<strong>{{ event.name }}</strong>
-						</td>
-					</tr>
-				{% endfor %}
-			</tbody>
-		</table>
+							</td>
+							<td class="text-start">
+								{% if event.time %}
+									{{ event.time|format_datetime(locale: app.request.locale, pattern: "H'h'mm") }}
+								{% endif %}
+							</td>
+							<td class="text-start">
+								{{ event.place }}
+							</td>
+							<td class="text-start">
+								{% if event.subtitle %}
+									<small class="subtitle">{{ event.subtitle }}</small>
+								{% endif %}
+							</td>
+							<td class="text-start">
+								<strong>{{ event.name }}</strong>
+							</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
 		</div>
 	{% else %}
 		<div class="text-center">

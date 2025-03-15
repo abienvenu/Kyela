@@ -60,7 +60,7 @@ class EventController extends AbstractController
 		if ($form->isSubmitted() && $form->isValid()) {
 			$em->persist($event);
 			$em->flush();
-			$this->addFlash('success', $message);
+			$this->addFlash('success', $message.' "'.$event->getName().'"');
 
 			return $this->redirectToRoute('app_event_list', ['url' => $event->getPoll()->getUrl()]);
 		}
@@ -136,7 +136,7 @@ class EventController extends AbstractController
 		if ($event->getPoll()->getId() === $poll->getId()) {
 			$em->remove($event);
 			$em->flush();
-			$this->addFlash('success', $translator->trans('event.deleted'));
+			$this->addFlash('success', $translator->trans('event.deleted').' "'.$event->getName().'"');
 		}
 
 		return $this->redirectToRoute('app_event_list', ['url' => $poll->getUrl()]);

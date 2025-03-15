@@ -2,18 +2,12 @@
 
 {% block body %}
 	<style>
-		table.table {
-			table-layout: fixed; /* Fixe la largeur des colonnes */
-			word-wrap: break-word;
-			width: 100%;
-		}
-
 		.table td, .table th {
 			white-space: normal !important; /* Permet le retour à la ligne */
 			overflow-wrap: break-word;
 		}
 	</style>
-	<div class="container-fluid mt-4" style="min-width: 750px;">
+	<div class="container-fluid mt-4">
 		<div class="card shadow-lg bg-light p-4 position-relative mb-4 text-center">
 			<h1>{{ 'dates' | trans }} - {{ poll.title }}</h1>
 		</div>
@@ -47,13 +41,15 @@
 								</td>
 								<td>
 									<div class="btn-group" role="group">
-										<a class="btn btn-sm btn-warning btn-gradient" role="button"
+										<a class="btn btn-warning btn-gradient" role="button"
 											href="{{ path('app_event_edit', {url: poll.url, id: event.id}) }}">
-											<i class="bi bi-pencil-square me-1"></i>{{ 'edit' | trans }}
+											<i class="bi bi-pencil-square me-1"></i>
+											<span class="d-none d-sm-inline">{{ 'edit' | trans }}</span>
 										</a>
-										<a class="btn btn-sm btn-secondary btn-gradient" role="button"
+										<a class="btn btn-secondary btn-gradient" role="button"
 											href="{{ path('app_event_duplicate', {url: poll.url, id: event.id}) }}">
-											<i class="bi bi-copy me-1"></i>{{ 'duplicate' | trans }}
+											<i class="bi bi-copy me-1"></i>
+											<span class="d-none d-sm-inline">{{ 'duplicate' | trans }}</span>
 										</a>
 									</div>
 								</td>
