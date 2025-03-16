@@ -16,6 +16,7 @@ events: Ereignisse
 comment: Kommentar
 comments: Kommentare
 archives: Archiv
+help: Helfen
 add.a.poll: Umfrage hinzufügen
 add.participants: Fügen Sie einen oder mehrere Teilnehmer hinzu (getrennt durch ";")
 participants.list: Teilnehmerliste (zum Exportieren)

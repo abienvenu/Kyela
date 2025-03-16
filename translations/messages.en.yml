@@ -16,6 +16,7 @@ events: Events
 comment: Comment
 comments: Comments
 archives: Archives
+help: Help
 dates: Dates
 add.a.poll: Add a poll
 add.participants: Add participants (separated by ";")

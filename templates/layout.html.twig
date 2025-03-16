@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 {% block rawbody %}
 	<body class="d-flex flex-column min-vh-100">
-		<nav class="navbar navbar-expand-lg navbar-dark bg-dark py-1">
+		<nav class="navbar navbar-expand navbar-dark bg-dark py-1">
 			<div class="container-fluid">
 				<!-- Marque ou logo pour PC -->
 				<a class="navbar-brand mx-4 d-none d-md-inline" href="/">
@@ -9,16 +9,16 @@
 				</a>
 
 				<!-- Marque ou logo pour mobile -->
-				<a class="navbar-brand mx-4 d-inline d-md-none" href="/">
+				<a class="navbar-brand mx-2 d-inline d-md-none" href="/">
 					<img src="{{ asset('img/favicon.png') }}" alt="Kyélà">
 				</a>
 
-				<ul class="navbar-nav">
+				<ul class="navbar-nav me-2">
 					<!-- Menu déroulant Liens rapides -->
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" id="liensRapidesDropdown" role="button"
 							data-bs-toggle="dropdown" aria-expanded="false">
-							{{ 'polls' | trans }}
+							<i class="bi bi-link-45deg me-1"></i>{{ 'polls' | trans }}
 						</a>
 						<ul class="dropdown-menu bg-dark text-white" aria-labelledby="liensRapidesDropdown"
 							id="menuFastLinks">
@@ -32,13 +32,13 @@
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="modifierDropdown" role="button"
 								data-bs-toggle="dropdown" aria-expanded="false">
-								{{ 'edit' | trans }}
+								<i class="bi bi-pencil-square me-1"></i>{{ 'edit' | trans }}
 							</a>
 							<ul class="dropdown-menu" aria-labelledby="modifierDropdown">
 								<li>
 									<a class="dropdown-item"
 										href="{{ path('app_participant_edit', {url: poll.url}) }}">
-										<i class="bi bi-person-fill me-2"></i>
+										<i class="bi bi-person me-2"></i>
 										{{ 'participants' | trans }}
 									</a>
 								</li>
@@ -84,52 +84,64 @@
 					</ul>
 				{% endif %}
 
-				<!-- Bouton pour le menu collapsible sur mobile -->
-				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-					aria-controls="navbarNav" aria-expanded="false" aria-label="Basculer la navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<!-- Liens de navigation -->
-				<div class="collapse navbar-collapse" id="navbarNav">
-					<!-- Menu aligné à droite, collapsé sur mobile -->
-					<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-						<li class="nav-item">
-							<a class="nav-link" href="{{ path('app_static_faq') }}">{{ 'faq' | trans }}</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="{{ path('app_static_tips') }}">{{ 'tips' | trans }}</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="{{ path('app_static_about') }}">{{ 'about' | trans }}</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="{{ path('app_static_thanks') }}">{{ 'thanks' | trans }}</a>
-						</li>
-						<li class="nav-item">
-							<a target="_blank" href="https://symfony.com/blog/symfony-stands-with-ukraine"
-								style="padding: 6px;">
-								<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg"
-									viewBox="0 0 613.34796 560.96094" style="height: 32px;">
-									<defs>
-										<style>.cls-1 {
-												fill: #FFD500;
-											}
 
-											.cls-2 {
-												fill: #005BBB;
-											}</style>
-									</defs>
-									<path class="cls-1"
-										d="M779.84082,504a181.88382,181.88382,0,0,1-21.78906,26.28906L504.001,784.48047,249.9502,530.28906A181.659,181.659,0,0,1,228.15723,504Z"
-										transform="translate(-197.32602 -223.51953)" />
-									<path class="cls-2"
-										d="M779.84082,504H228.15723A179.68176,179.68176,0,0,1,504.001,276.19141,179.69085,179.69085,0,0,1,779.84082,504Z"
-										transform="translate(-197.32602 -223.51953)" />
-								</svg>
-							</a>
-						</li>
-					</ul>
-				</div>
+				<ul class="navbar-nav ms-auto">
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="aideDropdown" role="button"
+							data-bs-toggle="dropdown" aria-expanded="false">
+							<i class="bi bi-info-circle me-1"></i><span class="d-none d-sm-inline">{{  'help' | trans }}</span>
+						</a>
+
+						<ul class="dropdown-menu" aria-labelledby="aideDropdown" style="left: -4rem;">
+							<li>
+								<a class="dropdown-item" href="{{ path('app_static_faq') }}">
+									<i class="bi bi-question-circle me-1"></i>{{ 'faq' | trans }}
+								</a>
+							</li>
+							<li>
+								<a class="dropdown-item" href="{{ path('app_static_tips') }}">
+									<i class="bi bi-lightbulb me-1"></i>{{ 'tips' | trans }}
+								</a>
+							</li>
+							<li>
+								<a class="dropdown-item" href="{{ path('app_static_about') }}">
+									<i class="bi bi-file-text me-1"></i>{{ 'about' | trans }}
+								</a>
+							</li>
+							<li>
+								<a class="dropdown-item" href="{{ path('app_static_thanks') }}">
+									<i class="bi bi-hand-thumbs-up me-1"></i>{{ 'thanks' | trans }}
+								</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+
+				<ul class="navbar-nav">
+							<li>
+								<a target="_blank" href="https://symfony.com/blog/symfony-stands-with-ukraine">
+									<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg"
+										viewBox="0 0 613.34796 560.96094" style="height: 32px;">
+										<defs>
+											<style>.cls-1 {
+													fill: #FFD500;
+												}
+
+												.cls-2 {
+													fill: #005BBB;
+												}</style>
+										</defs>
+										<path class="cls-1"
+											d="M779.84082,504a181.88382,181.88382,0,0,1-21.78906,26.28906L504.001,784.48047,249.9502,530.28906A181.659,181.659,0,0,1,228.15723,504Z"
+											transform="translate(-197.32602 -223.51953)" />
+										<path class="cls-2"
+											d="M779.84082,504H228.15723A179.68176,179.68176,0,0,1,504.001,276.19141,179.69085,179.69085,0,0,1,779.84082,504Z"
+											transform="translate(-197.32602 -223.51953)" />
+									</svg>
+								</a>
+							</li>
+				</ul>
+
 			</div>
 		</nav>
 		<script src="{{ asset('js/menu.js') }}"></script>
