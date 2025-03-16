@@ -13,9 +13,17 @@ td, th {
 	white-space: nowrap;
 }
 
-.table-container {
+@media (max-width: 991.98px) {
+	.events-container {
+		position: relative;
+		max-height: 30vh;
+		overflow: scroll;
+	}
+}
+
+.participation-container {
 	position: relative;
-	max-height: 60vh;
+	max-height: 70vh;
 	overflow: scroll;
 }
 
