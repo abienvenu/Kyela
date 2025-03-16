@@ -17,7 +17,10 @@ document.addEventListener('DOMContentLoaded', function () {
 	new Sortable(tbody, {
 		animation: 150,
 		ghostClass: 'sortable-ghost',
-		handle: '.handle'
+		handle: '.handle',
+		onEnd: () => {
+			formModified = true;
+		}
 	});
 
 	// Suppression d'un participant
@@ -84,4 +87,36 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	// Initial update du bloc d'export
 	updateExportText();
+
+	// Popup de confirmation "quitter sans enregistrer"
+	const form = document.getElementById('participants-form');
+	const backButton = document.querySelector('.btn-secondary[href]'); // Bouton "Back"
+	let formModified = false;
+
+	// Détecter les changements dans les champs de texte
+	form.addEventListener('input', () => {
+		formModified = true;
+	});
+
+	// Détecter les suppressions de participants
+	document.getElementById('participants-list').addEventListener('click', (event) => {
+		if (event.target.closest('.delete-participant')) {
+			formModified = true;
+		}
+	});
+
+	// Détecter les ajouts de participants
+	document.getElementById('add-participants').addEventListener('click', () => {
+		formModified = true;
+	});
+
+	// Confirmation avant de quitter sans enregistrer
+	backButton.addEventListener('click', function (event) {
+		if (formModified) {
+			const confirmLeave = confirm(quitNoSaveMessage);
+			if (!confirmLeave) {
+				event.preventDefault();
+			}
+		}
+	});
 });
