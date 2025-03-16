@@ -27,13 +27,13 @@ add.an.option: Ajouter une option
 new.poll: Nouveau sondage
 new.poll.tooltip: Un sondage permet à vos amis d'indiquer leurs préférences entre plusieurs choix. Cliquez sur le bouton pour créer puis configurer votre sondage privé. Puis ajoutez des participants et proposez des dates.
 new.participant: Nouveau participant
-new.event: Nouvelle date
+new.event: Nouvel évènement
 new.comment: Ajouter un commentaire
 new.choice: Nouvelle option
 choice.added: L'option a été ajoutée
 choice.modified: L'option a été modifiée
 choice.list: Liste des options
-no.event: Aucune date prévue pour l'instant
+no.event: Aucun évènement prévu pour l'instant
 no.participant: Aucun participant
 cancel: Annuler
 create: Créer
@@ -43,10 +43,10 @@ lock: Mettre un code d'accès
 edit: Modifier
 duplicate: Dupliquer
 copy.of: Copie de
-event.created: Date ajoutée
-event.duplicated: Date dupliquée
+event.created: Évènement ajouté
+event.duplicated: Évènement dupliqué
 event.modified: Modification enregistrée
-event.deleted: Date supprimée
+event.deleted: Évènement supprimé
 back: Retour
 name: Nom
 value: Valeur
