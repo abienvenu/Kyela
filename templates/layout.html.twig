@@ -158,18 +158,25 @@
 		{% block body %}{% endblock %}
 		<!-- Footer -->
 		<footer class="bg-dark py-2 mt-auto">
-			<div class="container text-center">
-				<small class="text-white-50">
-					<span class="mx-4">&copy; 2025 Arnaud Bienvenu</span>
-					<span class="mx-4">
-						<a href="https://github.com/abienvenu/Kyela" class="text-white-50" target="_blank">
-							{{ 'code.source' | trans }}
+			<div class="container">
+				<div class="d-flex justify-content-between align-items-center">
+					<div class="text-start">
+						<small class="text-white-50">&copy; 2025 Arnaud Bienvenu</small>
+					</div>
+					<div class="text-center">
+						<small>
+							<a href="https://github.com/abienvenu/Kyela" class="text-white-50 d-flex align-items-center"
+								target="_blank">
+								<i class="bi bi-github me-2"></i>{{ 'code.source' | trans }}
+							</a>
+						</small>
+					</div>
+					<div class="text-end">
+						<a href="https://www.gnu.org/licenses/agpl-3.0.html" target="_blank">
+							<img src="{{ asset('img/license-AGPL3.0-red.svg') }}" alt="Licence AGPL 3.0" />
 						</a>
-					</span>
-					<a href="https://www.gnu.org/licenses/agpl-3.0.html" target="_blank" class="mx-4">
-						<img src="{{ asset('img/license-AGPL3.0-red.svg') }}" alt="Licence AGPL 3.0" />
-					</a>
-				</small>
+					</div>
+				</div>
 			</div>
 		</footer>
 	</body>
