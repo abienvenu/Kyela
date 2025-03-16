@@ -20,8 +20,7 @@
 							data-bs-toggle="dropdown" aria-expanded="false">
 							<i class="bi bi-link-45deg me-1"></i>{{ 'polls' | trans }}
 						</a>
-						<ul class="dropdown-menu bg-dark text-white" aria-labelledby="liensRapidesDropdown"
-							id="menuFastLinks">
+						<ul class="dropdown-menu" aria-labelledby="liensRapidesDropdown" id="menuFastLinks">
 						</ul>
 					</li>
 				</ul>
@@ -35,28 +34,28 @@
 								<i class="bi bi-pencil-square me-1"></i>{{ 'edit' | trans }}
 							</a>
 							<ul class="dropdown-menu" aria-labelledby="modifierDropdown">
-								<li>
+								<li class="py-2 py-md-1">
 									<a class="dropdown-item"
 										href="{{ path('app_participant_edit', {url: poll.url}) }}">
 										<i class="bi bi-person me-2"></i>
 										{{ 'participants' | trans }}
 									</a>
 								</li>
-								<li>
+								<li class="py-2 py-md-1">
 									<a class="dropdown-item"
 										href="{{ path('app_event_list', {url: poll.url}) }}">
 										<i class="bi bi-calendar-check me-2"></i>
 										{{ 'events' | trans }}
 									</a>
 								</li>
-								<li>
+								<li class="py-2 py-md-1">
 									<a class="dropdown-item"
 										href="{{ path('app_choice_list', {url: poll.url}) }}">
 										<i class="bi bi-sliders me-2"></i>
 										{{ 'options' | trans }}
 									</a>
 								</li>
-								<li>
+								<li class="py-2 py-md-1">
 									<a class="dropdown-item"
 										href="{{ path('app_poll_edit', {url: poll.url}) }}">
 										<i class="bi bi-pencil-square me-2"></i>
@@ -64,7 +63,7 @@
 									</a>
 								</li>
 								{% if poll.participants|length > 0 %}
-									<li>
+									<li class="py-2 py-md-1">
 										<a class="dropdown-item"
 											href="{{ path('app_comment_list', {url: poll.url}) }}">
 											<i class="bi bi-chat-left-text me-2"></i>
@@ -72,7 +71,7 @@
 										</a>
 									</li>
 								{% endif %}
-								<li>
+								<li class="py-2 py-md-1">
 									<a class="dropdown-item"
 										href="{{ path('app_poll_archive', {url: poll.url}) }}">
 										<i class="bi bi-archive me-2"></i>
@@ -93,22 +92,22 @@
 						</a>
 
 						<ul class="dropdown-menu" aria-labelledby="aideDropdown" style="left: -4rem;">
-							<li>
+							<li class="py-2 py-md-1">
 								<a class="dropdown-item" href="{{ path('app_static_faq') }}">
 									<i class="bi bi-question-circle me-1"></i>{{ 'faq' | trans }}
 								</a>
 							</li>
-							<li>
+							<li class="py-2 py-md-1">
 								<a class="dropdown-item" href="{{ path('app_static_tips') }}">
 									<i class="bi bi-lightbulb me-1"></i>{{ 'tips' | trans }}
 								</a>
 							</li>
-							<li>
+							<li class="py-2 py-md-1">
 								<a class="dropdown-item" href="{{ path('app_static_about') }}">
 									<i class="bi bi-file-text me-1"></i>{{ 'about' | trans }}
 								</a>
 							</li>
-							<li>
+							<li class="py-2 py-md-1">
 								<a class="dropdown-item" href="{{ path('app_static_thanks') }}">
 									<i class="bi bi-hand-thumbs-up me-1"></i>{{ 'thanks' | trans }}
 								</a>

@@ -44,19 +44,27 @@ function displayFastLinks() {
 	fastLinks.forEach(poll => {
 		// Créer l'élément <li> avec la classe nav-item
 		const li = document.createElement('li');
-		li.className = 'd-flex align-items-center justify-content-between px-3 fastlink';
+		li.className = 'd-flex align-items-center justify-content-between py-2 py-md-1 fastlink';
 
 		// Créer le lien <a> avec la classe dropdown-item
 		const a = document.createElement('a');
 		a.href = `/${poll.url}`;
-		a.className = 'dropdown-item text-white';
-		a.textContent = poll.title;
+		a.className = 'dropdown-item';
+
+		// Créer l'icône "lien"
+		const icon = document.createElement('i');
+		icon.className = 'bi bi-caret-right me-1';
+		a.appendChild(icon);
+
+		const text = document.createElement('span');
+		text.textContent = poll.title;
+		a.appendChild(text);
 
 		// Créer le bouton pour supprimer ce sondage de la liste
 		const i = document.createElement('i');
 		i.className = 'bi bi-x';
 		const btnSupprimer = document.createElement('button');
-		btnSupprimer.className = 'btn btn-secondary btn-sm delete-button';
+		btnSupprimer.className = 'btn btn-light btn-sm delete-button';
 		btnSupprimer.setAttribute('data-id', poll.url);
 		btnSupprimer.appendChild(i);
 
