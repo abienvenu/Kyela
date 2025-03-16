@@ -102,7 +102,7 @@ td.disabled {
 }
 
 .btn-success.btn-gradient {
-	background-image: linear-gradient(45deg, #96c11f, #86b10f);
+	background-image: linear-gradient(45deg, #198754, #157347);
 }
 
 .btn-warning.btn-gradient {
@@ -127,4 +127,8 @@ td.disabled {
 
 .btn-dark.btn-gradient {
 	background-image: linear-gradient(45deg, #212529, #343A40);
+}
+
+.btn-kyela.btn-gradient {
+	background-image: linear-gradient(45deg, #96C11F, #86B10F);
 }
