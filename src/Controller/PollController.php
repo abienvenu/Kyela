@@ -33,7 +33,7 @@ class PollController extends AbstractController
 	{
 		$poll = (new Poll())
 			->setUrl(uniqid())
-			->setTitle($translator->trans('new.poll'))
+			->setTitle($translator->trans('poll') . ' ' . random_int(1, 1000))
 			->setHeadLines('')
 			->setBottomLines('')
 			->setAccessCode('');
