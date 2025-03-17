@@ -39,6 +39,7 @@
 								data-group-toggle="{{ groupNAme }}">
 								<i class="bi bi-layout-split"></i>
 								{{ groupNAme }}
+								<i class="bi bi-caret-down-fill toggle-icon"></i>
 							</a>
 						</th>
 						{% for event in events %}
@@ -50,7 +51,7 @@
 					{% else %}
 						<th scope="row" class="bg-light text-start">
 							<a class="btn btn-light border shadow participant">
-								<twig:ux:icon name="bi:person-fill" width="20" />
+								<i class="bi bi-person-fill"></i>
 								{{ participant.name }}
 							</a>
 						</th>

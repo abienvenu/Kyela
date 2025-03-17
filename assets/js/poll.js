@@ -83,9 +83,18 @@ document.addEventListener('DOMContentLoaded', () => {
 	document.querySelectorAll('.participant-separator').forEach(button => {
 		button.addEventListener('click', function () {
 			const groupName = this.getAttribute('data-group-toggle');
-			document.querySelectorAll(`tr[data-group="${groupName}"]`).forEach(row => {
-				row.classList.toggle('d-none');
-			});
+			const rows = document.querySelectorAll(`tr[data-group="${groupName}"]`);
+			const icon = this.querySelector('.toggle-icon');
+
+			// Basculer la visibilité des participants du groupe
+			rows.forEach(row => row.classList.toggle('d-none'));
+
+			// Changer l'icône du caret
+			if (icon.classList.contains('bi-caret-down-fill')) {
+				icon.classList.replace('bi-caret-down-fill', 'bi-caret-right-fill');
+			} else {
+				icon.classList.replace('bi-caret-right-fill', 'bi-caret-down-fill');
+			}
 		});
 	});
 });
