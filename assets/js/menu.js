@@ -82,6 +82,21 @@ function displayFastLinks() {
 		// Ajouter le lien dans le conteneur principal
 		container.appendChild(li);
 	});
+
+	// Nouveau sondage
+	const li = document.createElement('li');
+	li.className = 'd-flex align-items-center justify-content-between py-2 py-md-1 fastlink';
+	const a = document.createElement('a');
+	a.href = `/new`;
+	a.className = 'dropdown-item';
+	const icon = document.createElement('i');
+	icon.className = 'bi bi-calendar-plus me-1';
+	a.appendChild(icon);
+	const text = document.createElement('span');
+	text.textContent = newPollText;
+	a.appendChild(text);
+	li.appendChild(a);
+	container.appendChild(li);
 }
 
 // Supprime un sondage de la liste des polls récents.
