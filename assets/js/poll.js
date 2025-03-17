@@ -78,6 +78,16 @@ document.addEventListener('DOMContentLoaded', () => {
 			confirmationDialog.hide();
 		});
 	});
+
+	// Collapse des groupes de participants
+	document.querySelectorAll('.participant-separator').forEach(button => {
+		button.addEventListener('click', function () {
+			const groupName = this.getAttribute('data-group-toggle');
+			document.querySelectorAll(`tr[data-group="${groupName}"]`).forEach(row => {
+				row.classList.toggle('d-none');
+			});
+		});
+	});
 });
 
 // Switch des icônes en haut à droite quand on plie/déplie

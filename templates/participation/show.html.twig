@@ -29,13 +29,16 @@
 			</tr>
 		</thead>
 		<tbody>
+			{% set groupNAme = "-" %}
 			{% for participant in poll.participants %}
-				<tr data-name="{{ participant.name }}">
+				<tr data-name="{{ participant.name }}"{% if not participant.isSeparator %} data-group="{{ groupNAme }}"{% endif %}>
 					{% if participant.isSeparator %}
+						{% set groupNAme = participant.separatorName %}
 						<th scope="row" class="bg-light text-center">
-							<a class="btn btn-light border shadow participant-separator">
+							<a class="btn btn-light border shadow participant-separator"
+								data-group-toggle="{{ groupNAme }}">
 								<i class="bi bi-layout-split"></i>
-								{{ participant.separatorName }}
+								{{ groupNAme }}
 							</a>
 						</th>
 						{% for event in events %}
