@@ -28,9 +28,9 @@
 			{% if poll.participants | length %}
 				{{ render(controller('App\\Controller\\ParticipationController::show', {'poll': poll})) }}
 			{% else %}
-				<div class="text-center">
+				<div class="text-center p-4">
 					{{ 'no.participant' | trans }}
-					<a role="button" class="btn btn-primary btn-gradient"
+					<a role="button" class="btn btn-primary btn-gradient ms-2"
 						href="{{ path('app_participant_edit', {url: poll.url}) }}">
 						<i class="bi bi-person-plus-fill me-2"></i>
 						{{ 'add' | trans }}
