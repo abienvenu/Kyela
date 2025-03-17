@@ -25,7 +25,7 @@ add: Hinzufügen
 export: Export
 add.an.option: Option hinzufügen
 new.poll: Neue Umfrage
-new.poll.tooltip: Mit einer Umfrage erfährst Du, wann deine Freunde Zeit haben und kannst viele andere Fragen klären. Wenn Du mehrere Ereignisse planst, benenne die Umfragen nach deiner Gruppe, Schulklasse oder dem Verein. Oder benenne sie nach der Veranstaltung die geplant ist.
+new.poll.tooltip: Eine Umfrage ermöglicht es deinen Freunden, ihre Vorlieben zwischen mehreren Optionen anzugeben. Klicke auf die Schaltfläche, um deine private Umfrage zu erstellen und zu konfigurieren. Danach füge Teilnehmer hinzu und schlage Ereignisse vor.
 new.participant: Neuer Teilnehmer
 new.event: Neuer Ereignis
 new.comment: Neuer Kommentar

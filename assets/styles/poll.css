@@ -27,6 +27,10 @@ td, th {
 	overflow: scroll;
 }
 
+.participant-separator {
+	background-color: #D3D3D3;
+}
+
 /* Top line */
 table.sticky thead th {
 	position: -webkit-sticky;

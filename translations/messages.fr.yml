@@ -25,7 +25,7 @@ add: Ajouter
 export: Exporter
 add.an.option: Ajouter une option
 new.poll: Nouveau sondage
-new.poll.tooltip: Un sondage permet à vos amis d'indiquer leurs préférences entre plusieurs choix. Cliquez sur le bouton pour créer puis configurer votre sondage privé. Puis ajoutez des participants et proposez des dates.
+new.poll.tooltip: Un sondage permet à vos amis d'indiquer leurs préférences entre plusieurs choix. Cliquez sur le bouton pour créer puis configurer votre sondage privé. Puis ajoutez des participants et proposez des évènements.
 new.participant: Nouveau participant
 new.event: Nouvel évènement
 new.comment: Ajouter un commentaire

@@ -26,7 +26,7 @@ add: Add
 export: Export
 add.an.option: Add a choice
 new.poll: New poll
-new.poll.tooltip: A poll enable your friends to tell their availabilities for several dates (or their opinion for several questions). If you plan several events, name this poll afer the name of your association or friends group. Else, name it after the name of the event you plan.
+new.poll.tooltip: A poll allows your friends to indicate their preferences among multiple choices. Click the button to create and configure your private poll. Then add participants and suggest events.
 new.participant: New participant
 new.event: New event
 new.comment: New comment
