@@ -24,7 +24,7 @@
 	{% endif %}
 
 	<div class="container-fluid mt-4">
-		<div class="card shadow-lg p-4 position-relative">
+		<div class="card shadow-lg position-relative">
 			{% if poll.participants | length %}
 				{{ render(controller('App\\Controller\\ParticipationController::show', {'poll': poll})) }}
 			{% else %}
