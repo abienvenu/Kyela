@@ -3,7 +3,10 @@
 {% block body %}
 
 	<div class="container-fluid mt-4">
-		<div class="card shadow-lg p-4 position-relative">
+		<div class="card shadow-lg p-2 position-relative">
+			<div class="text-center">
+				<h1>{{ poll.title }}</h1>
+			</div>
 			{{ render(controller('App\\Controller\\EventController::show', {'poll': poll})) }}
 		</div>
 	</div>
