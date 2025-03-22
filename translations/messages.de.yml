@@ -100,7 +100,7 @@ delete.confirmation: Bestätigung löschen
 delete.poll.confirmation: Möchten Sie diese Umfrage wirklich löschen?
 deleted: Gelöscht
 quit.nosave: Sie haben ungespeicherte Änderungen. Möchten Sie wirklich verlassen?
-poll.created %url%: Deine Umfrage wurde angelegt. Der Link für deine Teilnehmer lautet <pre id="sondageUrl" class="p-2 bg-light border rounded">%url%</pre><button class="btn btn-outline-secondary" type="button" id="copyButton" data-copy-text="URL kopieren" data-copied-text="Kopiert !">URL kopieren</button><br /> Sie können die URL im Formular unten ändern.
+poll.created %url%: Deine Umfrage wurde angelegt. Der Link für deine Teilnehmer lautet <pre id="sondageUrl" class="p-2 bg-light border rounded">%url%</pre><button class="btn btn-outline-secondary" type="button" id="copyButton" data-copy-text="URL kopieren" data-copied-text="Kopiert !">URL kopieren</button><br /> Sie können die URL über das Menü Bearbeiten >> Umfrage anpassen.
 poll.modified %url%: Deine Umfrage wurde geändert. Der neue Link für deine Teilnehmer lautet <pre id="sondageUrl" class="p-2 bg-light border rounded">%url%</pre><button class="btn btn-outline-secondary" type="button" id="copyButton" data-copy-text="URL kopieren" data-copied-text="Kopiert !">URL kopieren</button>
 archive.access: Zum Archiv
 past.events: Frühere Ereignisse

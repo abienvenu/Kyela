@@ -29,7 +29,7 @@ class PollController extends AbstractController
 	 * Create a new poll
 	 */
 	#[Route('/new')]
-	public function new(EntityManagerInterface $em, TranslatorInterface $translator): Response
+	public function new(Request $request, EntityManagerInterface $em, TranslatorInterface $translator): Response
 	{
 		$poll = (new Poll())
 			->setUrl(uniqid())
@@ -63,13 +63,18 @@ class PollController extends AbstractController
 			->addChoice($maybe)
 			->addChoice($no);
 
-		$em->persist($poll);
-		$em->flush();
+		$form = $this->createForm(PollType::class, $poll);
+		$form->handleRequest($request);
+		if ($form->isSubmitted() && $form->isValid()) {
+			$em->persist($poll);
+			$em->flush();
+			$url = $this->generateUrl('app_poll_show', ['url' => $poll->getUrl()], UrlGeneratorInterface::ABSOLUTE_URL);
+			$this->addFlash('success', $translator->trans('poll.created %url%', ['%url%' => $url]));
 
-		$url = $this->generateUrl('app_poll_edit', ['url' => $poll->getUrl()], UrlGeneratorInterface::ABSOLUTE_URL);
-		$this->addFlash('success', $translator->trans('poll.created %url%', ['%url%' => $url]));
+			return $this->redirectToRoute('app_poll_show', ['url' => $poll->getUrl()]);
+		}
 
-		return new RedirectResponse($url);
+		return $this->render('poll/edit.html.twig', ['form' => $form, 'poll' => $poll]);
 	}
 
 	/**
