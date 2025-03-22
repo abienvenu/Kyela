@@ -26,7 +26,8 @@
         "symfony/validator": "7.2.*",
         "symfony/yaml": "7.2.*",
         "twig/extra-bundle": "^3.18",
-        "twig/intl-extra": "^3.18"
+        "twig/intl-extra": "^3.18",
+        "twig/twig": "^2.12|^3.0"
     }
     ,
     "require-dev": {

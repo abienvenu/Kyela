@@ -1,0 +1,13 @@
+{% extends 'layout.html.twig' %}
+
+{% block body -%}
+	<div class="container text-center">
+		<p class="p-4"><img src="{{ asset('img/404.png') }}" class="img-fluid" alt="404" /></p>
+		<h1>{{ '404.oops' | trans }}</h1>
+		<p class="fs-6 p-4">{{ '404.maybe' | trans }}</p>
+		<a role="button" href="/" class="btn btn-success btn-kyela btn-lg btn-gradient rounded-pill px-4">
+			<i class="bi bi-house-fill"></i>
+			{{ '404.home' | trans }}
+		</a>
+	</div>
+{% endblock %}

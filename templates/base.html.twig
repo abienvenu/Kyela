@@ -1,4 +1,5 @@
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="{{ app.request.locale }}">
 	<head>
 		<title>Kyélà</title>
 		<meta name="viewport" content="width=device-width, initial-scale=0.8">
@@ -20,6 +21,11 @@
 		<link rel="icon" href="{{ asset('img/favicon.ico') }}" type="image/x-icon">
 		<link rel="icon" href="{{ asset('img/favicon.png') }}" type="image/png">
 		<link rel="apple-touch-icon" href="{{ asset('img/apple-touch-icon.png') }}">
+		<!-- Fonte Nunito -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+			rel="stylesheet">
 		<!-- Développement Ouille! -->
 		<link href="https://labo.ouille.eu/kyela/surcharge.css" rel="stylesheet" type="text/css">
 		<link href="https://labo.ouille.eu/kyela/responsive.css" rel="stylesheet" type="text/css">

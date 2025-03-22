@@ -144,3 +144,6 @@ thank_you.visit_site: "Visit the site"
 thank_you.contributors_title: "A big thank you to the contributors!"
 thank_you.contributors_message: "This project wouldn't have been possible without the incredible efforts of the Open Source community."
 thank_you.developers_acknowledgment: "Thanks to all the developers who make code free and accessible to everyone."
+404.oops: Oops! The requested page does not exist.
+404.maybe: Maybe you have modified the URL of your survey...?
+404.home: Return to the Kyélà homepage

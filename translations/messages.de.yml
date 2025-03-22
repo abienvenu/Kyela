@@ -133,3 +133,6 @@ thank_you.visit_site: "Besuche die Website"
 thank_you.contributors_title: "Ein großes Dankeschön an die Mitwirkenden!"
 thank_you.contributors_message: "Dieses Projekt wäre ohne die unglaublichen Bemühungen der Open-Source-Community nicht möglich gewesen."
 thank_you.developers_acknowledgment: "Danke an alle Entwickler, die den Code frei und zugänglich für alle machen."
+404.oops: Oje! Die angeforderte Seite existiert nicht.
+404.maybe: Vielleicht haben Sie die URL Ihrer Umfrage geändert...?
+404.home: Zur Kyélà-Startseite zurückkehren

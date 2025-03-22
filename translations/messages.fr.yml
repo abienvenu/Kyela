@@ -143,3 +143,6 @@ thank_you.visit_site: "Visiter le site"
 thank_you.contributors_title: "Un grand merci aux contributeurs&nbsp;!"
 thank_you.contributors_message: "Ce projet n'aurait pas été possible sans les efforts incroyables de la communauté Open Source."
 thank_you.developers_acknowledgment: "Merci à tous les développeurs qui rendent le code libre et accessible à tous."
+404.oops: Oups ! La page demandée n'existe pas.
+404.maybe: Peut-être avez-vous modifié l'URL de votre sondage... ?
+404.home: Retourner à la page d'accueil de Kyélà
