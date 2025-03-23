@@ -113,12 +113,16 @@ document.addEventListener('DOMContentLoaded', () => {
 		});
 	});
 
-	// Restauration de la ligne sélectionnée
+	// Stockage de la ligne sélectionnée
 	const allRows = document.querySelectorAll('table.participation tbody tr');
-	const selectedParticipant = localStorage.getItem('selected_participant');
-	if (selectedParticipant) {
+	if (!localStorage.getItem('selected_participants')) {
+		localStorage.setItem('selected_participants', JSON.stringify({}));
+	}
+	// Restauration de la ligne sélectionnée
+	const selectedParticipants = JSON.parse(localStorage.getItem('selected_participants'));
+	if (selectedParticipants[pollUrl]) {
 		const rowToSelect = Array.from(allRows)
-			.find(row => row.getAttribute('data-name') === JSON.parse(selectedParticipant));
+			.find(row => row.getAttribute('data-name') === selectedParticipants[pollUrl]);
 		if (rowToSelect) {
 			selectRow(rowToSelect);
 		}
@@ -134,14 +138,15 @@ document.addEventListener('DOMContentLoaded', () => {
 			if (row.classList.contains('selected')) {
 				clearSelection();
 				// On supprime la mémorisation de la sélection
-				localStorage.removeItem('selected_participant');
+				selectedParticipants.splice(pollUrl, 1);
 			} else {
 				// On ajoute l'effet dimmed et désactive les cellules sur toutes les lignes...
 				clearSelection();
 				selectRow(row);
 				// On mémorise la sélection
-				localStorage.setItem('selected_participant', JSON.stringify(participantName));
+				selectedParticipants[pollUrl] = participantName;
 			}
+			localStorage.setItem('selected_participants', JSON.stringify(selectedParticipants));
 		});
 	});
 
