@@ -35,25 +35,24 @@ class ParticipantController extends AbstractController
 		}
 
 		$priority = 1;
-		// Mise à jour des participants existants
-		if (isset($data['participants'])) {
-			foreach ($data['participants'] as $id => $participantData) {
-				$participant = $em->getRepository(Participant::class)->find($id);
-				if ($participant) {
-					$participant->setName($participantData['name']);
-					$participant->setPriority($priority++);
+		// Mise à jour des participants
+		if (isset($data['participants_name'])) {
+			foreach ($data['participants_name'] as $id => $participantName) {
+				if (isset($data['participants_id'][$id]) && $data['participants_id'][$id]) {
+					// Participant existant
+					$participant = $em->getRepository(Participant::class)->find($data['participants_id'][$id]);
+					if ($participant && $participant->getPoll()->getId() === $poll->getId()) {
+						$participant->setName($participantName);
+						$participant->setPriority($priority++);
+					}
+				} else {
+					// Nouveau participant
+					$participant = (new Participant())
+						->setName($participantName)
+						->setPriority($priority++)
+						->setPoll($poll);
+					$em->persist($participant);
 				}
-			}
-		}
-
-		// Ajout de nouveaux participants
-		if (isset($data['new_participants'])) {
-			foreach ($data['new_participants'] as $name) {
-				$participant = new Participant();
-				$participant->setName($name);
-				$participant->setPriority($priority++);
-				$participant->setPoll($poll);
-				$em->persist($participant);
 			}
 		}
 

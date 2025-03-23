@@ -23,8 +23,9 @@
 									<i class="bi bi-list fs-4" style="cursor: grab;"></i>
 								</td>
 								<td>
-									<input type="text" name="participants[{{ participant.id }}][name]"
+									<input type="text" name="participants_name[]"
 										value="{{ participant.name }}" class="form-control form-control-sm" required>
+									<input type="hidden" name="participants_id[]" value="{{ participant.id }}">
 								</td>
 								<td>
 									<button type="button" class="btn btn-secondary delete-participant">

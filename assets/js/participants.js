@@ -55,9 +55,12 @@ document.addEventListener('DOMContentLoaded', function () {
 			if (name) {
 				let row = document.createElement('tr');
 				row.innerHTML = `
-                    <td class="handle text-center"><i class="bi bi-list fs-4" style="cursor: grab;"></i></td>
-                    <td><input type="text" name="new_participants[]" value="${name}" class="form-control form-control-sm" required></td>
-                    <td><button type="button" class="btn btn-secondary delete-participant"><i class="bi bi-trash"></i></button></td>
+<td class="handle text-center"><i class="bi bi-list fs-4" style="cursor: grab;"></i></td>
+<td>
+  <input type="text" name="participants_name[]" value="${name}" class="form-control form-control-sm" required>
+  <input type="hidden" name="participants_id[]" value="">
+</td>
+<td><button type="button" class="btn btn-secondary delete-participant"><i class="bi bi-trash"></i></button></td>
                 `;
 				tbody.appendChild(row);
 				row.querySelector('.delete-participant').addEventListener('click', function () {
