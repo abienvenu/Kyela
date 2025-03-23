@@ -94,6 +94,27 @@ document.addEventListener('DOMContentLoaded', () => {
 		});
 	});
 
+	// Stockage des groupes collapsés
+	if (!localStorage.getItem('collapsed_groups')) {
+		localStorage.setItem('collapsed_groups', JSON.stringify({}));
+	}
+	const collapsedGroups = JSON.parse(localStorage.getItem('collapsed_groups'));
+	if (!collapsedGroups[pollUrl]) {
+		collapsedGroups[pollUrl] = [];
+	}
+
+	// Restauration de l'état de collapse
+	collapsedGroups[pollUrl].forEach(groupName => {
+		const toggleElement = document.querySelector(`a[data-group-toggle="${groupName}"]`);
+		const rowToCollapse = toggleElement ? toggleElement.closest('tr') : null;
+		if (rowToCollapse) {
+			const rows = document.querySelectorAll(`tr[data-group="${groupName}"]`);
+			rows.forEach(row => row.classList.toggle('d-none'));
+			const icon = rowToCollapse.querySelector('.toggle-icon');
+			icon.classList.replace('bi-caret-down-fill', 'bi-caret-right-fill');
+		}
+	});
+
 	// Collapse des groupes de participants
 	document.querySelectorAll('.participant-separator').forEach(button => {
 		button.addEventListener('click', function () {
@@ -104,17 +125,26 @@ document.addEventListener('DOMContentLoaded', () => {
 			// Basculer la visibilité des participants du groupe
 			rows.forEach(row => row.classList.toggle('d-none'));
 
-			// Changer l'icône du caret
 			if (icon.classList.contains('bi-caret-down-fill')) {
+				// Collapse
 				icon.classList.replace('bi-caret-down-fill', 'bi-caret-right-fill');
+				if (collapsedGroups[pollUrl].indexOf(groupName) === -1) {
+					collapsedGroups[pollUrl].push(groupName);
+				}
 			} else {
+				// Expand
 				icon.classList.replace('bi-caret-right-fill', 'bi-caret-down-fill');
+				if (collapsedGroups[pollUrl].indexOf(groupName) !== -1) {
+					collapsedGroups[pollUrl].splice(collapsedGroups[pollUrl].indexOf(groupName), 1);
+				}
 			}
+			localStorage.setItem('collapsed_groups', JSON.stringify(collapsedGroups));
 		});
 	});
 
-	// Stockage de la ligne sélectionnée
 	const allRows = document.querySelectorAll('table.participation tbody tr');
+
+	// Stockage de la ligne sélectionnée
 	if (!localStorage.getItem('selected_participants')) {
 		localStorage.setItem('selected_participants', JSON.stringify({}));
 	}

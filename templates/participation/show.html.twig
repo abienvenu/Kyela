@@ -36,16 +36,16 @@
 			</tr>
 		</thead>
 		<tbody>
-			{% set groupNAme = "-" %}
+			{% set groupName = "-" %}
 			{% for participant in poll.participants %}
-				<tr data-name="{{ participant.name }}"{% if not participant.isSeparator %} data-group="{{ groupNAme }}"{% endif %}>
+				<tr data-name="{{ participant.name }}"{% if not participant.isSeparator %} data-group="{{ groupName }}"{% endif %}>
 					{% if participant.isSeparator %}
-						{% set groupNAme = participant.separatorName %}
+						{% set groupName = participant.separatorName %}
 						<th scope="row" class="bg-light text-center">
 							<a class="btn btn-light border shadow participant-separator"
-								data-group-toggle="{{ groupNAme }}">
+								data-group-toggle="{{ groupName }}">
 								<i class="bi bi-layout-split"></i>
-								{{ groupNAme }}
+								{{ groupName }}
 								<i class="bi bi-caret-down-fill toggle-icon"></i>
 							</a>
 						</th>
