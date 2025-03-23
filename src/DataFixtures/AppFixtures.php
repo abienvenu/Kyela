@@ -92,7 +92,7 @@ class AppFixtures extends Fixture
 
 	protected function loadPicnic(ObjectManager $manager): void
 	{
-		$names = ['Élise', 'Jules', 'Marie', 'Romain', 'Margaux'];
+		$names = ['Sofia', 'Marco', 'Emma', 'Omar', 'Alex'];
 		$events = [
 			[
 				'name' => 'Date 1',
@@ -114,16 +114,16 @@ class AppFixtures extends Fixture
 			['name' => 'Absent', 'value' => 0, 'color' => 'gray', 'priority' => 3, 'icon' => 'airplane'],
 		];
 		$participations = [
-			['who' => 'Élise', 'when' => 'Date 1', 'choice' => 'Sucré'],
-			['who' => 'Jules', 'when' => 'Date 1', 'choice' => 'Salé'],
-			['who' => 'Marie', 'when' => 'Date 1', 'choice' => 'Boisson'],
-			['who' => 'Romain', 'when' => 'Date 1', 'choice' => 'Sucré'],
-			['who' => 'Margaux', 'when' => 'Date 1', 'choice' => 'Salé'],
-			['who' => 'Élise', 'when' => 'Date 2', 'choice' => 'Sucré'],
-			['who' => 'Jules', 'when' => 'Date 2', 'choice' => 'Absent'],
-			['who' => 'Marie', 'when' => 'Date 2', 'choice' => 'Boisson'],
-			['who' => 'Romain', 'when' => 'Date 2', 'choice' => 'Sucré'],
-			['who' => 'Margaux', 'when' => 'Date 2', 'choice' => 'Salé'],
+			['who' => 'Sofia', 'when' => 'Date 1', 'choice' => 'Sucré'],
+			['who' => 'Marco', 'when' => 'Date 1', 'choice' => 'Salé'],
+			['who' => 'Emma', 'when' => 'Date 1', 'choice' => 'Boisson'],
+			['who' => 'Omar', 'when' => 'Date 1', 'choice' => 'Sucré'],
+			['who' => 'Alex', 'when' => 'Date 1', 'choice' => 'Salé'],
+			['who' => 'Sofia', 'when' => 'Date 2', 'choice' => 'Sucré'],
+			['who' => 'Marco', 'when' => 'Date 2', 'choice' => 'Absent'],
+			['who' => 'Emma', 'when' => 'Date 2', 'choice' => 'Boisson'],
+			['who' => 'Omar', 'when' => 'Date 2', 'choice' => 'Sucré'],
+			['who' => 'Alex', 'when' => 'Date 2', 'choice' => 'Salé'],
 		];
 		$this->resetPoll(
 			$manager,
@@ -142,7 +142,7 @@ class AppFixtures extends Fixture
 
 	protected function loadHolidays(ObjectManager $manager): void
 	{
-		$names = ['Jean', 'Lisa', 'Étienne', 'Martine', 'Lilou'];
+		$names = ['Léo', 'Maya', 'Diego', 'Océane', 'Kai'];
 		$events = [
 			['name' => 'Vacances de février'],
 			['name' => 'Vacances de Pâques'],
@@ -156,21 +156,21 @@ class AppFixtures extends Fixture
 			['name' => 'Je ne pars pas', 'value' => 0, 'color' => 'gray', 'priority' => 3, 'icon' => 'house'],
 		];
 		$participations = [
-			['who' => 'Jean', 'when' => 'Vacances de février', 'choice' => 'Les Alpes'],
-			['who' => 'Lisa', 'when' => 'Vacances de février', 'choice' => 'Les Alpes'],
-			['who' => 'Étienne', 'when' => 'Vacances de février', 'choice' => 'Les Canaries'],
-			['who' => 'Martine', 'when' => 'Vacances de février', 'choice' => 'Les Pyrénées'],
-			['who' => 'Lilou', 'when' => 'Vacances de février', 'choice' => 'Les Alpes'],
-			['who' => 'Jean', 'when' => 'Vacances de Pâques', 'choice' => 'Les Alpes'],
-			['who' => 'Lisa', 'when' => 'Vacances de Pâques', 'choice' => 'Je ne pars pas'],
-			['who' => 'Étienne', 'when' => 'Vacances de Pâques', 'choice' => 'Les Canaries'],
-			['who' => 'Martine', 'when' => 'Vacances de Pâques', 'choice' => 'Les Pyrénées'],
-			['who' => 'Lilou', 'when' => 'Vacances de Pâques', 'choice' => 'Je ne pars pas'],
-			['who' => 'Jean', 'when' => 'Vacances d\'été', 'choice' => 'Les Canaries'],
-			['who' => 'Lisa', 'when' => 'Vacances d\'été', 'choice' => 'Les Canaries'],
-			['who' => 'Étienne', 'when' => 'Vacances d\'été', 'choice' => 'Les Canaries'],
-			['who' => 'Martine', 'when' => 'Vacances d\'été', 'choice' => 'Peu importe'],
-			['who' => 'Lilou', 'when' => 'Vacances d\'été', 'choice' => 'Les Canaries'],
+			['who' => 'Léo', 'when' => 'Vacances de février', 'choice' => 'Les Alpes'],
+			['who' => 'Maya', 'when' => 'Vacances de février', 'choice' => 'Les Alpes'],
+			['who' => 'Diego', 'when' => 'Vacances de février', 'choice' => 'Les Canaries'],
+			['who' => 'Océane', 'when' => 'Vacances de février', 'choice' => 'Les Pyrénées'],
+			['who' => 'Kai', 'when' => 'Vacances de février', 'choice' => 'Les Alpes'],
+			['who' => 'Léo', 'when' => 'Vacances de Pâques', 'choice' => 'Les Alpes'],
+			['who' => 'Maya', 'when' => 'Vacances de Pâques', 'choice' => 'Je ne pars pas'],
+			['who' => 'Diego', 'when' => 'Vacances de Pâques', 'choice' => 'Les Canaries'],
+			['who' => 'Océane', 'when' => 'Vacances de Pâques', 'choice' => 'Les Pyrénées'],
+			['who' => 'Kai', 'when' => 'Vacances de Pâques', 'choice' => 'Je ne pars pas'],
+			['who' => 'Léo', 'when' => 'Vacances d\'été', 'choice' => 'Les Canaries'],
+			['who' => 'Maya', 'when' => 'Vacances d\'été', 'choice' => 'Les Canaries'],
+			['who' => 'Diego', 'when' => 'Vacances d\'été', 'choice' => 'Les Canaries'],
+			['who' => 'Océane', 'when' => 'Vacances d\'été', 'choice' => 'Peu importe'],
+			['who' => 'Kai', 'when' => 'Vacances d\'été', 'choice' => 'Les Canaries'],
 		];
 		$this->resetPoll(
 			$manager,
