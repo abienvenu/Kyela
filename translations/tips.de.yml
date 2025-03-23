@@ -6,6 +6,10 @@ how.to.reorder.participants:
     q: Wie kann man die Reihenfolge der Teilnehmer ändern?
     a: Klicken Sie auf die Schaltfläche „Teilnehmer“, klicken Sie auf die drei Linien links neben einem Namen und ziehen Sie ihn nach oben oder unten, während Sie die linke Maustaste gedrückt halten (oder mit dem Finger auf dem Handy). Klicken Sie dann auf die Schaltfläche „Speichern“.
 
+how.to.create.groupe:
+    q: Wie erstellt man Teilnehmergruppen?
+    a: Erstellen Sie einen Teilnehmer, dessen Name mit "--" beginnt und endet ("-- Gruppe 1 --"). Die folgenden Teilnehmer gehören dann zu dieser Gruppe. Klicken Sie anschließend auf die Schaltfläche "Speichern".
+
 how.to.reorder.choices:
     q: Wie kann man die Reihenfolge der den Teilnehmern präsentierten Optionen ändern?
     a: Klicken Sie auf die Schaltfläche „Optionen“, klicken Sie auf die drei Linien links neben einer Option und ziehen Sie sie nach oben oder unten, während Sie die linke Maustaste gedrückt halten (oder mit dem Finger auf dem Handy).

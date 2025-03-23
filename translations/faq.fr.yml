@@ -6,10 +6,10 @@ doodle.difference:
     a: Dans les sondages Kyélà, les réponses possibles sont entièrement personnalisables (texte, couleur et icônes). Kyélà est entièrement gratuit (pas de "premium"), anonyme, sans inscription et sans publicité. En prime, c'est open source, ce qui signifie que tout le monde peut installer une copie de Kyélà sur son propre serveur.
 how.many.options:
     q: Quels choix sont proposés à chaque participant ?
-    a: Trois par défaut (oui/peut-être/non), mais ces choix peuvent être modifiés ou élargis en cliquant sur "Éditer les options".
+    a: Il y a trois par défaut (oui/peut-être/non), mais ces choix peuvent être modifiés ou élargis en cliquant sur "Modifier > Options".
 recurrent.events:
     q: Comment gérer les événements multiples ou récurrents ?
-    a: Un seul sondage suffit. Il faut proposer les prochaines dates possibles. Les anciennes dates passent automatiquement dans les archives (consultables) une fois l'événement passé. Il est plus pratique d'utiliser un même sondage tout au long de l'année plutôt que de jongler avec plusieurs sondages.
+    a: Un seul sondage suffit pour gérer plusieurs évènements. Cliquez sur "Modifier > Évènements" puis "Ajouter". Les anciennes dates passent automatiquement dans les archives (consultables) une fois l'événement passé. Il est plus pratique d'utiliser un même sondage tout au long de l'année plutôt que de jongler avec plusieurs sondages.
 short.url:
     q: L'adresse web de mon sondage est trop longue. Puis-je en avoir une plus facile à retenir ?
     a: Oui, il suffit d'éditer votre sondage et de changer l'URL. Attention, si votre URL est trop facile à deviner, des personnes non invitées pourraient trouver votre sondage.
@@ -21,10 +21,10 @@ what.permissions:
     a: Il n'y en a pas. Tout le monde peut tout faire sur le sondage, ce qui simplifie son utilisation.
 about.vandalism:
     q: Mon sondage risque-t-il d'être vandalisé ?
-    a: Si des personnes veulent se rencontrer, c'est qu'elles souhaitent collaborer. Sinon, il vaut mieux qu'elles ne se rencontrent pas !
+    a: Si des personnes veulent se rencontrer, c'est qu'elles souhaitent collaborer de manière constructive. Sinon, il vaut mieux qu'elles ne se rencontrent pas !
 registration:
     q: Est-il possible de créer un compte ou de s'enregistrer ?
-    a: Non. Cela n'apporterait rien de plus et alourdirait la gestion.
+    a: Non. Cela rendrait l'utilisation plus complexe.
 examples:
     q: Pour quelles occasions peut-on utiliser Kyélà ?
-    a: Pour organiser des repas, des assemblées associatives, des rencontres sportives ou musicales, des ateliers divers... Dans ces situations, les organisateurs cherchent à trouver la date qui convient au plus grand nombre et à estimer le nombre de participants. Kyélà peut aussi servir à réaliser des sondages d'opinion en proposant non pas des dates, mais des questions.
+    a: Pour organiser des repas, des assemblées associatives, des rencontres sportives ou musicales, des ateliers divers... Dans ces situations, les organisateurs cherchent à trouver la date qui convient au plus grand nombre et à estimer le nombre de participants. Kyélà peut aussi servir à réaliser des sondages d'opinion en proposant non pas des évènements, mais des questions.

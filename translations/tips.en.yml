@@ -1,14 +1,18 @@
 how.to.modify.participant:
     q: How to modify participant names?
-    a: Click on the "Participants" button, edit the names, and click "Save".
+    a: Click on the "Edit > Participants" menu, edit the names, and click "Save".
 
 how.to.reorder.participants:
     q: How to change the order of participants?
-    a: Click on the "Participants" button, click on the three lines to the left of a name, and drag it up or down while holding the left mouse button (or using your finger on mobile). Then click the "Save" button.
+    a: Click on the "Edit > Participants" menu, click on the three lines to the left of a name, and drag it up or down while holding the left mouse button (or using your finger on mobile). Then click the "Save" button.
+
+how.to.create.groupe:
+    q: How to create participant groups?
+    a: Create a participant whose name starts and ends with "--" ("-- Group 1 --"). The following participants will belong to this group. Then click the "Save" button.
 
 how.to.reorder.choices:
     q: How to change the order of options presented to participants?
-    a: Click on the "Options" button, click on the three lines to the left of an option, and drag it up or down while holding the left mouse button (or using your finger on mobile).
+    a: Click on the "Edit > Options" menu, click on the three lines to the left of an option, and drag it up or down while holding the left mouse button (or using your finger on mobile).
 
 how.to.put.links:
     q: How to insert links in the header or footer?

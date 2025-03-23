@@ -14,12 +14,12 @@
             {% for question_answer in tips %}
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="heading{{ loop.index }}">
-                        <button class="accordion-button {% if not loop.first %}collapsed{% endif %}" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ loop.index }}" aria-expanded="{% if loop.first %}true{% else %}false{% endif %}" aria-controls="collapse{{ loop.index }}">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ loop.index }}" aria-expanded="{% if loop.first %}true{% else %}false{% endif %}" aria-controls="collapse{{ loop.index }}">
                             <i class="bi bi-question-circle me-2"></i> <!-- Icône pour les questions -->
                             <strong>{{ question_answer.q }}</strong>
                         </button>
                     </h2>
-                    <div id="collapse{{ loop.index }}" class="accordion-collapse collapse {% if loop.first %}show{% endif %}" aria-labelledby="heading{{ loop.index }}" data-bs-parent="#accordion">
+                    <div id="collapse{{ loop.index }}" class="accordion-collapse collapse" aria-labelledby="heading{{ loop.index }}" data-bs-parent="#accordion">
                         <div class="accordion-body bg-light text-dark"> <!-- Fond clair pour les réponses -->
                             <i class="bi bi-chat-dots me-2"></i> <!-- Icône pour les réponses -->
                             <em>{{ question_answer.a }}</em> <!-- Italic pour les réponses -->

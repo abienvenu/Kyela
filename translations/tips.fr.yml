@@ -1,14 +1,18 @@
 how.to.modify.participant:
     q: Comment modifier le nom des participants ?
-    a: Cliquez sur le bouton "Participants", modifiez les noms, et cliquez sur "Enregistrer"
+    a: Cliquez sur le menu "Modifier > Participants", modifiez les noms, et cliquez sur "Enregistrer"
 
 how.to.reorder.participants:
     q: Comment modifier l'ordre des participants ?
-    a: Cliquez sur le bouton "Participants", cliquez sur les trois traits à gauche d'un nom, et faites glisser vers le haut ou vers le bas tout en maintenant le bouton gauche de la souris enfoncé (ou avec le doigt sur mobile). Puis cliquez sur le bouton "Enregistrer".
+    a: Cliquez sur le menu "Modifier > Participants", cliquez sur les trois traits à gauche d'un nom, et faites glisser vers le haut ou vers le bas tout en maintenant le bouton gauche de la souris enfoncé (ou avec le doigt sur mobile). Puis cliquez sur le bouton "Enregistrer".
+
+how.to.create.groupe:
+    q: Comment faire des groupes de participants ?
+    a: Créez un participant dont le nom commence et termine par "--" ("-- Groupe 1 --"). Les participants suivants appartiendront à ce groupe. Puis cliquez sur le bouton "Enregistrer".
 
 how.to.reorder.choices:
     q: Comment modifier l'ordre des options présentées aux participants ?
-    a: Cliquez sur le bouton "Options", cliquez sur les trois traits à gauche d'une option, et faites glisser vers le haut ou vers le bas tout en maintenant le bouton gauche de la souris enfoncé (ou avec le doigt sur mobile).
+    a: Cliquez sur le bouton "Modifier > Options", cliquez sur les trois traits à gauche d'une option, et faites glisser vers le haut ou vers le bas tout en maintenant le bouton gauche de la souris enfoncé (ou avec le doigt sur mobile).
 
 how.to.put.links:
     q: Comment mettre des liens dans l'en-tête ou le pied de page ?
