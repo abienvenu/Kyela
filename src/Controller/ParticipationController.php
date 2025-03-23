@@ -76,6 +76,7 @@ class ParticipationController extends AbstractController
 			'name' => $choice->getName(),
 			'color' => $choice->getColor(),
 			'score' => $event->getParticipationsScore(),
+			'groupScore' => $event->getParticipationsSubScore($participant->getGroup()),
 		]);
 	}
 

@@ -116,4 +116,19 @@ class Participant
 	{
 		return preg_replace('/^(==|--|@@)(.*)(==|--|@@)$/', '$2', $this->name);
 	}
+
+	public function getGroup(): string
+	{
+		$group = '';
+		foreach ($this->getPoll()->getParticipants() as $participant) {
+			if ($this->getName() === $participant->getName()) {
+				return $group;
+			}
+			if ($participant->isSeparator()) {
+				$group = $participant->getSeparatorName();
+			}
+		}
+
+		return $group;
+	}
 }

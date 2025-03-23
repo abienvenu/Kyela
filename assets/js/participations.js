@@ -24,12 +24,24 @@ document.addEventListener('DOMContentLoaded', () => {
 						deleteButton.classList.add('d-none');
 					}
 
-					// Mise à jour des compteurs
+					// Mise à jour du compteur en bas de table
 					const cell = opener.closest('td');
 					opener.closest('table')
 						.querySelector('tfoot')
 						.querySelector('tr').cells[cell.cellIndex]
 						.querySelector('span').innerHTML = data.score;
+
+					// Mise à jour du compteur de groupe
+					let row = cell.closest('tr');
+					let previousRow = row.previousElementSibling;
+					while (previousRow) {
+						if (previousRow.querySelector('th > a.participant-separator')) {
+							previousRow.cells[cell.cellIndex].querySelector('span').innerHTML = data.groupScore;
+						}
+						previousRow = previousRow.previousElementSibling;
+					}
+
+					// Mise à jour du compteur dans la table des évènements
 					const eventTable = document.getElementById('eventTable');
 					if (eventTable) {
 						eventTable
