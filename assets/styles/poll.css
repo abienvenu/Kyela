@@ -9,10 +9,6 @@ tbody {
 	overflow: scroll;
 }
 
-td, th {
-	white-space: nowrap;
-}
-
 @media (max-width: 991.98px) {
 	.events-container {
 		position: relative;
@@ -60,6 +56,10 @@ table.sticky tr > :first-child {
 	position: -webkit-sticky;
 	position: sticky;
 	left: -1px;
+}
+
+table.sticky td, table.sticky th {
+	white-space: nowrap;
 }
 
 .subtitle {

@@ -1,12 +1,6 @@
 {% extends 'layout.html.twig' %}
 
 {% block body %}
-	<style>
-		.table td, .table th {
-			white-space: normal !important; /* Permet le retour à la ligne */
-			overflow-wrap: break-word;
-		}
-	</style>
 	<div class="container-fluid mt-4">
 		<div class="card shadow-lg bg-light p-4 position-relative mb-4 text-center">
 			<h1>{{ 'events' | trans }} - {{ poll.title }}</h1>

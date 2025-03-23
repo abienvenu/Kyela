@@ -21,7 +21,7 @@
 							<tr data-id="{{ comment.id }}">
 								<td class="text-start">{{ comment.author }}</td>
 								<td class="text-start">
-									<pre>{{ comment.content }}</pre>
+									{{ comment.content }}
 								</td>
 								<td class="d-none d-lg-table-cell">{{ comment.datetime | format_datetime(
 										locale: app.request.locale,
