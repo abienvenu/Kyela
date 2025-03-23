@@ -1,6 +1,6 @@
 {% set participation = participationsArray[event.id][participant.id] ?? null %}
 <div>
-	<button class="btn border {% if not isArchive %}dropdown-toggle{% endif %} choice-{{ participation ? participation.choice.color : "none" }} shadow"
+	<button class="btn border {% if not isArchive %}dropdown-toggle{% endif %} choice-{{ participation ? participation.choice.color : "none" }}"
 		type="button"
 		{% if not isArchive %}data-bs-toggle="dropdown"{% endif %} aria-expanded="false">
 		{% if participation %}

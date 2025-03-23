@@ -2,7 +2,7 @@
 
 {% block body %}
 	<div class="container mt-4">
-		<div class="card shadow-lg bg-light p-4 position-relative mb-4 text-center">
+		<div class="card shadow-lg p-4 position-relative mb-4 text-center">
 			<h1>{{ 'participants' | trans }} - {{ poll.title }}</h1>
 		</div>
 
@@ -19,7 +19,7 @@
 					<tbody id="participants-list">
 						{% for participant in poll.participants %}
 							<tr data-id="{{ participant.id }}">
-								<td class="handle text-center">
+								<td class="handle text-start">
 									<i class="bi bi-list fs-4" style="cursor: grab;"></i>
 								</td>
 								<td>

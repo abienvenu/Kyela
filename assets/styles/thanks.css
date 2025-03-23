@@ -1,0 +1,17 @@
+.logo-img {
+	height: auto;
+	display: block;
+	margin: 20px 0 0 0 !important;
+}
+
+@media (max-width: 1400px) {
+	div.thanks > div{
+		width: 50% !important;
+	}
+}
+
+@media (max-width: 992px) {
+	div.thanks > div {
+		width: 100% !important;
+	}
+}

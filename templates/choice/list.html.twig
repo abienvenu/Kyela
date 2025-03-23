@@ -2,7 +2,7 @@
 
 {% block body %}
 	<div class="container mt-4">
-		<div class="card shadow-lg bg-light p-4 position-relative mb-4 text-center">
+		<div class="card shadow-lg p-4 position-relative mb-4 text-center">
 			<h1>{{ 'options' | trans }} - {{ poll.title }}</h1>
 		</div>
 		<div class="card shadow-lg p-4 position-relative">
@@ -21,7 +21,7 @@
 					<tbody id="choices-list">
 						{% for choice in poll.choices %}
 							<tr>
-								<td class="handle text-center" data-id="{{ choice.id }}">
+								<td class="handle" data-id="{{ choice.id }}">
 									<i class="bi bi-list" style="cursor: grab;"></i>
 								</td>
 								<td>{{ choice.name }}</td>

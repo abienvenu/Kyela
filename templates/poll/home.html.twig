@@ -13,7 +13,7 @@
 		}
 	</style>
 	<main class="container my-4">
-		<div class="p-5 mb-4 bg-light rounded-3 text-center">
+		<div class="p-5 mb-4 rounded-3 text-center">
 			<img src="{{ asset('img/kyela_full.png') }}" alt="{{ 'main.title' | trans }}" class="img-fluid mb-3"
 				style="max-height: 200px;">
 		</div>
@@ -47,7 +47,6 @@
 				<a href="{{ path("app_poll_show", {'url': 'concert'}) }}" class="card card-link shadow-lg rounded p-2">
 					<h3>{{ 'next.concert' | trans }}</h3>
 					<img src="{{ asset('img/concert.png') }}" alt="{{ 'next.concert' | trans }}"
-						style="opacity: 0.6;"
 						class="img-fluid rounded" />
 					<div class="caption m-2">
 						<p class="btn btn-primary" role="button">
@@ -60,7 +59,7 @@
 			<div class="col-md-4 mb-4">
 				<a href="{{ path("app_poll_show", {'url': 'picnic'}) }}" class="card card-link shadow-lg rounded p-2">
 					<h3>{{ 'next.picnic' | trans }}</h3>
-					<img src="{{ asset('img/picnic.png') }}" alt="{{ 'next.picnic' | trans }}" style="opacity: 0.6;"
+					<img src="{{ asset('img/picnic.png') }}" alt="{{ 'next.picnic' | trans }}"
 						class="img-fluid rounded" />
 					<div class="caption m-2">
 						<p class="btn btn-primary" role="button">
@@ -74,7 +73,6 @@
 				<a href="{{ path("app_poll_show", {'url': 'holidays'}) }}" class="card card-link shadow-lg rounded p-2">
 					<h3>{{ 'next.holidays' | trans }}</h3>
 					<img src="{{ asset('img/holidays.png') }}" alt="{{ 'next.picnic' | trans }}"
-						style="opacity: 0.6;"
 						class="img-fluid rounded" />
 					<div class="caption m-2">
 						<p class="btn btn-primary" role="button">

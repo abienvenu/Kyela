@@ -1,0 +1,154 @@
+
+/* BACKGROUNDS */
+
+.bg-dark {
+	background-color: #444545 !important;
+}
+
+/* TITRES */
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: Nunito;
+	color: #696A6A !important;
+}
+
+h1 {
+	font-size: 2.5rem;
+	font-weight: 900;
+}
+
+h1.display-4.fw-bold {
+	font-size: 2.5rem;
+	font-weight: 900 !important;
+}
+
+h2 {
+	font-size: 2.25rem;
+	font-weight: 900;
+	margin-bottom: 20px;
+}
+
+h3 {
+	font-size: 1.35rem;
+	font-weight: 700;
+	margin: 15px 0px 20px 0px;
+}
+
+h1.text-primary {
+	color: #696A6A !important;
+}
+
+h3.text-success {
+	color: #696A6A !important;
+	font-family: 'Nunito';
+	font-size: 2.5rem;
+	font-weight: 900;
+}
+
+h5.card-title.text-primary {
+	font-family: "Nunito";
+	font-weight: 700;
+	color: #696A6A !important;
+}
+
+/* BLOCS TEXTE */
+
+.mb-5 h2, .mb-5 p {
+	border-left: 2px solid #696A6A;
+	padding-left: 20px;
+	margin-bottom: 0px;
+	padding-bottom: 10px;
+}
+
+.lead {
+	font-size: unset !important;
+	font-weight: unset !important;
+}
+
+/* BOUTONS */
+
+.btn-primary {
+	background-color: #686969;
+	border: none;
+	border-radius: 50px;
+	margin-top: 15px;
+	font-family: 'Nunito';
+	font-weight: 600;
+	font-size: 16px !important;
+	padding: 4px 20px !important;
+}
+
+.btn-primary:hover {
+	background-color: #90BB19;
+	border: none;
+	border-radius: 50px;
+}
+
+.btn-kyela.btn-gradient {
+	background-image: none !important;
+	box-shadow: none !important;
+	background-color: #90BB19 !important;
+	font-family: 'Nunito';
+	font-weight: 700;
+}
+
+table .btn {
+	--bs-btn-padding-x: 0.5rem;
+	--bs-btn-padding-y: 0.3rem;
+
+}
+
+/* TABLEAUX */
+
+.table.table-hover.participation.sticky, .participant-separator, .participant, .dropdown-toggle {
+	font-size: 11pt;
+}
+
+.table > :not(caption) > * > * {
+	padding: .25rem .25rem !important;
+}
+
+/* TABLEAUX etiquette groupe */
+
+.participant-separator {
+	background-color: #444545 !important;
+	border: none !important;
+	box-shadow: none !important;
+	font-size: 13pt !important;
+	letter-spacing: -0.25;
+	font-weight: 600;
+	width: 100%;
+	text-align: left;
+	color: #FFFFFF !important;
+}
+
+.toggle-icon {
+	position: absolute;
+	right: 15px !important;
+	margin-top: 5px;
+}
+
+/* PAGES INFO */
+.accordion-button:not(.collapsed) {
+	color: #000000 !important;
+	background-color: #CBCBCB;
+	--bs-accordion-btn-focus-box-shadow: none !important;
+	box-shadow: none !important;
+}
+
+.accordion-button:focus {
+	box-shadow: none !important;
+}
+
+.accordion-body {
+	padding-left: 50px;
+}
+
+.accordion-body {
+	background-color: #CBCBCB !important;
+	padding-top: 0;
+}
+
+button.accordion-button {
+	padding-bottom: 10px !important;
+}

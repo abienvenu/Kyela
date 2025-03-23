@@ -38,26 +38,28 @@
 		<tbody>
 			{% set groupName = "-" %}
 			{% for participant in poll.participants %}
-				<tr data-name="{{ participant.name }}"{% if not participant.isSeparator %} data-group="{{ groupName }}"{% endif %}>
+				<tr data-name="{{ participant.name }}"
+					{% if not participant.isSeparator %}data-group="{{ groupName }}"
+					{% else %}class="bg-dark" style="--bs-table-bg: none;"{% endif %}>
 					{% if participant.isSeparator %}
 						{% set groupName = participant.separatorName %}
-						<th scope="row" class="bg-light text-center">
-							<a class="btn btn-light border shadow participant-separator"
+						<th scope="row">
+							<a class="btn btn-light border participant-separator"
 								data-group-toggle="{{ groupName }}">
-								<i class="bi bi-layout-split"></i>
 								{{ groupName }}
 								<i class="bi bi-caret-down-fill toggle-icon"></i>
 							</a>
 						</th>
 						{% for event in events %}
 							<td>
-								<span
-									class="badge bg-secondary mt-2">{{ event.participationsSubScore(participant.separatorName) }}</span>
+								<span class="badge mt-2 fw-normal">
+									({{ event.participationsSubScore(participant.separatorName) }})
+								</span>
 							</td>
 						{% endfor %}
 					{% else %}
-						<th scope="row" class="bg-light text-start">
-							<a class="btn btn-light border shadow participant">
+						<th scope="row" class="text-start">
+							<a class="btn btn-light border participant ms-4">
 								<i class="bi bi-person-fill"></i>
 								{{ participant.name }}
 							</a>
@@ -72,16 +74,14 @@
 			{% endfor %}
 		</tbody>
 		<tfoot>
-			<tr>
-				<th scope="row" class="bg-light text-center">
-					<a class="btn btn-light border shadow participant" style="background-color: #d3d3d3;">
+			<tr style="border-top: 50px solid #FFFFFF; border-bottom: 1px solid #FFFFFF !important;">
+				<th scope="row" class="text-start fs-6" style="text-transform: uppercase;">
 						<i class="bi bi-calculator"></i>
 						{{ 'total' | trans }}
-					</a>
 				</th>
 				{% for event in events %}
 					<th>
-						<span class="badge bg-primary fs-5">
+						<span class="badge text-dark fs-5">
 						{{ event.participationsscore }}
 						</span>
 					</th>

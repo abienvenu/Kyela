@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
 			if (name) {
 				let row = document.createElement('tr');
 				row.innerHTML = `
-<td class="handle text-center"><i class="bi bi-list fs-4" style="cursor: grab;"></i></td>
+<td class="handle"><i class="bi bi-list fs-4" style="cursor: grab;"></i></td>
 <td>
   <input type="text" name="participants_name[]" value="${name}" class="form-control form-control-sm" required>
   <input type="hidden" name="participants_id[]" value="">

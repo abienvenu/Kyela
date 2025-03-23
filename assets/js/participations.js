@@ -16,11 +16,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 					if (data.name) {
 						dropdownButton.innerHTML = `<i class="bi bi-${data.icon} me-2"></i> ${data.name}`;
-						dropdownButton.className = `btn border dropdown-toggle choice-${data.color} shadow`;
+						dropdownButton.className = `btn border dropdown-toggle choice-${data.color}`;
 						deleteButton.classList.remove('d-none');
 					} else {
 						dropdownButton.innerHTML = ' - ';
-						dropdownButton.className = `btn border dropdown-toggle shadow`;
+						dropdownButton.className = `btn border dropdown-toggle`;
 						deleteButton.classList.add('d-none');
 					}
 
