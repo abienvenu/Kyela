@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			if (row.classList.contains('selected')) {
 				clearSelection();
 				// On supprime la mémorisation de la sélection
-				selectedParticipants.splice(pollUrl, 1);
+				delete selectedParticipants[pollUrl];
 			} else {
 				// On ajoute l'effet dimmed et désactive les cellules sur toutes les lignes...
 				clearSelection();
