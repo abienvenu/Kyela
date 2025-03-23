@@ -112,40 +112,64 @@ document.addEventListener('DOMContentLoaded', () => {
 			}
 		});
 	});
-});
 
-// Sélection d'une ligne seule
-document.querySelectorAll('.participant').forEach(cell => {
-	cell.addEventListener('click', function () {
-		const row = cell.closest('tr');
-		const allRows = document.querySelectorAll('table.participation tbody tr');
-
-		// Si la ligne est déjà sélectionnée, on rétablit l'apparence par défaut
-		if (row.classList.contains('selected')) {
-			allRows.forEach(r => {
-				r.classList.remove('dimmed', 'selected');
-				r.querySelectorAll('td').forEach(td => td.classList.remove('disabled'));
-			});
-		} else {
-			// On ajoute l'effet dimmed et désactive les cellules sur toutes les lignes...
-			allRows.forEach(r => {
-				r.classList.add('dimmed');
-				r.classList.remove('selected');
-				r.querySelectorAll('td').forEach(td => td.classList.add('disabled'));
-			});
-			// ...puis on retire l'effet sur la ligne cliquée et on la marque comme sélectionnée
-			row.classList.remove('dimmed');
-			row.classList.add('selected');
-			row.querySelectorAll('td').forEach(td => td.classList.remove('disabled'));
+	// Restauration de la ligne sélectionnée
+	const allRows = document.querySelectorAll('table.participation tbody tr');
+	const selectedParticipant = localStorage.getItem('selected_participant');
+	if (selectedParticipant) {
+		const rowToSelect = Array.from(allRows)
+			.find(row => row.getAttribute('data-name') === JSON.parse(selectedParticipant));
+		if (rowToSelect) {
+			selectRow(rowToSelect);
 		}
+	}
+
+	// Sélection de la ligne quand on clique sur un participant
+	document.querySelectorAll('.participant').forEach(cell => {
+		cell.addEventListener('click', function () {
+			const row = cell.closest('tr');
+			const participantName = row.getAttribute('data-name');
+
+			// Si la ligne est déjà sélectionnée, on rétablit l'apparence par défaut
+			if (row.classList.contains('selected')) {
+				clearSelection();
+				// On supprime la mémorisation de la sélection
+				localStorage.removeItem('selected_participant');
+			} else {
+				// On ajoute l'effet dimmed et désactive les cellules sur toutes les lignes...
+				clearSelection();
+				selectRow(row);
+				// On mémorise la sélection
+				localStorage.setItem('selected_participant', JSON.stringify(participantName));
+			}
+		});
 	});
-});
 
-// Désactivation des clics sur les cellules des lignes non sélectionnées
-document.querySelectorAll('tbody td').forEach(cell => {
-	cell.addEventListener('click', function (event) {
-		if (cell.classList.contains('disabled')) {
-			event.stopPropagation(); // Empêche le clic d'avoir un effet
-		}
+	function selectRow(row) {
+		// On ajoute l'effet dimmed et désactive les cellules sur toutes les lignes...
+		allRows.forEach(r => {
+			r.classList.add('dimmed');
+			r.querySelectorAll('td').forEach(td => td.classList.add('disabled'));
+		});
+		// ...puis on retire l'effet sur la ligne cliquée et on la marque comme sélectionnée
+		row.classList.remove('dimmed');
+		row.classList.add('selected');
+		row.querySelectorAll('td').forEach(td => td.classList.remove('disabled'));
+	}
+
+	function clearSelection() {
+		allRows.forEach(r => {
+			r.classList.remove('dimmed', 'selected');
+			r.querySelectorAll('td').forEach(td => td.classList.remove('disabled'));
+		});
+	}
+
+	// Désactivation des clics sur les cellules des lignes non sélectionnées
+	document.querySelectorAll('tbody td').forEach(cell => {
+		cell.addEventListener('click', function (event) {
+			if (cell.classList.contains('disabled')) {
+				event.stopPropagation(); // Empêche le clic d'avoir un effet
+			}
+		});
 	});
 });
