@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', function () {
 			.catch(err => alert('Copy error: ' + err));
 	});
 
-	// Initial update du bloc d'export
+	// Update initiale du bloc d'export
 	updateExportText();
 
 	// Popup de confirmation "quitter sans enregistrer"
