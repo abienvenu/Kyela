@@ -1,16 +1,10 @@
-<!-- Petit bouton de raccourci pour modifier les évènements -->
-<a role="button" class="btn btn-info btn-gradient position-absolute top-0 end-0 mt-2 me-2 z-3"
-	href="{{ path('app_event_list', {url: poll.url}) }}">
-	<i class="bi bi-calendar4-week"></i>
-</a>
-
 <div class="table-container participation-container">
 	<table class="table table-hover participation sticky">
 		<thead>
 			<tr>
 				<th scope="col" class="table-secondary p-1">
 					<!-- Petit bouton de raccourci pour éditer les participants un évènement -->
-					<a role="button" class="btn btn-sm btn-secondary me-1"
+					<a role="button" class="btn btn-sm me-1"
 						href="{{ path('app_participant_edit', {url: poll.url}) }}">
 						<i class="bi bi-pencil"></i>
 					</a>

@@ -5,7 +5,14 @@
 	<div class="container-fluid mt-4">
 		<div class="card shadow-lg p-2 position-relative">
 			<div class="text-center">
-				<h1>{{ poll.title }}</h1>
+				<!-- Petit bouton de raccourci pour modifier les évènements -->
+				<h1>
+					<a role="button" class="btn btn-sm me-1 mb-2"
+						href="{{ path('app_event_list', {url: poll.url}) }}">
+						<i class="bi bi-calendar-plus"></i>
+					</a>
+					{{ poll.title }}
+				</h1>
 			</div>
 			{{ render(controller('App\\Controller\\EventController::show', {'poll': poll})) }}
 		</div>
@@ -68,7 +75,8 @@
 
 	{% if poll.url == 'concert' or poll.url == 'picnic' or poll.url == 'holidays' %}
 		<div class="text-center mt-4">
-			<a role="button" href="{{ path('app_poll_new') }}" class="btn btn-success btn-kyela btn-lg btn-gradient rounded-pill">
+			<a role="button" href="{{ path('app_poll_new') }}"
+				class="btn btn-success btn-kyela btn-lg btn-gradient rounded-pill">
 				<i class="bi bi-calendar-plus-fill me-2"></i>
 				{{ 'add.your.poll' | trans }}
 			</a>
