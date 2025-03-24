@@ -75,7 +75,7 @@ Name: Name
 Value: Wert
 Color: Farbe
 Priority: Priorität
-Url: Link # Most people dont know the term URL. They just know "links". 
+Url: Link
 Title: Titel
 Place: Ort
 Date: Datum
@@ -102,14 +102,7 @@ poll.created %url%: Deine Umfrage wurde angelegt. Der Link für deine Teilnehmer
 poll.modified %url%: Deine Umfrage wurde geändert. Der neue Link für deine Teilnehmer lautet <pre id="sondageUrl" class="p-2 bg-light border rounded">%url%</pre><button class="btn btn-outline-secondary" type="button" id="copyButton" data-copy-text="URL kopieren" data-copied-text="Kopiert !">URL kopieren</button>
 archive.access: Zum Archiv
 past.events: Frühere Ereignisse
-poll.locked %lock%: "Deine Umfrage wurde mit dem folgenden Code <pre>%lock%</pre> gesichert." 
-unlock.failed: Falscher Zugangscode
-poll.unlocked: Deine Umfrage wurde entsperrt
-lock.explanation: Wenn Du einen Zugriffscode setzt, ist es nicht möglich Titel, Link, Kopfzeilen oder Fußzeilen der Umfrage zu ändern, bis wieder der gleiche Zugriffscode eingegeben wird.
-lock.explanation2: Es ist weiter für jeden möglich die Angaben zu ändern, neue Ereignisse oder Teilnehmer hinzuzufügen.
-unlock: Entsperren
-unlock.explanation: Ein Zugriffscode wurde gesetzt. Zum Ändern der Umfrage muss der Code wieder eingegeben werden.
-participant.name.placeholder: Gib Vornamen, Rufnamen oder Spitznamen ein  
+participant.name.placeholder: Gib Vornamen, Rufnamen oder Spitznamen ein
 poll.title.placeholder: Einen Titel für Deine Umfrage 
 comment.placeholder: Wähle deinen Namen aus, gib dann deinen Kommentar ein 
 date.name.placeholder: Ein Name oder eine Frage (Optional)

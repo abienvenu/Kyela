@@ -107,13 +107,6 @@ poll.created %url%: Your poll has been created. The URL to communicate to partic
 poll.modified %url%: Your poll has been modified. The new URL to communicate to partipants is <pre id="sondageUrl" class="p-2 bg-light border rounded">%url%</pre><button class="btn btn-outline-secondary" type="button" id="copyButton" data-copy-text="Copy URL" data-copied-text="Copied !">Copy URL</button>
 archive.access: Access to archives
 past.events: Past events
-poll.locked %lock%: "Your poll has been locked with the following code: <pre>%lock%</pre>"
-unlock.failed: Wrong access code
-poll.unlocked: Your poll has been unlocked
-lock.explanation: If you setup an access code, it will be impossible to edit the title, URL, headlines or bottom of your poll, until one unlocks the poll using the same access code.
-lock.explanation2: It will still be possible for everyone to update availabilities, add events or particpants.
-unlock: Unlock
-unlock.explanation: Someone setup an access code. To edit the poll, you are required to enter this code.
 participant.name.placeholder: Enter the firstname or nickname of a participant
 poll.title.placeholder: Enter a title for your new poll
 comment.placeholder: After selecting the author, please type in your comment

@@ -106,13 +106,6 @@ poll.created %url%: Votre sondage a été créé. L'adresse à communiquer aux p
 poll.modified %url%: Votre sondage a été modifié. La nouvelle adresse à communiquer aux participants est <pre id="sondageUrl" class="p-2 bg-light border rounded">%url%</pre><button class="btn btn-outline-secondary" type="button" id="copyButton" data-copy-text="Copier l'URL" data-copied-text="Copié !">Copier l'URL</button>
 archive.access: Accéder aux archives
 past.events: Évènements passés
-poll.locked %lock%: "Votre sondage a été cadenassé avec le code suivant : <pre>%lock%</pre>"
-unlock.failed: Code d'accès incorrect
-poll.unlocked: Votre sondage a été débloqué
-lock.explanation: Si vous saisissez un code d'accès, il sera impossible de modifier le titre, l'URL, l'en-tête ou le pied de page de votre sondage, jusqu'à ce que quelqu'un débloque le sondage en saissant à nouveau le code d'accès.
-lock.explanation2: Il sera toujours possible pour tout le monde de mettre à jour les disponibilités, ajouter des évènements ou des participants.
-unlock: Débloquer
-unlock.explanation: Quelqu'un a mis un code d'accès. Pour éditer le sondage, vous devez d'abord saisir ce code.
 participant.name.placeholder: Entrez le prénom ou surnom d'un participant
 poll.title.placeholder: Entrez un titre pour votre nouveau sondage
 comment.placeholder: Après avoir précisé l'auteur, saisissez votre commentaire
