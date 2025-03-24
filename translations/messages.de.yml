@@ -52,6 +52,8 @@ color: Farbe
 action: Aktion
 faq: FAQ
 faq.full: Häufig gestellte Fragen
+tips: Tipps
+tips.full: Tricks und Tipps
 about: Über
 about.kyela: Über Kyela
 examples: Beispiele
@@ -80,6 +82,7 @@ Title: Titel
 Place: Ort
 Date: Datum
 Time: Zeit
+Subtitle: Untertitel
 Subject: Betreff
 Email: Email
 Message: Nachricht
@@ -91,7 +94,6 @@ Content: Text
 Icon: Symbol
 send: Senden
 thanks: Danke
-thank.you: Vielen Dank.
 mail.sent: Deine Email wurde versendet. Danke.
 success: Erledigt
 delete.confirmation: Bestätigung löschen
@@ -107,12 +109,18 @@ poll.title.placeholder: Einen Titel für Deine Umfrage
 comment.placeholder: Wähle deinen Namen aus, gib dann deinen Kommentar ein 
 date.name.placeholder: Ein Name oder eine Frage (Optional)
 date.place.placeholder: Der Ort (Optional)
+date.subtitle.placeholder: Kommentar (erscheint als Untertitel jeder Spalte)
 poll.headlines.placeholder: Schreibe einen Text der über der Umfrage angezeigt wird. HTML-Tags sind erlaubt.
 poll.bottomlines.placeholder: Schreibe einen Text der unter der Umfrage angezeigt wird. HTML-Tags sind erlaubt.
 choice.name.placeholder: "Name der Option: Ja, Nein, Vielleicht..."
 choice.name.value: Eine Zahl. Zum Errechnen der Teilnehmeranzahl. Meist 0 oder 1.
 access.demo: Zur Demo
 crawler.action.denied: Deinen User-Agent wurde als Bot oder Crawler identifiziert. Diese Aktion ist daher nicht erlaubt.
+participation.confirmation: Möchtest du die Teilnahme von ... eingeben?
+button.yesalways: Ja, immer
+button.yesonce: Ja, aber nur dieses Mal
+button.no: Nein, ich habe mich geirrt
+code.source: Quellcode
 thank_you.title: "Danke an die Open-Source-Projekte!"
 thank_you.description: "Dieses Projekt basiert auf leistungsstarken Technologien und Open-Source-Bibliotheken. Wir möchten den folgenden Projekten danken:"
 thank_you.symfony: "Ein hochentwickeltes PHP-Framework für robuste und leistungsstarke Webanwendungen."
@@ -127,3 +135,5 @@ thank_you.developers_acknowledgment: "Danke an alle Entwickler, die den Code fre
 404.oops: Oje! Die angeforderte Seite existiert nicht.
 404.maybe: Vielleicht haben Sie die URL Ihrer Umfrage geändert...?
 404.home: Zur Kyélà-Startseite zurückkehren
+lets.regroup.title: Wollen wir uns zusammentun?
+lets.regroup.body: Kyélà ist ein Open-Source-Tool, das die Organisation eurer Gruppentreffen erleichtert. Völlig kostenlos, werbefrei und ohne Registrierung nutzbar, ermöglicht es euch, die Verfügbarkeiten aller effizient und schnell zu koordinieren.<br />Egal, ob es um die Planung eines Geschäftstreffens, eines Treffens mit Freunden oder einer Vereinsveranstaltung geht – Kyélà bietet euch eine einfache und zugängliche Lösung, um den idealen Zeitpunkt zu finden, an dem sich alle treffen können.

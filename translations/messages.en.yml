@@ -15,7 +15,6 @@ comment: Comment
 comments: Comments
 archives: Archives
 help: Help
-dates: Dates
 add.a.poll: Add a poll
 add.your.poll: Create your own poll
 add.participants: Add participants (separated by ";")
@@ -95,8 +94,6 @@ Content: Texte
 Icon: Icon
 send: Send
 thanks: Thanks
-thank.you: Thanks to you!
-thank.you.details: Kyela stands on the shoulders of many other projects
 mail.sent: Your email has been sent! Thanks!
 success: Success
 delete.confirmation: Delete confirmation
@@ -138,3 +135,5 @@ thank_you.developers_acknowledgment: "Thanks to all the developers who make code
 404.oops: Oops! The requested page does not exist.
 404.maybe: Maybe you have modified the URL of your survey...?
 404.home: Return to the Kyélà homepage
+lets.regroup.title: Shall we gather?
+lets.regroup.body: Kyélà is an open-source tool designed to facilitate the organization of your group meetings. Completely free, ad-free, and requiring no registration, it allows you to efficiently and quickly coordinate everyone's availability.<br />Whether it's planning a business meeting, a get-together with friends, or an association event, Kyélà offers you a simple and accessible solution to find the perfect time when everyone can meet.
