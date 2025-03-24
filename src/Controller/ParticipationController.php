@@ -97,6 +97,7 @@ class ParticipationController extends AbstractController
 		return new JsonResponse([
 			'success' => true,
 			'score' => $event->getParticipationsScore(),
+			'groupScore' => $event->getParticipationsSubScore($participant->getGroup()),
 		]);
 	}
 }

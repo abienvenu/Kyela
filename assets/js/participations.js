@@ -16,11 +16,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 					if (data.name) {
 						dropdownButton.innerHTML = `<i class="bi bi-${data.icon} me-2"></i> ${data.name}`;
-						dropdownButton.className = `btn border dropdown-toggle choice-${data.color}`;
+						dropdownButton.className = `btn border px-2 py-1 dropdown-toggle choice-${data.color}`;
 						deleteButton.classList.remove('d-none');
 					} else {
 						dropdownButton.innerHTML = ' - ';
-						dropdownButton.className = `btn border dropdown-toggle`;
+						dropdownButton.className = `btn border px-2 py-1 dropdown-toggle`;
 						deleteButton.classList.add('d-none');
 					}
 
@@ -28,14 +28,13 @@ document.addEventListener('DOMContentLoaded', () => {
 					const cell = opener.closest('td');
 					opener.closest('table')
 						.querySelector('tfoot')
-						.querySelector('tr').cells[cell.cellIndex]
-						.querySelector('span').innerHTML = data.score;
+						.querySelector('tr').cells[cell.cellIndex].innerHTML = data.score;
 
 					// Mise à jour du compteur de groupe
 					let row = cell.closest('tr');
 					let previousRow = row.previousElementSibling;
 					while (previousRow) {
-						if (previousRow.classList.containts('participant-separator')) {
+						if (previousRow.classList.contains('participant-separator')) {
 							previousRow.cells[cell.cellIndex].querySelector('span').innerHTML = '('+data.groupScore+')';
 						}
 						previousRow = previousRow.previousElementSibling;
