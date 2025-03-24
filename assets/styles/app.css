@@ -100,7 +100,7 @@ table .btn {
 
 /* TABLEAUX */
 
-.table.table-hover.participation.sticky, .participant-separator, .participant, .dropdown-toggle {
+.table.table-hover.participation.sticky, .participant, .dropdown-toggle {
 	font-size: 11pt;
 }
 
@@ -109,18 +109,6 @@ table .btn {
 }
 
 /* TABLEAUX etiquette groupe */
-
-.participant-separator {
-	background-color: #444545 !important;
-	border: none !important;
-	box-shadow: none !important;
-	font-size: 13pt !important;
-	letter-spacing: -0.25;
-	font-weight: 600;
-	width: 100%;
-	text-align: left;
-	color: #FFFFFF !important;
-}
 
 .toggle-icon {
 	position: absolute;

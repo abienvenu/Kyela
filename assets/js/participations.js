@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
 					let row = cell.closest('tr');
 					let previousRow = row.previousElementSibling;
 					while (previousRow) {
-						if (previousRow.querySelector('th > a.participant-separator')) {
+						if (previousRow.classList.containts('participant-separator')) {
 							previousRow.cells[cell.cellIndex].querySelector('span').innerHTML = '('+data.groupScore+')';
 						}
 						previousRow = previousRow.previousElementSibling;
@@ -116,7 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	});
 
 	// Collapse des groupes de participants
-	document.querySelectorAll('.participant-separator').forEach(button => {
+	document.querySelectorAll('tr.participant-separator a.btn').forEach(button => {
 		button.addEventListener('click', function () {
 			const groupName = this.getAttribute('data-group-toggle');
 			const rows = document.querySelectorAll(`tr[data-group="${groupName}"]`);

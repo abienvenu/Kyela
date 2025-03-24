@@ -39,12 +39,12 @@
 			{% set groupName = "-" %}
 			{% for participant in poll.participants %}
 				<tr data-name="{{ participant.name }}"
-					{% if not participant.isSeparator %}data-group="{{ groupName }}"
-					{% else %}class="bg-dark" style="--bs-table-bg: none;"{% endif %}>
+					{% if participant.isSeparator %}class="bg-dark participant-separator" style="--bs-table-bg: none;"
+					{% else %}data-group="{{ groupName }}"{% endif %}>
 					{% if participant.isSeparator %}
 						{% set groupName = participant.separatorName %}
 						<th scope="row">
-							<a class="btn btn-light border participant-separator"
+							<a class="btn btn-light border"
 								data-group-toggle="{{ groupName }}">
 								{{ groupName }}
 								<i class="bi bi-caret-down-fill toggle-icon"></i>

@@ -24,8 +24,16 @@ tbody {
 	overflow: scroll;
 }
 
-.participant-separator {
-	background-color: #D3D3D3;
+tr.participant-separator a.btn {
+	background-color: #444545 !important;
+	border: none !important;
+	box-shadow: none !important;
+	font-size: 13pt !important;
+	letter-spacing: -0.25;
+	font-weight: 600;
+	width: 100%;
+	text-align: left;
+	color: #FFFFFF !important;
 }
 
 /* Top line */
