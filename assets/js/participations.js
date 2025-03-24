@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	// Restauration de l'état de collapse
 	collapsedGroups[pollUrl].forEach(groupName => {
-		const toggleElement = document.querySelector(`a[data-group-toggle="${groupName}"]`);
+		const toggleElement = document.querySelector(`th[data-group-toggle="${groupName}"]`);
 		const rowToCollapse = toggleElement ? toggleElement.closest('tr') : null;
 		if (rowToCollapse) {
 			const rows = document.querySelectorAll(`tr[data-group="${groupName}"]`);
