@@ -19,6 +19,7 @@ archives: Archives
 help: Help
 dates: Dates
 add.a.poll: Add a poll
+add.your.poll: Create your own poll
 add.participants: Add participants (separated by ";")
 participants.list: List of participants (ready for export)
 participants.copied: Participants copied!

@@ -66,6 +66,15 @@
 		</div>
 	{% endif %}
 
+	{% if poll.url == 'concert' or poll.url == 'picnic' or poll.url == 'holidays' %}
+		<div class="text-center mt-4">
+			<a role="button" href="{{ path('app_poll_new') }}" class="btn btn-success btn-kyela btn-lg btn-gradient rounded-pill">
+				<i class="bi bi-calendar-plus-fill me-2"></i>
+				{{ 'add.your.poll' | trans }}
+			</a>
+		</div>
+	{% endif %}
+
 	<script src="{{ asset('js/poll.js') }}"></script>
 	<script src="{{ asset('js/participations.js') }}"></script>
 	<script>
