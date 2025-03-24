@@ -1,6 +1,7 @@
 {% set participation = participationsArray[event.id][participant.id] ?? null %}
 <div>
-	<button class="btn border {% if not isArchive %}dropdown-toggle{% endif %} choice-{{ participation ? participation.choice.color : "none" }}"
+	<button
+		class="btn border px-2 py-1 {% if not isArchive %}dropdown-toggle{% endif %} choice-{{ participation ? participation.choice.color : "none" }}"
 		type="button"
 		{% if not isArchive %}data-bs-toggle="dropdown"{% endif %} aria-expanded="false">
 		{% if participation %}
@@ -11,32 +12,32 @@
 		{% endif %}
 	</button>
 	{% if not isArchive %}
-	<ul class="dropdown-menu overflow-auto" style="max-height: 400px;">
-		{% for choice in poll.choices %}
-			<li>
-				{% set participationUrl = path(
-					'app_participation_update',
-					{'event': event.id, 'participant': participant.id, 'choice': choice.id}
-				) %}
-				<span class="dropdown-item" data-url="{{ participationUrl }}">
+		<ul class="dropdown-menu overflow-auto" style="max-height: 400px;">
+			{% for choice in poll.choices %}
+				<li>
+					{% set participationUrl = path(
+						'app_participation_update',
+						{'event': event.id, 'participant': participant.id, 'choice': choice.id}
+					) %}
+					<span class="dropdown-item" data-url="{{ participationUrl }}">
 					<button type="button" class="btn choice-{{ choice.color }}">
 						<i class="bi bi-{{ choice.icon }} me-2"></i>
 						{{ choice.name }}
 					</button>
 				</span>
-			</li>
-		{% endfor %}
-		<li {% if not participation %} class="d-none"{% endif %}>
-			{% set participationDeleteUrl = path(
-				'app_participation_delete',
-				{'event': event.id, 'participant': participant.id}
-			) %}
-			<span class="dropdown-item" data-url="{{ participationDeleteUrl }}">
+				</li>
+			{% endfor %}
+			<li {% if not participation %} class="d-none"{% endif %}>
+				{% set participationDeleteUrl = path(
+					'app_participation_delete',
+					{'event': event.id, 'participant': participant.id}
+				) %}
+				<span class="dropdown-item" data-url="{{ participationDeleteUrl }}">
 				<button type="button" class="btn">
 					<i class="bi bi-trash me-2"></i>
 				</button>
 			</span>
-		</li>
-	</ul>
+			</li>
+		</ul>
 	{% endif %}
 </div>

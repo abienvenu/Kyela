@@ -24,18 +24,6 @@ tbody {
 	overflow: scroll;
 }
 
-tr.participant-separator a.btn {
-	background-color: #444545 !important;
-	border: none !important;
-	box-shadow: none !important;
-	font-size: 13pt !important;
-	letter-spacing: -0.25;
-	font-weight: 600;
-	width: 100%;
-	text-align: left;
-	color: #FFFFFF !important;
-}
-
 /* Top line */
 table.sticky thead th {
 	position: -webkit-sticky;
@@ -45,11 +33,18 @@ table.sticky thead th {
 }
 
 /* Bottom line */
+table.sticky tfoot tr {
+	border-top: 50px solid #FFFFFF;
+	border-bottom: 1px solid #FFFFFF !important;
+}
+
 table.sticky tfoot th {
 	position: -webkit-sticky;
 	position: sticky;
 	bottom: -1px;
 	z-index: 2;
+	color: #444545;
+	text-transform: uppercase;
 }
 
 /* Left corner */

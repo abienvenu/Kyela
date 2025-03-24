@@ -116,7 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	});
 
 	// Collapse des groupes de participants
-	document.querySelectorAll('tr.participant-separator a.btn').forEach(button => {
+	document.querySelectorAll('tr.participant-separator th').forEach(button => {
 		button.addEventListener('click', function () {
 			const groupName = this.getAttribute('data-group-toggle');
 			const rows = document.querySelectorAll(`tr[data-group="${groupName}"]`);

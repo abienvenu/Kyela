@@ -92,20 +92,10 @@ h5.card-title.text-primary {
 	font-weight: 700;
 }
 
-table .btn {
-	--bs-btn-padding-x: 0.5rem;
-	--bs-btn-padding-y: 0.3rem;
-
-}
-
 /* TABLEAUX */
 
 .table.table-hover.participation.sticky, .participant, .dropdown-toggle {
 	font-size: 11pt;
-}
-
-.table > :not(caption) > * > * {
-	padding: .25rem .25rem !important;
 }
 
 /* TABLEAUX etiquette groupe */

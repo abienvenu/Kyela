@@ -8,7 +8,7 @@
 	<table class="table table-hover participation sticky">
 		<thead>
 			<tr>
-				<th scope="col" class="table-secondary">
+				<th scope="col" class="table-secondary p-1">
 					<!-- Petit bouton de raccourci pour éditer les participants un évènement -->
 					<a role="button" class="btn btn-sm btn-secondary me-1"
 						href="{{ path('app_participant_edit', {url: poll.url}) }}">
@@ -43,29 +43,26 @@
 					{% else %}data-group="{{ groupName }}"{% endif %}>
 					{% if participant.isSeparator %}
 						{% set groupName = participant.separatorName %}
-						<th scope="row">
-							<a class="btn btn-light border"
-								data-group-toggle="{{ groupName }}">
-								{{ groupName }}
-								<i class="bi bi-caret-down-fill toggle-icon"></i>
-							</a>
+						<th scope="row" data-group-toggle="{{ groupName }}" class="text-start text-white ps-3 fs-6">
+							{{ groupName }}
+							<i class="bi bi-caret-down-fill toggle-icon mt-0"></i>
 						</th>
 						{% for event in events %}
-							<td>
+							<td class="pt-0">
 								<span class="badge mt-2 fw-normal">
 									({{ event.participationsSubScore(participant.separatorName) }})
 								</span>
 							</td>
 						{% endfor %}
 					{% else %}
-						<th scope="row" class="text-start">
-							<a class="btn btn-light border participant ms-4">
+						<th scope="row" class="text-start p-1">
+							<a class="btn btn-light border participant ms-4 p-1">
 								<i class="bi bi-person-fill"></i>
 								{{ participant.name }}
 							</a>
 						</th>
 						{% for event in events %}
-							<td>
+							<td class="p-1">
 								{{ include("participation/_cell.html.twig") }}
 							</td>
 						{% endfor %}
@@ -74,16 +71,14 @@
 			{% endfor %}
 		</tbody>
 		<tfoot>
-			<tr style="border-top: 50px solid #FFFFFF; border-bottom: 1px solid #FFFFFF !important;">
-				<th scope="row" class="text-start fs-6" style="text-transform: uppercase;">
-						<i class="bi bi-calculator"></i>
-						{{ 'total' | trans }}
+			<tr class="participation-total">
+				<th scope="row" class="text-start fs-6">
+					<i class="bi bi-calculator"></i>
+					{{ 'total' | trans }}
 				</th>
 				{% for event in events %}
-					<th>
-						<span class="badge text-dark fs-5">
+					<th class="fs-5">
 						{{ event.participationsscore }}
-						</span>
 					</th>
 				{% endfor %}
 			</tr>

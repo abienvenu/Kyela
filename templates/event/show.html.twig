@@ -10,10 +10,10 @@
 				<tbody>
 					{% for event in events %}
 						<tr>
-							<td>
+							<td class="p-1">
 								<span class="badge bg-dark">{{ event.participationsScore }}</span>
 							</td>
-							<td class="text-start">
+							<td class="text-start p-1">
 								{% if event.date %}
 									{% if isArchive %}
 										{{ event.date|
@@ -23,20 +23,20 @@
 									{% endif %}
 								{% endif %}
 							</td>
-							<td class="text-start">
+							<td class="text-start p-1">
 								{% if event.time %}
 									{{ event.time|format_datetime(locale: app.request.locale, pattern: "H'h'mm") }}
 								{% endif %}
 							</td>
-							<td class="text-start">
+							<td class="text-start p-1">
 								{{ event.place }}
 							</td>
-							<td class="text-start">
+							<td class="text-start p-1">
 								{% if event.subtitle %}
 									<small class="subtitle">{{ event.subtitle }}</small>
 								{% endif %}
 							</td>
-							<td class="text-start">
+							<td class="text-start p-1">
 								<strong>{{ event.name }}</strong>
 							</td>
 						</tr>
