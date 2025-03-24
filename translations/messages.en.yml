@@ -1,7 +1,5 @@
 meta.description: Kyela - Schedule meetings - Create polls, suggest events, tell availabilities, pick dates, for free
-bottom.line: Planning made easy
-main.title: Schedule a meeting
-main.subtitle: Kyela - free, anonymous, no subscription, no advertisement. Just OpenSource.
+main.title: Kyela - Let's get together!
 new.version: New version
 new.version.explain: Kyélà just had an upgrade! Any bug ? Please report
 poll: Poll
@@ -27,7 +25,6 @@ add: Add
 export: Export
 add.an.option: Add a choice
 new.poll: New poll
-new.poll.tooltip: A poll allows your friends to indicate their preferences among multiple choices. Click the button to create and configure your private poll. Then add participants and suggest events.
 new.participant: New participant
 new.event: New event
 new.comment: New comment

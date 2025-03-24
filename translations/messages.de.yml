@@ -1,7 +1,5 @@
 meta.description: Kyela - Plane Treffen - Erstelle Umfragen, schlage Events vor, sag wann es passt, wähle ein Termin, gratis
-bottom.line: Planung ganz einfach
-main.title: Plane ein Treffen
-main.subtitle: Kyela - Frei, anonym, kein Abo, keine Werbung. Einfach Open-Source.
+main.title: Wir versammeln uns!
 new.version: Neue Version
 new.version.explain: Kyélà modernisiert sich! Ein Fehler? Bitte melden Sie es
 poll: Umfrage
@@ -26,7 +24,6 @@ add: Hinzufügen
 export: Export
 add.an.option: Option hinzufügen
 new.poll: Neue Umfrage
-new.poll.tooltip: Eine Umfrage ermöglicht es deinen Freunden, ihre Vorlieben zwischen mehreren Optionen anzugeben. Klicke auf die Schaltfläche, um deine private Umfrage zu erstellen und zu konfigurieren. Danach füge Teilnehmer hinzu und schlage Ereignisse vor.
 new.participant: Neuer Teilnehmer
 new.event: Neuer Ereignis
 new.comment: Neuer Kommentar

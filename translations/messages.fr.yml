@@ -1,7 +1,5 @@
 meta.description: Kyela - Planifiez des réunions - Créer des sondages, proposer des évènements, donnez les disponibilités, choisissez une date, gratuit
-bottom.line: Planifiez vos réunions
-main.title: "Kyélà - on se regroupe!"
-main.subtitle: gratuit, anonyme, sans inscription, sans publicité
+main.title: Kyélà - on se regroupe!
 new.version: Nouvelle version
 new.version.explain: Kyélà se modernise! Un bug ? Merci de le signaler
 poll: Sondage
@@ -26,7 +24,6 @@ add: Ajouter
 export: Exporter
 add.an.option: Ajouter une option
 new.poll: Nouveau sondage
-new.poll.tooltip: Un sondage permet à vos amis d'indiquer leurs préférences entre plusieurs choix. Cliquez sur le bouton pour créer puis configurer votre sondage privé. Puis ajoutez des participants et proposez des évènements.
 new.participant: Nouveau participant
 new.event: Nouvel évènement
 new.comment: Ajouter un commentaire
@@ -147,3 +144,5 @@ thank_you.developers_acknowledgment: "Merci à tous les développeurs qui renden
 404.oops: Oups ! La page demandée n'existe pas.
 404.maybe: Peut-être avez-vous modifié l'URL de votre sondage... ?
 404.home: Retourner à la page d'accueil de Kyélà
+lets.regroup.title: On se regroupe ?
+lets.regroup.body: Kyélà est un outil open-source conçu pour faciliter l'organisation de vos rencontres collectives. Totalement gratuit, sans publicité et ne nécessitant aucune inscription, il vous permet de coordonner efficacement et rapidement les disponibilités de chacun.<br />Qu'il s'agisse de planifier une réunion professionnelle, une sortie entre amis ou un événement associatif, Kyélà vous offre une solution simple et accessible pour trouver le moment idéal où tout le monde peut se retrouver.
