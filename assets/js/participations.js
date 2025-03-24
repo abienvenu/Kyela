@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
 					let previousRow = row.previousElementSibling;
 					while (previousRow) {
 						if (previousRow.querySelector('th > a.participant-separator')) {
-							previousRow.cells[cell.cellIndex].querySelector('span').innerHTML = data.groupScore;
+							previousRow.cells[cell.cellIndex].querySelector('span').innerHTML = '('+data.groupScore+')';
 						}
 						previousRow = previousRow.previousElementSibling;
 					}
@@ -118,11 +118,6 @@ document.addEventListener('DOMContentLoaded', () => {
 	// Collapse des groupes de participants
 	document.querySelectorAll('.participant-separator').forEach(button => {
 		button.addEventListener('click', function () {
-			if (button.closest('tr').classList.contains('dimmed')) {
-				// Désactiver le collapse si la ligne est désactivée
-				return;
-			}
-
 			const groupName = this.getAttribute('data-group-toggle');
 			const rows = document.querySelectorAll(`tr[data-group="${groupName}"]`);
 			const icon = this.querySelector('.toggle-icon');
