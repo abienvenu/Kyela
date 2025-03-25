@@ -28,6 +28,7 @@ tbody {
 table.sticky thead th {
 	position: -webkit-sticky;
 	position: sticky;
+	bottom: -1px;
 	top: -1px;
 	z-index: 2;
 }
@@ -49,6 +50,7 @@ table.sticky tfoot th {
 /* Left corner */
 table.sticky thead th:first-child,
 table.sticky tfoot th:first-child {
+	left: -1px;
 	z-index: 3;
 }
 
@@ -56,6 +58,7 @@ table.sticky tfoot th:first-child {
 table.sticky tr > :first-child {
 	position: -webkit-sticky;
 	position: sticky;
+	left: -1px;
 }
 
 table.sticky td, table.sticky th {
