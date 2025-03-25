@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
 					const deleteButton = opener.closest('ul').querySelector('li:last-of-type');
 
 					if (data.name) {
-						dropdownButton.innerHTML = `<i class="bi bi-${data.icon} me-2"></i> ${data.name}`;
+						dropdownButton.innerHTML = `<i class="bi bi-${data.icon} me-2"></i> ${data.name} `;
 						dropdownButton.className = `btn border px-2 py-1 dropdown-toggle choice-${data.color}`;
 						deleteButton.classList.remove('d-none');
 					} else {

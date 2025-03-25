@@ -1,10 +1,18 @@
 {% extends 'layout.html.twig' %}
 
 {% block rawbody %}
-	{{ render(controller('App\\Controller\\EventController::show', {'poll': poll})) }}
-	{{ render(controller('App\\Controller\\ParticipationController::show', {'poll': poll})) }}
-	<script src="{{ asset('js/participations.js') }}"></script>
-	<script>
-		const pollUrl = '{{ poll.url }}';
-	</script>
+	<body>
+		{{ render(controller('App\\Controller\\EventController::show', {'poll': poll})) }}
+		{{ render(controller('App\\Controller\\ParticipationController::show', {'poll': poll})) }}
+		<script src="{{ asset('js/poll.js') }}"></script>
+		<script src="{{ asset('js/participations.js') }}"></script>
+		<script>
+			const pollUrl = '{{ poll.url }}';
+		</script>
+		<style>
+			.participation-container {
+				max-height: 100vh;
+			}
+		</style>
+	</body>
 {% endblock %}
