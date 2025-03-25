@@ -7,6 +7,7 @@ polls: Umfragen
 choice: Option
 participant: Teilnehmer
 participants: Teilnehmer
+edit.participants: Teilnehmer bearbeiten
 options: Auswahl
 total: Insgesamt
 event: Ereignis
