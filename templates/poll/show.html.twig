@@ -1,18 +1,21 @@
 {% extends 'layout.html.twig' %}
 
 {% block body %}
-
 	<div class="container-fluid mt-4">
 		<div class="position-relative">
-			<div class="text-center">
-				<!-- Petit bouton de raccourci pour modifier les évènements -->
-				<h1>
-					<a role="button" class="btn btn-sm me-1 mb-2"
+			<div class="d-flex">
+				<h1 class="mx-auto">
+					<!-- Petit bouton de raccourci pour modifier les évènements -->
+					<a role="button" class="btn btn-sm mb-2"
 						href="{{ path('app_event_list', {url: poll.url}) }}">
 						<i class="bi bi-calendar-plus" title="{{ 'edit.events' | trans }}"></i>
 					</a>
 					{{ poll.title }}
 				</h1>
+				<button class="btn btn-light me-2 toggle-button" data-bs-toggle="collapse"
+					data-bs-target="#eventTable" aria-expanded="true">
+					<i class="bi bi-calendar-minus" title="{{ 'show.hide.events' | trans }}"></i>
+				</button>
 			</div>
 			{{ render(controller('App\\Controller\\EventController::show', {'poll': poll})) }}
 		</div>
