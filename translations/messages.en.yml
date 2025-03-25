@@ -11,6 +11,9 @@ options: Options
 total: Total
 event: Event
 events: Events
+edit.events.en: Edit events
+show.hide.events.en: Show/hide events
+show.hide.en: Show/hide
 comment: Comment
 comments: Comments
 archives: Archives

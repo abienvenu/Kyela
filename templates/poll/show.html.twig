@@ -9,7 +9,7 @@
 				<h1>
 					<a role="button" class="btn btn-sm me-1 mb-2"
 						href="{{ path('app_event_list', {url: poll.url}) }}">
-						<i class="bi bi-calendar-plus"></i>
+						<i class="bi bi-calendar-plus" title="{{ 'edit.events' | trans }}"></i>
 					</a>
 					{{ poll.title }}
 				</h1>
@@ -23,7 +23,7 @@
 			<div class="card shadow-lg p-4 position-relative">
 				<button class="btn btn-light position-absolute top-0 end-0 mt-2 me-2 z-3 toggle-button"
 					data-bs-toggle="collapse" data-bs-target="#headLines" aria-expanded="true">
-					<i class="bi bi-info-square"></i>
+					<i class="bi bi-info-square" title="{{ 'show.hide' | trans }}"></i>
 				</button>
 
 				<div class="collapse show" id="headLines">
@@ -55,7 +55,7 @@
 			<div class="card shadow-lg p-4 position-relative">
 				<button class="btn btn-light position-absolute top-0 end-0 mt-2 me-2 z-3 toggle-button"
 					data-bs-toggle="collapse" data-bs-target="#bottomLines" aria-expanded="true">
-					<i class="bi bi-layout-text-sidebar-reverse"></i>
+					<i class="bi bi-layout-text-sidebar-reverse" title="{{ 'show.hide' | trans }}"></i>
 				</button>
 
 				<div class="collapse show" id="bottomLines">

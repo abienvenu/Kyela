@@ -1,11 +1,11 @@
 <button class="btn btn-light position-absolute top-0 end-0 mt-2 me-2 toggle-button" data-bs-toggle="collapse"
 	data-bs-target="#commentTable" aria-expanded="true">
-	<i class="bi bi-chat-left-text"></i>
+	<i class="bi bi-chat-left-text" title="{{ 'show.hide' | trans }}"></i>
 </button>
 
 <a role="button" class="btn btn-success btn-gradient position-absolute bottom-0 mb-2 z-3"
 	href="{{ path('app_comment_new', {url: poll.url}) }}">
-	<i class="bi bi-chat-left-dots"></i>
+	<i class="bi bi-chat-left-dots" title="{{ 'new.comment' | trans }}"></i>
 </a>
 
 

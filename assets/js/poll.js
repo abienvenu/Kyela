@@ -6,7 +6,7 @@ document.querySelectorAll('.toggle-button').forEach(button => {
 
 	// Mapping entre la classe "ouverte" et la classe "fermée"
 	const classes = {
-		'bi-calendar3': 'bi-calendar-minus',
+		'bi-calendar-minus': 'bi-calendar3',
 		'bi-info-square': 'bi-info-circle',
 		'bi-layout-text-sidebar-reverse': 'bi-arrow-bar-down'
 	};
