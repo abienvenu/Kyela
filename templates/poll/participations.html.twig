@@ -3,4 +3,7 @@
 {% block rawbody %}
 	{{ render(controller('App\\Controller\\ParticipationController::show', {'poll': poll})) }}
 	<script src="{{ asset('js/participations.js') }}"></script>
+	<script>
+		const pollUrl = '{{ poll.url }}';
+	</script>
 {% endblock %}
