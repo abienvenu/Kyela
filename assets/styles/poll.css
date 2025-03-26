@@ -70,6 +70,11 @@ table.sticky td, table.sticky th {
 	color: #808080;
 }
 
+tr.participant-separator > th {
+	background: #444545;
+	padding-right: 40px;
+}
+
 /* Classe pour atténuer l'affichage (transparence/grisé) des lignes non sélectionnées */
 .dimmed {
 	opacity: 0.5;
