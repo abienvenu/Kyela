@@ -18,7 +18,7 @@ class ParticipationController extends AbstractController
 	/**
 	 * Displays all Participations of a poll
 	 */
-	public function show(Poll $poll, EntityManagerInterface $em, $isArchive = false): Response
+	public function show(Poll $poll, EntityManagerInterface $em, $isArchive = false, $isFramed = false): Response
 	{
 		$events = $isArchive
 			? $em->getRepository(Event::class)->getPastEvents($poll)
@@ -35,6 +35,7 @@ class ParticipationController extends AbstractController
 				'events' => $events,
 				'participationsArray' => $participationsArray,
 				'isArchive' => $isArchive,
+				'isFramed' => $isFramed,
 			]
 		);
 	}
@@ -45,6 +46,14 @@ class ParticipationController extends AbstractController
 	public function archive(Poll $poll, EntityManagerInterface $em): Response
 	{
 		return $this->show($poll, $em, true);
+	}
+
+	/**
+	 * Displays participations in a view adapted to be in frame
+	 */
+	public function frame(Poll $poll, EntityManagerInterface $em): Response
+	{
+		return $this->show($poll, $em, false, true);
 	}
 
 	/**

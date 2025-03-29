@@ -2,17 +2,18 @@
 	<table class="table table-hover participation sticky">
 		<thead>
 			<tr>
-				<th scope="col" class="table-secondary p-1">
-					<!-- Petit bouton de raccourci pour éditer les participants un évènement -->
-					<a role="button" class="btn btn-sm me-1" style="--bs-btn-padding-y: 0.3rem;"
-						href="{{ path('app_participant_edit', {url: poll.url}) }}">
-						<i class="bi bi-pencil" title="{{ 'edit.participants' | trans }}"></i>
-					</a>
+				<th scope="col" class="table-secondary p-1 align-middle">
+					{% if not isFramed %}
+						<!-- Petit bouton de raccourci pour éditer les participants un évènement -->
+						<a role="button" class="btn btn-sm me-1" style="--bs-btn-padding-y: 0.3rem;"
+							href="{{ path('app_participant_edit', {url: poll.url}) }}">
+							<i class="bi bi-pencil" title="{{ 'edit.participants' | trans }}"></i>
+						</a>
+					{% endif %}
 					{{ 'participant' | trans }}
 				</th>
 				{% for event in events %}
-					<th scope="col" class="table-info">
-						<a href="{{ path('app_event_list', {url: poll.url}) }}" class="text-decoration-none text-dark">
+					<th scope="col" class="table-info align-middle">
 						{% if event.date or event.time %}
 							{% if event.date %}
 								{{ event.date|format_datetime(locale: app.request.locale, pattern: "ccc d/M") }}
@@ -26,7 +27,6 @@
 						{% if event.subtitle %}
 							<br /><small class="subtitle">{{ event.subtitle }}</small>
 						{% endif %}
-						</a>
 					</th>
 				{% endfor %}
 			</tr>

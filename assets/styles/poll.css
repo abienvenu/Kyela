@@ -65,6 +65,10 @@ table.sticky td, table.sticky th {
 	white-space: nowrap;
 }
 
+.table-info {
+  --bs-table-bg: #e1ecbf;
+}
+
 .subtitle {
 	font-weight: normal;
 	color: #808080;
