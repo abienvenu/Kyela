@@ -17,14 +17,14 @@ build:
 start:
 	docker run --name kyela2 --restart unless-stopped -d -v ${PWD}:/app -p 12880:80 abienvenu/kyela2
 	docker exec -it kyela2 composer install
-	@echo "Point your browser to http://localhost:12880/participation"
+	@echo "Point your browser to http://localhost:12880/"
 
 .PHONY: start-prod ## run the application in prod mode
 start-prod:
 	docker run --name kyela2 --restart unless-stopped -v kyela2-data:/app/var -d --env APP_ENV=prod -p 12880:80 abienvenu/kyela2
 	docker exec -it kyela2 bin/console cache:clear
 	docker exec -it kyela2 bin/console asset-map:compile
-	@echo "Point your browser to http://localhost:12880/participation"
+	@echo "Point your browser to http://localhost:12880/"
 
 .PHONY: upgrade ## upgrade the application in prod mode to the latest versin
 upgrade:
