@@ -22,7 +22,7 @@ class ParticipationController extends AbstractController
 	{
 		$events = $isArchive
 			? $em->getRepository(Event::class)->getPastEvents($poll)
-			: $em->getRepository(Event::class)->getFutureEvents($poll);
+			: $em->getRepository(Event::class)->getEvents($poll);
 		$participationsArray = [];
 		foreach ($events as $event) {
 			foreach ($event->getParticipations() as $participation) {

@@ -21,7 +21,7 @@ class EventController extends AbstractController
 	#[Route('/{url:poll}/event/show')]
 	public function show(Poll $poll, EntityManagerInterface $em): Response
 	{
-		$events = $em->getRepository(Event::class)->getFutureEvents($poll);
+		$events = $em->getRepository(Event::class)->getEvents($poll);
 
 		return $this->render('event/show.html.twig', ['poll' => $poll, 'events' => $events, 'isArchive' => false]);
 	}
@@ -43,7 +43,7 @@ class EventController extends AbstractController
 	#[Route('/{url:poll}/event/list')]
 	public function list(Poll $poll, EntityManagerInterface $em): Response
 	{
-		$events = $em->getRepository(Event::class)->getFutureEvents($poll);
+		$events = $em->getRepository(Event::class)->getEvents($poll);
 
 		return $this->render('event/list.html.twig', ['poll' => $poll, 'events' => $events]);
 	}
