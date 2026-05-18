@@ -1,4 +1,4 @@
-FROM dunglas/frankenphp:php8.5
+FROM dunglas/frankenphp:1.12-php8.5
 
 ENV SERVER_NAME=:80
 
