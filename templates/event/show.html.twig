@@ -16,11 +16,12 @@
 									{{ event.date|format_datetime(locale: app.request.locale, pattern: "cccc d MMMM") }}
 								{% endif %}
 							{% endif %}
-						</td>
-						<td class="text-start p-1">
 							{% if event.time %}
 								{{ event.time|format_datetime(locale: app.request.locale, pattern: "H'h'mm") }}
 							{% endif %}
+						</td>
+						<td class="text-start p-1">
+							<strong>{{ event.name }}</strong>
 						</td>
 						<td class="text-start p-1">
 							{{ event.place }}
@@ -29,9 +30,6 @@
 							{% if event.subtitle %}
 								<small class="subtitle">{{ event.subtitle }}</small>
 							{% endif %}
-						</td>
-						<td class="text-start p-1">
-							<strong>{{ event.name }}</strong>
 						</td>
 					</tr>
 				{% endfor %}

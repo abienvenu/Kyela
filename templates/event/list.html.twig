@@ -10,9 +10,9 @@
 				<table class="table table-hover table-bordered">
 					<thead>
 						<tr>
+							<th scope="col" class="table-secondary">{{ 'Date' | trans }}</th>
 							<th scope="col" class="table-secondary">{{ 'name' | trans }}</th>
 							<th scope="col" class="table-secondary d-none d-lg-table-cell">{{ 'Place' | trans }}</th>
-							<th scope="col" class="table-secondary">{{ 'Date' | trans }}</th>
 							<th scope="col" class="table-secondary d-none d-xl-table-cell">{{ 'Subtitle' | trans }}</th>
 							<th scope="col" class="table-secondary">{{ 'action' | trans }}</th>
 						</tr>
@@ -20,16 +20,16 @@
 					<tbody>
 						{% for event in events %}
 							<tr>
-								<td>{{ event.name }}</td>
-								<td class="d-none d-lg-table-cell">{{ event.place }}</td>
 								<td>
 									{% if event.date %}
-										{{ event.date|format_datetime(locale: app.request.locale, pattern: "d MMMM") }}
+										{{ event.date|format_datetime(locale: app.request.locale, pattern: "cccc d MMMM") }}
 									{% endif %}
 									{% if event.time %}
 										{{ event.time|format_datetime(locale: app.request.locale, pattern: "H'h'mm") }}
 									{% endif %}
 								</td>
+								<td>{{ event.name }}</td>
+								<td class="d-none d-lg-table-cell">{{ event.place }}</td>
 								<td class="d-none d-xl-table-cell">
 									<small class="subtitle">{{ event.subtitle }}</small>
 								</td>
