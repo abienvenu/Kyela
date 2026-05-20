@@ -24,6 +24,15 @@ tbody {
 	overflow: scroll;
 }
 
+a.event-calendar-link {
+	color: inherit;
+	text-decoration: none;
+}
+
+a.event-calendar-link:hover {
+	opacity: 0.85;
+}
+
 /* Top line */
 table.sticky thead th {
 	position: -webkit-sticky;

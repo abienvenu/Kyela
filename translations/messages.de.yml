@@ -47,6 +47,7 @@ event.created: Hinzugefügt am
 event.duplicated: Dupliziert am
 event.modified: Änderung gespeichert
 event.deleted: Gelöscht am
+event.add_to_calendar: Zu Google Kalender hinzufügen
 back: Zurück
 name: Name
 value: Wert

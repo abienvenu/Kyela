@@ -27,6 +27,10 @@
 						{% if event.subtitle %}
 							<br /><small class="subtitle">{{ event.subtitle }}</small>
 						{% endif %}
+						<a href="{{ google_calendar_url(event) }}" target="_blank" rel="noopener noreferrer"
+							class="event-calendar-link ms-1" title="{{ 'event.add_to_calendar' | trans }}">
+							<i class="bi bi-calendar-plus" aria-hidden="true"></i>
+						</a>
 					</th>
 				{% endfor %}
 			</tr>
