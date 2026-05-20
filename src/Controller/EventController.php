@@ -11,6 +11,8 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use App\Entity\Event;
+use App\Service\EventCalendarService;
+use Symfony\Component\HttpFoundation\ResponseHeaderBag;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 class EventController extends AbstractController
@@ -121,6 +123,29 @@ class EventController extends AbstractController
 			->setSubtitle($event->getSubtitle());
 
 		return $this->handleForm($newEvent, $request, $em, $translator->trans('event.duplicated'));
+	}
+
+	/**
+	 * Download event as ICS (Calendrier iOS, etc.)
+	 */
+	#[Route('/{url:poll}/event/{id:event}/ics')]
+	public function ics(Poll $poll, Event $event, EventCalendarService $calendar): Response
+	{
+		if ($event->getPoll()->getId() !== $poll->getId()) {
+			throw $this->createNotFoundException();
+		}
+
+		$response = new Response($calendar->exportIcs($event));
+		$response->headers->set('Content-Type', 'text/calendar; charset=utf-8');
+		$response->headers->set(
+			'Content-Disposition',
+			$response->headers->makeDisposition(
+				ResponseHeaderBag::DISPOSITION_ATTACHMENT,
+				$calendar->suggestIcsFilename($event),
+			),
+		);
+
+		return $response;
 	}
 
 	/**

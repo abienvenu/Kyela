@@ -47,7 +47,7 @@ event.created: Évènement ajouté
 event.duplicated: Évènement dupliqué
 event.modified: Modification enregistrée
 event.deleted: Évènement supprimé
-event.add_to_calendar: Ajouter à Google Agenda
+event.add_to_calendar: Ajouter au calendrier
 back: Retour
 name: Nom
 value: Valeur

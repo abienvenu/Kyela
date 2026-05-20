@@ -47,7 +47,7 @@ event.created: Event added
 event.duplicated: Event duplicated
 event.modified: Modification saved
 event.deleted: Event deleted
-event.add_to_calendar: Add to Google Calendar
+event.add_to_calendar: Add to calendar
 back: Back
 name: Name
 value: Value

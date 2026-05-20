@@ -3,19 +3,32 @@
 namespace App\Twig;
 
 use App\Entity\Event;
-use App\Service\GoogleCalendarUrlBuilder;
+use App\Service\EventCalendarService;
+use Symfony\Component\HttpFoundation\RequestStack;
 use Twig\Attribute\AsTwigFunction;
 
 final class CalendarExtension
 {
 	public function __construct(
-		private GoogleCalendarUrlBuilder $googleCalendarUrlBuilder,
+		private EventCalendarService $eventCalendarService,
+		private RequestStack $requestStack,
 	) {
 	}
 
-	#[AsTwigFunction('google_calendar_url')]
-	public function googleCalendarUrl(Event $event): string
+	#[AsTwigFunction('event_calendar_url')]
+	public function eventCalendarUrl(Event $event): string
 	{
-		return $this->googleCalendarUrlBuilder->buildAddEventUrl($event);
+		return $this->eventCalendarService->getAddEventUrl(
+			$event,
+			$this->requestStack->getCurrentRequest(),
+		);
+	}
+
+	#[AsTwigFunction('is_apple_mobile_device')]
+	public function isAppleMobileDevice(): bool
+	{
+		return $this->eventCalendarService->isAppleMobileDevice(
+			$this->requestStack->getCurrentRequest(),
+		);
 	}
 }
