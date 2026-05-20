@@ -158,11 +158,11 @@ class EventCalendarService
 
 	private function buildSummary(Event $event): string
 	{
-		$parts = array_filter([$event->getName(), $event->getPlace()]);
+		if ($name = $event->getName()) {
+			return $name;
+		}
 
-		return $parts !== []
-			? implode(' — ', $parts)
-			: ($event->getPoll()?->getTitle() ?? 'Event');
+		return $event->getPoll()?->getTitle() ?? 'Event';
 	}
 
 	private function buildDescription(Event $event): string
