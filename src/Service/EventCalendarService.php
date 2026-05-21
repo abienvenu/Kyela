@@ -32,7 +32,7 @@ class EventCalendarService
 			return $this->urlGenerator->generate('app_event_ics', [
 				'url' => $event->getPoll()->getUrl(),
 				'id' => $event->getId(),
-			], UrlGeneratorInterface::ABSOLUTE_URL);
+			]);
 		}
 
 		return $this->buildGoogleCalendarUrl($event);
