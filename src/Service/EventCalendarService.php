@@ -10,7 +10,7 @@ class EventCalendarService
 {
 	private const GOOGLE_CALENDAR_URL = 'https://calendar.google.com/calendar/render';
 	private const TIMEZONE = 'Europe/Paris';
-	private const DEFAULT_DURATION_MINUTES = 60;
+	private const DEFAULT_DURATION_MINUTES = 180;
 
 	public function __construct(
 		private UrlGeneratorInterface $urlGenerator,
